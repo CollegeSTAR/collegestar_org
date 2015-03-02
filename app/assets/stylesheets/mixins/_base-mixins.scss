@@ -1,0 +1,6 @@
+//All base mixins go here.
+
+@mixin font-with-line-height($font-size, $multiplier: 1.2) {
+  font-size: $font-size;
+  line-height: $font-size * $multiplier;
+}

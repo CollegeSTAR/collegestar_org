@@ -1,6 +1,38 @@
 @import "variables";
+@import "../mixins/base-mixins";
 
-#site {
-  color: $text-color;
+body {
   background-color: $background-color;
+  margin: 0px;
+  padding: 0px;
+  font-size: $base-font-size;
+  font-size: $base-font-size;
+  font-family: $default-font-family;
+  color: $default-text-color;
+}
+
+@mixin headings {
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1 {
+  @include headings;
+  font-size: $base-font-size * 2;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  @include headings;
+  font-size: $base-font-size * 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  @include headings;
+  font-size: $base-font-size * 1.6;
+  margin: 0;
+  padding: 0;
 }
