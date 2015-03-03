@@ -4,6 +4,7 @@
 
 @import "foundation/components/buttons";
 @import "foundation/components/type";
+@import "partials/variables";
 
 .my-button {
  @include button();
