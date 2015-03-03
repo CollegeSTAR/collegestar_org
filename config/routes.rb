@@ -2,14 +2,14 @@ Rails.application.routes.draw do
 
   root 'main#home'
 
-  get 'home' => 'main#home'
-  get 'about' => 'main#about'
-  get 'students' => 'main#students'
-  get 'faculty' => 'main#faculty'
-  get 'contact' => 'main#contact'
-  get 'terms' => 'main#terms'
-  get 'site-map' => 'main#site_map'
-  get 'frequently-asked-questions' => 'main#faq'
+  get 'home' => 'main#home', as: :home
+  get 'about' => 'main#about', as: :about
+  get 'students' => 'main#students', as: :students
+  get 'faculty' => 'main#faculty', as: :faculty
+  get 'contact' => 'main#contact', as: :contact
+  get 'terms' => 'main#terms', as: :terms
+  get 'site-map' => 'main#site_map', as: :site_map
+  get 'frequently-asked-questions' => 'main#faq', as: :faq
 
   resources :supporters, :partners, :news, :campuses, :modules, :users, :communities
 
