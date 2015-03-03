@@ -6,6 +6,172 @@
 @import "foundation/components/type";
 @import "partials/variables";
 
+#site {
+  width: 960px;
+  height: inherit;
+  margin: 0px auto;
+  padding: 0px;
+  border: none;
+}
+
+#header {
+  height: 246px;
+  margin: 0px 0px 10px 0px;
+  padding: 0px;
+  background-color: $black;
+  color: $nav-link-color;
+  border: none;
+  
+  #header_left {
+    float: left;
+  }
+
+  #header_right {
+    position: relative;
+    height: 246px;
+    margin: 0px 0px 0px 200px;
+    padding: 0px;
+    background-color: $black;
+    border: none;
+    clear: right;
+  }
+
+  #login-box {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 4px;
+    color: $white;
+
+    a {
+      margin: 2px;
+      color: $white;
+      text-decoration: none;
+      font-size: .85em;
+    }
+  }
+
+  #nav-wrapper {
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    color: $white;
+    border-top: 1px solid #808080;
+    background: $black asset-url('top_nav_bg.png') repeat-x 0px 0px;
+   
+    #nav {
+	    height: 30px;
+	    margin: 0px;
+	    padding: 0px;
+	    float: left;
+	    clear: none;
+
+      span {
+        height: 30px;
+        margin: 0px;
+        padding: 0px;
+        display: inline-block;
+        line-height: 28px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #DDDDDD;
+        border-right: 1px solid $black;
+
+        a, a:visited  {
+          color: #EEEEEE;
+	        padding: 0px 8px;
+	        margin: 0px;
+	        text-decoration: none;
+	        display: inline-block;
+	        line-height: 30px;
+	        font-size: 1em;
+
+          &:hover {
+            color: #FFFFFF;
+          	background: #666666 asset-url('top_nav_hover.png') repeat-x 0px 0px;
+          	margin: 0px;
+          	padding: 0px 8px;
+          }
+        }
+
+        &.selected a {
+          display: inline-block;
+          color: $white;
+	        background-color: $black;
+	        margin: 0px;
+          
+          &:hover {
+            display: inline-block;
+	          background: $black;
+	          border: none;
+	          margin: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#search_bar_noScript {
+	height: 24px;
+	width: 290px;
+	margin: 1px 6px;
+	padding: 0px 0px 0px 5px;
+	background-color: $white;
+	border: none;
+	float: right;
+	clear: none;
+}
+
+#search_bar {
+	height: 24px;
+	width: 120px;
+	margin: 2px 6px;
+	padding: 0px 8px;
+	background: #333 asset-url('search_bg.png') repeat-x 0px 0px;
+	-moz-box-shadow: 1px 1px 5px #000 inset;
+	-webkit-box-shadow: 1px 1px 5px #000 inset;
+	box-shadow: 1px 1px 5px #000 inset;
+	-moz-border-radius:14px; /* Firefox 3.6 and earlier */
+	border:1px solid $black;
+	border-bottom: 1px solid #666;
+	border-right: 1px solid #666;
+	border-radius:14px;
+	cursor: text;
+	float: right;
+	clear: none;
+}
+
+#search_icon {
+	//display: none;
+	height: 28px;
+	width: 18px;
+	margin: 0px 0px 0px -5px;
+	padding: 0px;
+	float: left;
+	background: transparent asset-url('search_icon.png') no-repeat 0px 0px;
+	cursor: auto;	
+
+  span {
+    display: none;
+  }
+}
+
+#search_text {
+	height: 18px;
+	line-height: 18px;
+	float: left;
+	clear: none;
+	color: #333;
+	font-size: .8em;
+	width: 190px;
+	margin: 4px;
+	padding: 0px;
+	border:none;
+	background-color: transparent;
+}
+
 .my-button {
  @include button();
 }
