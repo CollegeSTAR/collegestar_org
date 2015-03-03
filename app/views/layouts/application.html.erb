@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) + " | College STAR" : "College STAR" %></title>
        
+    <%= favicon_link_tag '/favicon.ico' %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -13,8 +14,10 @@
   </head>
 
   <body>
-
-    <%= yield %>
-
+    <div id="site">
+      <%= render 'shared/header' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

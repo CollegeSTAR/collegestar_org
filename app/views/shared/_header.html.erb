@@ -1,8 +1,45 @@
 <div id="header">
-  <div id="header_left">
-    <p>Header Left</p>
-  </div>
-  <div id="header_right">
-    <p>Header Right</p>
-  </div>
+<div id="header_left">
+<a href="/" ><%= image_tag "logo_left_2x.png", size: "200x245", alt: "College STAR Logo", title: "College STAR Home" %></a>
+</div>
+<div id="header_right">
+<div id="login-box">
+<%# if user logged in
+<a href="/login"><i class="fa fa-sign-in fa-la"></i>&nbsp; Login</a> | <a href="#">Create an Account</a>
+<div id="user-menu-wrapper">
+<div id="user-name"><i class="fa fa-user fa-lg"></i>&nbsp; <?php echo $user->username; ?></div>
+<div id="user-dropdown" class="user-menu">
+<ul>
+<li><a href="/developer/account"><i class="fa fa-cog fa-lg"></i>&nbsp; Edit Profile</a></li>
+<li><a href="#"><i class="fa fa-history fa-la"></i>&nbsp; My Module History</a></li>
+<li><a href="/developer/communities"><i class="fa fa-cubes fa-la"></i>&nbsp; My Communities</a></li>
+<li><a href="/developer/university"><i class="fa fa-graduation-cap fa-la"></i>&nbsp; Universities</a></li>
+<li><a href="/developer/users"><i class="fa fa-users fa-la"></i>&nbsp; Users</a></li>
+<li><a href="/developer/modules"><i class="fa fa-file-o fa-la"></i>&nbsp; Modules</a></li>
+<li><a href="/developer/reports"><i class="fa fa-line-chart fa-la"></i>&nbsp; Student Nominations</a></li>
+<li><a href="/logout"><i class="fa fa-sign-out fa-la"></i>&nbsp; Logout</a></li>
+</ul>
+</div>
+</div>
+ end user login section%>
+</div>
+<%= image_tag "college_star_banner_2x.png", size: "760x210" %>
+<div id="nav-wrapper">
+<div id="nav">
+<span><%= link_to "Home", home_path, class: "main_link", alt: "College STAR Home", title: "College STAR Home" %></span><!--
+--><span><%= link_to "About", about_path, class: "main_link", alt: "About College STAR", title: "About College STAR" %></span><!--
+--><span><%= link_to "Events", events_path, class: "main_link", alt: "College STAR Events", title: "College STAR Events" %></span><!--
+--><span><%= link_to "Students", students_path, class: "main_link", alt: "College STAR for Students", title: "College STAR for Students" %></span><!--
+--><span><%= link_to "Faculty", faculty_path, class: "main_link", alt: "College STAR for Faculty", title: "College STAR for Faculty" %></span>
+</div>
+<div id="search_bar_noScript">
+<div id="search_icon" ><span>Search</span></div>
+<form id="searchform" name="searchform" action="/" method="GET">
+<input type="text" name="search_string" value="" id="search_text" class="search_text" autocomplete="off" placeholder="Search" />
+<noscript><input type="submit" class="noscript_search_submit" id="query_submit" name="query_submit" value="Search" class="submit" /></noscript>
+</form>
+<div class="hidden" id="suggestions"> </div>
+</div>
+</div>
+</div>
 </div>
