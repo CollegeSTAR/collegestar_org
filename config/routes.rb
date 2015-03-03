@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'home' => 'main#home', as: :home
   get 'about' => 'main#about', as: :about
+  get 'events' => 'main#events', as: :events
   get 'students' => 'main#students', as: :students
   get 'faculty' => 'main#faculty', as: :faculty
   get 'contact' => 'main#contact', as: :contact
