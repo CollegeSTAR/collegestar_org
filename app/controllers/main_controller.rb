@@ -5,6 +5,9 @@ class MainController < ApplicationController
   def about
   end
 
+  def events
+  end
+
   def students
   end
 
