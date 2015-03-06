@@ -1,6 +1,4 @@
-@import "variables";
-@import "../_mixins/base-mixins";
-
+//Base Sass styles for CollegeSTAR.org
 body {
   background-color: $background-color;
   margin: 0px;
@@ -11,28 +9,11 @@ body {
   color: $default-text-color;
 }
 
-@mixin headings {
-  font-weight: 300;
-  font-style: normal;
+#site {
+  width: 960px;
+  height: inherit;
+  margin: 0px auto;
+  padding: 0px;
+  border: none;
 }
 
-h1 {
-  @include headings;
-  font-size: $base-font-size * 2;
-  margin: 0;
-  padding: 0;
-}
-
-h2 {
-  @include headings;
-  font-size: $base-font-size * 1.8;
-  margin: 0;
-  padding: 0;
-}
-
-h3 {
-  @include headings;
-  font-size: $base-font-size * 1.6;
-  margin: 0;
-  padding: 0;
-}
