@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'main#home'
+  root 'main#home', as: :root
 
   get 'home' => 'main#home', as: :home
   get 'about' => 'main#about', as: :about
