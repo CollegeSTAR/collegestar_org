@@ -1,0 +1,61 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :registration_open_datetime %><br>
+    <%= f.datetime_select :registration_open_datetime %>
+  </div>
+  <div class="field">
+    <%= f.label :registration_close_datetime %><br>
+    <%= f.datetime_select :registration_close_datetime %>
+  </div>
+  <div class="field">
+    <%= f.label :max_registrants %><br>
+    <%= f.number_field :max_registrants %>
+  </div>
+  <div class="field">
+    <%= f.label :start_datetime %><br>
+    <%= f.datetime_select :start_datetime %>
+  </div>
+  <div class="field">
+    <%= f.label :end_datetime %><br>
+    <%= f.datetime_select :end_datetime %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :address_2 %><br>
+    <%= f.text_field :address_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip_code %><br>
+    <%= f.text_field :zip_code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

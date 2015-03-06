@@ -1,0 +1,1 @@
+json.extract! @event, :id, :name, :registration_open_datetime, :registration_close_datetime, :max_registrants, :start_datetime, :end_datetime, :address, :address_2, :city, :state, :zip_code, :created_at, :updated_at

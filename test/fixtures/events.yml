@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  registration_open_datetime: 2015-03-06 16:36:12
+  registration_close_datetime: 2015-03-06 16:36:12
+  max_registrants: 1
+  start_datetime: 2015-03-06 16:36:12
+  end_datetime: 2015-03-06 16:36:12
+  address: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString
+
+two:
+  name: MyString
+  registration_open_datetime: 2015-03-06 16:36:12
+  registration_close_datetime: 2015-03-06 16:36:12
+  max_registrants: 1
+  start_datetime: 2015-03-06 16:36:12
+  end_datetime: 2015-03-06 16:36:12
+  address: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString
