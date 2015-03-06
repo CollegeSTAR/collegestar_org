@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'main#home', as: :root
   get 'home' => 'main#home', as: :home
   get 'about' => 'main#about', as: :about
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :news, only: [:index, :show], controller: 'news_articles', as: :news_articles
   resources :news_article, except: [:index, :show], controller: 'news_articles', as: :news_articles
-  resources :events, :supporters, :partners, :campuses, :modules, :users, :communities
+  resources :events, :supporters, :partners, :campuses, :modules, :users, :communities, :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
