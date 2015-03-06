@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'main#home', as: :root
-
   get 'home' => 'main#home', as: :home
   get 'about' => 'main#about', as: :about
   get 'events' => 'main#events', as: :events
@@ -12,7 +11,9 @@ Rails.application.routes.draw do
   get 'site-map' => 'main#site_map', as: :site_map
   get 'frequently-asked-questions' => 'main#faq', as: :faq
 
-  resources :supporters, :partners, :news, :campuses, :modules, :users, :communities
+  resources :news, only: [:index, :show], controller: 'news_articles', as: :news_articles
+  resources :news_article, except: [:index, :show], controller: 'news_articles', as: :news_articles
+  resources :supporters, :partners, :campuses, :modules, :users, :communities
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
