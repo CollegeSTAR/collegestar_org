@@ -1,1 +1,41 @@
 //Sass for CollegeSTAR.org footer section
+#footer {
+	width: 958px;
+	margin: 0px auto;
+	padding: 10px 0px;
+	color: darken($default-text-color, 12%);
+	text-align: center;
+	background-color: $white;
+	border: 1px solid $default-border-color;
+  @include border-radius(.5em);
+	clear: both;
+}
+
+#footer_content {
+	width: 958px;
+	background: none;
+	margin: 0px auto;
+	padding: 0px;
+	font-size: .75em;
+	line-height: 2em;
+	text-align: center;
+	border: none;	
+  
+  a {
+    &:link, &:visited {
+	    margin: 5px 5px;
+	    padding: 0px;
+	    color: lighten($default-text-color, 12%);
+	    border: none;
+	    font-size: 1em;
+	    font-weight: normal;
+	    text-decoration: none;
+	    display: inline;
+    }
+    
+    &:hover {
+	    text-decoration: none;
+	    color: darken($default-text-color, 25%);
+    }
+  }
+}
