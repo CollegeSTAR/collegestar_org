@@ -1,11 +1,8 @@
-//Sass for CollegeSTAR.org sidebar section
+//Sass Styles for home page here
 
-#left-info {
-  min-height: inherit;
-  width: 188px;
-  float: left;
+#home-content-top {
   margin: 0;
-  padding: 5px;
+  padding: 0 5px;
   background-color: $white;
   border: $default-border-width solid $default-border-color;
   @include border-radius(.5em);
