@@ -11,10 +11,27 @@ body {
 }
 
 #site {
-  width: 960px;
+  width: $site-width;
   height: inherit;
   margin: 0px auto;
   padding: 0px;
+  border: none;
+}
+
+#main-content-wrapper {
+  margin: 0px 0px 10px 0px;
+  padding: 0;
+  overflow: hidden;
+  background-color: $background-color;
+  border: none;
+  clear: both;
+}
+
+#content {
+  min-height: inherit;
+  margin: 0px 0px 0px 210px;
+  padding: 0;
+  background-color: transparent;
   border: none;
 }
 
