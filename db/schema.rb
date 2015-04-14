@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306215232) do
+ActiveRecord::Schema.define(version: 20150414182511) do
+
+  create_table "campuses", force: :cascade do |t|
+    t.string   "name",             null: false
+    t.string   "abbreviation",     null: false
+    t.string   "institution_type", null: false
+    t.integer  "director_id"
+    t.string   "website_url"
+    t.string   "address_1",        null: false
+    t.string   "address_2"
+    t.string   "city",             null: false
+    t.string   "state",            null: false
+    t.string   "zip",              null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "image_url"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name"

@@ -1,16 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Campuses</h1>
+<h1>Particpating Campuses</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Image</th>
-      <th>Website</th>
+      <th>Abbreviation</th>
+      <th>Type</th>
+      <th>Director</th>
+      <th>Website url</th>
       <th>Address 1</th>
       <th>Address 2</th>
-      <th>Director</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,11 +23,16 @@
     <% @campuses.each do |campuse| %>
       <tr>
         <td><%= campuse.name %></td>
-        <td><%= campuse.image %></td>
-        <td><%= campuse.website %></td>
+        <td><%= campuse.abbreviation %></td>
+        <td><%= campuse.institution_type %></td>
+        <td><%= campuse.director_id %></td>
+        <td><%= campuse.website_url %></td>
         <td><%= campuse.address_1 %></td>
         <td><%= campuse.address_2 %></td>
-        <td><%= campuse.director %></td>
+        <td><%= campuse.city %></td>
+        <td><%= campuse.state %></td>
+        <td><%= campuse.zip %></td>
+        <td><%= campuse.image_url%></td>
         <td><%= link_to 'Show', campuse %></td>
         <td><%= link_to 'Edit', edit_campuse_path(campuse) %></td>
         <td><%= link_to 'Destroy', campuse, method: :delete, data: { confirm: 'Are you sure?' } %></td>

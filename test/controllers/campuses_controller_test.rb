@@ -18,7 +18,7 @@ class CampusesControllerTest < ActionController::TestCase
 
   test "should create campuse" do
     assert_difference('Campuse.count') do
-      post :create, campuse: { address_1: @campuse.address_1, address_2: @campuse.address_2, director: @campuse.director, image: @campuse.image, name: @campuse.name, website: @campuse.website }
+      post :create, campuse: { abbreviation: @campuse.abbreviation, address_1: @campuse.address_1, address_2: @campuse.address_2, city: @campuse.city, director_id: @campuse.director_id, name: @campuse.name, state: @campuse.state, institution_type: @campuse.institution_type, website_url: @campuse.website_url, zip: @campuse.zip }
     end
 
     assert_redirected_to campuse_path(assigns(:campuse))
@@ -35,7 +35,7 @@ class CampusesControllerTest < ActionController::TestCase
   end
 
   test "should update campuse" do
-    patch :update, id: @campuse, campuse: { address_1: @campuse.address_1, address_2: @campuse.address_2, director: @campuse.director, image: @campuse.image, name: @campuse.name, website: @campuse.website }
+    patch :update, id: @campuse, campuse: { abbreviation: @campuse.abbreviation, address_1: @campuse.address_1, address_2: @campuse.address_2, city: @campuse.city, director_id: @campuse.director_id, name: @campuse.name, state: @campuse.state, institution_type: @campuse.institution_type, website_url: @campuse.website_url, zip: @campuse.zip }
     assert_redirected_to campuse_path(assigns(:campuse))
   end
 

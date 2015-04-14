@@ -6,13 +6,23 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @campuse.image %>
+  <strong>Abbreviation:</strong>
+  <%= @campuse.abbreviation %>
 </p>
 
 <p>
-  <strong>Website:</strong>
-  <%= @campuse.website %>
+  <strong>Institution Type:</strong>
+  <%= @campuse.institution_type %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @campuse.director_id %>
+</p>
+
+<p>
+  <strong>Website url:</strong>
+  <%= @campuse.website_url %>
 </p>
 
 <p>
@@ -26,8 +36,23 @@
 </p>
 
 <p>
-  <strong>Director:</strong>
-  <%= @campuse.director %>
+  <strong>City:</strong>
+  <%= @campuse.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @campuse.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @campuse.zip %>
+</p>
+
+<p>
+  <strong>Image URL:</strong>
+  <%= @campuse.image_url %>
 </p>
 
 <%= link_to 'Edit', edit_campuse_path(@campuse) %> |
