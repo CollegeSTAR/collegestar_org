@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @campuse.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @campuse.image %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @campuse.website %>
+</p>
+
+<p>
+  <strong>Address 1:</strong>
+  <%= @campuse.address_1 %>
+</p>
+
+<p>
+  <strong>Address 2:</strong>
+  <%= @campuse.address_2 %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @campuse.director %>
+</p>
+
+<%= link_to 'Edit', edit_campuse_path(@campuse) %> |
+<%= link_to 'Back', campuses_path %>
