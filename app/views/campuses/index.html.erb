@@ -20,22 +20,22 @@
   </thead>
 
   <tbody>
-    <% @campuses.each do |campuse| %>
+    <% @campuses.each do |campus| %>
       <tr>
-        <td><%= campuse.name %></td>
-        <td><%= campuse.abbreviation %></td>
-        <td><%= campuse.institution_type %></td>
-        <td><%= campuse.director_id %></td>
-        <td><%= campuse.website_url %></td>
-        <td><%= campuse.address_1 %></td>
-        <td><%= campuse.address_2 %></td>
-        <td><%= campuse.city %></td>
-        <td><%= campuse.state %></td>
-        <td><%= campuse.zip %></td>
-        <td><%= campuse.image_url%></td>
-        <td><%= link_to 'Show', campuse %></td>
-        <td><%= link_to 'Edit', edit_campuse_path(campuse) %></td>
-        <td><%= link_to 'Destroy', campuse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= campus.name %></td>
+        <td><%= campus.abbreviation %></td>
+        <td><%= campus.institution_type %></td>
+        <td><%= campus.director_id %></td>
+        <td><%= campus.website_url %></td>
+        <td><%= campus.address_1 %></td>
+        <td><%= campus.address_2 %></td>
+        <td><%= campus.city %></td>
+        <td><%= campus.state %></td>
+        <td><%= campus.zip %></td>
+        <td><%= campus.image_url%></td>
+        <td><%= link_to 'Show', campus %></td>
+        <td><%= link_to 'Edit', edit_campus_path(campus) %></td>
+        <td><%= link_to 'Destroy', campus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -43,4 +43,4 @@
 
 <br>
 
-<%= link_to 'New Campuse', new_campuse_path %>
+<%= link_to 'New Campus', new_campus_path %>
