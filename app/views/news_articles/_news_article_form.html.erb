@@ -1,4 +1,4 @@
-<%= form_for @news_article, url: { action: "create" } do |f| %>
+<%= form_for @news_article do |f| %>
   <% if @news_article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@news_article.errors.count, "error") %> prohibited this news_article from being saved:</h2>
