@@ -21,7 +21,7 @@ class CampusesControllerTest < ActionController::TestCase
       post :create, campus: { abbreviation: @campus.abbreviation, address_1: @campus.address_1, address_2: @campus.address_2, city: @campus.city, director_id: @campus.director_id, name: @campus.name, state: @campus.state, institution_type: @campus.institution_type, website_url: @campus.website_url, zip: @campus.zip }
     end
 
-    assert_redirected_to campuse_path(assigns(:campuse))
+    assert_redirected_to campus_path(assigns(:campus))
   end
 
   test "should show campus" do
@@ -36,7 +36,7 @@ class CampusesControllerTest < ActionController::TestCase
 
   test "should update campus" do
     patch :update, id: @campus, campus: { abbreviation: @campus.abbreviation, address_1: @campus.address_1, address_2: @campus.address_2, city: @campus.city, director_id: @campus.director_id, name: @campus.name, state: @campus.state, institution_type: @campus.institution_type, website_url: @campus.website_url, zip: @campus.zip }
-    assert_redirected_to campuse_path(assigns(:campuse))
+    assert_redirected_to campus_path(assigns(:campus))
   end
 
   test "should destroy campus" do
@@ -44,6 +44,6 @@ class CampusesControllerTest < ActionController::TestCase
       delete :destroy, id: @campus
     end
 
-    assert_redirected_to campuses_path
+    assert_redirected_to campuses_path + "?notice=Campus+was+successfully+destroyed."
   end
 end
