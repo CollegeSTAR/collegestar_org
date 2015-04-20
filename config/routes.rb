@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get 'terms' => 'main#terms', as: :terms
   get 'site-map' => 'main#site_map', as: :site_map
   get 'frequently-asked-questions' => 'main#faq', as: :faq
-  
-  resources :news, controller: :news_articles, as: :news_articles
+ 
+  resources :news_articles, only: [:new]
+  resources :news, except: :new, controller: :news_articles, as: :news_articles
   resources :events, :supporters, :partners, :campuses, :modules, :users, :communities, :users
 
   # The priority is based upon order of creation: first created -> highest priority.
