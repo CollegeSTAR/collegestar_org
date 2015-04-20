@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414182511) do
+ActiveRecord::Schema.define(version: 20150420185918) do
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",             null: false
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20150414182511) do
     t.string   "zip",              null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "image_url"
   end
 
   create_table "events", force: :cascade do |t|
