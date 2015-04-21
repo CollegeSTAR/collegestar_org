@@ -18,30 +18,30 @@ class NewsArticlesControllerTest < ActionController::TestCase
 
   test "should create news_article" do
     assert_difference('NewsArticle.count') do
-      post :create, news_article: { content: @news_article.content, image_url: @news_article.image_url, title: @news_article.title }
+      post :create, news_article: { content: @news_article.content, image_url: @news_article.image_url, title: @news_article.title, slug: @news_article.slug}
     end
 
     assert_redirected_to news_article_path(assigns(:news_article))
   end
 
   test "should show news_article" do
-    get :show, id: @news_article
+    get :show, slug: @news_article
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @news_article
+    get :edit, slug: @news_article
     assert_response :success
   end
 
   test "should update news_article" do
-    patch :update, id: @news_article, news_article: { content: @news_article.content, image_url: @news_article.image_url, title: @news_article.title }
+    patch :update, slug: @news_article, news_article: { content: @news_article.content, image_url: @news_article.image_url, title: @news_article.title, slug: @news_article.slug }
     assert_redirected_to news_article_path(assigns(:news_article))
   end
 
   test "should destroy news_article" do
     assert_difference('NewsArticle.count', -1) do
-      delete :destroy, id: @news_article
+      delete :destroy, slug: @news_article
     end
 
     assert_redirected_to news_articles_path

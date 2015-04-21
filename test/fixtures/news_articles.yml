@@ -2,10 +2,12 @@
 
 one:
   title: MyString
+  slug: mystring
   content: MyText
   image_url: MyString
 
 two:
   title: MyString
+  slug: mystring
   content: MyText
   image_url: MyString
