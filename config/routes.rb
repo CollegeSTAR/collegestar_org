@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   get 'frequently-asked-questions' => 'main#faq', as: :faq
  
   resources :news_articles, only: [:new]
-  resources :news, except: :new, controller: :news_articles, as: :news_articles
-  resources :events, :supporters, :partners, :campuses, :modules, :users, :communities, :users
+  resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
+  resources :campuses, param: :slug
+  resources :events, :supporters, :partners, :modules, :users, :communities, :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
