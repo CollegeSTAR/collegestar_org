@@ -1,5 +1,4 @@
-// JavaScript Document
-$("document").ready(function() {
+$("Document").ready( function() {
   $("#search_bar_noScript").attr("id", "search_bar");  
   
   var search_bg_file = $('#search_bar').css('background-image');
