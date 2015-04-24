@@ -1,0 +1,9 @@
+  <div id="left-info">
+    <h1>News Feed</h1>
+    <% @news_articles.each do |news_article| %>
+    <ul>
+      <li><%= news_article.title %></li> 
+    </ul>
+    <% end %>
+  </div>
+
