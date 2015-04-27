@@ -3,9 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/general/float";
 @import "foundation/components/buttons";
 @import "foundation/components/type";
+@import "susy";
 @import "partials/variables";
+@import "mixins/base-mixins";
 @import "partials/base";
 @import "partials/header";
 @import "partials/home";
