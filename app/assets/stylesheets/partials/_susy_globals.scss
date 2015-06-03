@@ -1,0 +1,10 @@
+$susy: (
+  columns: 18,
+  gutters: 1/4,
+  gutter-position: after,
+  math: fluid,
+)
+
+//breakpoints
+$full: min-width 960px;
+$medium: min-width: 500px;
