@@ -1,12 +1,12 @@
 //Sass for CollegeSTAR.org sidebar section
 
-#left-info {
-  min-height: inherit;
-  width: 188px;
-  float: left;
-  margin: 0;
-  padding: 5px;
-  background-color: $white;
-  border: $default-border-width solid $default-border-color;
-  @include border-radius(.5em);
+#left-column-wrapper {
+  display: none;
+  @include breakpoint($full) {
+    display: inherit;
+    @include span(4 of 18);
+    margin-top: gutter();
+    margin-bottom: gutter();
+    @include bordered-panel();
+  }
 }

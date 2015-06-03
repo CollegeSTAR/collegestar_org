@@ -1,9 +1,172 @@
 //Sass Styles for home page here
 
+#right-column-wrapper {
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(14 of 18 at 5);
+  }
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include clearfix();
+}
+
 #home-content-top {
-  margin: 0;
-  padding: 0 5px;
-  background-color: $white;
-  border: $default-border-width solid $default-border-color;
-  @include border-radius(.5em);
+  @include span(18 of 18);
+  margin-bottom: gutter(18);
+  @include breakpoint($full) {
+    @include span(14 of 14);
+    margin-bottom: gutter(14);
+  }
+  @include bordered-panel();
+}
+
+#campus-wrapper {
+  margin: 0px auto;
+  text-align: center;
+  border: none;
+}
+
+.campus {
+  width: 200px;
+  margin: 0px 10px;
+  padding: 0;
+  border: none;
+  display: inline-block;
+  vertical-align: top;
+  
+  a {
+    margin: 0;
+    padding: 0;
+    color: $default-text-color;
+    text-decoration: none;
+    border: none;
+
+    &:hover {
+      text-decoration: none;
+      color: ligthen($default-text-color, 20%);
+    }
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    padding: 0;
+    height: 40px;
+    font-size: $base-font-size * .8;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+  }
+}
+
+#home-supporters-wrapper {
+  @include span(18 of 18);
+  margin-bottom: gutter(18);
+  @include bordered-panel();
+  @include breakpoint($full) {
+    @include span(7 of 14);
+    margin-bottom: 0;
+  }
+}
+
+#home-partners-wrapper {
+  @include span(18 of 18);
+  margin-bottom: gutter(18);
+  @include bordered-panel();
+  @include breakpoint($full) {
+    @include span(7 of 14 at 8);
+  }
+}
+
+.supporter_wrapper {
+	margin: 0px auto;
+	text-align: center;
+	border: none;
+}
+	
+.supporter {
+	width: 162px; 
+	margin: 0px 5px 0px 0px;
+	border: none;
+	display: block;
+	text-align: center;
+
+  p {
+	  margin: 5px 0px;
+	  padding: 0px;
+	  text-align: center;
+  }
+
+  a {
+  	margin: 5px 0px;
+  	padding: 0px;
+  	font-size: .8em;
+  	font-weight: bold;
+  	text-decoration: none;
+    
+    &:hover {
+  	  text-decoration: none;
+  	  color: #333;
+    }
+  }
+
+}
+
+.supporter_image {
+	margin: 0px;
+	padding: 0px;
+}
+
+.supporter_title {
+	margin: 5px 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+	
+.partner_wrapper {
+	margin: 0px auto;
+	text-align: center;
+	border: none;
+}
+
+.partner {
+	width: 200px;
+	margin: 0px 10px;
+	padding: 0px;
+	border: none;
+	display: inline-block;
+	vertical-align: top;	
+
+  a {
+    margin: 0px;
+  	padding: 0px;
+  	font-size: .8em;
+  	font-weight: bold;
+  	text-decoration: none;
+  	border: none;
+    
+    &:hover {
+  	  text-decoration: none;
+  	  color: #333;
+    }
+  }
+  
+    
+  img {
+  	margin: 0px;
+  	padding: 0px;
+  }
+  
+  p {
+  	margin: 0px 0px 10px 0px;
+  	padding: 0px;
+  	height: 40px;
+  	text-align: center;
+  	border: none;
+  }
 }

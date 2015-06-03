@@ -4,3 +4,14 @@
   font-size: $font-size;
   line-height: $font-size * $multiplier;
 }
+
+@mixin heading($font-size-multiple: 2) {
+  font-size: $base-font-size * $font-size-multiple;
+}
+
+@mixin bordered-panel() {
+  @include box-sizing(border-box);
+  border: $default-border-width solid $default-border-color;
+  @include border-radius(.5em);
+  background-color: $white;
+}
