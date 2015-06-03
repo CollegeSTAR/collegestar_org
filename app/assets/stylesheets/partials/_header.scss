@@ -1,25 +1,57 @@
 //Sass for College STAR Header Section
 
 #header {
-  height: 246px;
-  margin: 0px 0px 10px 0px;
-  padding: 0px;
+  @include  span(18 of 18 no-gutters);
+  @include clearfix;
   background-color: $black;
   color: $nav-link-color;
   border: none;
   
-  #header_left {
-    float: left;
+  #header-left {
+    position: relative;
+    display: none;
+    @include breakpoint($full) {
+      @include span(4 of 18 no-gutters);
+      display: inherit;
+      background: $black asset-url('logo_left_2x.png') no-repeat;
+      background-size: contain;
+    }
+    img {
+      position: relative;
+      z-index: -1000;
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
 
-  #header_right {
+  #header-right {
+    background-color: $white;
+    @include span(18 of 18 wide no-gutters);
+    @include breakpoint($full) {
+      @include span(14 of 18 at 5 wide no-gutters);
+      position: relative;
+      background-color: $black;
+      border: none;
+    }
+  }
+
+  #title-image {
     position: relative;
-    height: 246px;
-    margin: 0px 0px 0px 200px;
-    padding: 0px;
-    background-color: $black;
-    border: none;
-    clear: right;
+    width: 100%;
+    margin: 0;
+    background: asset-url('cs-emblem-light.jpg') no-repeat;
+    background-size: contain;
+    @include breakpoint($full) {
+      background: asset-url('header_title.png') no-repeat;
+    }
+    img {
+      position: relative;
+      z-index: -1000;
+      max-height: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
   }
 
   #login-box {
