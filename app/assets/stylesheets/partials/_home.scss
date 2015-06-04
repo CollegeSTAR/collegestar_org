@@ -11,7 +11,7 @@
 }
 
 #home-content-top {
-  @include span(18 of 18);
+  @include span(18 of 18 wide);
   margin-bottom: gutter(18);
   @include breakpoint($full) {
     @include span(14 of 14);
@@ -64,7 +64,7 @@
 }
 
 #home-supporters-wrapper {
-  @include span(18 of 18);
+  @include span(18 of 18 wide);
   margin-bottom: gutter(18);
   @include bordered-panel();
   @include breakpoint($full) {
@@ -74,7 +74,7 @@
 }
 
 #home-partners-wrapper {
-  @include span(18 of 18);
+  @include span(18 of 18 wide);
   margin-bottom: gutter(18);
   @include bordered-panel();
   @include breakpoint($full) {
