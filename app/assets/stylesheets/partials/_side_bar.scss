@@ -1,12 +1,3 @@
 //Sass for CollegeSTAR.org sidebar section
 
-#left-column-wrapper {
-  display: none;
-  @include breakpoint($full) {
-    display: inherit;
-    @include span(4 of 18);
-    margin-top: gutter();
-    margin-bottom: gutter();
-    @include bordered-panel();
-  }
-}
+
