@@ -1,27 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: East Carolina University
-  abbreviation: ecu
-  slug: east-carolina-university
+<% 10.times do |i| %>
+<% i += 1 %>
+campus_<%= i %>:
+  name: Campus Number <%= i %>
+  abbreviation: cn<%= i %>
+  slug: campus-number-<%= i %>
   institution_type: university
   director_id: 1
-  website_url: http://www.ecu.edu
-  address_1: MyString
-  address_2: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
-
-two:
-  name: MyString
-  abbreviation: MyString
-  slug: mystring
-  institution_type: MyString 
-  director_id: 1
-  website_url: MyString
-  address_1: MyString
-  address_2: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
+  website_url: http://www.example.com
+  address_1: anywhere street
+  address_2: blah
+  city: anytown
+  state: NC
+  zip: 12345
+<% end %>
