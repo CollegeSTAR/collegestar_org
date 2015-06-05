@@ -1,11 +1,12 @@
 class MainController < ApplicationController
+
+  before_action :load_news_articles
+
   def home
-    @news_articles = NewsArticle.order_by_created_date_and_limit
     @campuses = Campus.find_by_featured(3)
   end
 
   def about
-    @news_articles = NewsArticle.order_by_created_date_and_limit
   end
 
   def students
@@ -30,5 +31,11 @@ class MainController < ApplicationController
   end
 
   def partners
+  end
+
+  private
+
+  def load_news_articles
+    @news_articles = NewsArticle.order_by_created_date_and_limit
   end
 end
