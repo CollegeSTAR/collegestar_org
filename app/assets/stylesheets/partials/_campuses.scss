@@ -1,4 +1,4 @@
-.campus-wrapper {
+.campus-wrapper, .campus-pi {
   @include clearfix;
   @include span(13 of 14);
   margin-top: 1em;
@@ -26,6 +26,15 @@
     }
     .campus-info-value {
       @include span(7 of 9 at 3 no-gutters);
+      p {
+        font-weight: bold;
+      }
     }
   }
+}
+
+.campus-pi {
+  h2 {
+    border: none;
+  } 
 }
