@@ -1,3 +1,12 @@
 //Sass for CollegeSTAR.org sidebar section
 
-
+#news {
+  ul {
+    margin: 1em .25em;
+    padding: 0;
+    li {
+      margin: .5em .25em;
+      padding: 0;
+    }
+  }
+}
