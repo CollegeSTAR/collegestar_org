@@ -59,6 +59,9 @@ body {
 #content {
   @include bordered-panel();
   @include clearfix();
+  img {
+    box-shadow: 5px 5px 2px #CCC;
+  }
 }
 
 h1 { 
@@ -89,10 +92,6 @@ p {
   text-align: justify;
   margin: 1em 2.5em;
   padding: 0;
-}
-
-img {
-  box-shadow: 5px 5px 2px #CCC;
 }
 
 ul {
