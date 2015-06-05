@@ -5,6 +5,9 @@
       <p id="notice"><%= notice %></p>
       
       <h1>Particpating Campuses</h1>
+      
+      <%= link_to 'New Campus', new_campus_path %>
+      
       <div id="campuses"> 
       <% @campuses.each do |campus| %>
         <div class="campus-wrapper">
@@ -64,9 +67,48 @@
         </div>
       <% end %>
       </div>
-      <h1>College STAR Grant P.I.</h1>
-      <%= link_to 'New Campus', new_campus_path %>
-
+      <h1>College STAR Grant P.I.</h1>        
+      <div class="campus-pi">
+          <div class="campus-image">
+            <%= image_tag 'swilliams.jpg' %>
+          </div>
+          <div class="campus-info">
+            <h2>Sarah C. Williams, PhD</h2>
+          </div>
+          <div class="campus-info">
+            <div class="campus-info-title">
+              <p>address:</p>
+            </div>
+            <div class="campus-info-value">
+              <p>
+                2701 Joyner Library<br />
+                1000 East Fifth Street<br />
+                East Carolina University<br />
+                Greenville, NC 27858 
+              </p>
+            </div>
+          </div>
+          <div class="campus-info">
+            <div class="campus-info-title">
+              <p>phone:</p>
+            </div>
+            <div class="campus-info-value">
+              <p>
+                (252) 328-1101                
+              </p>
+            </div>
+          </div>          
+          <div class="campus-info">
+            <div class="campus-info-title">
+              <p>email:</p>
+            </div>
+            <div class="campus-info-value">
+              <p>
+                WILLIAMSSAR@ecu.edu (preferred)
+              </p>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
