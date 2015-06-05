@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NewsArticlesControllerTest < ActionController::TestCase
   setup do
-    @news_article = news_articles(:one)
+    @news_article = news_articles(:news_article_1)
   end
 
   test "should get index" do
