@@ -46,6 +46,7 @@ body {
     @include span(14 of 18 at 5);
   }
   margin-top: gutter();
+  margin-bottom: gutter();
   @include clearfix();
 }
 
