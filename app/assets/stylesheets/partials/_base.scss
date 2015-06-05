@@ -49,14 +49,38 @@ body {
   @include clearfix();
 }
 
+#single-column-wrapper {
+  @include span(18 of 18 no-gutters);
+  margin-top: gutter(18);
+  margin-bottom: gutter(18);
+  @include clearfix();
+}
+
+#content {
+  @include bordered-panel();
+  @include clearfix();
+}
+
 h1 { 
   @include heading(1.4); 
   text-transform: uppercase;
   border-bottom: $default-border-width solid $default-border-color;
-  padding: 0 .5em;
+  margin: .5em;
+  padding: 0;
 }
-h2 { @include heading(1.3); }
-h3 { @include heading(1.2); }
+h2 { 
+  @include heading(1.3); 
+  border-bottom: $default-border-width solid $default-border-color;
+  margin: 1.5em;
+  padding: 0;
+}
+h3 { 
+  @include heading(1.1); 
+  margin: 1em 2.2em;
+  padding: 0;
+  font-weight: bold;
+  font-style: italic;
+}
 h4 { @include heading(1.1); }
 h5 { @include heading(1.1); }
 h6 { @include heading(1.1); }
@@ -67,10 +91,28 @@ p {
   padding: 0;
 }
 
+img {
+  box-shadow: 5px 5px 2px #CCC;
+}
+
+ul {
+  margin: 1em 4em;
+  padding: 0;
+
+  li {
+    margin: 1em .5em;
+    padding: 0;
+  }
+}
+
 .float-left {
   @include float-left;
+  margin: 1em 1em 1em 2.5em;
 }
 
 .float-right {
   @include float-right;
+  margin: 1em 2.5em 1em 1em;
 }
+
+
