@@ -4,6 +4,7 @@ class CampusesController < ApplicationController
   # GET /campuses
   # GET /campuses.json
   def index
+    @news_articles = NewsArticle.order_by_created_date_and_limit
     @campuses = Campus.order(name: :asc)
   end
 

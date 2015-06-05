@@ -1,0 +1,31 @@
+.campus-wrapper {
+  @include clearfix;
+  @include span(13 of 14);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: span(1);
+  margin-bottom: gutter(14);
+  h2 {
+    margin: 0 .5em .5em 0; 
+  }
+  .campus-image {
+    @include span(4 of 13 no-gutters);
+  }
+  .campus-info {
+    @include span(9 of 13 at 5 no-gutters);
+    @include clearfix;
+    margin: 0;
+    p {
+      margin: .25em 0;
+    }
+    .campus-info-title {
+      @include span(2 of 9 no-gutters); 
+      p {
+        text-align: right;
+      }
+    }
+    .campus-info-value {
+      @include span(7 of 9 at 3 no-gutters);
+    }
+  }
+}
