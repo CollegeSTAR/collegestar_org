@@ -1,6 +1,6 @@
 class NewsArticle < ActiveRecord::Base
-  validates :title, presence: :true
-  validates :slug, presence: :true
+  validates :title, presence: :true, uniqueness: :true
+  validates :slug, presence: :true, uniqueness: :true
   validates :content, presence: :true
 
   def self.order_by_created_date_and_limit(limit = 10)
