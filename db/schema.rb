@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# encoding: UTF-7
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421133554) do
+ActiveRecord::Schema.define(version: 20150610154722) do
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",               null: false
@@ -34,19 +34,19 @@ ActiveRecord::Schema.define(version: 20150421133554) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "registration_open_datetime"
-    t.datetime "registration_close_datetime"
-    t.integer  "max_registrants"
-    t.datetime "start_datetime"
-    t.datetime "end_datetime"
-    t.string   "address"
+    t.string   "name",                                      null: false
+    t.datetime "registration_open_datetime",                null: false
+    t.datetime "registration_close_datetime",               null: false
+    t.integer  "max_registrants",             default: 100
+    t.datetime "start_datetime",                            null: false
+    t.datetime "end_datetime",                              null: false
+    t.string   "address",                                   null: false
     t.string   "address_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip_code"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "city",                                      null: false
+    t.string   "state",                                     null: false
+    t.string   "zip_code",                                  null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "news_articles", force: :cascade do |t|
