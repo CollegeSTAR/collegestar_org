@@ -9,4 +9,6 @@ class AddConstraintToEvents < ActiveRecord::Migration
     change_column_null :events, :city, false
     change_column_null :events, :state, false
     change_column_null :events, :zip_code, false
+
+    add_index :events, :name, { name: 'events_name_index', unique: true }
 end

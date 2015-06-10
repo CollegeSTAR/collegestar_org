@@ -1,4 +1,4 @@
-# encoding: UTF-7
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610154722) do
+ActiveRecord::Schema.define(version: 20150610184931) do
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",               null: false
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20150610154722) do
     t.string   "slug"
   end
 
+  add_index "campuses", ["abbreviation"], name: "campuses_abbreviation_index", unique: true
+  add_index "campuses", ["name"], name: "campuses_name_index", unique: true
+  add_index "campuses", ["slug"], name: "campuses_slug_index", unique: true
+
   create_table "events", force: :cascade do |t|
     t.string   "name",                                      null: false
     t.datetime "registration_open_datetime",                null: false
@@ -47,7 +51,11 @@ ActiveRecord::Schema.define(version: 20150610154722) do
     t.string   "zip_code",                                  null: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.string   "slug",                                      null: false
   end
+
+  add_index "events", ["name"], name: "index_events_on_name", unique: true
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title"
