@@ -16,6 +16,16 @@ RSpec.describe Campus, :type => :model do
     @campus = create(:campus)
     expect(build(:campus, slug: nil)).to_not be_valid
   end
+
+  it "should validate the presence of an abbreviation" do
+    expect(build(:campus, abbreviation: nil)).to_not be_valid
+  end
+
+  it "should validate the uniqueness of an abbreviation" do
+    @campus = create(:campus)
+    expect(build(:campus, abbreviation: @campus.abbreviation)).to_not be_valid
+  end
+
   it "should find a campus by slug" do
     @campus = create(:campus)
     expect(Campus.find_by(slug: @campus.slug)).to eq(@campus)
