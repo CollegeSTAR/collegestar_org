@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610184931) do
+ActiveRecord::Schema.define(version: 20150610185721) do
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",               null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150610184931) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "slug"
+    t.string   "slug",               null: false
   end
 
   add_index "campuses", ["abbreviation"], name: "campuses_abbreviation_index", unique: true
