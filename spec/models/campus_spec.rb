@@ -1,29 +1,41 @@
 RSpec.describe Campus, :type => :model do
   it "should validate the presence of a name" do
-    expect(build(:campus, name: nil)).to_not be_valid
+    @campus = build(:campus, name: nil)
+    @campus.valid?
+    expect(@campus.errors[:name].size).to eq(1)
   end
 
   it "should validate the uniqueness of name" do
-    @campus = create(:campus)
-    expect(build(:campus, name: @campus.name)).to_not be_valid
+    @campus_1 = create(:campus)
+    @campus_2 = build(:campus, name: @campus_1.name)
+    @campus_2.valid?
+    expect(@campus_2.errors[:name].size).to eq(1)
   end
 
   it "should validate the presence of a slug" do
-    expect(build(:campus, name: nil)).to_not be_valid
+    @campus = build(:campus, slug: nil)
+    @campus.valid?
+    expect(@campus.errors[:slug].size).to eq(1)
   end
 
   it "should validate the uniqueness of a slug" do
-    @campus = create(:campus)
-    expect(build(:campus, slug: nil)).to_not be_valid
+    @campus_1 = create(:campus)
+    @campus_2 = build(:campus, slug: @campus_1.slug)
+    @campus_2.valid?
+    expect(@campus_2.errors[:slug].size).to eq(1)
   end
 
   it "should validate the presence of an abbreviation" do
-    expect(build(:campus, abbreviation: nil)).to_not be_valid
+    @campus = build(:campus, abbreviation: nil)
+    @campus.valid?
+    expect(@campus.errors[:abbreviation].size).to eq(1)
   end
 
   it "should validate the uniqueness of an abbreviation" do
-    @campus = create(:campus)
-    expect(build(:campus, abbreviation: @campus.abbreviation)).to_not be_valid
+    @campus_1 = create(:campus)
+    @campus_2 = build(:campus, abbreviation: @campus_1.abbreviation)
+    @campus_2.valid?
+    expect(@campus_2.errors[:abbreviation].size).to eq(1)
   end
 
   it "should find a campus by slug" do
