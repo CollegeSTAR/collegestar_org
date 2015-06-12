@@ -28,4 +28,12 @@ FactoryGirl.define do
     state "NC"
     zip_code "12345"
   end
+
+  factory :user do
+    sequence( :first_name ) { |n| "John_#{n}" }
+    sequence( :last_name ) { |n| "Smith_#{n}" }
+    sequence( :email ) { "#{first_name}.#{last_name}@example.com".downcase }
+    password "secret_pass"
+    password_confirmation "secret_pass"
+  end
 end
