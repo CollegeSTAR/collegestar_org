@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-<% (1..10).each do |i| %>
-news_article_<%= i %>:
-  title: This is News Article number <%= i %>
-  slug: this-is-news-article-number-<%= i %>
-  content: This is the content for news article number <%= i %>
-  created_at: 2015-04-17 12:00:<%= i.to_s.rjust(2, "0") %>
-<% end %>
