@@ -64,11 +64,11 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.find_by(slug: params[:slug])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :registration_open_datetime, :registration_close_datetime, :max_registrants, :start_datetime, :end_datetime, :address, :address_2, :city, :state, :zip_code)
+      params.require(:event).permit(:name, :slug, :registration_open_datetime, :registration_close_datetime, :max_registrants, :start_datetime, :end_datetime, :address, :address_2, :city, :state, :zip_code)
     end
 end

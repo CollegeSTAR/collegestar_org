@@ -9,4 +9,8 @@ class Event < ActiveRecord::Base
   validates :city, presence: :true
   validates :state, presence: :true
   validates :zip_code, presence: :true
+
+  def to_param
+    slug
+  end
 end
