@@ -1,4 +1,4 @@
-RSpec.describe Campus, :type => :model do
+RSpec.describe Campus do
   it "should validate the presence of a name" do
     @campus = build(:campus, name: nil)
     @campus.valid?
