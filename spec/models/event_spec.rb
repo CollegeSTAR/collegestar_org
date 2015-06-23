@@ -1,4 +1,4 @@
-RSpec.describe Event, :type => :model do
+RSpec.describe Event do
   it "validates presence of name" do
     @event = build(:event, name: nil)
     @event.valid?
