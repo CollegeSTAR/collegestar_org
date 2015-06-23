@@ -25,6 +25,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.slug ||= @event.name.parameterize if @event.name
 
     respond_to do |format|
       if @event.save
