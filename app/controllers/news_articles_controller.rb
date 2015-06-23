@@ -25,7 +25,7 @@ class NewsArticlesController < ApplicationController
   # POST /news_articles.json
   def create
     @news_article = NewsArticle.new(news_article_params)
-    @news_article.slug = @news_article.title.parameterize
+    @news_article.slug ||= @news_article.title.parameterize if @news_article.title
 
     respond_to do |format|
       if @news_article.save
