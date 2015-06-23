@@ -1,4 +1,4 @@
-RSpec.describe NewsArticle, :type => :model do
+RSpec.describe NewsArticle do
   it "uses slug to look up articles" do
     @article = create(:news_article)
     expect(NewsArticle.find_by(slug: @article.slug)).to eq(@article)
