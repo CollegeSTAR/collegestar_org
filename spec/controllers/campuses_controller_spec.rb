@@ -110,12 +110,12 @@ RSpec.describe CampusesController do
       delete :destroy, slug: @campus
     end
     
-    it "responds successfully with status code 303" do
-      expect(response).to have_http_status(303)
+    it "responds successfully with status code 302" do
+      expect(response).to have_http_status(302)
     end
 
     it "redirects to #index action" do
-      expect(response).to redirect_to campuses_path( notice: "The campus was removed." )
+      expect(response).to redirect_to campuses_path
     end
 
     it "removes campus from database" do

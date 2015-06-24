@@ -58,7 +58,7 @@ class CampusesController < ApplicationController
   def destroy
     @campus.destroy
     respond_to do |format|
-      format.html { redirect_to action: 'index', status: 303, notice: 'The campus was removed.' }
+      format.html { redirect_to campuses_url, notice: 'The campus was removed.' }
       format.json { head :no_content }
     end
   end
