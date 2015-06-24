@@ -52,16 +52,17 @@ RSpec.describe EventsController do
   end
 
   describe "GET #edit" do
-    it "responds successfully with an HTTP 200 status code" do 
+    before(:each) do
       @event = create(:event)
       get :edit, slug: @event
-      expect(response).to be_success
+    end
+
+    it "responds successfully with an HTTP 200 status code" do 
+           expect(response).to be_success
       expect(response).to have_http_status(200)
     end
 
     it "should load edit template" do 
-      @event = create(:event)
-      get :edit , slug: @event
       expect(response).to render_template("edit")
     end
   end
@@ -81,16 +82,57 @@ RSpec.describe EventsController do
     end
 
     context "with invalid attributes" do
-      it "does not save the news_article to the database." do
+      it "does not save the evena to the database." do
         expect{
           post :create, event: FactoryGirl.attributes_for(:event, name: nil)
         }.to_not change(Event, :count)
       end
       
-      it "re-renders the new_news_article template" do
+      it "re-renders the event new template" do
         post :create, event: FactoryGirl.attributes_for(:event, name: nil)
         expect(response).to render_template(:new)
       end
     end
   end
+
+  describe "PATCH #update" do
+    let(:attr) do
+      FactoryGirl.attributes_for(:event, name: "New Event")
+    end
+
+    before(:each) do
+      @event = create(:event)
+      patch :update, slug: @event, event: attr
+      @event.reload
+    end
+
+    it "redirects to #show @event upon update" do
+      expect(response).to redirect_to @event
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before(:each) do 
+      @event = create(:event)
+      delete :destroy, slug: @event
+    end
+    
+    it "responds successfully with status code 302" do
+      expect(response).to have_http_status(302)
+    end
+
+    it "redirects to #index action" do
+      expect(response).to redirect_to events_path
+    end
+
+    it "displays flash notice about deleted record" do
+      expect(flash[:notice]).to eq("The event was removed.")
+    end
+
+    it "removes event from database" do
+      expect(Event.count).to eq(0)
+    end
+  end
+
+
 end
