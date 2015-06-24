@@ -26,7 +26,7 @@ class CampusesController < ApplicationController
   # POST /campuses.json
   def create
     @campus = Campus.new(campus_params)
-    @campus.slug = @campus.name.parameterize
+    @campus.slug ||= @campus.name.parameterize if @campus.name
 
     respond_to do |format|
       if @campus.save
@@ -58,7 +58,7 @@ class CampusesController < ApplicationController
   def destroy
     @campus.destroy
     respond_to do |format|
-      format.html { redirect_to action: 'index', status: 303, notice: 'Campus was successfully destroyed.' }
+      format.html { redirect_to action: 'index', status: 303, notice: 'The campus was removed.' }
       format.json { head :no_content }
     end
   end
