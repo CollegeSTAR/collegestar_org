@@ -26,14 +26,89 @@
 
   #header-right {
     background-color: $white;
+    position: relative;
     @include span(18 of 18 wide no-gutters);
     @include breakpoint($full) {
       @include span(14 of 18 at 5 wide no-gutters);
-      position: relative;
       background-color: $black;
       border: none;
     }
+    
+    #login-box {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      margin: 4px;
+      color: $black;
+      @include breakpoint($full) {
+        color: $white;
+      }
+      
+      a {
+        margin: 2px;
+        color: $black;
+        text-decoration: none;
+        font-size: .85em;
+        @include breakpoint($full) {
+          color: $white;
+        }
+      }
+      
+    }
   }
+
+  #user-menu-wrapper {
+    float: right; 
+    
+    #user-name {
+      cursor: pointer;
+      text-align: right;
+      padding-right: 1em;
+    }
+
+    .user-menu {
+      display: none;
+      margin: 0;
+      padding: 0;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        min-width: 14em;
+        list-style-type: none;
+
+        li {
+          margin: 0;
+          padding: .5em;
+          list-style-type: none;
+          color: $ghost;
+          border-top: $default-border-width solid $steel;
+          border-bottom: $default-border-width solid $gainsboro;
+          background-color:  $oil;
+          
+          &:first-child {
+            border-top: none;
+          }
+
+          &:last-child {
+            border-top: ($default-border-width * 6) solid #F57F0A;
+            border-bottom: ($default-border-width * 3) solid $oil;
+          }
+
+          &:hover {
+            background-color: $jet;
+          }
+
+          a {
+            display: block;
+            color: $ghost;
+          }
+        }
+      }
+    }
+  }
+
 
   #title-image {
     position: relative;
@@ -46,26 +121,10 @@
     }
     img {
       position: relative;
-      z-index: -1000;
       max-height: 100%;
       max-width: 100%;
       margin: 0;
       padding: 0;
-    }
-  }
-
-  #login-box {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    margin: 4px;
-    color: $white;
-
-    a {
-      margin: 2px;
-      color: $white;
-      text-decoration: none;
-      font-size: .85em;
     }
   }
 

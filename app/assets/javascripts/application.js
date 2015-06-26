@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require search_bar
+//= require user_menu
 
 //$(function(){ $(document).foundation(); });

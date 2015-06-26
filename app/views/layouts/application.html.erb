@@ -16,6 +16,9 @@
   <body>
     <div id="site">
       <%= render 'shared/header' %>
+      <% flash.each do | name, msg | %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>

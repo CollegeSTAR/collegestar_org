@@ -11,7 +11,13 @@ Rails.application.routes.draw do
   get 'frequently-asked-questions' => 'main#faq', as: :faq
   get 'supporters' => 'main#supporters'
   get 'partners' => 'main#partners'
+  get 'signup' => 'users#new', as: :signup
+  get 'login' => 'sessions#new', as: :login
+  get 'logout' => 'sessions#destroy', as: :logout
 
+  resources :sessions, except: [:edit, :show, :update]
+  resources :users, only: [:index, :create]
+  resources :profile, only: [:edit, :show], controller: :users, as: :users
   resources :news_articles, only: [:new]
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug

@@ -1,4 +1,4 @@
-RSpec.describe User, :type => :model do
+RSpec.describe User do
   
   it "should validate presence of first_name" do
     @user = build(:user, first_name: nil)
