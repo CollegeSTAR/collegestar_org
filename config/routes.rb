@@ -16,13 +16,13 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
 
   resources :sessions, only: [:create, :destroy]
-  resources :users, only: [:index, :create]
-  resources :profile, only: [:edit, :show], controller: :users, as: :users
+  resources :users, only: [:index, :create, :destroy]
+  resources :profile, only: [:edit, :show], controller: :users, as: :profile
   resources :news_articles, only: [:new]
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug
   resources :events, param: :slug
-  resources :modules, :users, :communities, :users
+  resources :modules, :communities
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
