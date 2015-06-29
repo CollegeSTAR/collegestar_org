@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
 
-  resources :sessions, except: [:edit, :show, :update]
+  resources :sessions, only: [:create, :destroy]
   resources :users, only: [:index, :create]
   resources :profile, only: [:edit, :show], controller: :users, as: :users
   resources :news_articles, only: [:new]
