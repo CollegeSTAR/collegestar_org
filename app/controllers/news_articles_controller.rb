@@ -29,7 +29,7 @@ class NewsArticlesController < ApplicationController
 
     respond_to do |format|
       if @news_article.save
-        format.html { redirect_to @news_article, notice: 'News article was successfully created.' }
+        format.html { redirect_to @news_article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @news_article }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class NewsArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @news_article.update(news_article_params)
-        format.html { redirect_to @news_article, notice: 'News article was successfully updated.' }
+        format.html { redirect_to @news_article, notice: 'Successfully updated article.' }
         format.json { render :show, status: :ok, location: @news_article }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class NewsArticlesController < ApplicationController
   def destroy
     @news_article.destroy
     respond_to do |format|
-      format.html { redirect_to news_articles_path, notice: 'News article was successfully destroyed.' }
+      format.html { redirect_to news_articles_path, notice: 'The Article was removed.' }
       format.json { head :no_content }
     end
   end

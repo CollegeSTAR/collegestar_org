@@ -89,4 +89,47 @@ RSpec.describe NewsArticlesController do
       end
     end
   end
+
+  describe "PATCH #update" do
+    let(:attr) do
+      FactoryGirl.attributes_for(:news_article, title: "Test News Article")
+    end
+
+    before(:each) do
+      @news_article = create(:news_article)
+      patch :update, slug: @news_article, news_article: attr
+      @news_article.reload
+    end
+
+    it "redirects to #show @news_article upon update" do
+      expect(response).to redirect_to @news_article
+    end
+
+    it "Displays flash message about article update." do
+      expect(flash[:notice]).to eq("Successfully updated article.")
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before(:each) do 
+      @news_article = create(:news_article)
+      delete :destroy, slug: @news_article
+    end
+    
+    it "responds successfully with status code 302" do
+      expect(response).to have_http_status(302)
+    end
+
+    it "redirects to #index action" do
+      expect(response).to redirect_to news_articles_path
+    end
+
+    it "show flash notice about deleted record." do
+      expect(flash[:notice]).to eq("The Article was removed.")
+    end
+
+    it "removes news_article from database" do
+      expect(NewsArticle.count).to eq(0)
+    end
+  end
 end
