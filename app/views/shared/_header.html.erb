@@ -1,6 +1,6 @@
 <div id="header">
   <div id="header-left">
-    <a href="/" ><%= image_tag "emblem_trans.png", width: "400", height: "auto", alt: "College STAR Logo", title: "College STAR Home" %></a>
+    <%= image_tag "emblem_trans.png", width: "400", height: "auto", alt: "College STAR Logo", title: "College STAR Home" %>
   </div>
   <div id="header-right">
     <div id="login-box">
@@ -9,13 +9,13 @@
         <div id="user-name"><i class="fa fa-user fa-lg"></i>&nbsp; <%= current_user.first_name %> <%= current_user.last_name %></div>
         <div id="user-dropdown" class="user-menu">
           <ul>
-            <li><a href="/developer/account"><i class="fa fa-cog fa-lg"></i>&nbsp; Edit Profile</a></li>
-            <li><a href="#"><i class="fa fa-history fa-la"></i>&nbsp; My Module History</a></li>
-            <li><a href="/developer/communities"><i class="fa fa-cubes fa-la"></i>&nbsp; My Communities</a></li>
-            <li><a href="/developer/university"><i class="fa fa-graduation-cap fa-la"></i>&nbsp; Universities</a></li>
-            <li><a href="/developer/users"><i class="fa fa-users fa-la"></i>&nbsp; Users</a></li>
-            <li><a href="/developer/modules"><i class="fa fa-file-o fa-la"></i>&nbsp; Modules</a></li>
-            <li><a href="/developer/reports"><i class="fa fa-line-chart fa-la"></i>&nbsp; Student Nominations</a></li>
+            <li><%= link_to '<i class="fa fa-cog fa-lg"></i>&nbsp; Edit Profile'.html_safe, profile_path(current_user) %></li>
+            <li><%= link_to '<i class="fa fa-history fa-la"></i>&nbsp; My Module History'.html_safe, udl_modules_path %></li>
+            <li><%= link_to '<i class="fa fa-cubes fa-la"></i>&nbsp; My Communities'.html_safe, communities_path %></li>
+            <li><%= link_to '<i class="fa fa-line-chart fa-la"></i>&nbsp; My Surveys'.html_safe, surveys_path %></li>
+            <li><%= link_to '<i class="fa fa-graduation-cap fa-la"></i>&nbsp; Universities'.html_safe, campuses_path %></li>
+            <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
+            <li><%= link_to '<i class="fa fa-file-o fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
             <li><%= link_to "Logout", logout_path %></li>
           </ul>
         </div>
