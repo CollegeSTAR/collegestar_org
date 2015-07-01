@@ -1,5 +1,11 @@
-FactoryGirl.define do
- 
+FactoryGirl.define do  
+
+  factory :community do
+    sequence( :name ) { |n|  "Test Community #{n}" }
+    sequence( :slug ) { |n| "test-community-#{n}" }
+    description "This is my description."
+  end
+    
   factory :news_article do
     sequence( :title ) { |n| "news article #{n}" }
     sequence( :slug ) { |n| "news-article-#{n}" }
