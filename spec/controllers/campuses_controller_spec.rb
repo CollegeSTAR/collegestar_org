@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe CampusesController do
   describe "GET #index" do
     it "reponds successfully with http status code 200." do
@@ -116,6 +118,10 @@ RSpec.describe CampusesController do
 
     it "redirects to #index action" do
       expect(response).to redirect_to campuses_path
+    end
+
+    it "shows flash notice about deleted record." do
+      expect(flash[:notice]).to eq("The campus was removed.")
     end
 
     it "removes campus from database" do
