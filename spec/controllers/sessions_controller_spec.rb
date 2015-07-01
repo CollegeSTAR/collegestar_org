@@ -1,5 +1,73 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController do
+  describe "#new" do
+    before(:each) do
+      get :new
+    end
+    it "responds successfully with http status code 200" do
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+    it "renders sessions#new template" do
+      expect(response).to render_template(:new)
+    end
+  end
 
+  describe "#create" do
+    before(:each) do
+      @user = create(:user)
+      @user_attributes = attributes_for(:user)
+    end
+    context "with correct params" do
+      before(:each) do
+        post :create, email: @user.email, password: @user_attributes[:password]
+      end
+      it "should set user_id session if user is found." do
+        expect(session[:user_id]).to eq(@user.id)
+      end
+      it "should redirect to root_url if login is successful" do
+        expect(response).to redirect_to(:root)
+      end
+    end
+    context "with incorrect email" do
+      before(:each) do
+        post :create, email: "not_correct@example.com", password: @user_attributes[:password]
+      end
+      it "should render the new view" do
+        expect(response).to render_template(:new)
+      end
+      it "should not set the user_id session variable" do
+        expect(session[:user_id]).to be_nil  
+      end
+    end
+    context "with incorrect password" do
+      before(:each) do
+        post :create, email: @user_attributes[:email], password: "not_correct_password"
+      end
+      it "should render the new view" do
+        expect(response).to render_template(:new)
+      end
+      it "should not set the user_id session variable" do
+        expect(session[:user_id]).to be_nil
+      end
+    end
+  end
+
+  describe "#destroy" do
+    context "a user is logged in" do
+      before(:each) do
+        @user = create(:user)
+        @user_attributes = attributes_for(:user)
+        post :create, email: @user.email, password: @user_attributes[:password]
+        get :destroy
+      end
+      it "should unset the session[:user_id] variable" do
+        expect(session[:user_id]).to be_nil
+      end
+      it "should redirect to root_url" do
+        expect(response).to redirect_to(:root)
+      end
+    end
+  end
 end
