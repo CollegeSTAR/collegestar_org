@@ -21,9 +21,6 @@ class MainController < ApplicationController
   def terms
   end
 
-  def site_map
-  end
-
   def faq
   end
 
