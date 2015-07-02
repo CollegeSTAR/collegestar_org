@@ -1,24 +1,19 @@
-.campus-wrapper, .campus-pi {
+.partner-wrapper {
   @include entity-list-wrapper;
   h2 {
     @include entity-title;
   }
-  .campus-image {
+  .partner-image {
     @include entity-image;
   }
-  .campus-info {
+  .partner-info {
     @include entity-info;
-    .campus-info-title {
+    .partner-info-title {
       @include entity-info-title;
     }
-    .campus-info-value {
+    .partner-info-value {
       @include entity-info-value;
     }
   }
 }
 
-.campus-pi {
-  h2 {
-    border: none;
-  } 
-}
