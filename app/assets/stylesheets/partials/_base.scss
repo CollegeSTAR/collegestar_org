@@ -93,6 +93,13 @@ p {
   margin: 1em 2.5em;
   padding: 0;
 
+  &.muted {
+    font-size: .85em;
+    margin: 1.25em 3em;
+    font-style: italic;
+    color: $aluminum;
+  }
+
   &.revision {
     display: inline;
     margin: 0 .6em;
