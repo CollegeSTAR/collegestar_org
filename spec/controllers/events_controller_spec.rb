@@ -109,6 +109,10 @@ RSpec.describe EventsController do
     it "redirects to #show @event upon update" do
       expect(response).to redirect_to @event
     end
+
+    it "displays flash notice about updated record." do
+      expect(flash[:notice]).to eq("Event was successfully updated.")
+    end
   end
 
   describe "DELETE #destroy" do
