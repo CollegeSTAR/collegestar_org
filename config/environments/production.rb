@@ -75,7 +75,7 @@ Rails.application.configure do
     port: ENV["SMTP_PORT"],
     user_name: ENV["MANDRILL_SMTP_USERNAME"]
   }
-  config.action_mailer.default_url_options = { host: '127.0.0.1:3000' }
+  config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
