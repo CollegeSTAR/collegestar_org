@@ -1,5 +1,5 @@
 class Contact
-  include ActiveModel::Validations
+  include ActiveModel::Model
   attr_accessor :name, :email, :subject, :message, :send_copy, :mailer, :template
    
   validates :name, presence: true
