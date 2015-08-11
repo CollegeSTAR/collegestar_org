@@ -14,6 +14,10 @@ RSpec.describe Contact do
       @contact = build(:contact, email: "tannerjones")
       expect(@contact.valid?).to be_falsey
     end
+    it "should not be valide without a subject" do
+      @contact = build(:contact, subject: nil)
+      expect(@contact.valid?).to be_falsey
+    end
     it "should not be valid without a message" do
       @contact = build(:contact, message: nil)
       expect(@contact.valid?).to be_falsey
