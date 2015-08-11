@@ -31,6 +31,19 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  #Use Mandrill with smtp for action_mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV["SMTP_HOST"],
+    authentication: :plain,
+    domain: ENV["SMTP_DOMAIN"],
+    enable_starttls_auto: true,
+    password: ENV["MANDRILL_API_KEY"],
+    port: ENV["SMTP_PORT"],
+    user_name: ENV["MANDRILL_SMTP_USERNAME"]
+  }
+  config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
+
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 

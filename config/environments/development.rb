@@ -14,7 +14,20 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  
+  #Use Mandrill with smtp for action_mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV["SMTP_HOST"],
+    authentication: :plain,
+    domain: ENV["SMTP_DOMAIN"],
+    enable_starttls_auto: true,
+    password: ENV["MANDRILL_API_KEY"],
+    port: ENV["SMTP_PORT"],
+    user_name: ENV["MANDRILL_SMTP_USERNAME"]
+  }
+  config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
