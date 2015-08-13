@@ -22,5 +22,17 @@ RSpec.describe Contact do
       @contact = build(:contact, message: nil)
       expect(@contact.valid?).to be_falsey
     end
+    it "should not add contact.email to recipient list if send_copy is 0" do
+      @recipients_list = []
+      @contact = build(:contact)
+      @recipients_list = @contact.add_recipient(@recipients_list)
+      expect(@recipients_list).to match_array([])
+    end
+    it "should add contact.email to recipient list if send_copy is 1" do
+      @recipients_list = []
+      @contact = build(:contact, send_copy: 1)
+      @recipients_list = @contact.add_recipient(@recipients_list)
+      expect(@recipients_list).to match_array([@contact.email])
+    end
   end
 end
