@@ -24,7 +24,7 @@ RSpec.describe SessionsController do
         post :create, email: @user.email, password: @user_attributes[:password]
       end
       it "should set user_id session if user is found." do
-        expect(session[:user_id]).to eq(@user.id)
+        expect(cookies[:auth_token]).to eq(@user.auth_token)
       end
       it "should redirect to root_url if login is successful" do
         expect(response).to redirect_to(:root)
@@ -37,8 +37,8 @@ RSpec.describe SessionsController do
       it "should render the new view" do
         expect(response).to render_template(:new)
       end
-      it "should not set the user_id session variable" do
-        expect(session[:user_id]).to be_nil  
+      it "should not set the auth_token cookie" do
+        expect(cookies[:auth_token]).to be_nil  
       end
     end
     context "with incorrect password" do
