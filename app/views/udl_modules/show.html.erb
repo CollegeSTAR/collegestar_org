@@ -1,44 +1,50 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @udl_module.title %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @udl_module.slug %>
-</p>
-
-<p>
-  <strong>Sub heading:</strong>
-  <%= @udl_module.sub_heading %>
-</p>
-
-<p>
-  <strong>Udl principles:</strong>
-  <%= @udl_module.udl_principles %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @udl_module.description %>
-</p>
-
-<p>
-  <strong>Released:</strong>
-  <%= @udl_module.released %>
-</p>
-
-<p>
-  <strong>Release date:</strong>
-  <%= @udl_module.release_date %>
-</p>
-
-<p>
-  <strong>Latest revision date:</strong>
-  <%= @udl_module.latest_revision_date %>
-</p>
-
-<%= link_to 'Edit', edit_udl_module_path(@udl_module) %> |
-<%= link_to 'Back', udl_modules_path %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <p id="notice"><%= notice %></p>
+      
+      <p>
+        <strong>Title:</strong>
+        <%= @udl_module.title %>
+      </p>
+      
+      <p>
+        <strong>Slug:</strong>
+        <%= @udl_module.slug %>
+      </p>
+      
+      <p>
+        <strong>Sub heading:</strong>
+        <%= @udl_module.sub_heading %>
+      </p>
+      
+      <p>
+        <strong>Udl principles:</strong>
+        <%= @udl_module.udl_principles %>
+      </p>
+      
+      <p>
+        <strong>Description:</strong>
+        <%= @udl_module.description %>
+      </p>
+      
+      <p>
+        <strong>Released:</strong>
+        <%= @udl_module.released %>
+      </p>
+      
+      <p>
+        <strong>Release date:</strong>
+        <%= @udl_module.release_date %>
+      </p>
+      
+      <p>
+        <strong>Latest revision date:</strong>
+        <%= @udl_module.latest_revision_date %>
+      </p>
+      
+      <%= link_to 'Edit', edit_udl_module_path(@udl_module) %> |
+      <%= link_to 'Back', udl_modules_path %>
+    </div>
+  </div>
+</div>

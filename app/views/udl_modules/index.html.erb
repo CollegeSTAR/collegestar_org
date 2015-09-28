@@ -1,41 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Udl Modules</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Slug</th>
-      <th>Sub heading</th>
-      <th>Udl principles</th>
-      <th>Description</th>
-      <th>Released</th>
-      <th>Release date</th>
-      <th>Latest revision date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @udl_modules.each do |udl_module| %>
-      <tr>
-        <td><%= udl_module.title %></td>
-        <td><%= udl_module.slug %></td>
-        <td><%= udl_module.sub_heading %></td>
-        <td><%= udl_module.udl_principles %></td>
-        <td><%= udl_module.description %></td>
-        <td><%= udl_module.released %></td>
-        <td><%= udl_module.release_date %></td>
-        <td><%= udl_module.latest_revision_date %></td>
-        <td><%= link_to 'Show', udl_module %></td>
-        <td><%= link_to 'Edit', edit_udl_module_path(udl_module) %></td>
-        <td><%= link_to 'Destroy', udl_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Udl module', new_udl_module_path %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <p id="notice"><%= notice %></p>
+      
+      <h1>Facutly Development Modules</h1>
+      <ul> 
+          <% @udl_modules.each do |udl_module| %>
+              <li><%= udl_module.title %>
+              <%= udl_module.slug %>
+              <%= link_to 'Show', udl_module %>
+              <%= link_to 'Edit', edit_udl_module_path(udl_module) %>
+              <%= link_to 'Destroy', udl_module, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <% end %>
+      </ul>
+      <br>
+      
+      <%= link_to 'New Udl module', new_udl_module_path %>
+    </div>
+  </div>
+</div>
