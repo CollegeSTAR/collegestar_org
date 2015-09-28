@@ -57,9 +57,9 @@
 }
 
 
-#home-supporters-wrapper {
+#home-partners-wrapper {
   @include span(18 of 18 wide);
-  .supporter {
+  .partner {
     @include span(9 of 18 no-gutters);  
     text-align: center;
     @include item_wrapper();
@@ -68,16 +68,16 @@
   @include bordered-panel();
   @include breakpoint($full) {
     @include span(7 of 14 at 8);
-    .supporter {
+    .partner {
       @include span(3.5 of 7 no-gutters);
         }
   }
 }
 
-#home-partners-wrapper {
+#home-supporters-wrapper {
   @include span(18 of 18 wide);
   margin-bottom: gutter(18);
-  .partner {
+  .supporter {
     @include span(9 of 18 no-gutters);   
     text-align: center;
     @include item_wrapper();
@@ -87,7 +87,7 @@
   @include breakpoint($full) {
     @include span(7 of 14);
     margin-bottom: 0;
-    .partner {
+    .supporter {
       @include span( 3.5 of 7 no-gutters);
        }
     @include gutter(14);
