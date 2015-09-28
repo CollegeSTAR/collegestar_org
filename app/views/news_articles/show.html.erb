@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @news_article.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @news_article.content %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @news_article.image_url %>
-</p>
-
-<%= link_to 'Edit', edit_news_article_path(@news_article) %> |
-<%= link_to 'Back', news_articles_path %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <p id="notice"><%= notice %></p>
+      
+      <h1><%= @news_article.title %></h1>
+      
+      <p>
+        <strong>Content:</strong>
+        <%= @news_article.content %>
+      </p>
+      
+      <p>
+        <strong>Image url:</strong>
+        <%= @news_article.image_url %>
+      </p>
+      
+      <%= link_to 'Edit', edit_news_article_path(@news_article) %> |
+      <%= link_to 'Back', news_articles_path %>
+    </div>
+  </div>
+</div>
