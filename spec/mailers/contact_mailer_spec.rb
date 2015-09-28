@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ContactMailer, type: :mailer do
+RSpec.describe ContactMailer do
   context "without send_copy" do
     before(:each) do
       @contact = build(:contact)
