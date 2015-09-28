@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def persist_session(session)
+    @session ||= session
+    @session.persist(cookies)
+  end
+
+  def destroy_session
+    Session.destroy( cookies )
+  end 
+
   def current_user
    @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
   end

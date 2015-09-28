@@ -49,7 +49,7 @@ RSpec.describe SessionsController do
         expect(response).to render_template(:new)
       end
       it "should not set the user_id session variable" do
-        expect(session[:user_id]).to be_nil
+        expect(cookies[:auth_token]).to be_nil
       end
     end
   end
@@ -63,7 +63,7 @@ RSpec.describe SessionsController do
         get :destroy
       end
       it "should unset the session[:user_id] variable" do
-        expect(session[:user_id]).to be_nil
+        expect(cookies[:auth_token]).to be_nil
       end
       it "should redirect to root_url" do
         expect(response).to redirect_to(:root)
