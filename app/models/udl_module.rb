@@ -5,4 +5,8 @@ class UdlModule < ActiveRecord::Base
   has_many :contributing_faculty, class_name: "User"
   has_many :assessment_questions
   has_many :assessment_question_answer_choices
+
+  def to_param
+    slug
+  end
 end

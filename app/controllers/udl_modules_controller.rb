@@ -64,7 +64,7 @@ class UdlModulesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_udl_module
-      @udl_module = UdlModule.find(params[:id])
+      @udl_module = UdlModule.find_by(slug: params[:slug])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
