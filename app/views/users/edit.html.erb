@@ -1,5 +1,11 @@
-<h1>Editing User</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', profile_path(@user) %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Edit your profile</h1>
+      
+      <%= render 'form' %>
+      
+      <%= link_to 'Show', profile_path(@user) %>
+    </div>
+  </div>
+</div>
