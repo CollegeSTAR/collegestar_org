@@ -1,6 +1,12 @@
-<h1>Editing Campuse</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @campus %> |
-<%= link_to 'Back', campuses_path %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @campus.name %></h1>
+      
+      <%= render 'form' %>
+      
+      <%= link_to 'Show', @campus %> |
+      <%= link_to 'Back', campuses_path %>
+    </div>
+  </div>
+</div>
