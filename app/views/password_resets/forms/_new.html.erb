@@ -1,0 +1,9 @@
+<%= form_for(@user, url: :password_resets) do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.submit "Request password reset instructions"%>
+  </div>
+<% end %>

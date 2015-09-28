@@ -1,0 +1,16 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Reset my password</h1>
+      <p>
+        <%= @user.first_name %>,
+      </p>
+      <p>
+        Please use the form below to reset your password.
+      </p>
+      <p>
+      <%= render partial: 'password_resets/forms/reset_password' %>
+      </p>
+    </div>
+  </div>
+</div>

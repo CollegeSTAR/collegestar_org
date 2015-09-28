@@ -57,7 +57,7 @@ RSpec.describe User do
       expect(@user.valid?).to be false
     end
 
-    it "should validate presence of a passowrd_confirmation only on create" do
+    it "should validate presence of a passowrd_confirmation when password is set" do
       @user = build(:user, password_confirmation: nil)
       expect(@user.valid?).to be false
     end
@@ -65,6 +65,18 @@ RSpec.describe User do
     it "should validate password_confirmation matches password" do
       @user = build(:user, password_confirmation: "not match")
       expect(@user.valid?).to be false
+    end
+  end
+
+  describe "#guaranteed_find_by" do
+    it "should return a normal user if one is found" do
+      @user = create(:user)
+      @guaranteed_user = User.guaranteed_find_by email: @user.email
+      expect(@guaranteed_user).to be_a(User)
+    end
+    it "should return a nulluser if no user is found" do
+      @guaranteed_user = User.guaranteed_find_by email: 'noone@example.com'
+      expect(@guaranteed_user).to be_a(NullUser)
     end
   end
 
@@ -96,17 +108,66 @@ RSpec.describe User do
     end
   end
 
-  describe "Auth Token Generation" do
-    it "should generate an auth_token on user creation" do
+  describe "#generate_password_reset" do
+    before(:each) do
       @user = create(:user)
-      expect(@user.auth_token).to_not be_nil
+    end
+    it "should timestamp the generation of reset_password_token" do
+      @user.generate_password_reset
+      expect(@user.password_reset_sent_at).to_not be_nil
     end
   end
 
-  describe "Activation Token Generation" do
-    it "should generate an activation token on user creation" do
+  describe "#reset_password" do
+    before(:each) do
       @user = create(:user)
+      @user.generate_password_reset
+    end
+    context "with valid parameters"do
+      it "should update password" do
+        @user.reset_password password: "testpass", password_confirmation: "testpass"
+        expect(@user.authenticate("testpass")).to be @user
+      end
+      it "should set password_reset_token to nil" do
+        @user.reset_password password: "testpass", password_confirmation: "testpass"
+        expect(@user.password_reset_token).to be_nil
+      end
+    end
+    context "with invalid parameters" do
+      it "should not save an invalid password" do
+        @user.reset_password password: "t", password_confirmation: "t"
+        expect(@user.valid?).to be_falsey
+      end
+      it "should confirm password" do
+        @user.reset_password password: "testpass", password_confirmation: "mytestpass"
+        expect(@user.valid?).to be_falsey
+      end
+      it "should require password_confirmation" do
+        @user.reset_password password: "testpass"
+        expect(@user.valid?).to be_falsey
+      end
+      it "should not pass validation with empty string password_confirmation" do
+        @user.reset_password password: "testpass", password_confirmation: ""
+        expect(@user.valid?).to be_falsey
+      end
+    end
+  end
+
+  describe "Token Generation" do
+    before(:each) do
+      @user = create(:user)
+    end
+    it "should generate an auth_token on user creation" do
+      expect(@user.auth_token).to_not be_nil
+    end
+
+    it "should generate an activation token on user creation" do
       expect(@user.activation_token).to_not be_nil
+    end
+
+    it "should generate a password reset token on user#send_password_reset" do
+      @user.generate_password_reset
+      expect(@user.password_reset_token).to_not be_nil
     end
   end
 end

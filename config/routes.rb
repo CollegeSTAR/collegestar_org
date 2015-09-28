@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
 
   resources :sessions, only: [:create, :destroy]
-  resources :users, only: [:index, :new, :create, :destroy]
+  resources :password_resets, except: [:index, :show],  path: '/password-reset'
+  resources :users, only: [:index, :new, :create, :update, :destroy]
   resources :profile, only: [:edit, :show], controller: :users, as: :profile do
     resources :modules, only: [:index, :show], controller: :module_history, as: :module
   end
