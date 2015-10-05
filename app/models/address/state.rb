@@ -1,4 +1,4 @@
-class State
+module Address::State
 
   @@states = {
     "AL" => "Alabama",
@@ -69,5 +69,21 @@ class State
       return state_name if abbrev.downcase == abbreviation.downcase
     end
     false
+  end
+
+  def self.valid?(args = {})
+    valid_name, valid_abbr, valid = false, false, false
+    name = args.fetch(:name, false)
+    abbr = args.fetch(:abbreviation, false)
+    if name
+      valid_name = true if @@states.has_value? name
+    end
+    if abbr
+      valid_abbr = true if @@states.has_key? abbr
+    end
+    valid = true if valid_name && valid_abbr
+    valid = true if valid_name && !abbr
+    valid = true if valid_abbr && !name
+    valid
   end
 end
