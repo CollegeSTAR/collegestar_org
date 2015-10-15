@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, except: [:new]
 
   # GET /users
   # GET /users.json
@@ -29,9 +29,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'Thank you for signing up!' }
-        format.json { render :show, status: :created, location: @user }
+        create_session( 
+          email: @user.email,
+          password: @user.password
+        )
+        format.html { redirect_to profile_path(@user), notice: 'Thank you for signing up!' }
+        format.json { render :show, status: :created, location: profile_path(@user) }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

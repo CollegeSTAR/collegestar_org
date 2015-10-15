@@ -1,5 +1,6 @@
 class CampusesController < ApplicationController
   before_action :set_campus, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource except: [:index, :show]
 
   # GET /campuses
   # GET /campuses.json

@@ -18,8 +18,10 @@ class PasswordResetsController < ApplicationController
   def update
     if @user.reset_password(password_reset_params) 
       PasswordResetMailer.reset_confirmation(@user).deliver_now
-      @session = Session.create email: @user.email, password: params[:user][:password]
-      persist_session(@session)
+      create_session(
+        email: @user.email, 
+        password: params[:user][:password]
+      )
       redirect_to profile_path(@user), notice: "Password updated successfully."
     else
       redirect_to edit_password_reset_path(params[:id]), notice: "Could not update your password, please try again."

@@ -1,4 +1,5 @@
 class UdlModulesController < ApplicationController
+  load_and_authorize_resource except: [:show, :index]
   before_action :set_udl_module, only: [:show, :edit, :update, :destroy]
 
   # GET /udl_modules

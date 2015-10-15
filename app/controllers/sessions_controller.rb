@@ -3,15 +3,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @session = Session.create(
+    create_session(
       email: params[:email], 
       password: params[:password], 
       permanent: params[:remember_me]
     )
     if @session.auth_token
-      persist_session( @session )
       redirect_to root_url
     else
+      flash.now[:error] = "Incorrect Username and/or password, please try again."
       render "new"
     end
   end

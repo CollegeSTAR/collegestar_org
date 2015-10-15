@@ -47,6 +47,10 @@ RSpec.describe CampusesController do
   end
 
   describe "GET #new" do
+    before(:each) do
+      @user = create(:admin_user)
+      cookies[:auth_token] = @user.auth_token
+    end
     it "responds successfully with HTTP status code 200" do
       get :new
       expect(response).to be_successful
@@ -60,6 +64,11 @@ RSpec.describe CampusesController do
   end
 
   describe "POST #create" do
+    before(:each) do
+      @user = create(:admin_user)
+      cookies[:auth_token] = @user.auth_token
+    end
+
     context "with valid attributes" do
       it "redirects to campus show page for new event." do
         post :create, campus: FactoryGirl.attributes_for(:campus)
@@ -77,6 +86,8 @@ RSpec.describe CampusesController do
 
   describe "GET #edit" do
     before(:each) do
+      @user = create(:admin_user)
+      cookies[:auth_token] = @user.auth_token
       @campus = create(:campus)
       get :edit, slug: @campus
     end
@@ -96,6 +107,8 @@ RSpec.describe CampusesController do
     end
 
     before(:each) do
+      @user = create(:admin_user)
+      cookies[:auth_token] = @user.auth_token
       @campus = create(:campus)
       patch :update, slug: @campus, campus: attr
       @campus.reload
@@ -108,6 +121,8 @@ RSpec.describe CampusesController do
 
   describe "DELETE #destroy" do
     before(:each) do 
+      @user = create(:admin_user)
+      cookies[:auth_token] = @user.auth_token
       @campus = create(:campus)
       delete :destroy, slug: @campus
     end
