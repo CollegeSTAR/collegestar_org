@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: { on: :create }
   has_secure_password
 
+  has_many :access_controls
+  has_many :roles, through: :access_controls
+
   before_create do 
     generate_token(:auth_token)
     generate_token(:activation_token)
@@ -23,6 +26,20 @@ class User < ActiveRecord::Base
   end
 
   def self.guaranteed_find( id )
+    if user = User.find(id)
+      return user
+    end
+    return NullUser.new
+  end
+
+  def admin?
+    return false
+  end
+
+  def generate_abilities(ability)
+    roles.each do |role|
+      role.apply_abilities ability
+    end
   end
 
   def generate_password_reset

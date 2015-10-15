@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820183009) do
+ActiveRecord::Schema.define(version: 20151015151015) do
+
+  create_table "access_controls", id: false, force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
+  add_index "access_controls", ["role_id"], name: "index_access_controls_on_role_id"
+  add_index "access_controls", ["user_id"], name: "index_access_controls_on_user_id"
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",               null: false
@@ -74,6 +82,15 @@ ActiveRecord::Schema.define(version: 20150820183009) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "action"
+    t.string   "subject"
+    t.string   "conditions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "udl_modules", force: :cascade do |t|

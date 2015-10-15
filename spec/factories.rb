@@ -51,4 +51,32 @@ FactoryGirl.define do
     password "secret_pass"
     password_confirmation "secret_pass"
   end
+
+  factory :admin_user, class: User do
+    first_name "Tanner_admin"
+    last_name "Jones_admin"
+    email "admin@collegestar.org"
+    password "secret_pass"
+    password_confirmation "secret_pass"
+    after(:create) { |user| user.roles << create(:admin_role) }
+  end
+
+  factory :basic_role, class: Role do
+    name "basic"
+    action "manage"
+    subject "user"
+    conditions "id"
+  end
+
+  factory :admin_role, class: Role do
+    name "admin"
+    action "manage"
+    subject "all"
+  end
+
+  factory :event_admin_role, class: Role do
+    name "event_admin"
+    action "manage"
+    subject "event"
+  end
 end

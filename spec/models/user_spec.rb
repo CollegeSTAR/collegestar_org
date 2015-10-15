@@ -170,4 +170,27 @@ RSpec.describe User do
       expect(@user.password_reset_token).to_not be_nil
     end
   end
+
+  describe "Roles" do
+    before(:each) do
+      @user = create(:user)
+      @admin_role = create(:admin_role)
+    end
+    it "should add admin role to roles" do
+      @user.roles << @admin_role
+      @user_with_role = User.find_by email: @user.email
+      expect(@user_with_role.roles).to match_array([@admin_role])
+    end
+  end
+
+  describe "#generate_abilities" do
+    it "should call apply_abilities on each role with ability as argument" do
+      @user = create(:user)
+      @ability = double("ability")
+      @role = create(:basic_role)
+      @user.roles << @role
+      expect(@role).to receive(:apply_abilities).with(@ability)
+      @user.generate_abilities @ability
+    end
+  end
 end
