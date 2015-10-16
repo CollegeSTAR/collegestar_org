@@ -29,6 +29,14 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     user ||= NullUser.new
+    basic_abilities(user)
     user.generate_abilities(self)       
+  end
+
+  private
+  
+  #Define abilities that every user should have here
+  def basic_abilities(user)
+    can :manage, User, id: user.id # a user can manage her profile
   end
 end
