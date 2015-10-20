@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  load_and_authorize_resource except: [:new, :create]
   respond_to :html
   def index
   end
