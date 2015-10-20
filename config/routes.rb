@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'frequently-asked-questions' => 'main#faq', as: :faq
   get 'supporters' => 'main#supporters'
   get 'partners' => 'main#partners'
-  get 'contact' => 'contacts#new', as: :new_contact
+  get 'contact-us' => 'contacts#new', as: :new_contact
   get 'signup' => 'users#new', as: :signup
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   resources :password_resets, except: [:index, :show],  path: '/password-reset'
   resources :users, only: [:index, :new, :create, :update, :destroy]
   resources :profile, only: [:edit, :show], controller: :users, as: :profile do
-    resources :modules, only: [:index, :show], controller: :module_history, as: :module
+    resources :modules, only: [:index, :show], controller: :udl_module_history, as: :module
   end
-  resources :news_articles, only: [:new]
+  resources :news_articles, only: [:new], path: '/news-article'
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug
   resources :events, param: :slug
