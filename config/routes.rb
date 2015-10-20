@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
-  resources :surveys
+  resources :surveys, param: :slug
 end
