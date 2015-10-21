@@ -64,6 +64,6 @@ group :development, :test do
   gem 'responders', '~> 2.0'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
