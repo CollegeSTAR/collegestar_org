@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ContactsController do
   describe "#index" do
+    let(:user) { create(:user) }
+    let(:contact_admin_role) { create(:contact_admin_role) }
     before(:each) do
+      cookies[:auth_token] = user.auth_token
+      user.roles << contact_admin_role
       get :index
     end
     it "should successfully return response with status 200" do
