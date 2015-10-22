@@ -36,10 +36,6 @@ class User < ActiveRecord::Base
     return NullUser.new
   end
 
-  def admin?
-    return false
-  end
-
   def generate_abilities(ability)
     roles.each do |role|
       role.apply_abilities ability
