@@ -3,14 +3,18 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { in: 2..50 }
   validates :email, presence: true, uniqueness: true, email: true
   validates :password,
-            presence: { on: :create },
-            length: { minimum: 8 }, 
-            allow_nil: true
+              presence: { on: :create },
+              length: { minimum: 8 }, 
+              allow_nil: true
   validates :password_confirmation, presence: { on: :create }
   has_secure_password
 
   has_many :access_controls
   has_many :roles, through: :access_controls
+  has_many :modules_authors, foreign_key: 'author_id'
+  has_many :author_modules, class_name: 'UdlModule', through: :modules_authors
+  has_many :modules_contributing_faculty, foreign_key: 'contributing_faculty_id'
+  has_many :faculty_modules, class_name: 'UdlModule', through: :modules_contributing_faculty
 
   before_create do 
     generate_token(:auth_token)

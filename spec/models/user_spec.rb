@@ -68,6 +68,21 @@ RSpec.describe User do
     end
   end
 
+  describe "associations" do
+    it "has many modules_authors" do
+      is_expected.to have_many(:modules_authors).with_foreign_key('author_id')
+    end
+    it "has many author_modules" do
+      is_expected.to have_many(:author_modules).class_name('UdlModule').through(:modules_authors)
+    end
+    it "has many modules_contributing_faculty" do
+      is_expected.to have_many(:modules_contributing_faculty).with_foreign_key('contributing_faculty_id')
+    end
+    it "has many faculty_modules" do
+      is_expected.to have_many(:faculty_modules).class_name('UdlModule').through(:modules_contributing_faculty)
+    end
+  end
+
   describe "#guaranteed_find_by" do
     it "should return a normal user if one is found" do
       @user = create(:user)
@@ -154,43 +169,39 @@ RSpec.describe User do
   end
 
   describe "Token Generation" do
-    before(:each) do
-      @user = create(:user)
-    end
+      subject(:user) { create(:user) }
     it "should generate an auth_token on user creation" do
-      expect(@user.auth_token).to_not be_nil
+      expect(user.auth_token).to_not be_nil
     end
 
     it "should generate an activation token on user creation" do
-      expect(@user.activation_token).to_not be_nil
+      expect(user.activation_token).to_not be_nil
     end
 
     it "should generate a password reset token on user#send_password_reset" do
-      @user.generate_password_reset
-      expect(@user.password_reset_token).to_not be_nil
+      user.generate_password_reset
+      expect(user.password_reset_token).to_not be_nil
     end
   end
 
   describe "Roles" do
-    before(:each) do
-      @user = create(:user)
-      @admin_role = create(:admin_role)
-    end
+      let(:user) { create(:user) }
+      let(:admin_role) { create(:admin_role) }
     it "should add admin role to roles" do
-      @user.roles << @admin_role
-      @user_with_role = User.find_by email: @user.email
-      expect(@user_with_role.roles).to match_array([@admin_role])
+      user.roles << admin_role
+      user_with_role = User.find_by email: user.email
+      expect(user_with_role.roles).to match_array([admin_role])
     end
   end
 
   describe "#generate_abilities" do
+    subject(:role) { create(:basic_role)  }
+    let(:user) { create(:user) }
+    let(:ability) { double("ability") }
     it "should call apply_abilities on each role with ability as argument" do
-      @user = create(:user)
-      @ability = double("ability")
-      @role = create(:basic_role)
-      @user.roles << @role
-      expect(@role).to receive(:apply_abilities).with(@ability)
-      @user.generate_abilities @ability
+      user.roles << role
+      is_expected.to receive(:apply_abilities).with(ability)
+      user.generate_abilities ability
     end
   end
 end

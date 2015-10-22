@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015151015) do
+ActiveRecord::Schema.define(version: 20151022134916) do
 
   create_table "access_controls", id: false, force: :cascade do |t|
     t.integer "role_id"
@@ -75,6 +75,30 @@ ActiveRecord::Schema.define(version: 20151015151015) do
   add_index "events", ["name"], name: "index_events_on_name", unique: true
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true
 
+  create_table "modules_authors", id: false, force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "author_module_id"
+  end
+
+  add_index "modules_authors", ["author_id"], name: "index_modules_authors_on_author_id"
+  add_index "modules_authors", ["author_module_id"], name: "index_modules_authors_on_author_module_id"
+
+  create_table "modules_contributing_faculty", id: false, force: :cascade do |t|
+    t.integer "contributing_faculty_id"
+    t.integer "faculty_module_id"
+  end
+
+  add_index "modules_contributing_faculty", ["contributing_faculty_id"], name: "index_modules_contributing_faculty_on_contributing_faculty_id"
+  add_index "modules_contributing_faculty", ["faculty_module_id"], name: "index_modules_contributing_faculty_on_faculty_module_id"
+
+  create_table "modules_sections", id: false, force: :cascade do |t|
+    t.integer "section_id"
+    t.integer "section_module_id"
+  end
+
+  add_index "modules_sections", ["section_id"], name: "index_modules_sections_on_section_id"
+  add_index "modules_sections", ["section_module_id"], name: "index_modules_sections_on_section_module_id"
+
   create_table "news_articles", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -91,6 +115,13 @@ ActiveRecord::Schema.define(version: 20151015151015) do
     t.string   "conditions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "udl_module_sections", force: :cascade do |t|
+    t.string  "title"
+    t.text    "content"
+    t.string  "parent"
+    t.integer "position"
   end
 
   create_table "udl_modules", force: :cascade do |t|
