@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
 
   has_many :access_controls
   has_many :roles, through: :access_controls
-  has_many :modules_authors, foreign_key: 'author_id'
-  has_many :author_modules, class_name: 'UdlModule', through: :modules_authors
-  has_many :modules_contributing_faculty, foreign_key: 'contributing_faculty_id'
-  has_many :faculty_modules, class_name: 'UdlModule', through: :modules_contributing_faculty
+  has_many :module_author_associations, foreign_key: 'author_id'
+  has_many :author_modules, through: :module_author_associations, source: 'module'
+  has_many :module_faculty_associations, foreign_key: 'faculty_id'
+  has_many :faculty_modules, through: :module_faculty_associations, source: 'module'
 
   before_create do 
     generate_token(:auth_token)

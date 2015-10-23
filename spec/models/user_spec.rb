@@ -69,17 +69,17 @@ RSpec.describe User do
   end
 
   describe "associations" do
-    it "has many modules_authors" do
-      is_expected.to have_many(:modules_authors).with_foreign_key('author_id')
+    it "has many module_author_associations" do
+      is_expected.to have_many(:module_author_associations).with_foreign_key('author_id')
     end
     it "has many author_modules" do
-      is_expected.to have_many(:author_modules).class_name('UdlModule').through(:modules_authors)
+      is_expected.to have_many(:author_modules).class_name('UdlModule').through(:module_author_associations)
     end
-    it "has many modules_contributing_faculty" do
-      is_expected.to have_many(:modules_contributing_faculty).with_foreign_key('contributing_faculty_id')
+    it "has many module_faculty_associations" do
+      is_expected.to have_many(:module_faculty_associations).with_foreign_key('faculty_id')
     end
     it "has many faculty_modules" do
-      is_expected.to have_many(:faculty_modules).class_name('UdlModule').through(:modules_contributing_faculty)
+      is_expected.to have_many(:faculty_modules).class_name('UdlModule').through(:module_faculty_associations)
     end
   end
 

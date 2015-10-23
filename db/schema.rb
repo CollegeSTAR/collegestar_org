@@ -75,29 +75,29 @@ ActiveRecord::Schema.define(version: 20151022134916) do
   add_index "events", ["name"], name: "index_events_on_name", unique: true
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true
 
-  create_table "modules_authors", id: false, force: :cascade do |t|
+  create_table "module_author_associations", id: false, force: :cascade do |t|
     t.integer "author_id"
-    t.integer "author_module_id"
+    t.integer "module_id"
   end
 
-  add_index "modules_authors", ["author_id"], name: "index_modules_authors_on_author_id"
-  add_index "modules_authors", ["author_module_id"], name: "index_modules_authors_on_author_module_id"
+  add_index "module_author_associations", ["author_id"], name: "index_module_author_associations_on_author_id"
+  add_index "module_author_associations", ["module_id"], name: "index_module_author_associations_on_module_id"
 
-  create_table "modules_contributing_faculty", id: false, force: :cascade do |t|
-    t.integer "contributing_faculty_id"
-    t.integer "faculty_module_id"
+  create_table "module_faculty_associations", id: false, force: :cascade do |t|
+    t.integer "faculty_id"
+    t.integer "module_id"
   end
 
-  add_index "modules_contributing_faculty", ["contributing_faculty_id"], name: "index_modules_contributing_faculty_on_contributing_faculty_id"
-  add_index "modules_contributing_faculty", ["faculty_module_id"], name: "index_modules_contributing_faculty_on_faculty_module_id"
+  add_index "module_faculty_associations", ["faculty_id"], name: "index_module_faculty_associations_on_faculty_id"
+  add_index "module_faculty_associations", ["module_id"], name: "index_module_faculty_associations_on_module_id"
 
-  create_table "modules_sections", id: false, force: :cascade do |t|
+  create_table "module_section_associations", id: false, force: :cascade do |t|
     t.integer "section_id"
-    t.integer "section_module_id"
+    t.integer "module_id"
   end
 
-  add_index "modules_sections", ["section_id"], name: "index_modules_sections_on_section_id"
-  add_index "modules_sections", ["section_module_id"], name: "index_modules_sections_on_section_module_id"
+  add_index "module_section_associations", ["module_id"], name: "index_module_section_associations_on_module_id"
+  add_index "module_section_associations", ["section_id"], name: "index_module_section_associations_on_section_id"
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title"

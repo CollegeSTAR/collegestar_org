@@ -1,4 +1,4 @@
 class UdlModuleSection < ActiveRecord::Base
-  has_many :modules_sections, foreign_key: 'section_id'
-  has_many :section_modules, class_name: 'UdlModule', through: :modules_sections
+  has_many :module_section_associations, foreign_key: 'section_id'
+  has_many :modules, class_name: 'UdlModule', through: :module_section_associations
 end

@@ -17,23 +17,23 @@ RSpec.describe UdlModule do
   end
 
   describe "associations" do
-    it "has many modules_authors" do
-      is_expected.to have_many(:modules_authors).with_foreign_key('author_module_id')
+    it "has many module_author_associations" do
+      is_expected.to have_many(:module_author_associations).with_foreign_key('module_id')
     end    
     it "has many modules_contributing_faculty" do
-      is_expected.to have_many(:modules_contributing_faculty).with_foreign_key('faculty_module_id')
+      is_expected.to have_many(:module_faculty_associations).with_foreign_key('module_id')
     end
-    it "has many modules_sections" do
-      is_expected.to have_many(:modules_sections).with_foreign_key('section_module_id')
+    it "has many module_section_associations" do
+      is_expected.to have_many(:module_section_associations).with_foreign_key('module_id')
     end
     it "has many authors" do
-      is_expected.to have_many(:authors).through(:modules_authors).class_name('User')
+      is_expected.to have_many(:authors).through(:module_author_associations).class_name('User')
     end
-    it "has many contributing faculty" do
-      is_expected.to have_many(:contributing_faculty).through(:modules_contributing_faculty).class_name('User')
+    it "has many faculty" do
+      is_expected.to have_many(:faculty).through(:module_faculty_associations).class_name('User')
     end
     it "has many sections" do
-      is_expected.to have_many(:sections).through(:modules_sections).class_name('UdlModuleSection')
+      is_expected.to have_many(:sections).through(:module_section_associations).class_name('UdlModuleSection')
     end
     xit "has one assessment" do
       is_expected.to have_one(:assessment)
