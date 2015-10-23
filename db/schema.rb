@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022134916) do
+ActiveRecord::Schema.define(version: 20151023200110) do
 
   create_table "access_controls", id: false, force: :cascade do |t|
     t.integer "role_id"
@@ -148,6 +148,11 @@ ActiveRecord::Schema.define(version: 20151022134916) do
     t.string   "activation_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.boolean  "event_consent"
+    t.boolean  "module_consent"
   end
+
+  add_index "users", ["event_consent"], name: "index_users_on_event_consent"
+  add_index "users", ["module_consent"], name: "index_users_on_module_consent"
 
 end
