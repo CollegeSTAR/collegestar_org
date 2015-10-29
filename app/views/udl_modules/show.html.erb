@@ -2,42 +2,118 @@
   <div id="single-column-wrapper">
     <div id="content">
       <p id="notice"><%= notice %></p>
-      
-      <p>
-        <strong>Title:</strong>
-        <%= @udl_module.title %>
-      </p>
-      
-      <p>
-        <strong>Slug:</strong>
-        <%= @udl_module.slug %>
-      </p>
-      
-      <p>
-        <strong>Sub heading:</strong>
-        <%= @udl_module.sub_heading %>
-      </p>
-      
-      <p>
-        <strong>Udl principles:</strong>
-        <%= @udl_module.udl_principles %>
-      </p>
-      
-      <p>
-        <strong>Description:</strong>
-        <%= @udl_module.description %>
-      </p>
-      
-      <p>
-        <strong>Released:</strong>
-        <%= @udl_module.released %>
-      </p>
-      
-      <p>
-        <strong>Release date:</strong>
-        <%= @udl_module.release_date %>
-      </p>
-      
+  <main>
+    <section id="module-title">
+      <div id="module-icon-wrapper">
+       <a href="#udl-icon" title="This icon is a graphical representation of UDL priniciples with which this module aligns."><%= image_tag( 'trans.png', class: get_udl_trio_class(@udl_module), alt: 'This module models the UDL Principles of Representation and Action and Expression.') %></a>
+       
+      </div>
+      <div id="module-title-wrapper">
+       <h1><%= @udl_module.title %></h1>
+       <h2><%= @udl_module.sub_heading %>
+      </div>
+    </section>
+
+    <article id="module-content">
+      <div id="module-introduction-video-wrapper">
+        <img src="http://placehold.it/640x360">
+      </div>
+
+    <div id="module-introduction-wrapper">   
+       <aside id="toc">
+         <h1>Contents</h1>
+         <ol>
+           <li><%= link_to("Introduction", udl_module_url(@udl_module, anchor: "introduction")) %>
+             <ol>
+               <% @udl_module.get_sections_by_page(:introduction).each do |section| %>
+                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <% end %>
+             </ol>
+           </li>
+           <li><%= link_to("UDL Principles", udl_module_url(@udl_module, anchor: "udl-principles")) %>
+             <ol>
+                <% @udl_module.get_sections_by_page(:udl_principles).each do |section| %>
+                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <% end %>
+             </ol>
+           </li>
+           <li><%= link_to("Instructional Practice", udl_module_url(@udl_module, anchor: "instructional-practice")) %>
+             <ol>
+                <% @udl_module.get_sections_by_page(:instructional_practice).each do |section| %>
+                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <% end %>
+             </ol>
+           </li>           
+           <li><%= link_to("Learn More", udl_module_url(@udl_module, anchor: "learn-more")) %>
+             <ol>
+                <% @udl_module.get_sections_by_page(:learn_more).each do |section| %>
+                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <% end %>
+             </ol>
+           </li>
+           <li><%= link_to("References &amp; Resources".html_safe, udl_module_url(@udl_module, anchor: "references-and-resources")) %>
+             <ol>
+               <% @udl_module.get_sections_by_page(:references).each do |section| %>
+                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <% end %>
+             </ol>
+           </li>
+         </ol>
+       </aside>
+       
+       <div id="module-introduction">
+       <a id="introduction"></a>
+       <h2>Introduction</h2>
+       
+       <% @udl_module.get_sections_by_page(:introduction).each do |section| %>
+         <a id="<%= section.slug %>"></a>
+         <h3><%= section.title %></h3>
+           <%= section.content.html_safe %>
+       <% end %>
+       </div>
+     </div>
+     
+     <div id="module-udl-principles">
+       <a id="udl-principles"></a>
+       <h2>UDL Principles</h2>
+       
+       <% @udl_module.get_sections_by_page(:udl_principles).each do |section| %>
+         <a id="<%= section.slug %>"></a>
+         <h3><%= section.title %></h3>
+         <%= section.content.html_safe %>
+       <% end %>
+      </div>
+      <div id="module-instructional-practice">
+       <a id="instructional-practice"></a>
+       <h2>Instructional Practice</h2>
+       
+       <% @udl_module.get_sections_by_page(:instructional_practice).each do |section| %>
+         <a id="<%= section.slug %>"></a>
+         <h3><%= section.title %></h3>
+         <%= section.content.html_safe %>
+       <% end %>       
+     </div>
+     <div id="module-learn-more">
+       <a id="learn-more"></a>
+       <h2>Learn More</h2>
+       
+       <% @udl_module.get_sections_by_page(:learn_more).each do |section| %>
+         <a id="<%= section.slug %>"></a>
+         <h3><%= section.title %></h3>
+         <%= section.content.html_safe %>
+       <% end %>
+    </div>
+
+    <div id="module-references">
+       <a id="references-and-resources"></a>
+       <h2>References &amp; Resources</h2>
+       
+       <% @udl_module.get_sections_by_page(:references).each do |section| %>
+         <a id="<%= section.slug %>"></a>
+         <h3><%= section.title %></h3>
+         <%= section.content %>
+       <% end %>
+    </div>
       <p>
         <strong>Latest revision date:</strong>
         <%= @udl_module.latest_revision_date %>
@@ -45,6 +121,8 @@
       
       <%= link_to 'Edit', edit_udl_module_path(@udl_module) %> |
       <%= link_to 'Back', udl_modules_path %>
+        </article>
+      </main>
     </div>
   </div>
 </div>

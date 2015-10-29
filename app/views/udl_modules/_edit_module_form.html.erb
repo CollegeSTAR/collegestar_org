@@ -11,37 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :slug %><br>
-    <%= f.text_field :slug %>
-  </div>
+  <% if !@udl_module.released %>
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :sub_heading %><br>
     <%= f.text_field :sub_heading %>
   </div>
+
+  <h1>Description</h1>
   <div class="field">
-    <%= f.label :udl_principles %><br>
-    <%= f.text_field :udl_principles %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description, "Please provide a brief summary about this module." %><br>
     <%= f.text_area :description %>
   </div>
+
+
+  <h1>UDL Alignment</h1>
   <div class="field">
-    <%= f.label :released %><br>
+    <%= f.check_box :udl_representation %>
+    <%= f.label :udl_representation, "Representation" %><br>
+  </div>  
+  <div class="field">
+    <%= f.check_box :udl_action_expression %>
+    <%= f.label :udl_action_expression, "Action and Expression" %><br>
+  </div>
+  <div class="field">
+    <%= f.check_box :udl_engagement %>
+    <%= f.label :udl_engagement, "Engagement" %><br>
+  </div>
+
+  <h1>Release Status</h1>
+
+  <div class="field">
     <%= f.check_box :released %>
+    <%= f.label :released %>
   </div>
   <div class="field">
     <%= f.label :release_date %><br>
     <%= f.date_select :release_date %>
-  </div>
-  <div class="field">
-    <%= f.label :latest_revision_date %><br>
-    <%= f.date_select :latest_revision_date %>
   </div>
   <div class="actions">
     <%= f.submit %>

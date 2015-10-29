@@ -12,6 +12,7 @@
 @import "partials/susy_globals";
 @import "partials/variables";
 @import "mixins/base-mixins";
+@import "mixins/udl_module-mixins";
 @import "partials/base";
 @import "partials/header";
 @import "partials/side_bar";
@@ -24,3 +25,4 @@
 @import "partials/partners";
 @import "partials/news_articles";
 @import "partials/users";
+@import "partials/udl_modules";

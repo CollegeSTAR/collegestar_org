@@ -6,16 +6,13 @@
       <h1>Facutly Development Modules</h1>
       <ul> 
           <% @udl_modules.each do |udl_module| %>
-              <li><%= udl_module.title %>
-              <%= udl_module.slug %>
-              <%= link_to 'Show', udl_module %>
-              <%= link_to 'Edit', edit_udl_module_path(udl_module) %>
-              <%= link_to 'Destroy', udl_module, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              <li><%= link_to udl_module.title, udl_module %>
           <% end %>
       </ul>
       <br>
-      
-      <%= link_to 'New Udl module', new_udl_module_path %>
+      <% if can? :create, @udl_module %> 
+        <%= link_to 'New Udl module', new_udl_module_path %>
+      <% end %>
     </div>
   </div>
 </div>

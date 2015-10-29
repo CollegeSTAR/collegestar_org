@@ -26,6 +26,11 @@ class UdlModulesController < ApplicationController
   # POST /udl_modules.json
   def create
     @udl_module = UdlModule.new(udl_module_params)
+    @udl_module.slug ||= @udl_module.title.parameterize if @udl_module.title
+    @udl_module.authors << current_user
+    if params[:author_is_contributing_faculty]
+      @udl_module.faculty << current_user
+    end
 
     respond_to do |format|
       if @udl_module.save
@@ -43,7 +48,7 @@ class UdlModulesController < ApplicationController
   def update
     respond_to do |format|
       if @udl_module.update(udl_module_params)
-        format.html { redirect_to @udl_module, notice: 'Udl module was successfully updated.' }
+        format.html { redirect_to edit_udl_module_path(@udl_module), notice: 'Udl module was successfully updated.' }
         format.json { render :show, status: :ok, location: @udl_module }
       else
         format.html { render :edit }
@@ -70,6 +75,9 @@ class UdlModulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def udl_module_params
-      params.require(:udl_module).permit(:title, :slug, :sub_heading, :udl_principles, :description, :released, :release_date, :latest_revision_date)
+      params.require(:udl_module).permit(:title, :slug, :sub_heading, :udl_representation, :udl_action_expression, :udl_engagement, :description, :released, :release_date, :latest_revision_date)
+    end
+
+    def create_module_pages
     end
 end

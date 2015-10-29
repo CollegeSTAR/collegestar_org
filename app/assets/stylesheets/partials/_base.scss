@@ -5,6 +5,7 @@
 //$medium: min-width 500px;
 
 body {
+  @include show-grid(overlay);
   background-color: $background-color;
   margin: 0px;
   padding: 0px;

@@ -1,0 +1,119 @@
+#content img.udl-all { @include udl-trio(0); }
+#content img.udl-rep { @include udl-trio(-50px); }
+#content img.udl-rep-exp { @include udl-trio(-100px); }
+#content img.udl-rep-eng { @include udl-trio(-150px); }
+#content img.udl-eng { @include udl-trio(-200px); }
+#content img.udl-eng-exp { @include udl-trio(-250px); }
+#content img.udl-exp { @include udl-trio(-300px); }
+#content img.udl-none { @include udl-trio(-350px); }
+
+#module-title {
+  @include span(17.6 of 18);
+  margin-left: gutter();
+  margin-right: gutter();
+  margin-top: 0;
+  margin-bottom: 3rem;
+  padding-left: gutter();
+  padding-right: gutter();
+  border-bottom: $default-border-width solid $default-border-color;
+  
+  #module-icon-wrapper {
+    @include span(1.5 of 18 no-gutters);
+    padding: 0;
+  }
+
+  #module-title-wrapper {
+    @include span(16 of 18 at 1.6 no-gutters);
+    min-height: 50px;
+
+    h1 {
+      margin: -.2em 0 0 0;
+      padding: 0;
+      font-family: $default-font-family;
+      font-weight: 700;
+      color: $default-text-color;
+      font-size: $base-font-size * 1.75;
+      border: none;
+    }
+
+    h2 {
+      margin: -.2em 0 0 0;
+      padding: 0 0 0 .5em;
+      font-family: $default-font-family;
+      font-weight: 300;
+      color: $default-text-color;
+      font-size: $base-font-size * 1.1;
+      border: none;
+    }
+  }
+}
+
+#module-introduction-video-wrapper {
+  @include span(18 of 18 no-gutters);
+  text-align: center;
+  margin-bottom: gutter(3em);
+  
+  img {
+    box-shadow: none;
+  }
+}
+
+#module-introduction-wrapper {
+  @include span(18 of 18);
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include clearfix();
+}
+
+#toc {
+  @include span(6 of 18);
+  margin-left: gutter();
+  margin-right: 0;
+  background-color: #F2F2F2;
+  border: 1px solid #E6E6E6;
+  border-bottom: 5px solid #E6E6E6;
+  @include radius();
+  @include clearfix();
+
+  h1 {
+    margin: .3rem;
+    padding: 0;
+    font-family: $default-font-family;
+    font-weight: bold;
+    color: #666666;
+    font-size: $base-font-size * 1.3;
+    text-align: center;
+  }
+
+  ol {
+    margin: .5rem .75rem;
+    padding: 0px;
+    font-family: $default-font-family;
+    font-weight: bold;
+    color: $default-text-color;
+    counter-reset: section;
+    list-style-type: none;
+
+    ol {
+      margin: .4rem 0 .4rem 2.25rem;
+      text-indent: -1.5rem;
+    }
+  }
+}
+
+#module-introduction {
+  @include span( 12 of 18 at 7 no-gutters);
+  @include clearfix();
+  margin-bottom: gutter();
+}
+
+#module-udl-principles, #module-instructional-practice, #module-learn-more, #module-references {
+  @include module-section();
+}
+
+h2 {
+  font-weight: bold;  
+  font-size: $base-font-size * 1.3;
+  border-bottom: $default-border-width solid $default-border-color;
+  @include module-header();
+}

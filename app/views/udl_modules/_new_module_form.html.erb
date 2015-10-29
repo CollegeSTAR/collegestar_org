@@ -16,20 +16,35 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :slug %><br>
-    <%= f.text_field :slug %>
-  </div>
-  <div class="field">
     <%= f.label :sub_heading %><br>
     <%= f.text_field :sub_heading %>
   </div>
+
+  <h1>Description</h1>
   <div class="field">
-    <%= f.label :udl_principles %><br>
-    <%= f.text_field :udl_principles %>
+    <%= f.label :description, "Please provide a short description summarizing what this module is about." %><br>
+    <%= f.text_area :description %>
+  </div>
+
+
+  <h1>UDL Alignment</h1>
+  <div class="field">
+    <%= f.check_box :udl_representation %>
+    <%= f.label :udl_representation, "Representation" %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.check_box :udl_action_expression %>
+    <%= f.label :udl_action_expression, "Action and Expression" %>
+  </div>
+  <div class="field">
+    <%= f.check_box :udl_engagement %>
+    <%= f.label :udl_engagement, "Engagement" %>
+  </div>
+
+  <h1>Contributing Faculty</h1>
+  <div class="field">
+    <%= check_box_tag(:author_is_contributing_faculty) %>
+    <%= label_tag(:author_is_contributing_faculty, "I am a contributing Faculty for this module") %>
   </div>
   <div class="actions">
     <%= f.submit %>

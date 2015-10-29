@@ -1,0 +1,20 @@
+@mixin module-section() {
+  @include span(18 of 18);
+  margin-top: gutter();
+  @include clearfix();
+}
+
+@mixin module-header() {
+  margin: .35rem .8rem .3rem .8rem;
+  padding: 0 .5rem;
+  font-family: $default-font-family;
+}
+
+@mixin udl-trio($y-offset) {
+  width: 50px;
+  height: 50px;
+  background:url(<%= asset_path 'udl-trio-sprite-card-2x.png' %>) 0 $y-offset;
+  background-size: 100%;
+  box-shadow: none;
+}
+

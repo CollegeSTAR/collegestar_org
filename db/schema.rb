@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023200110) do
+ActiveRecord::Schema.define(version: 20151027145821) do
 
   create_table "access_controls", id: false, force: :cascade do |t|
     t.integer "role_id"
@@ -122,19 +122,22 @@ ActiveRecord::Schema.define(version: 20151023200110) do
     t.text    "content"
     t.string  "parent"
     t.integer "position"
+    t.string  "slug"
   end
 
   create_table "udl_modules", force: :cascade do |t|
     t.string   "title"
     t.string   "slug"
     t.string   "sub_heading"
-    t.string   "udl_principles"
     t.text     "description"
     t.boolean  "released"
     t.date     "release_date"
     t.date     "latest_revision_date"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.boolean  "udl_representation"
+    t.boolean  "udl_action_expression"
+    t.boolean  "udl_engagement"
   end
 
   create_table "users", force: :cascade do |t|
