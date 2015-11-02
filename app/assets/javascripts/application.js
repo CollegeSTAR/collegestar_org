@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require ckeditor-jquery
 //= require turbolinks
-//= require search_bar
-//= require user_menu
+//= require_tree .
 
 //$(function(){ $(document).foundation(); });
