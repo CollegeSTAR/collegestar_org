@@ -1,0 +1,13 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @udl_module.title %> Sections</h1>
+      
+      <% @udl_module_sections.each do |section| %>
+        <p><strong><%= section.title %></strong><br>
+          <%= section.content.html_safe %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

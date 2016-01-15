@@ -1,0 +1,22 @@
+<%= form_for(@udl_module_section) do |f| %>
+
+  <%= f.hidden_field :parent, value: @udl_module_section.parent %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div> 
+
+  <div class="actions">
+    <p>
+    <%= button_tag(
+          type: 'submit',
+          class: 'create-button'
+        ) do
+          fa_icon( 'check', text: 'Create section' )
+        end %>
+    </p>
+  </div>
+<% end %>
