@@ -18,13 +18,15 @@ Rails.application.routes.draw do
   resources :password_resets, except: [:index, :show],  path: '/password-reset'
   resources :users, only: [:index, :new, :create, :update, :destroy]
   resources :profile, only: [:edit, :show], controller: :users, as: :profile do
-    resources :modules, only: [:index, :show], controller: :udl_module_history, as: :module
+    resources :modules, only: [:index, :show], controller: :udl_module_history, as: :modules
   end
   resources :news_articles, only: [:new], path: '/news-article'
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug
   resources :events, param: :slug
-  resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules
+  resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
+    resources :sections, except: [:show], param: :slug, controller: :udl_module_sections, as: :sections
+  end
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
   resources :surveys, param: :slug
