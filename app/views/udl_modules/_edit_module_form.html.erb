@@ -54,6 +54,11 @@
     <%= f.date_select :release_date %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= button_tag(
+          type: 'submit',
+          class: 'create-button'
+        ) do 
+            fa_icon( 'floppy-o', text: 'Save changes' )
+          end %>
   </div>
 <% end %>
