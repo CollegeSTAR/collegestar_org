@@ -25,8 +25,9 @@
 
 <br>
 
+<% if can? :create, @event %>
 <%= link_to 'New Event', new_event_path %>
-
+<% end %>
 <h2>Past Events</h2>
 </div>
 </div>
