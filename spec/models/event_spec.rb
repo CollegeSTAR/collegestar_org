@@ -67,15 +67,25 @@ RSpec.describe Event do
     expect(@event.errors[:state].size).to eq(1)
   end
 
-  it "validates the state is an actual state"
-
   it "validates the presence of zip_code" do
     @event = build(:event, zip_code: nil)
     @event.valid?
     expect(@event.errors[:zip_code].size).to eq(1)
   end
 
-  it "registration_close_datetime should be after registration_open_datetime"
-  it "registration_open_datetime should be before start_datetime"
-  it "end_datetime should be after start_datetime"
+  it "registration_close_datetime should be after registration_open_datetime" do
+    @event = build(:event, registration_open_datetime: DateTime.now + 1, registration_close_datetime: DateTime.now)
+    @event.valid?
+    expect(@event.errors[:registration_open_datetime].size).to eq(1)
+  end
+  it "registration_open_datetime should be before start_datetime" do
+    @event = build(:event, registration_open_datetime: DateTime.now + 1, start_datetime: DateTime.now)
+    @event.valid?
+    expect(@event.errors[:registration_open_datetime].size).to eq(1)
+  end
+  it "end_datetime should be after start_datetime" do
+   @event = build(:event, start_datetime: DateTime.now + 30, end_datetime: DateTime.now + 29)
+   @event.valid?
+   expect(@event.errors[:start_datetime].size).to eq(1)
+  end
 end
