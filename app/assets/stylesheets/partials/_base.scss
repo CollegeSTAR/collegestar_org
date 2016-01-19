@@ -138,4 +138,20 @@ ul {
   margin: 1em 2.5em 1em 1em;
 }
 
+.create-button {
+  @include button-base();
+  @include button-size();
+  @include button-style( $create-btn-bg-color, $default-radius, false, $create-btn-bg-color-hover, $default-text-color );
+}
 
+.nav-button {
+  @include button-base();
+  @include button-size();
+  @include button-style( $nav-btn-bg-color, $default-radius, false, $nav-btn-bg-color-hover, $default-text-color );
+}
+
+.delete-button {
+  @include button-base();
+  @include button-size();
+  @include button-style( $delete-btn-bg-color, $default-radius, false, $delete-btn-bg-color-hover, $default-text-color );
+}
