@@ -8,13 +8,23 @@ $base-line-height: 1.2em;
 
 //Font Colors
 $default-text-color: #333;
+$muted-text-color: #666;
 $nav-link-color: #DDD;
+
+//Buttons
+$create-btn-bg-color: #25D15D;
+$create-btn-bg-color-hover: #23C457;
+$nav-btn-bg-color: #2988D1;
+$nav-btn-bg-color-hover: #216FAB;
+$delete-btn-bg-color: #D13130;
+$delete-btn-bg-color-hover: #C42E2D;
 
 //Structural
 $background-color: #EEE;
 $default-border-color: #CCC;
 $site-width: 960px;
 $default-border-width: 1px;
+$default-radius: 4px;
 
 //Media Queries
 $full: min-width 960px;
