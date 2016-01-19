@@ -38,5 +38,9 @@ class Ability
   #Define abilities that every user should have here
   def basic_abilities(user)
     can :manage, User, id: user.id # a user can manage her profile
+    cannot :index, User
+    can :read, Campus
+    can :read, Event
+    can :read, NewsArticle
   end
 end
