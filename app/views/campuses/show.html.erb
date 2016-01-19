@@ -59,8 +59,12 @@
         <%= image_tag @campus.image.url(:medium) %>
       </p>
       
-      <%= link_to 'Edit', edit_campus_path(@campus) %> |
-      <%= link_to 'Back', campuses_path %>
+      <% if can? :update, @campus %>
+        <%= link_to 'Edit', edit_campus_path(@campus) %> | 
+      <% end %>
+      <% if can? :index, @campus %>
+        <%= link_to 'Back', campuses_path %>
+      <% end %>
     </div>
   </div>
 </div>

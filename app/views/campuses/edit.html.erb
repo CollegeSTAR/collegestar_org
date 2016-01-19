@@ -5,8 +5,11 @@
       
       <%= render 'form' %>
       
-      <%= link_to 'Show', @campus %> |
-      <%= link_to 'Back', campuses_path %>
+      <%= link_to 'Show', @campus %>
+      <%= if can? :index, @campus %>
+        |  
+        <%= link_to 'Back', campuses_path %>
+      <% end %>
     </div>
   </div>
 </div>
