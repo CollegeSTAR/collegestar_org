@@ -18,8 +18,11 @@
         <%= @user.email %>
       </p>
       
-      <%= link_to 'Edit', edit_profile_path(@user) %> |
+      <%= link_to 'Edit', edit_profile_path(@user) %> 
+      <% if can? :index, @user %>
+      | 
       <%= link_to 'Back', users_path %>
+      <% end %>
     </div>
   </div>
 </div>
