@@ -10,7 +10,7 @@ FactoryGirl.define do
   factory :admin_user, class: User do
     first_name "Tanner_admin"
     last_name "Jones_admin"
-    email "admin@collegestar.org"
+    sequence(:email) { |n| "admin#{n}@collegestar.org" }
     password "secret_pass"
     password_confirmation "secret_pass"
     after(:create) { |user| user.roles << create(:admin_role) }
