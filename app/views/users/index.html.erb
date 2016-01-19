@@ -3,7 +3,7 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
       
-      <h1>Listing Users</h1>
+      <h1>Users</h1>
       
       <table>
         <thead>
@@ -18,20 +18,18 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= user.first_name %></td>
-              <td><%= user.last_name %></td>
-              <td><%= user.email %></td>
-              <td><%= link_to 'Show', profile_path(user) %></td>
-              <td><%= link_to 'Edit', edit_profile_path(user) %></td>
-              <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to user.first_name, profile_path(user) %></td>
+              <td><%= link_to user.last_name, profile_path(user) %></td>
+              <td><%= link_to user.email, profile_path(user) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
       
       <br>
-      
-      <%= link_to 'New User', new_user_path %>
+      <% if can? :create, User %> 
+        <%= link_to 'New User', new_user_path %>
+      <% end %>
     </div>
   </div>
 </div>
