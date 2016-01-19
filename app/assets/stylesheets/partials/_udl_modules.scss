@@ -1,3 +1,13 @@
+#admin-tools {
+  @include span(18 of 18);
+  text-align: right;
+  padding-right: gutters();
+
+  a {
+    color: $muted-text-color;
+  }
+}
+
 #content img.udl-all { @include udl-trio(0); }
 #content img.udl-rep { @include udl-trio(-50px); }
 #content img.udl-rep-exp { @include udl-trio(-100px); }
@@ -109,6 +119,7 @@
 
 #module-udl-principles, #module-instructional-practice, #module-learn-more, #module-references {
   @include module-section();
+  @include clearfix();
 }
 
 h2 {
@@ -116,4 +127,26 @@ h2 {
   font-size: $base-font-size * 1.3;
   border-bottom: $default-border-width solid $default-border-color;
   @include module-header();
+}
+
+.module-section-title-wrapper {
+  h3 {
+    font-style: normal;
+    font-weight: bold;
+
+    .edit-module-section-link {
+      font-style: normal;
+      font-size: $base-font-size * .5;
+      font-weight: bold;
+    }
+  }
+}
+
+.module-section-content-wrapper {
+  margin: gutter();
+}
+
+#module-footer-info {
+  @include span(18 of 18);
+  @include clearfix();
 }
