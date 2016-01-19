@@ -5,8 +5,11 @@
       
       <%= render 'edit_module_form' %>
       
-      <%= link_to 'Show', @udl_module %> |
-      <%= link_to 'Back', udl_modules_path %>
+      <%= link_to( 
+            fa_icon( 'arrow-left', text: 'Back to module' ),
+            @udl_module
+          ) %>
+
     </div>
   </div>
 </div>
