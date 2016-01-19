@@ -42,6 +42,4 @@ RSpec.describe Campus do
     @campus = create(:campus)
     expect(Campus.find_by(slug: @campus.slug)).to eq(@campus)
   end
-
-  it "should find campuses by featured bit"
 end
