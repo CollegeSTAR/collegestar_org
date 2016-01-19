@@ -17,4 +17,10 @@ FactoryGirl.define do
     action "manage"
     subject "event"
   end
+
+  factory :contact_admin_role, class: Role do
+    name "contact_admin"
+    action "manage"
+    subject "contact"
+  end
 end
