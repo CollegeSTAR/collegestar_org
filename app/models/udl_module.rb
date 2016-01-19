@@ -17,6 +17,10 @@ class UdlModule < ActiveRecord::Base
     page_sections.sort { |section_one, section_two| section_one.position <=> section_two.position }
   end
 
+  def get_page_section_count( page )
+    
+  end
+
   def to_param
     slug
   end

@@ -47,6 +47,19 @@ RSpec.describe UdlModule do
     end
   end
   
+  describe "#get_page_section_count" do
+    it "returns 0 when page has no sections" do
+      udl_module = create(:udl_module)
+      expect(udl_module.get_page_section_count(:introduction)).to eq(0)
+    end
+    xit "returns 1 when page has one section" do
+
+    end
+    xit "returns 2 when page has two sections" do
+
+    end
+  end
+
   describe "#get_sections_by_page" do
     before(:each) do
       udl_module.sections << introduction_section
