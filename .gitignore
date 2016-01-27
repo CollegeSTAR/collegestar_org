@@ -14,7 +14,13 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
+/shared/log/*
+!/shared/log/.gitkeep
 /tmp
+
+# Ignore pids
+/shared/pids/*
+!/shared/pids/.gitkeep
 
 #Ignore OSX files
 .DS_Store

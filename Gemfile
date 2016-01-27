@@ -46,7 +46,7 @@ gem 'cancancan', '~> 1.12'
 gem 'mandrill-api'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
