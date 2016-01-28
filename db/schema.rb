@@ -162,8 +162,8 @@ ActiveRecord::Schema.define(version: 20160128173133) do
   add_index "users", ["event_consent"], name: "index_users_on_event_consent", using: :btree
   add_index "users", ["module_consent"], name: "index_users_on_module_consent", using: :btree
 
-  add_foreign_key "access_controls", "roles"
-  add_foreign_key "access_controls", "users"
+  add_foreign_key "access_controls", "roles", on_delete: :cascade
+  add_foreign_key "access_controls", "users", on_delete: :cascade
   add_foreign_key "campuses", "users", column: "director_id", on_delete: :cascade
   add_foreign_key "module_author_associations", "udl_modules", column: "module_id"
   add_foreign_key "module_author_associations", "users", column: "author_id"
