@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027145821) do
+ActiveRecord::Schema.define(version: 20160128173133) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "access_controls", id: false, force: :cascade do |t|
     t.integer "role_id"
     t.integer "user_id"
   end
 
-  add_index "access_controls", ["role_id"], name: "index_access_controls_on_role_id"
-  add_index "access_controls", ["user_id"], name: "index_access_controls_on_user_id"
+  add_index "access_controls", ["role_id"], name: "index_access_controls_on_role_id", using: :btree
+  add_index "access_controls", ["user_id"], name: "index_access_controls_on_user_id", using: :btree
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",               null: false
@@ -41,9 +44,9 @@ ActiveRecord::Schema.define(version: 20151027145821) do
     t.string   "slug",               null: false
   end
 
-  add_index "campuses", ["abbreviation"], name: "campuses_abbreviation_index", unique: true
-  add_index "campuses", ["name"], name: "campuses_name_index", unique: true
-  add_index "campuses", ["slug"], name: "campuses_slug_index", unique: true
+  add_index "campuses", ["abbreviation"], name: "campuses_abbreviation_index", unique: true, using: :btree
+  add_index "campuses", ["name"], name: "campuses_name_index", unique: true, using: :btree
+  add_index "campuses", ["slug"], name: "campuses_slug_index", unique: true, using: :btree
 
   create_table "communities", force: :cascade do |t|
     t.string   "name"
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(version: 20151027145821) do
     t.string   "slug",        null: false
   end
 
-  add_index "communities", ["slug"], name: "index_communities_on_slug", unique: true
+  add_index "communities", ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name",                                      null: false
@@ -72,32 +75,33 @@ ActiveRecord::Schema.define(version: 20151027145821) do
     t.string   "slug",                                      null: false
   end
 
-  add_index "events", ["name"], name: "index_events_on_name", unique: true
-  add_index "events", ["slug"], name: "index_events_on_slug", unique: true
+  add_index "events", ["name"], name: "events_name_index", unique: true, using: :btree
+  add_index "events", ["name"], name: "index_events_on_name", unique: true, using: :btree
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "module_author_associations", id: false, force: :cascade do |t|
     t.integer "author_id"
     t.integer "module_id"
   end
 
-  add_index "module_author_associations", ["author_id"], name: "index_module_author_associations_on_author_id"
-  add_index "module_author_associations", ["module_id"], name: "index_module_author_associations_on_module_id"
+  add_index "module_author_associations", ["author_id"], name: "index_module_author_associations_on_author_id", using: :btree
+  add_index "module_author_associations", ["module_id"], name: "index_module_author_associations_on_module_id", using: :btree
 
   create_table "module_faculty_associations", id: false, force: :cascade do |t|
     t.integer "faculty_id"
     t.integer "module_id"
   end
 
-  add_index "module_faculty_associations", ["faculty_id"], name: "index_module_faculty_associations_on_faculty_id"
-  add_index "module_faculty_associations", ["module_id"], name: "index_module_faculty_associations_on_module_id"
+  add_index "module_faculty_associations", ["faculty_id"], name: "index_module_faculty_associations_on_faculty_id", using: :btree
+  add_index "module_faculty_associations", ["module_id"], name: "index_module_faculty_associations_on_module_id", using: :btree
 
   create_table "module_section_associations", id: false, force: :cascade do |t|
     t.integer "section_id"
     t.integer "module_id"
   end
 
-  add_index "module_section_associations", ["module_id"], name: "index_module_section_associations_on_module_id"
-  add_index "module_section_associations", ["section_id"], name: "index_module_section_associations_on_section_id"
+  add_index "module_section_associations", ["module_id"], name: "index_module_section_associations_on_module_id", using: :btree
+  add_index "module_section_associations", ["section_id"], name: "index_module_section_associations_on_section_id", using: :btree
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title"
@@ -155,7 +159,16 @@ ActiveRecord::Schema.define(version: 20151027145821) do
     t.boolean  "module_consent"
   end
 
-  add_index "users", ["event_consent"], name: "index_users_on_event_consent"
-  add_index "users", ["module_consent"], name: "index_users_on_module_consent"
+  add_index "users", ["event_consent"], name: "index_users_on_event_consent", using: :btree
+  add_index "users", ["module_consent"], name: "index_users_on_module_consent", using: :btree
 
+  add_foreign_key "access_controls", "roles"
+  add_foreign_key "access_controls", "users"
+  add_foreign_key "campuses", "users", column: "director_id", on_delete: :cascade
+  add_foreign_key "module_author_associations", "udl_modules", column: "module_id"
+  add_foreign_key "module_author_associations", "users", column: "author_id"
+  add_foreign_key "module_faculty_associations", "udl_modules", column: "module_id"
+  add_foreign_key "module_faculty_associations", "users", column: "faculty_id"
+  add_foreign_key "module_section_associations", "udl_module_sections", column: "section_id"
+  add_foreign_key "module_section_associations", "udl_modules", column: "module_id"
 end
