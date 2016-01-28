@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :access_controls
-  has_many :roles, through: :access_controls, dependent: :destroy
+  has_many :roles, through: :access_controls, dependent: :delete_all
   has_many :module_author_associations, foreign_key: 'author_id'
   has_many :author_modules, through: :module_author_associations, source: 'module'
   has_many :module_faculty_associations, foreign_key: 'faculty_id'
