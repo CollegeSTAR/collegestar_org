@@ -10,12 +10,16 @@ RSpec.describe UdlModuleSection do
     end
   end
 
-  describe "set_position" do
-    let(:udl_module) { create(:udl_module_with_sections) }
-    it "should set position of new sections" do
-      udl_module
-      section = create(:introduction_section)
-      expect(section.position).to eq(2)
+  describe "#position" do
+    let(:udl_module) { create(:udl_module) }
+    let(:udl_module_section) { create(:udl_module_section) }
+    context "given a module_id and parent page" do
+      it "should return the correct position" do
+        udl_module.add_section( udl_module_section )
+        expect(
+          udl_module_section.position( module: udl_module )
+        ).to eq(1)
+      end
     end
   end
 end

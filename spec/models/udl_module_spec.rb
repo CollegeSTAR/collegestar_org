@@ -48,18 +48,58 @@ RSpec.describe UdlModule do
   end
   
   describe "#get_page_section_count" do
+    let(:udl_module) { create(:udl_module) }
     it "returns 0 when page has no sections" do
-      udl_module = create(:udl_module)
-      expect(udl_module.get_page_section_count(:introduction)).to eq(0)
+      expect(udl_module.get_page_section_count("introduction")).to eq(0)
     end
-    xit "returns 1 when page has one section" do
-
+    it "returns 1 when page has one section" do
+      udl_module.sections.build( attributes_for( :introduction_section ) )
+      udl_module.save
+      expect(udl_module.get_page_section_count("introduction")).to eq(1)
     end
-    xit "returns 2 when page has two sections" do
-
+    it "returns 2 when page has two sections" do
+      udl_module.sections.build( attributes_for( :introduction_section ) )
+      udl_module.sections.build( attributes_for( :introduction_section ) )
+      udl_module.save
+      expect(udl_module.get_page_section_count("introduction")).to eq(2)
+    end
+    it "returns 1 when two sections exist in different pages" do
+      udl_module.sections.build( attributes_for( :introduction_section ) )
+      udl_module.sections.build( attributes_for( :udl_principles_section) )
+      udl_module.save
+      expect(udl_module.get_page_section_count("introduction")).to eq(1)
     end
   end
 
+  describe "#add_section" do
+    let(:udl_module){ create(:udl_module) }
+    let(:udl_module_section){ create(:udl_module_section) }
+    let(:udl_module_section_two){ create(:udl_module_section) }
+    it "adds section to sections collection" do
+      udl_module.add_section( udl_module_section )
+      expect(udl_module.sections).to match_array([udl_module_section])
+    end
+    it "sets section position" do
+      udl_module.add_section( udl_module_section )      
+      expect(
+        udl_module.module_section_associations
+        .where( section_id: udl_module_section)
+        .first
+        .section_page_position
+      ).to eq(1)
+    end
+    it "sets section position to next available position in page" do   
+      udl_module.add_section( udl_module_section )      
+      udl_module.add_section( udl_module_section_two )
+        expect(
+          udl_module.module_section_associations
+          .where( section_id: udl_module_section_two)
+          .first
+          .section_page_position
+        ).to eq(2)
+    end
+  end
+ 
   describe "#get_sections_by_page" do
     before(:each) do
       udl_module.sections << introduction_section
@@ -94,7 +134,7 @@ RSpec.describe UdlModule do
       intro_section_two = create(:introduction_section)
       udl_module.sections << intro_section_two
       udl_module.sections << introduction_section
-      expect(udl_module.get_sections_by_page :introduction).to eq([introduction_section, intro_section_two])
+      expect(udl_module.get_sections_by_page :introduction).to eq([intro_section_two, introduction_section])
     end
   end
 end

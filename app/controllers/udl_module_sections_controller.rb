@@ -14,9 +14,9 @@ class UdlModuleSectionsController < ApplicationController
   def create
     @udl_module_section = UdlModuleSection.create(section_params)
     @udl_module_section.slug ||= @udl_module_section.title.parameterize if @udl_module_section.title
-    @udl_module_section.set_position
+
     if @udl_module_section.save
-      @udl_module.sections << @udl_module_section
+      @udl_module.add_section( @udl_module_section )
       @udl_module.save
       redirect_to edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: @udl_module_section.slug), notice: "#{@udl_module_section.title} successfully created."
     end
@@ -46,6 +46,6 @@ class UdlModuleSectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:udl_module_section).permit(:title, :content, :parent, :position)
+    params.require(:udl_module_section).permit(:title, :content, :parent)
   end
 end

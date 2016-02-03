@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128173133) do
+ActiveRecord::Schema.define(version: 20160129195555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,9 +95,10 @@ ActiveRecord::Schema.define(version: 20160128173133) do
   add_index "module_faculty_associations", ["faculty_id"], name: "index_module_faculty_associations_on_faculty_id", using: :btree
   add_index "module_faculty_associations", ["module_id"], name: "index_module_faculty_associations_on_module_id", using: :btree
 
-  create_table "module_section_associations", id: false, force: :cascade do |t|
+  create_table "module_section_associations", force: :cascade do |t|
     t.integer "section_id"
     t.integer "module_id"
+    t.integer "section_page_position"
   end
 
   add_index "module_section_associations", ["module_id"], name: "index_module_section_associations_on_module_id", using: :btree
@@ -122,11 +123,10 @@ ActiveRecord::Schema.define(version: 20160128173133) do
   end
 
   create_table "udl_module_sections", force: :cascade do |t|
-    t.string  "title"
-    t.text    "content"
-    t.string  "parent"
-    t.integer "position"
-    t.string  "slug"
+    t.string "title"
+    t.text   "content"
+    t.string "parent"
+    t.string "slug"
   end
 
   create_table "udl_modules", force: :cascade do |t|
