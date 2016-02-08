@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 # Use CKEditor for WYSIWYG editor
-gem 'ckeditor_rails'
+gem 'ckeditor'
 
 #Use font Awesome
 gem 'font-awesome-rails'
