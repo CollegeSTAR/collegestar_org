@@ -5,10 +5,7 @@
       
       <h1><%= @news_article.title %></h1>
       
-      <p>
-        <strong>Content:</strong>
-        <%= @news_article.content %>
-      </p>
+        <%= @news_article.content.html_safe %>
       
       <p>
         <strong>Image url:</strong>

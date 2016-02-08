@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require ckeditor-jquery
+//= require ckeditor/init
 //= require turbolinks
 //= require user_menu
 //= require_tree .

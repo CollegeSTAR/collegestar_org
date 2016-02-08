@@ -29,5 +29,11 @@
 *.swp
 *.swo
 
+#Ignore Ckeditor Assets
+/public/ckeditor_assets
+
+#Ignore Paperclip files
+/public/system
+
 # Ignore application configuration
 /config/application.yml

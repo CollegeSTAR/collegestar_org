@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   root 'main#home', as: :root
   get 'home' => 'main#home', as: :home
   get 'about' => 'main#about', as: :about
