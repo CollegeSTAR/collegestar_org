@@ -1,6 +1,6 @@
 class UdlModuleSectionsController < ApplicationController
   before_action :set_section, only: [ :edit, :update, :destroy]
-  before_action :set_module
+  load_and_authorize_resource
 
   def index
     @udl_module_sections = UdlModuleSection.all  
