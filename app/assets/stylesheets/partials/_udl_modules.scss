@@ -17,6 +17,13 @@
 #content img.udl-exp { @include udl-trio(-300px); }
 #content img.udl-none { @include udl-trio(-350px); }
 
+.edit-module-link {
+  font-style: normal;
+  font-size: $base-font-size * .5;
+  font-weight: bold;
+}
+
+
 #module-title {
   @include span(17.6 of 18);
   margin-left: gutter();

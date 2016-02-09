@@ -6,7 +6,15 @@
       <h1>Facutly Development Modules</h1>
       <ul> 
           <% @udl_modules.each do |udl_module| %>
-              <li><%= link_to udl_module.title, udl_module %>
+              <li><%= link_to( udl_module.title, udl_module ) %>
+              <% if can? :edit, udl_module %>
+                <span class="edit-module-link"> 
+                  <%= link_to(
+                    fa_icon( "pencil", text: "Edit this module" ), 
+                    edit_udl_module_path( udl_module ) 
+                  ) %>
+                </span>
+              <% end %>
           <% end %>
       </ul>
       <br>
