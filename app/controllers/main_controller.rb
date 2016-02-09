@@ -13,6 +13,7 @@ class MainController < ApplicationController
   end
 
   def faculty
+    load_released_modules
   end
 
   def contact
@@ -34,5 +35,9 @@ class MainController < ApplicationController
 
   def load_news_articles
     @news_articles = NewsArticle.order_by_created_date_and_limit
+  end
+
+  def load_released_modules
+    @udl_modules = UdlModule.where( released: 1)
   end
 end
