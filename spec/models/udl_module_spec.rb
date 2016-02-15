@@ -49,23 +49,25 @@ RSpec.describe UdlModule do
   
   describe "#get_page_section_count" do
     let(:udl_module) { create(:udl_module) }
+    let(:intro_section) { create(:introduction_section) }
+    let(:udl_principles_section) { create(:udl_principles_section) }
     it "returns 0 when page has no sections" do
       expect(udl_module.get_page_section_count("introduction")).to eq(0)
     end
     it "returns 1 when page has one section" do
-      udl_module.sections.build( attributes_for( :introduction_section ) )
+      udl_module.add_section( intro_section )
       udl_module.save
       expect(udl_module.get_page_section_count("introduction")).to eq(1)
     end
     it "returns 2 when page has two sections" do
-      udl_module.sections.build( attributes_for( :introduction_section ) )
-      udl_module.sections.build( attributes_for( :introduction_section ) )
+      udl_module.add_section( intro_section )
+      udl_module.add_section( intro_section )
       udl_module.save
       expect(udl_module.get_page_section_count("introduction")).to eq(2)
     end
     it "returns 1 when two sections exist in different pages" do
-      udl_module.sections.build( attributes_for( :introduction_section ) )
-      udl_module.sections.build( attributes_for( :udl_principles_section) )
+      udl_module.add_section( intro_section )
+      udl_module.add_section( udl_principles_section )
       udl_module.save
       expect(udl_module.get_page_section_count("introduction")).to eq(1)
     end
@@ -99,14 +101,15 @@ RSpec.describe UdlModule do
         ).to eq(2)
     end
   end
- 
+
   describe "#get_sections_by_page" do
     before(:each) do
-      udl_module.sections << introduction_section
-      udl_module.sections << udl_principles_section
-      udl_module.sections << instructional_practice_section
-      udl_module.sections << learn_more_section
-      udl_module.sections << references_section
+      udl_module.add_section( introduction_section )
+      udl_module.add_section( udl_principles_section )
+      udl_module.add_section( instructional_practice_section )
+      udl_module.add_section( learn_more_section )
+      udl_module.add_section( references_section )
+      udl_module.save
     end
     
     it "returns only introduction_sections" do
