@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208190750) do
+ActiveRecord::Schema.define(version: 20160215202817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,10 +139,12 @@ ActiveRecord::Schema.define(version: 20160208190750) do
   end
 
   create_table "udl_module_sections", force: :cascade do |t|
-    t.string "title"
-    t.text   "content"
-    t.string "parent"
-    t.string "slug"
+    t.string  "title"
+    t.text    "content"
+    t.string  "parent"
+    t.string  "slug"
+    t.boolean "shared"
+    t.integer "default_shared_position"
   end
 
   create_table "udl_modules", force: :cascade do |t|
