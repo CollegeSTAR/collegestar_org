@@ -2,9 +2,6 @@ require 'spec_helper'
 
 RSpec.describe UdlModuleSectionsController do
   describe 'udl_module_section routes' do
-    it 'get: /modules/test-module/sections' do
-      expect(get('/modules/test-module/sections')).to route_to('udl_module_sections#index', udl_module_slug: 'test-module')
-    end
     it 'post: /modules/test-module/sections' do
       expect(post('/modules/test-module/sections')).to route_to('udl_module_sections#create', udl_module_slug: 'test-module')
     end
@@ -25,9 +22,6 @@ RSpec.describe UdlModuleSectionsController do
     end
 
     context 'named routes' do
-      it 'get: udl_module_sections_path' do
-        expect(get(udl_module_sections_path(udl_module_slug: 'test-module'))).to route_to('udl_module_sections#index', udl_module_slug: 'test-module')
-      end
       it 'post: udl_module_sections_path' do
         expect(post(udl_module_sections_path(udl_module_slug: 'test-module'))).to route_to('udl_module_sections#create', udl_module_slug: 'test-module')
       end

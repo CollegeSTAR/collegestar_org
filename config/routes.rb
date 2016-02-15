@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :campuses, param: :slug
   resources :events, param: :slug
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
-    resources :sections, except: [:show], param: :slug, controller: :udl_module_sections, as: :sections
+    resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
   end
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
