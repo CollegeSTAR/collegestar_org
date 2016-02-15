@@ -102,6 +102,20 @@ RSpec.describe UdlModule do
     end
   end
 
+  describe "#shared_sections" do
+    let(:udl_module) { create(:udl_module) }
+    let(:shared_introduction_section) { create(:shared_introduction_section) }
+    let(:shared_udl_principles_section) { create(:shared_udl_principles_section) }
+    it "returns shared sections by page" do
+      shared_introduction_section
+      shared_udl_principles_section
+      expect(UdlModule.shared_sections( page: "introduction" )).to match_array([shared_introduction_section]) 
+    end
+    it "only returns page's shared sections" do
+      expect(UdlModule.shared_sections( page: "introduction")).to match_array([shared_introduction_section])
+    end
+  end
+
   describe "#get_sections_by_page" do
     before(:each) do
       udl_module.add_section( introduction_section )

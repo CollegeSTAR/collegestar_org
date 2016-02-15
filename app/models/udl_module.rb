@@ -25,6 +25,10 @@ class UdlModule < ActiveRecord::Base
     reload
   end
 
+  def self.shared_sections( args={})
+    UdlModuleSection.where( "shared = ? AND parent = ?", true, args[:page] )
+  end
+
   def get_sections_by_page(page)
     sections.where( parent: page ).order( 'module_section_associations.section_page_position ASC' )
   end

@@ -39,6 +39,25 @@ FactoryGirl.define do
     sequence(:slug) { |n| "a-references-section-#{n}" }
     content "This is a section in the references page."
     parent "references"
+  end  
+  
+  factory :shared_introduction_section, class: UdlModuleSection do
+    title "A shared introduction section"
+    sequence(:slug) { |n| "a-shared-introduction-section-#{n}" }
+    content "This is a shared section in the introduction page."
+    parent "introduction"
+    shared true
+    default_shared_position 1
   end
+  
+  factory :shared_udl_principles_section, class: UdlModuleSection do
+    title "A shared udl principle section"
+    sequence(:slug) { |n| "a-shared-udl-principle-section-#{n}" }
+    content "This is a shared section in the udl principles page."
+    parent "udl_principles"
+    shared true
+    default_shared_position 1
+  end
+
 
 end
