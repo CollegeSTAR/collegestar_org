@@ -49,6 +49,27 @@ RSpec.configure do |config|
     end
   end
 
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+
+  if config.files_to_run.one?
+    # Use the documentation formatter for detailed output,
+    # unless a formatter has already been configured
+    # (e.g. via a command-line flag).
+    config.default_formatter = 'doc'
+  end
+
+  if config.files_to_run.one?
+    # Use the documentation formatter for detailed output,
+    # unless a formatter has already been configured
+    # (e.g. via a command-line flag).
+    config.default_formatter = 'doc'
+  end
+
+  #config.profile_examples = 10
+
+  config.order = :random
+  Kernel.srand config.seed
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
