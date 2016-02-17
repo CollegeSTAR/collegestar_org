@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215202817) do
+ActiveRecord::Schema.define(version: 20160217212151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20160215202817) do
   add_index "events", ["name"], name: "index_events_on_name", unique: true, using: :btree
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
-  create_table "module_author_associations", id: false, force: :cascade do |t|
+  create_table "module_author_associations", force: :cascade do |t|
     t.integer "author_id"
     t.integer "module_id"
   end
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20160215202817) do
   add_index "module_author_associations", ["author_id"], name: "index_module_author_associations_on_author_id", using: :btree
   add_index "module_author_associations", ["module_id"], name: "index_module_author_associations_on_module_id", using: :btree
 
-  create_table "module_faculty_associations", id: false, force: :cascade do |t|
+  create_table "module_faculty_associations", force: :cascade do |t|
     t.integer "faculty_id"
     t.integer "module_id"
   end

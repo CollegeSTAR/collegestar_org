@@ -2,8 +2,8 @@ class UdlModule < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
 
-  has_many :module_author_associations, foreign_key: 'module_id'
-  has_many :module_faculty_associations, foreign_key: 'module_id'
+  has_many :module_author_associations, foreign_key: 'module_id', inverse_of: :module, dependent: :destroy
+  has_many :module_faculty_associations, foreign_key: 'module_id', inverse_of: :module, dependent: :destroy
   has_many :module_section_associations, foreign_key: 'module_id', inverse_of: :module, dependent: :destroy
   has_many :authors, through: :module_author_associations, class_name: "User"
   has_many :faculty, through: :module_faculty_associations, class_name: "User"
