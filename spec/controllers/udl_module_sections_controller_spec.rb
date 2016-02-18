@@ -5,6 +5,15 @@ RSpec.describe UdlModuleSectionsController do
     @user = create(:admin_user)
     cookies[:auth_token] = @user.auth_token
   end
+  describe "#create" do
+    let(:udl_module) { create(:udl_module) }
+    let(:section_attr) { attributes_for(:introduction_section) }
+    it "should create a new section" do
+      expect{
+        post :create, udl_module_slug: udl_module.slug, udl_module_section: attributes_for(:introduction_section)
+      }.to change { UdlModuleSection.count }.by(1)
+    end
+  end
   describe "#edit" do
   let(:udl_module) { create(:udl_module) }
   let(:section) { create(:introduction_section) }

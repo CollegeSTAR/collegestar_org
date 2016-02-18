@@ -65,6 +65,7 @@ RSpec.describe UdlModulesController do
 
   describe "create" do
     let(:mod_attributes) {  attributes_for(:new_udl_module) }
+    let(:shared_section) { create(:shared_introduction_section) }
     let(:user) { create(:admin_user) }
     before(:each) do
       cookies[:auth_token] = user.auth_token
@@ -86,6 +87,12 @@ RSpec.describe UdlModulesController do
       post :create, udl_module: mod_attributes
       udl_module = UdlModule.find_by slug: mod_attributes[:slug]
       expect(udl_module.faculty).to_not include([user])
+    end
+    it "adds shared_sections" do
+      shared_section
+      post :create, udl_module: mod_attributes
+      udl_module = UdlModule.find_by slug: mod_attributes[:slug]
+      expect(udl_module.sections).to match_array([shared_section])
     end
   end
 end

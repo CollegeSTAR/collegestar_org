@@ -6,6 +6,7 @@ class UdlModulesController < ApplicationController
   # GET /udl_modules.json
   def index
     @udl_modules = UdlModule.all
+    @shared_module_sections = UdlModuleSection.shared_sections
   end
 
   # GET /udl_modules/1
@@ -33,7 +34,20 @@ class UdlModulesController < ApplicationController
     end
 
     respond_to do |format|
-      if @udl_module.save
+      if @udl_module.save    
+        shared_sections = UdlModuleSection.shared_sections
+        [
+          :introduction, 
+          :udl_principles, 
+          :instructional_practice, 
+          :literature_base, 
+          :learn_more, 
+          :references_and_resources
+        ].each do |page|
+          shared_sections[page].each do |section|
+            @udl_module.add_section( section )
+          end
+        end
         format.html { redirect_to @udl_module, notice: 'Udl module was successfully created.' }
         format.json { render :show, status: :created, location: @udl_module }
       else

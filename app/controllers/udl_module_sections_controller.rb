@@ -1,6 +1,6 @@
 class UdlModuleSectionsController < ApplicationController
   before_action :set_section, only: [ :edit, :update, :destroy]
-  before_action :set_module, only: [ :index, :edit, :update ]
+  before_action :set_module, only: [ :index, :create, :edit, :update ]
   load_and_authorize_resource
 
   def index
@@ -13,7 +13,7 @@ class UdlModuleSectionsController < ApplicationController
   end
 
   def create
-    @udl_module_section = UdlModuleSection.create(section_params)
+    @udl_module_section = UdlModuleSection.new(udl_module_section_params)
     @udl_module_section.slug ||= @udl_module_section.title.parameterize if @udl_module_section.title
 
     if @udl_module_section.save
@@ -46,7 +46,7 @@ class UdlModuleSectionsController < ApplicationController
     @udl_module_section = UdlModuleSection.find_by slug: params[:slug]
   end
 
-  def section_params
+  def udl_module_section_params
     params.require(:udl_module_section).permit(:title, :content, :parent)
   end
 end

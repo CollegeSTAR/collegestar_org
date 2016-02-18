@@ -1,6 +1,6 @@
 <%= form_for([@udl_module, @udl_module_section], url: udl_module_section_path(@udl_module, @udl_module_section)) do |f| %>
 
   <div class="field">
-    <%= f.text_area :content %>
+    <%= f.cktext_area :content %>
   </div> 
 <% end %>

@@ -59,5 +59,39 @@ FactoryGirl.define do
     default_shared_position 1
   end
 
-
+  factory :shared_instructional_practice_section, class: UdlModuleSection do
+    title "A shared instructional practice section"
+    sequence(:slug) { |n| "a-shared-instructional-practice-section-#{n}" }
+    content "This is a shared section in the instructional practice page."
+    parent "instructional_practice"
+    shared true
+    default_shared_position 1
+  end
+  
+  factory :shared_literature_base_section, class: UdlModuleSection do
+    title "A shared literature base section"
+    sequence(:slug) { |n| "a-shared-literature-base-section-#{n}" }
+    content "This is a shared section in the literature base page."
+    parent "literature_base"
+    shared true
+    default_shared_position 1
+  end  
+  
+  factory :shared_learn_more_section, class: UdlModuleSection do
+    title "A shared learn more section"
+    sequence(:slug) { |n| "a-shared-learn-more-section-#{n}" }
+    content "This is a shared section in the learn more page."
+    parent "learn_more"
+    shared true
+    default_shared_position 1
+  end  
+  
+  factory :shared_references_and_resources_section, class: UdlModuleSection do
+    title "A shared references and resources section"
+    sequence(:slug) { |n| "a-shared-references-and-resources-section-#{n}" }
+    content "This is a shared section in the references and resources page."
+    parent "references_and_resources"
+    shared true
+    default_shared_position 1
+  end
 end

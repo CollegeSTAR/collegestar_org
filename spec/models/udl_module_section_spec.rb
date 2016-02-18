@@ -22,4 +22,43 @@ RSpec.describe UdlModuleSection do
       end
     end
   end
+
+  describe "#shared_sections" do
+    let(:intro_section) { create(:shared_introduction_section) }
+    let(:udl_section) { create(:shared_udl_principles_section) }
+    let(:instructional_section) { create(:shared_instructional_practice_section) }
+    let(:lit_section) { create(:shared_literature_base_section) }
+    let(:learn_section) { create(:shared_learn_more_section) }
+    let(:references_section) { create(:shared_references_and_resources_section) }
+    let(:shared_sections) { UdlModuleSection.shared_sections}
+    let(:result) { 
+      {
+        introduction: [intro_section],
+        udl_principles: [udl_section],
+        instructional_practice: [instructional_section],
+        literature_base: [lit_section],
+        learn_more: [learn_section],
+        references_and_resources: [references_section]
+
+      }
+    }
+    it "should return hash of shared sections by page" do
+      expect(shared_sections).to eq(result)
+    end
+  end
+
+  describe "#set_shared_section_default_position" do
+    let(:shared_introduction_section) { create(:shared_introduction_section) }
+    let(:second_shared_introduction_section) { build(:shared_introduction_section) }
+    it "should return the current number of shared sections with given parent" do
+      shared_introduction_section
+      UdlModuleSection.set_shared_section_default_position( section: second_shared_introduction_section )
+      expect( second_shared_introduction_section.default_shared_position ).to eq(2)
+    end
+    it "should return 1 if no sections exist" do
+      expect(
+        UdlModuleSection.set_shared_section_default_position( section: second_shared_introduction_section )
+      ).to eq(1)
+    end
+  end
 end

@@ -9,6 +9,10 @@ class UdlModule < ActiveRecord::Base
   has_many :faculty, through: :module_faculty_associations, class_name: "User"
   has_many :sections, -> { order 'module_section_associations.section_page_position ASC' }, through: :module_section_associations, class_name: 'UdlModuleSection'
 
+  def initialize(attributes={})
+    super
+  end
+
   #  Fixme: Learn more about Association Extensions and figure out if that will fix
   #  the position setting issue.
   #  Use this to also set the section position on the module_section_association
@@ -16,17 +20,18 @@ class UdlModule < ActiveRecord::Base
   #  on the module/section association. This is a hack, but it'll have to do for now.
   def add_section(section)
     section.save
-    section_count = get_page_section_count( section.parent )
-    section_count += 1
+    if section.shared
+      section_position = section.default_shared_position
+    else
+      section_count = get_page_section_count( section.parent )
+      section_position = section_count + 1
+
+    end
     section.module_section_associations.create(
       module_id: id,
-      section_page_position: section_count
+      section_page_position: section_position
     )
     reload
-  end
-
-  def self.shared_sections( args={})
-    UdlModuleSection.where( "shared = ? AND parent = ?", true, args[:page] )
   end
 
   def get_sections_by_page(page)

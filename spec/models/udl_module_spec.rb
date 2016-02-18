@@ -77,6 +77,7 @@ RSpec.describe UdlModule do
     let(:udl_module){ create(:udl_module) }
     let(:udl_module_section){ create(:udl_module_section) }
     let(:udl_module_section_two){ create(:udl_module_section) }
+    let(:shared_udl_module_section) { build(:shared_introduction_section, default_shared_position: 2) }
     it "adds section to sections collection" do
       udl_module.add_section( udl_module_section )
       expect(udl_module.sections).to match_array([udl_module_section])
@@ -95,24 +96,22 @@ RSpec.describe UdlModule do
       udl_module.add_section( udl_module_section_two )
         expect(
           udl_module.module_section_associations
-          .where( section_id: udl_module_section_two)
-          .first
-          .section_page_position
+            .where( section_id: udl_module_section_two)
+            .first
+            .section_page_position
         ).to eq(2)
     end
-  end
 
-  describe "#shared_sections" do
-    let(:udl_module) { create(:udl_module) }
-    let(:shared_introduction_section) { create(:shared_introduction_section) }
-    let(:shared_udl_principles_section) { create(:shared_udl_principles_section) }
-    it "returns shared sections by page" do
-      shared_introduction_section
-      shared_udl_principles_section
-      expect(UdlModule.shared_sections( page: "introduction" )).to match_array([shared_introduction_section]) 
-    end
-    it "only returns page's shared sections" do
-      expect(UdlModule.shared_sections( page: "introduction")).to match_array([shared_introduction_section])
+    context "shared section" do
+      it "uses default_shared_position" do
+        udl_module.add_section( shared_udl_module_section )
+        expect(
+          udl_module.module_section_associations
+            .where( section_id: shared_udl_module_section )
+            .first
+            .section_page_position
+        ).to eq(2)
+      end
     end
   end
 

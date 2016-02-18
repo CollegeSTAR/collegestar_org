@@ -1,0 +1,35 @@
+<%= form_for( @shared_module_section, as: :shared_module_section, url: shared_module_section_path( @shared_module_section ), method: :patch ) do |f| %>
+
+  <div class="field">
+    <%= f.label :parent, "Parent Section" %><br>
+    <%= f.select(
+          :parent, 
+          [
+            ['Introduction', 'introduction'],
+            [ 'Udl Principles', 'udl_principles'],
+            ['Instructional Practice','instructional_practice'],
+            ['Literature Base', 'literature_base'],
+            ['Learn More', 'learn_more'],
+            ['References and Resources', 'references_and_resources']
+          ]
+        ) %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div> 
+
+  <div class="actions">
+    <p>
+    <%= button_tag(
+          type: 'submit',
+          class: 'create-button'
+        ) do
+          fa_icon( 'check', text: 'Update section' )
+        end %>
+    </p>
+  </div>
+<% end %>
