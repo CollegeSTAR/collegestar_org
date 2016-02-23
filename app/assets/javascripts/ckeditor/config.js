@@ -2,7 +2,6 @@ CKEDITOR.editorConfig = function( config )
 {
 
 // Define changes to default configuration here. For example:
-  config.extraPlugins = 'save';
 
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
@@ -30,7 +29,7 @@ CKEDITOR.editorConfig = function( config )
 
   // Toolbar groups configuration.
   config.toolbar = [
-    { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source', 'Save'] },
+    { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source'] },
     { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
     // { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
     // { name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
