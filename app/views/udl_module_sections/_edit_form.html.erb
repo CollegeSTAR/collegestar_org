@@ -2,5 +2,16 @@
 
   <div class="field">
     <%= f.cktext_area :content %>
-  </div> 
+  </div>   
+  <div class="actions">
+    <p>
+    <%= button_tag(
+          type: 'submit',
+          class: 'create-button'
+        ) do
+          fa_icon( 'check', text: 'Create section' )
+        end %>
+    </p>
+  </div>
+
 <% end %>
