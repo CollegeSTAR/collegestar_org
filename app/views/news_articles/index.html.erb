@@ -4,39 +4,16 @@
       <p id="notice"><%= notice %></p>
       
       <h1>Listing News Articles</h1>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Image url</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-      
-        <tbody>
+        <ul id="news_articles">
           <% @news_articles.each do |news_article| %>
-            <tr>
-              <td><%= link_to news_article.title, news_article %></td>
-              <td><%= news_article.content %></td>
-              <td><%= news_article.image_url %></td>
-              <% if can? :show, @news_article %>
-                <td><%= link_to 'Show', news_article %></td>
-              <% end %>
-              <% if can? :update, @news_article %>
-                <td><%= link_to 'Edit', edit_news_article_path(news_article) %></td>
-              <% end %>
-              <% if can? :destroy, @news_article %> 
-                <td><%= link_to 'Destroy', news_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </tr>
+            <li>
+              <div class="news_article">
+                <h2><%= link_to news_article.title, news_article %></h2>
+                <p><%= news_article.excerpt.html_safe %></p>
+              </div>
+            </li>
           <% end %>
-        </tbody>
-      </table>
-      
-      <br>
-      
+       </ul> 
       <% if can? :create, @news_article %>
         <%= link_to 'New article', new_news_article_path %>
       <% end %>
