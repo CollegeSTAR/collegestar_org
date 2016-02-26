@@ -36,9 +36,21 @@ RSpec.describe NewsArticle do
     expect(@article.errors[:content].size).to eq(1)
   end
 
-  it "returns a reverse date ordered list of articles" do
-    @article_1 = create(:news_article)
-    @article_2 = create(:news_article)
-    expect(NewsArticle.order_by_created_date_and_limit).to eq([@article_2, @article_1])
+  describe "#order_by_created_date_and_limit" do
+    it "returns a reverse date ordered list of articles" do
+      @article_1 = create(:news_article)
+      @article_2 = create(:news_article)
+      expect(NewsArticle.order_by_created_date_and_limit).to eq([@article_2, @article_1])
+    end
+  end
+
+  describe "#all_reverse" do
+    let(:article_one) { create(:news_article) }
+    let(:article_two) { create(:news_article) }
+    it "returns a reverse date ordered list of all articles" do
+    article_one
+    article_two
+      expect(NewsArticle.all_reverse).to eq([article_two, article_one])
+    end
   end
 end

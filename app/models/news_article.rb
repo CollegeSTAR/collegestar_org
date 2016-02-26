@@ -5,7 +5,10 @@ class NewsArticle < ActiveRecord::Base
 
   def self.order_by_created_date_and_limit(limit = 10)
     articles = limit(limit).order(created_at: :desc)
+  end
 
+  def self.all_reverse
+    articles = order(created_at: :desc)
   end
 
   def to_param

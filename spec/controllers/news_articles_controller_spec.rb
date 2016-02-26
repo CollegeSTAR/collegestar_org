@@ -1,5 +1,7 @@
 RSpec.describe NewsArticlesController do
   describe "GET #index" do
+    let(:article_one) { create(:news_article) }
+    let(:article_two) { create(:news_article) }
     it "responds successfully with an HTTP 200 status code" do
       get :index
       expect(response).to be_success
@@ -12,10 +14,18 @@ RSpec.describe NewsArticlesController do
     end
 
     it "loads all news_articles into @articles" do
-      @article_1, @article_2 = create(:news_article), create(:news_article)
+      articles = [
+        article_one,
+        article_two
+      ]
       get :index
-
-      expect(assigns(:news_articles)).to match_array([@article_1, @article_2])
+      expect(assigns(:news_articles)).to match_array(articles)
+    end
+    it "loads articles in reverse date order" do
+      article_one
+      article_two
+      get :index
+      expect(assigns(:news_articles)).to eq([article_two, article_one])
     end
   end
 

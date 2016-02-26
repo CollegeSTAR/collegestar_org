@@ -5,7 +5,7 @@ class NewsArticlesController < ApplicationController
   # GET /news_articles
   # GET /news_articles.json
   def index
-    @news_articles = NewsArticle.all
+    @news_articles = NewsArticle.all_reverse
   end
 
   # GET /news_articles/1
