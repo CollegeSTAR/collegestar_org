@@ -3,5 +3,6 @@ FactoryGirl.define do
     sequence( :title ) { |n| "news article #{n}" }
     sequence( :slug ) { |n| "news-article-#{n}" }
     content "This is the content of this article."
+    excerpt "This is the excerpt from the article."
   end
 end
