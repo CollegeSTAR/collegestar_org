@@ -1,3 +1,39 @@
 // Place all the styles related to the NewsArticles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.news_article_wrapper {
+  @include span(18 of 18 no-gutters);
+  margin-bottom: 1em; 
+  h2, h2 a {
+    border: none;
+    color: $cs-orange;
+  }
+
+  .thumb_nail {
+    @include span(1.65 of 18 at 2);
+    margin-left: 1em;
+    img {
+      width: 4.5em;
+      height: 4.5em;
+    }
+    border: none;
+  }
+  .excerpt {
+    @include span(15.5 of 18 no-gutters);
+    border: none;
+    padding: 0;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+ul#news_articles {
+  list-style: none;
+  margin: 0;
+  
+  li {
+    list-style-type: none;
+    margin: 0;
+  } 
+}

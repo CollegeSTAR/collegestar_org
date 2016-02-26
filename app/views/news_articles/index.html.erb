@@ -3,13 +3,18 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
       
-      <h1>Listing News Articles</h1>
+      <h1>College STAR News</h1>
         <ul id="news_articles">
           <% @news_articles.each do |news_article| %>
             <li>
-              <div class="news_article">
+              <div class="news_article_wrapper">
                 <h2><%= link_to news_article.title, news_article %></h2>
-                <p><%= news_article.excerpt.html_safe %></p>
+                <div class="thumb_nail">
+                  <%= link_to( image_tag("seal-2x.png"), news_article ) %>
+                </div>
+                <div class="excerpt">
+                  <p><%= news_article.excerpt.html_safe %></p>
+                </div>
               </div>
             </li>
           <% end %>
