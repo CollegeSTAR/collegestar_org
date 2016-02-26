@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+gem 'responders', '~> 2.0'
 # Use postgresql  as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -68,7 +69,6 @@ group :development, :test do
   gem 'spring', '~> 1.3.3'
 
   gem 'rspec-rails', '~> 3.0'
-  gem 'responders', '~> 2.0'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.0'
