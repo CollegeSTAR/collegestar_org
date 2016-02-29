@@ -1,10 +1,11 @@
 <div id = "left-column-wrapper">
   <div id="news_feed">
     <h1>News Feed</h1>
-    <% @news_articles.each do |news_article| %>
+    <%= link_to 'view all', news_articles_path, class: 'view-all' %>
     <ul>
+    <% @news_articles.each do |news_article| %>
       <li><%= link_to news_article.title, news_article_path( news_article )  %></li> 
-    </ul>
     <% end %>
+    </ul>
   </div>
 </div>

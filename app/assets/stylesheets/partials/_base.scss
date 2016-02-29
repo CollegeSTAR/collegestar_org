@@ -155,3 +155,12 @@ ul {
   @include button-size();
   @include button-style( $delete-btn-bg-color, $default-radius, false, $delete-btn-bg-color-hover, $default-text-color );
 }
+
+a.view-all {
+  float: right;
+  font-size: .75em;
+  font-weight: bold;
+  color: $cs-orange; 
+  margin: -1em 1em 0 0;
+  padding: 0;
+}
