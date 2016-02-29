@@ -49,8 +49,6 @@ gem 'mandrill-api'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 # Paperclip manages file uploads
 gem 'paperclip', '~> 4.2'
@@ -59,6 +57,10 @@ gem 'paperclip', '~> 4.2'
 gem 'figaro'
 
 group :development, :test do
+
+  # Use Capistrano for deployment
+  gem 'capistrano-rails', group: :development
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
