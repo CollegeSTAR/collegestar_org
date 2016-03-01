@@ -116,6 +116,34 @@
       text-indent: -1.5rem;
     }
   }
+
+  li {
+    a {
+      padding-left: .25rem;
+      font-family: $default-font-family;
+      font-weight: bold;
+      color: $default-text-color;
+      text-decoration: none;
+      font-size: $base-font-size * 1.2;
+
+      &:hover {
+        @include single-text-shadow();
+        color: #000;
+      }
+    }
+
+    li {
+      a {
+        font-weight: bold;
+        font-size: $base-font-size * 1.1;
+      }
+    }
+
+    &:before {
+      counter-increment: section;
+      content: counters(section, ".") " ";
+    }
+  }
 }
 
 #module-introduction {
