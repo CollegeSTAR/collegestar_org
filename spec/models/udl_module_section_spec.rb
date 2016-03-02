@@ -61,4 +61,19 @@ RSpec.describe UdlModuleSection do
       ).to eq(1)
     end
   end
+
+  describe "#find_module_section" do
+    let(:udl_module) { create(:udl_module) }
+    let(:section) {  create(:introduction_section, title: 'test', slug: 'test') }
+    let(:section_with_same_slug) { create(:introduction_section, title: 'test', slug: 'test') }
+    it "finds a section by slug and udl_module" do
+      udl_module.add_section( section )
+      udl_module.save
+      section_with_same_slug
+
+      expect( 
+        UdlModuleSection.find_module_section(module_slug: udl_module.slug, section_slug: section.slug)
+      ).to eq(section)
+    end
+  end
 end

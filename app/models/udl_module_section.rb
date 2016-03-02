@@ -21,6 +21,11 @@ class UdlModuleSection < ActiveRecord::Base
     section.default_shared_position = shared_section_count
   end
 
+  def self.find_module_section( args={} )
+    self.joins(:modules)
+      .where("udl_modules.slug = ? and udl_module_sections.slug = ?", args[:module_slug], args[:section_slug]).first
+  end
+
   def to_param
     slug
   end

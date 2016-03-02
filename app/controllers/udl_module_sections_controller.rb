@@ -43,7 +43,10 @@ class UdlModuleSectionsController < ApplicationController
   end
 
   def set_section
-    @udl_module_section = UdlModuleSection.find_by slug: params[:slug]
+    @udl_module_section = UdlModuleSection.find_module_section( 
+      module_slug: params[:udl_module_slug], 
+      section_slug: params[:slug]
+    )
   end
 
   def udl_module_section_params
