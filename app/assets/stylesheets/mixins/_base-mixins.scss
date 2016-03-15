@@ -55,3 +55,9 @@
     font-weight: bold;
   }
 }
+
+@mixin edit-link() {
+  font-style: normal;
+  font-size: $base-font-size * .5;
+  font-weight: bold;
+}

@@ -18,9 +18,7 @@
 #content img.udl-none { @include udl-trio(-350px); }
 
 .edit-module-link {
-  font-style: normal;
-  font-size: $base-font-size * .5;
-  font-weight: bold;
+  @include edit-link;
 }
 
 
