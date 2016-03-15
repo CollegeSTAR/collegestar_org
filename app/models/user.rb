@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     generate_token(:activation_token)
   end
   
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   # Return a NullUser object if an object cannot be found.
   def self.guaranteed_find_by(args = {})
     if user = User.find_by( args )

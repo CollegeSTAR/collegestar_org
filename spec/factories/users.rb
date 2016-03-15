@@ -5,6 +5,7 @@ FactoryGirl.define do
     sequence( :email ) { "#{first_name}.#{last_name}@example.com".downcase }
     password "secret_pass"
     password_confirmation "secret_pass"
+    phone_number "1236541234"
   end
 
   factory :admin_user, class: User do
@@ -13,6 +14,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "admin#{n}@collegestar.org" }
     password "secret_pass"
     password_confirmation "secret_pass"
+    phone_number "1236541234"
     after(:create) { |user| user.roles << create(:admin_role) }
   end
 end

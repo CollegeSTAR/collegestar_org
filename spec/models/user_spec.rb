@@ -1,5 +1,5 @@
 RSpec.describe User do
-  
+  let(:user) { create(:user) }  
   describe "validations" do
     it "should validate presence of first_name" do
       @user = build(:user, first_name: nil)
@@ -80,6 +80,13 @@ RSpec.describe User do
     end
     it "has many faculty_modules" do
       is_expected.to have_many(:faculty_modules).class_name('UdlModule').through(:module_faculty_associations).source('module')
+    end
+  end
+
+  describe "#full_name" do
+    it "should return a combined first and last name" do
+      user
+      expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226155044) do
+ActiveRecord::Schema.define(version: 20160315143039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20160226155044) do
     t.string   "name",               null: false
     t.string   "abbreviation",       null: false
     t.string   "institution_type",   null: false
-    t.integer  "director_id"
     t.string   "website_url"
     t.string   "address_1",          null: false
     t.string   "address_2"
@@ -42,9 +41,11 @@ ActiveRecord::Schema.define(version: 20160226155044) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "slug",               null: false
+    t.integer  "director_id"
   end
 
   add_index "campuses", ["abbreviation"], name: "campuses_abbreviation_index", unique: true, using: :btree
+  add_index "campuses", ["director_id"], name: "index_campuses_on_director_id", using: :btree
   add_index "campuses", ["name"], name: "campuses_name_index", unique: true, using: :btree
   add_index "campuses", ["slug"], name: "campuses_slug_index", unique: true, using: :btree
 
@@ -176,6 +177,7 @@ ActiveRecord::Schema.define(version: 20160226155044) do
     t.datetime "password_reset_sent_at"
     t.boolean  "event_consent"
     t.boolean  "module_consent"
+    t.text     "phone_number"
   end
 
   add_index "users", ["event_consent"], name: "index_users_on_event_consent", using: :btree
@@ -183,7 +185,6 @@ ActiveRecord::Schema.define(version: 20160226155044) do
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
-  add_foreign_key "campuses", "users", column: "director_id", on_delete: :cascade
   add_foreign_key "module_author_associations", "udl_modules", column: "module_id"
   add_foreign_key "module_author_associations", "users", column: "author_id"
   add_foreign_key "module_faculty_associations", "udl_modules", column: "module_id"

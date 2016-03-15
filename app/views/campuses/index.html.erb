@@ -20,7 +20,7 @@
               <p>website:</p>
             </div>
             <div class="campus-info-value">
-              <p><%= campus.website_url %></p>
+              <p><%= link_to campus.website_url, url_with_protocol(campus.website_url), target: "_blank" %></p>
             </div>
           </div>
           <div class="campus-info">
@@ -29,8 +29,7 @@
             </div>
             <div class="campus-info-value">
               <p>
-                <%= campus.address_1 %><br />
-                <%= campus.city %>, <%= campus.state %> <%= campus.zip %>
+                <%= format_address( campus ) %>
               </p>
             </div>
           </div>
@@ -40,7 +39,7 @@
             </div>
             <div class="campus-info-value">
               <p>
-                <%= campus.director_id %>
+                <%= campus.director.full_name %>
               </p>
             </div>
           </div>          
@@ -50,7 +49,7 @@
             </div>
             <div class="campus-info-value">
               <p>
-                Director's Phone Number
+                <%= campus.director.phone_number %>
               </p>
             </div>
           </div>          
@@ -60,7 +59,7 @@
             </div>
             <div class="campus-info-value">
               <p>
-                Director's Email.
+                <%= mail_to campus.director.email %>
               </p>
             </div>
           </div>
