@@ -15,7 +15,14 @@
             <%= image_tag campus.image.url(:medium) %>
           </div>
           <div class="campus-info">
-            <h2><%= campus.name %></h2>
+            <h2><%= campus.name %>
+              <span class="edit-campus-link"> 
+                 <%= link_to(
+                       fa_icon( "pencil", text: "Edit this campus"), 
+                       edit_campus_path(slug: campus.slug) 
+                     ) %>
+             </span>
+             </h2>
             <div class="campus-info-title">
               <p>website:</p>
             </div>
@@ -103,7 +110,7 @@
             </div>
             <div class="campus-info-value">
               <p>
-                WILLIAMSSAR@ecu.edu (preferred)
+                <%= mail_to "WILLIAMSSAR@ecu.edu" %> (preferred)
               </p>
             </div>
           </div>

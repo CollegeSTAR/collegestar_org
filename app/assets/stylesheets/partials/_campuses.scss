@@ -16,6 +16,10 @@
     }
   }
 }
+  
+  .edit-campus-link {
+    @include edit-link;
+  }
 
 .campus-pi {
   h2 {
