@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :user do
+    title "Mr."
     sequence( :first_name ) { |n| "John_#{n}" }
     sequence( :last_name ) { |n| "Smith_#{n}" }
     sequence( :email ) { "#{first_name}.#{last_name}@example.com".downcase }
@@ -9,6 +10,7 @@ FactoryGirl.define do
   end
 
   factory :admin_user, class: User do
+    title "Mr."
     first_name "Tanner_admin"
     last_name "Jones_admin"
     sequence(:email) { |n| "admin#{n}@collegestar.org" }

@@ -84,9 +84,15 @@ RSpec.describe User do
   end
 
   describe "#full_name" do
-    it "should return a combined first and last name" do
+    it "should return a combined title, first_name, and last_name" do
       user
-      expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+      expect(user.full_name).to eq("#{user.title} #{user.first_name} #{user.last_name}")
+    end
+    context "No title set" do
+      it "correctly formats full name" do
+        user.title = nil
+        expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+      end
     end
   end
 

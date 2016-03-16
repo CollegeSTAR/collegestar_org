@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
   
   def full_name
-    full_name = "#{title} " if title
+    full_name = title ? "#{title} " : ""
     full_name += "#{first_name} #{last_name}"
   end
 
