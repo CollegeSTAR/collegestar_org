@@ -1,6 +1,6 @@
 //Sass for CollegeSTAR.org footer section
 #footer {
-  @include span(18 of 18 wide);
+  @include span(18 of 18 no-gutters);
 	margin: 0px auto;
 	padding: 10px 2em;
 	color: darken($default-text-color, 12%);

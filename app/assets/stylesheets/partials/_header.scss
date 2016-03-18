@@ -27,9 +27,9 @@
   #header-right {
     background-color: $white;
     position: relative;
-    @include span(18 of 18 wide no-gutters);
+    @include span(18 of 18 no-gutters);
     @include breakpoint($full) {
-      @include span(14 of 18 at 5 wide no-gutters);
+      @include span(14 of 18 at 5 wide);
       background-color: $black;
       border: none;
     }
