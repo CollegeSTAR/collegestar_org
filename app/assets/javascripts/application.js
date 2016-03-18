@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require ckeditor/init
 //= require turbolinks
 //= require user_menu
