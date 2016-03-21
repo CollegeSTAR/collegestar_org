@@ -33,4 +33,7 @@ Rails.application.routes.draw do
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
   resources :surveys, param: :slug
+  namespace :faculty do
+    resources :redesign_summaries, path: '/redesign-summaries'
+  end
 end
