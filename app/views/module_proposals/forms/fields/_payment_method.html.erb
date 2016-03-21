@@ -1,0 +1,18 @@
+<div id="form-payment-method-wrapper">
+  <div class="payment-method-input">
+    <%= f.label :payment_method, "What is your preferred method of payment?" %>
+  </div>
+  <div id="form-payment-method-field">
+    <%= f.select(:payment_method) do %>
+      <%= content_tag(:option, "Please Select a Payment Method", selected: "selected", disabled: "disabled") %>
+      <% [
+           ['Pay Supplement', 'pay_supplement'], 
+           ['Travel Support', 'travel_support'], 
+           ['Technology Purchase', 'technology_purchase'], 
+           ['Organization Dues', 'organization_dues']
+         ].each do |method| %>
+        <%= content_tag(:option, method.first, value: method.last) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -26,6 +26,13 @@ $site-width: 960px;
 $default-border-width: 1px;
 $default-radius: 4px;
 
+//Tables
+$default-table-heading-bg-color: #333;
+$default-table-heading-text-color: #FEFEFE;
+$even-td-bg-color: #FFF;
+$odd-td-bg-color: #EEE;
+$tr-hover-bg-color: #118AB8;
+
 //Media Queries
 $full: min-width 960px;
 $medium: min-width 500px;

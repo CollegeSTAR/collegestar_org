@@ -1,0 +1,55 @@
+@mixin admin-table() {
+  width: 100%;
+  border: 1px solid $default-border-color;
+  border-collapse: collapse;    
+  
+  tr {
+    @include table-tr;
+
+    &:first-child {
+      @include table-tr-heading;
+    }
+    td {
+      @include table-td;
+    }
+  }    
+}
+
+@mixin table-tr-heading() {
+  background-color: $default-table-heading-bg-color;
+  color: $default-table-heading-text-color;
+  font-weight: bold;
+
+  th {
+    @include table-heading;
+  }
+}
+
+@mixin table-heading() {
+  padding: gutter();
+}
+
+@mixin table-tr() {
+  &:nth-child(even) {
+    background-color: $even-td-bg-color;
+  }
+  &:nth-child(odd) {
+    background-color: $odd-td-bg-color;
+  }
+  &:hover {
+    background-color: $tr-hover-bg-color;
+    
+    a {
+      @include table-tr-a;
+    }
+  }
+}
+
+@mixin table-td() {
+  padding: gutter();
+}
+
+@mixin table-tr-a() {
+  color: $default-table-heading-text-color;
+}
+

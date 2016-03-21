@@ -16,6 +16,7 @@
   background-color: $white;
 }
 
+
 @mixin entity-list-wrapper() {
   @include clearfix;
   @include span(13 of 14);

@@ -23,4 +23,10 @@ FactoryGirl.define do
     action "manage"
     subject "contact"
   end
+
+  factory :module_proposals_admin, class: Role do
+    name "module_proposals_admin"
+    action "manage"
+    subject "module_proposal"
+  end
 end

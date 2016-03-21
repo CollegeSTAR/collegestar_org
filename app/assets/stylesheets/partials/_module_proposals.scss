@@ -1,0 +1,134 @@
+// Place all the styles related to the ModuleProposals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#module-proposals-table-wrapper {
+  @include span(18 of 18 no-gutters);  
+  padding: gutter();
+
+  table#module-proposals {
+    @include admin-table;
+  }
+}
+
+#module-proposals-form-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+}
+
+#form-first-name-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(6 of 18);
+  }
+}
+
+#form-last-name-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(6 of 18 at 7);
+  }
+}
+
+#form-email-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(6 of 18 at 13);
+  }
+}
+
+#form-university-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(9 of 18);
+  }
+}
+
+#form-department-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(9 of 18 at 10);
+  }
+}
+
+#form-working-title-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+}
+
+#form-description-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+}
+
+#form-completion-date-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18);
+}
+
+#form-completion-date-field {
+  @include span(8 of 18);
+
+  input[type=text] {
+    width: 100%;
+    font-size: $base-font-size;
+    font-weight: bold;
+    padding: .75em;
+  }
+
+  @include breakpoint($medium) {
+    @include span(6 of 18);
+  }
+
+  @include breakpoint($full) {
+    @include span(4 of 18);
+  }
+}
+
+#form-payment-method-wrapper {
+  @include span(18 of 18);
+  margin-top: gutter();
+  margin-bottom: gutter();
+
+  #form-payment-method-field {
+    @include span(4 of 18);
+  }
+}
+
+#module-proposal-form-submit-wrapper {
+  @include span(18 of 18);
+  text-align: center;
+  margin-top: 4em;
+}
+
+.form-text-field input[type=text] {
+  width: 100%;
+  padding: .75em;
+  font-size: $base-font-size;
+  font-weight: bold;
+  border: $default-border-width solid $default-border-color;
+}
+
+.form-text-area textarea {
+  width: 100%;
+  height: 15em;
+  padding: .75em;
+  resize: none;
+  border: $default-border-width solid $default-border-color;
+  font-size: $base-font-size;
+  font-weight: bold;
+}
+

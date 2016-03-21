@@ -24,7 +24,7 @@ body {
 }
 
 #content-wrapper {
-  @include breakpoint(full) {
+  @include breakpoint($full) {
     @include container(60em);
     @include clearfix();
   }

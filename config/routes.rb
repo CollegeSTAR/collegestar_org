@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug
   resources :events, param: :slug
+  resources :module_proposals, path: '/module-proposals'
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
   end

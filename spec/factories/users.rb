@@ -19,4 +19,15 @@ FactoryGirl.define do
     phone_number "1236541234"
     after(:create) { |user| user.roles << create(:admin_role) }
   end
+
+  factory :module_proposals_admin_user, class: User do
+    title "Mr. "
+    first_name "John"
+    last_name "Smith"
+    email "john.smith@example.com"
+    password "secret_pass"
+    password_confirmation "secret_pass"
+    phone_number "1236541234"
+    after(:create) { |user| user.roles << create(:module_proposals_admin) }
+  end
 end
