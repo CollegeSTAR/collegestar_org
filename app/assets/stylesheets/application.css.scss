@@ -13,17 +13,14 @@
  */
 @import "bourbon";
 @import "base/base";
-@import "foundation_and_overrides";
+@import "partials/variables";
 @import "jquery-ui/core";
 @import "jquery-ui/datepicker";
 @import "jquery-ui/theme";
 @import "font-awesome";
-@import "foundation/components/buttons";
-@import "foundation/components/type";
 @import "susy";
 @import "breakpoint";
 @import "partials/susy_globals";
-@import "partials/variables";
 @import "mixins/base-mixins";
 @import "mixins/table-mixins";
 @import "mixins/udl_module-mixins";

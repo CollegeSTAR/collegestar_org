@@ -10,7 +10,7 @@
 }
 
 @mixin bordered-panel() {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   border: $default-border-width solid $default-border-color;
   border-radius: .5em;
   background-color: $white;
