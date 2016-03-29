@@ -1,0 +1,24 @@
+  <div id="form-title-name-wrapper">
+    <div class="form-label">
+      <%= f.label :title, "title:" %>
+    </div>
+    <div class="form-text-field">
+      <%= f.select :title, [ ["Dr.", "Dr."], ["Mr.", "Mr."], ["Mrs.", "Mrs."] ] %>
+    </div>
+  </div>
+  <div id="form-first-name-wrapper">
+    <div class="form-label">
+      <%= f.label :first_name, "First Name:" %>
+    </div>
+    <div class="form-text-field">
+      <%= f.text_field :first_name %>
+    </div>
+  </div>
+  <div id="form-last-name-wrapper">
+    <div class="form-label">
+      <%= f.label :last_name, "Last Name:" %>
+    </div>
+    <div class="form-text-field">
+      <%= f.text_field :last_name %>
+    </div>
+  </div>

@@ -1,0 +1,54 @@
+#faculty-redesign-summaries-table-wrapper {
+  @include span(18 of 18 no-gutters);  
+  padding: gutter();
+
+  table#faculty-redesign-summaries {
+    @include admin-table;
+  }
+}
+
+#redesign-summary-entity {
+  @include clearfix;
+  h2 {
+    padding-top: 2 * gutter();
+  }
+  #faculty-info-wrapper {
+    #faculty-member {
+      @include span(9 of 18 no-gutters);      
+      padding: gutter();
+      padding-left: 2 * gutter();
+    }
+
+    #faculty-department {
+      @include span(9 of 18 at 10 no-gutters);
+      padding: gutter();
+      padding-left: 2 * gutter();
+    }
+
+    .field_name {
+      @include span(18 of 18 no-gutters);
+    }
+
+    .field_content {
+      @include span(18 of 18 no-gutters);
+      font-weight: bold;
+      padding-left: 3 * gutter();
+    }
+  }
+
+  .field {
+    @include span( 18 of 18 no-gutters);
+    padding: gutter();
+    padding-left: 2 * gutter();
+    @include clearfix;
+
+    .field_name {
+      @include span(18 of 18 no-gutters); 
+    }
+    .field_content {
+      @include span(18 of 18 no-gutters);
+      font-weight: bold;
+      padding-left: 3 * gutter();
+    }
+  }
+}

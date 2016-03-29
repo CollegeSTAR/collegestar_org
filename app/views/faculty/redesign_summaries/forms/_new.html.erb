@@ -1,0 +1,5 @@
+<%= form_for [:faculty, @redesign_summary]  do |f| %>
+  <%= f.hidden_field :uuid, value: @redesign_summary.uuid %>
+  <%= render 'faculty/redesign_summaries/forms/fields/questions', f: f %>
+  <%= f.submit %>
+<% end %>

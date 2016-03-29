@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321171658) do
+ActiveRecord::Schema.define(version: 20160328142644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,22 +147,33 @@ ActiveRecord::Schema.define(version: 20160321171658) do
   end
 
   create_table "redesign_summaries", force: :cascade do |t|
-    t.string   "first_name",                             null: false
-    t.string   "last_name",                              null: false
-    t.string   "title",                                  null: false
-    t.string   "department",                             null: false
-    t.string   "campus",                                 null: false
-    t.string   "implemented_technique",                  null: false
-    t.text     "redesign_process",                       null: false
-    t.text     "assessment_description",                 null: false
-    t.text     "examples",                               null: false
-    t.text     "challenges",                             null: false
-    t.boolean  "representation",         default: false
-    t.boolean  "action_expression",      default: false
-    t.boolean  "engagement",             default: false
+    t.string   "uuid",                                  null: false
+    t.string   "implemented_technique",                 null: false
+    t.text     "summary_content",                       null: false
+    t.boolean  "representation",        default: false
+    t.boolean  "action_expression",     default: false
+    t.boolean  "engagement",            default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "redesign_summaries", ["user_id"], name: "index_redesign_summaries_on_user_id", using: :btree
+  add_index "redesign_summaries", ["uuid"], name: "index_redesign_summaries_on_uuid", using: :btree
+
+  create_table "redesign_summary_attachments", force: :cascade do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.string   "redesign_summary_uuid",   null: false
+    t.integer  "redesign_summary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "redesign_summary_attachments", ["redesign_summary_id"], name: "index_redesign_summary_attachments_on_redesign_summary_id", using: :btree
+  add_index "redesign_summary_attachments", ["redesign_summary_uuid"], name: "index_redesign_summary_attachments_on_redesign_summary_uuid", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -217,8 +228,11 @@ ActiveRecord::Schema.define(version: 20160321171658) do
     t.string   "state"
     t.string   "zip"
     t.string   "title"
+    t.string   "department"
+    t.integer  "campus_id"
   end
 
+  add_index "users", ["campus_id"], name: "index_users_on_campus_id", using: :btree
   add_index "users", ["event_consent"], name: "index_users_on_event_consent", using: :btree
   add_index "users", ["module_consent"], name: "index_users_on_module_consent", using: :btree
 
@@ -230,4 +244,6 @@ ActiveRecord::Schema.define(version: 20160321171658) do
   add_foreign_key "module_faculty_associations", "users", column: "faculty_id"
   add_foreign_key "module_section_associations", "udl_module_sections", column: "section_id"
   add_foreign_key "module_section_associations", "udl_modules", column: "module_id"
+  add_foreign_key "redesign_summaries", "users"
+  add_foreign_key "users", "campuses"
 end

@@ -16,17 +16,18 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @campuses = Campus.all
   end
 
   # GET /users/1/edit
   def edit
+    @campuses = Campus.all
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(create_user_params)
-
     respond_to do |format|
       if @user.save
         create_session( 
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
         format.html { redirect_to profile_path(@user), notice: 'Thank you for signing up!' }
         format.json { render :show, status: :created, location: profile_path(@user) }
       else
+        @campuses = Campus.all
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -74,10 +76,10 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def create_user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :campus_id, :department)
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:first_name, :last_name, :email, :campus_id, :department)
     end
 end

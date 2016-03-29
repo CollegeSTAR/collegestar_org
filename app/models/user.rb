@@ -8,13 +8,15 @@ class User < ActiveRecord::Base
               allow_nil: true
   validates :password_confirmation, presence: { on: :create }
   has_secure_password
-
+  
+  belongs_to :campus
   has_many :access_controls
   has_many :roles, through: :access_controls, dependent: :delete_all
   has_many :module_author_associations, foreign_key: 'author_id'
   has_many :author_modules, through: :module_author_associations, source: 'module'
   has_many :module_faculty_associations, foreign_key: 'faculty_id'
   has_many :faculty_modules, through: :module_faculty_associations, source: 'module'
+  has_many :redesign_summaries
 
   before_create do 
     generate_token(:auth_token)

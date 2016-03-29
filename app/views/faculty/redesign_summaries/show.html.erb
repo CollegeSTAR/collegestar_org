@@ -1,0 +1,77 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>ReDesign Summary: <%= @redesign_summary.implemented_technique %></h1>
+
+      <div id="redesign-summary-entity">
+        <h2>Faculty Info</h2> 
+
+        <div id="faculty-info-wrapper">
+          <div id="faculty-member">
+            <div class="field_name">
+              Faculty Member:
+            </div>
+            <div class="field_content">
+              <%= "#{@redesign_summary.user.first_name} #{@redesign_summary.user.last_name}" %>
+            </div>
+          </div>
+          
+          <div id="faculty-department">
+            <div class="field_name">
+              Department:
+            </div>
+            <div class="field_content">
+              <%= @redesign_summary.user.department %>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field_name">
+              Campus:
+            </div>
+            <div class="field_content">
+              <%= @redesign_summary.user.campus.name %>
+            </div>
+          </div>
+        </div>
+
+        <h2>Technique Implemented: <%= @redesign_summary.implemented_technique %></h2>
+
+        <%= @redesign_summary.summary_content.html_safe %>
+
+        <div class="field">
+          <div class="field_name">
+            Udl Principles Udes:
+          </div>
+          <div class="field_content">
+            <ul>
+              <% if @redesign_summary.representation %>
+                <li>Multiple Means of Representation</li>
+              <% end %>
+              <% if @redesign_summary.action_expression %>
+                <li>Multiple Means of Action and Expression</li>
+              <% end %>
+              <% if @redesign_summary.engagement %>
+                <li>Multiple Means of Engagement</li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field_name">
+            Attachments:
+          </div>
+          <div class="field_content">
+            <ul>
+              <% @redesign_summary.attachments.each do |summary_attachment| %>
+                <li><%= link_to summary_attachment.attachment.original_filename, summary_attachment.attachment.url, target: "_blank" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

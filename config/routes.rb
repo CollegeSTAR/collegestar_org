@@ -36,4 +36,11 @@ Rails.application.routes.draw do
   namespace :faculty do
     resources :redesign_summaries, path: '/redesign-summaries'
   end
+  namespace :api do
+    namespace :v1 do
+      namespace :faculty do
+        resources :redesign_summary_attachments, only: [:new, :create, :destroy], path: '/redesign-summary-attachments'
+      end
+    end
+  end
 end
