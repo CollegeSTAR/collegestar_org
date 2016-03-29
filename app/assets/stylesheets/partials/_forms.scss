@@ -1,0 +1,17 @@
+.form-text-field input[type=text] {
+  width: 100%;
+  padding: .75em;
+  font-size: $base-font-size;
+  font-weight: bold;
+  border: $default-border-width solid $default-border-color;
+}
+
+.form-text-area textarea {
+  width: 100%;
+  height: 15em;
+  padding: .75em;
+  resize: none;
+  border: $default-border-width solid $default-border-color;
+  font-size: $base-font-size;
+  font-weight: bold;
+}
