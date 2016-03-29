@@ -128,16 +128,6 @@ ul {
   }
 }
 
-.float-left {
-  @include float-left;
-  margin: 1em 1em 1em 2.5em;
-}
-
-.float-right {
-  @include float-right;
-  margin: 1em 2.5em 1em 1em;
-}
-
 .create-button {
   @include button-base();
   @include button-size();

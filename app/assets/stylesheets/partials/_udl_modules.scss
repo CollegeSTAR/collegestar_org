@@ -125,7 +125,6 @@
       font-size: $base-font-size * 1.2;
 
       &:hover {
-        @include single-text-shadow();
         color: #000;
       }
     }

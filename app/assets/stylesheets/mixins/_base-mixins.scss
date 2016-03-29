@@ -12,7 +12,7 @@
 @mixin bordered-panel() {
   @include box-sizing(border-box);
   border: $default-border-width solid $default-border-color;
-  @include border-radius(.5em);
+  border-radius: .5em;
   background-color: $white;
 }
 
