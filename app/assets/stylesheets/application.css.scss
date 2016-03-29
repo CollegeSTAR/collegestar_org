@@ -10,10 +10,34 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- //= require reset
- //= require foundation_and_overrides
- //= require jquery-ui
- //= require main
- //= require_self
  */
-
+@import "foundation_and_overrides";
+@import "jquery-ui/core";
+@import "jquery-ui/datepicker";
+@import "jquery-ui/theme";
+@import "font-awesome";
+@import "foundation/components/buttons";
+@import "foundation/components/type";
+@import "susy";
+@import "breakpoint";
+@import "partials/susy_globals";
+@import "partials/variables";
+@import "mixins/base-mixins";
+@import "mixins/table-mixins";
+@import "mixins/udl_module-mixins";
+@import "partials/base";
+@import "partials/header";
+@import "partials/side_bar";
+@import "partials/footer";
+@import "partials/scaffolds";
+@import "partials/forms";
+@import "partials/home";
+@import "partials/events";
+@import "partials/campuses";
+@import "partials/supporters";
+@import "partials/partners";
+@import "partials/news_articles";
+@import "partials/users";
+@import "partials/udl_modules";
+@import "partials/module_proposals";
+@import "partials/faculty/redesign_summaries";
