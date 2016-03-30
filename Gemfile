@@ -51,7 +51,6 @@ gem 'mandrill-api'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-
 # Paperclip manages file uploads
 gem 'paperclip', '~> 4.2'
 
