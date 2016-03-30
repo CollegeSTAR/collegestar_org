@@ -16,12 +16,14 @@
           </div>
           <div class="campus-info">
             <h2><%= campus.name %>
-              <span class="edit-campus-link"> 
-                 <%= link_to(
-                       fa_icon( "pencil", text: "Edit this campus"), 
-                       edit_campus_path(slug: campus.slug) 
-                     ) %>
-             </span>
+              <% if can? :update, campus %>
+                <span class="edit-campus-link"> 
+                   <%= link_to(
+                         fa_icon( "pencil", text: "Edit this campus"), 
+                         edit_campus_path(slug: campus.slug) 
+                       ) %>
+               </span>
+             <% end %>
              </h2>
             <div class="campus-info-title">
               <p>website:</p>
