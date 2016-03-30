@@ -3,12 +3,14 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
   <main>
+    <% if can? :update, @udl_module %>
     <div id="admin-tools">
       <%= link_to(
             fa_icon('bars', text: 'settings'),
             edit_udl_module_path(@udl_module)     
           ) %>
     </div>
+    <% end %>
     <section id="module-title">
       <div id="module-icon-wrapper">
        <a href="#udl-icon" title="This icon is a graphical representation of UDL priniciples with which this module aligns."><%= image_tag( 'trans.png', class: get_udl_trio_class(@udl_module), alt: 'This module models the UDL Principles of Representation and Action and Expression.') %></a>
