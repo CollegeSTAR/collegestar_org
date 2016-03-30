@@ -2,13 +2,13 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @udl_module.title %></h1>
-      
-      <%= render 'edit_module_form' %>
-      
-      <%= link_to( 
+       <%= link_to( 
             fa_icon( 'arrow-left', text: 'Back to module' ),
             @udl_module
           ) %>
+     
+      <%= render 'edit_module_form' %>
+      
 
     </div>
   </div>

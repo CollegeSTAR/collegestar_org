@@ -2,16 +2,15 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @udl_module_section.title %></h1>
-
-      <%= render 'edit_form' %>
       <p>
         <%= link_to( 
               fa_icon( 'arrow-left', text: 'Back to module' ), 
               udl_module_path(@udl_module), 
               class: 'nav-button'
             ) %>
-      </p>
 
+      <%= render 'edit_form' %>
+      </p>
       <h1>Danger Zone</h1>
         <p>
           <%= link_to( 
