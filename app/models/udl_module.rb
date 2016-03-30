@@ -9,6 +9,8 @@ class UdlModule < ActiveRecord::Base
   has_many :faculty, through: :module_faculty_associations, class_name: "User"
   has_many :sections, -> { order 'module_section_associations.section_page_position ASC' }, through: :module_section_associations, class_name: 'UdlModuleSection'
 
+  scope :released, -> { where released: true }
+
   def initialize(attributes={})
     super
   end

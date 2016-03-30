@@ -46,6 +46,16 @@ RSpec.describe UdlModule do
       is_expected.to have_one(:assessment)
     end
   end
+
+  describe "scopes" do
+    context "released" do
+      it "returns only released modules" do
+        not_yet_released_module = create(:udl_module)
+        released_module = create(:udl_module, released: true)
+        expect(UdlModule.released).to match_array([released_module])
+      end
+    end
+  end
   
   describe "#get_page_section_count" do
     let(:udl_module) { create(:udl_module) }
