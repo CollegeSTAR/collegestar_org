@@ -76,25 +76,29 @@
          <div class="module-section-title-wrapper" data-no-turbolink>
              <h3>
                <%= section.title %> 
-               <span class="edit-module-section-link"> 
-                 <%= link_to(
-                       fa_icon( "pencil", text: "Edit this section"), 
-                       edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug) 
-                     ) %>
-               </span>
+               <% if can? :update, @udl_module %> 
+                 <span class="edit-module-section-link"> 
+                   <%= link_to(
+                         fa_icon( "pencil", text: "Edit this section"), 
+                         edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug) 
+                       ) %>
+                 </span>
+               <% end %>
              </h3>
            </div>
            <div class="module-section-content-wrapper">
              <%= section.content.html_safe %>
            </div>
        <% end %>
-       <p>
-         <%= link_to(
-               fa_icon("plus", text: "Add a section"), 
-               new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "introduction"), 
-               class: "create-button" 
-             ) %>
-       </p>
+       <% if can? :update, @udl_module %>
+         <p>
+           <%= link_to(
+                 fa_icon("plus", text: "Add a section"), 
+                 new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "introduction"), 
+                 class: "create-button" 
+               ) %>
+         </p>
+       <% end %>
        </div>
      </div>
      
@@ -107,23 +111,27 @@
          <div class="module-section-title-wrapper">
              <h3>
                <%= section.title %> 
+               <% if can? :update, @udl_module %>
                <span class="edit-module-section-link"> 
                  <%= link_to(
                        fa_icon( "pencil", text: "Edit this section" ), 
                        edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug)
                      ) %>
                </span>
+               <% end %>
              </h3>
            </div>
          <%= section.content.html_safe %>
        <% end %>
-       <p>
-         <%= link_to( 
-               fa_icon( "plus", text: "Add a section" ), 
-               new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "udl_principles"),
-               class: 'create-button'
-             ) %>
-       </p>
+       <% if can? :update, @udl_module %>
+         <p>
+           <%= link_to( 
+                 fa_icon( "plus", text: "Add a section" ), 
+                 new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "udl_principles"),
+                 class: 'create-button'
+               ) %>
+         </p>
+       <% end %>
       </div>
       <div id="module-instructional-practice">
        <a id="instructional-practice"></a>
@@ -134,16 +142,19 @@
          <div class="module-section-title-wrapper">
              <h3>
                <%= section.title %> 
+               <% if can? :update, @udl_module %>
                <span class="edit-module-section-link"> 
                  <%= link_to(
                        fa_icon( "pencil", text: "Edit this section" ), 
                        edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug)
                      ) %>
                </span>
+               <% end %>
              </h3>
            </div>
          <%= section.content.html_safe %>
        <% end %> 
+       <% if can? :update, @udl_module %>
        <p>
          <%= link_to(
                fa_icon( "plus", text: "Add a section" ), 
@@ -151,6 +162,7 @@
                class: 'create-button'
              ) %>
        </p>
+       <% end %>
      </div>
      <div id="module-learn-more">
        <a id="learn-more"></a>
@@ -161,16 +173,19 @@
          <div class="module-section-title-wrapper">
              <h3>
                <%= section.title %> 
+               <% if can? :update, @udl_module %>
                <span class="edit-module-section-link"> 
                  <%= link_to(
                        fa_icon( "pencil", text: "Edit this section" ),
                        edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug),
                      ) %>
                </span>
+               <% end %>
              </h3>
            </div>
          <%= section.content.html_safe %>
        <% end %>
+       <% if can? :update, @udl_module %>
        <p>
          <%= link_to(
                fa_icon( "plus", text: "Add a section" ),
@@ -178,6 +193,7 @@
                class: 'create-button'
              ) %>
        </p>
+       <% end %>
     </div>
 
     <div id="module-references">
@@ -189,16 +205,19 @@
          <div class="module-section-title-wrapper">
              <h3>
                <%= section.title %> 
+               <% if can? :update, @udl_module %>
                <span class="edit-module-section-link"> 
                  <%= link_to( 
                        fa_icon( 'pencil', text: 'Edit this section' ), 
                        edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug)
                      ) %>
                </span>
+               <% end %>
              </h3>
            </div>
          <%= section.content.html_safe %>
        <% end %>
+       <% if can? :update, @udl_module %>
        <p>
          <%= link_to(
                fa_icon( 'plus', text: 'Add a section' ),
@@ -206,6 +225,7 @@
                class: 'create-button'
              ) %>
        </p>
+       <% end %>
     </div>
 
     <div id="module-footer-info">
