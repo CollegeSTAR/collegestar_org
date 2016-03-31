@@ -8,7 +8,16 @@
           <% @news_articles.each do |news_article| %>
             <li>
               <div class="news_article_wrapper">
-                <h2><%= link_to news_article.title, news_article %></h2>
+                <h2><%= link_to news_article.title, news_article %>
+                  <% if can? :update, news_article %>
+                    <span class="edit-news-article-link">
+                      <%= link_to(
+                        fa_icon( "pencil", text: "Edit this article" ),
+                        edit_news_article_path( news_article ) 
+                      ) %>
+                    </span>
+                  <% end %>
+                </h2>
                 <div class="thumb_nail">
                   <%= link_to( image_tag("seal-2x.png"), news_article ) %>
                 </div>
@@ -19,8 +28,14 @@
             </li>
           <% end %>
        </ul> 
-      <% if can? :create, @news_article %>
-        <%= link_to 'New article', new_news_article_path %>
+      <% if can? :create, NewsArticle %>
+        <div id="new-article-link-wrapper">
+        <%= link_to(
+              fa_icon( 'plus', text: 'Add News Article' ),
+              new_news_article_path,
+              class: 'create-button'
+            ) %>
+        </div>
       <% end %>
     </div>
   </div>

@@ -9,6 +9,14 @@
     color: $cs-orange;
   }
 
+  h2 {
+    .edit-news-article-link {
+      a {
+        color: $blue;
+      }
+    }
+  }
+
   .thumb_nail {
     @include span(1.65 of 18 at 2);
     margin-left: 1em;
@@ -36,4 +44,13 @@ ul#news_articles {
     list-style-type: none;
     margin: 0;
   } 
+}
+
+.edit-news-article-link {
+  @include edit_link;
+}
+
+#new-article-link-wrapper {
+  @include span(18of 18 no-gutters);
+  padding: gutter();
 }

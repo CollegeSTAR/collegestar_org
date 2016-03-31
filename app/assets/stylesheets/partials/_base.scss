@@ -151,3 +151,12 @@ a.read-more {
   font-weight: bold;
   color: $cs-orange;
 }
+
+.edit-link {
+  color: $blue;
+}
+
+#back-link-wrapper {
+  @include span(18 of 18 no-gutters );
+  padding: gutter();
+}

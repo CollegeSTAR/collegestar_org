@@ -58,6 +58,7 @@
 }
 
 @mixin edit-link() {
+  color: $blue;
   font-style: normal;
   font-size: $base-font-size * .5;
   font-weight: bold;
