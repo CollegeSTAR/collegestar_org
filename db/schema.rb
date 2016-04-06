@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328142644) do
+ActiveRecord::Schema.define(version: 20160401150307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 20160328142644) do
 
   create_table "redesign_summaries", force: :cascade do |t|
     t.string   "uuid",                                  null: false
-    t.string   "implemented_technique",                 null: false
+    t.string   "implemented_technique"
     t.text     "summary_content",                       null: false
     t.boolean  "representation",        default: false
     t.boolean  "action_expression",     default: false

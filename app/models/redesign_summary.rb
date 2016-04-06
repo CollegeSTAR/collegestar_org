@@ -1,7 +1,7 @@
 class RedesignSummary < ActiveRecord::Base
   after_initialize :generate_uuid
 
-  validates :implemented_technique, :summary_content, presence: true
+  validates :summary_content, presence: true
   validate :must_select_atleast_one_udl_principle
 
   has_many :attachments, -> { distinct }, class_name: RedesignSummaryAttachment, dependent: :destroy

@@ -1,4 +1,7 @@
+<div id="redesign-summary-attachment-upload-wrapper">
+<h3>Add file attachment(s)</h3>
 <%= form_for RedesignSummaryAttachment.new, url: api_v1_faculty_redesign_summary_attachments_path do |f| %>
   <%= f.hidden_field :redesign_summary_uuid, value: @redesign_summary.uuid %>
   <%= f.file_field :attachment, name: "redesign_summary_attachment[attachment]", multiple: true %>
 <% end %>
+</div>

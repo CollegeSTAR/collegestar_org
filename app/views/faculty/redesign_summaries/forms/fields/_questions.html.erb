@@ -1,37 +1,31 @@
-<div id="form-implemented-technique-wrapper">
-   <div class="label">
-    <%= f.label :implemented_technique, "What was the technique you implemented in your redesign?" %>
-  </div>
-  <div class="form-text-field">
-    <%= f.text_field :implemented_technique %>
-  </div>
-</div>
 <div id="form-summary-content-wrapper">
    <div class="label">
     <%= f.label :summary_content, "Describe the ReDesign Process:" %>
   </div>
   <div class="form-text-area">
-    <%= f.cktext_area :summary_content, value: summary_content, ckeditor: { toolbar: 'simple' } %>
+    <%= f.cktext_area :summary_content, ckeditor: { toolbar: 'simple', height: 600 } %>
   </div>
 </div>
 <div id="form-principles-used-wrapper">
   <fieldset><legend>Which principle(s) does this technique address?</legend>
-   <div class="label">
-    <%= f.label :representation, "Multiple Means of Representation:" %>
-  </div>
-  <div class="form-text-area">
-    <%= f.check_box :representation %>
-  </div>   
-  <div class="label">
+    <div id="representation-checkbox-wrapper">
+      <div class="checkbox-label">
+        <%= f.label :representation, "Multiple Means of Representation:" %>
+      </div>
+      <div class="checkbox">
+        <%= f.check_box :representation %>
+      </div>
+    </div>
+  <div class="checkbox-label">
     <%= f.label :action_expression, "Multiple Means of Action and Expression:" %>
   </div>
-  <div class="form-text-area">
+  <div class="checkbox">
     <%= f.check_box :action_expression %>
   </div>
-  <div class="label">
+  <div class="checkbox-label">
     <%= f.label :engagement, "Multiple Means of Engagement:" %>
   </div>
-  <div class="form-text-area">
+  <div class="checkbox">
     <%= f.check_box :engagement %>
   </div>
   </fieldset>

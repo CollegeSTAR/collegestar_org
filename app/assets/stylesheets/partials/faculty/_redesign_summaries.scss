@@ -13,25 +13,41 @@
     padding-top: 2 * gutter();
   }
   #faculty-info-wrapper {
+    @include clearfix();
     #faculty-member {
-      @include span(9 of 18 no-gutters);      
+      @include span(18 of 18 no-gutters);      
       padding: gutter();
       padding-left: 2 * gutter();
+      @include breakpoint($full) {
+        @include span(6 of 18 no-gutters); 
+      }
     }
 
     #faculty-department {
-      @include span(9 of 18 at 10 no-gutters);
+      @include span(18 of 18 no-gutters);
       padding: gutter();
       padding-left: 2 * gutter();
+      @include breakpoint($full) {
+        @include span(6 of 18 at 7 no-gutters);
+      }
+    }
+
+    #faculty-campus {
+      @include span(18 of 18 no-gutters);
+      padding: gutter();
+      padding-left: 2 * gutter();
+      @include breakpoint($full) {
+        @include span(6 of 18 at 13 no-gutters);
+      }
     }
 
     .field_name {
       @include span(18 of 18 no-gutters);
+      font-weight: bold;
     }
 
     .field_content {
       @include span(18 of 18 no-gutters);
-      font-weight: bold;
       padding-left: 3 * gutter();
     }
   }
@@ -39,16 +55,62 @@
   .field {
     @include span( 18 of 18 no-gutters);
     padding: gutter();
-    padding-left: 2 * gutter();
+    padding-left: 4 * gutter();
     @include clearfix;
 
     .field_name {
       @include span(18 of 18 no-gutters); 
+      font-weight: bold;
     }
     .field_content {
       @include span(18 of 18 no-gutters);
-      font-weight: bold;
       padding-left: 3 * gutter();
     }
   }
+}
+
+#form-summary-content-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+}
+
+#form-principles-used-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+  
+  #represenation-checkbox-wrapper {
+    @include span(18 of 18 no-gutters);
+    padding: 2 * gutter();
+  }
+}
+
+#attachment-upload-progress-wrapper {
+  width: 90%;
+  margin: 1em auto;
+  #attachment-upload-progress {
+    background: $gainsboro;
+    border: 1px solid $default-border-color;
+    border-radius: $default-radius;
+    #progress-bar {
+      width: 0%;
+      height: 18px;
+      background: $progress-green;
+    }
+  }
+}
+
+#redesign-summary-attachment-drop-zone {
+  width: 90%;
+  margin: 1em auto;
+  height: 12em;
+  background-color: $fog;
+  border: $default-border-width * 3 dashed $blue;
+  border-radius: $default-radius;
+  text-align: center;
+}
+
+#redesign-summary-submit-wrapper {
+  @include span(18 of 18 no-gutters);
+  text-align: center;
+  padding: 2 * gutter();
 }

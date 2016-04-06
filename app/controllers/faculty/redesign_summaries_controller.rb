@@ -1,10 +1,12 @@
 class Faculty::RedesignSummariesController < ApplicationController
 
-  before_action :set_redesign_summary, only: [:show, :edit]
+  before_action :set_redesign_summary, only: [:show, :edit, :update]
   before_action :set_current_user
+  load_and_authorize_resource
   
   def new
     @redesign_summary = RedesignSummary.new
+    @redesign_summary.summary_content = Faculty::RedesignSummaryHelper.summary_content(@redesign_summary)
   end
 
   def index
@@ -23,10 +25,18 @@ class Faculty::RedesignSummariesController < ApplicationController
     @redesign_summary.user = @current_user
    
     if @redesign_summary.save
-      render :confirmation
+      flash[:notice] = "Redesign summary created successfully."
+      redirect_to edit_faculty_redesign_summary_path(@redesign_summary)
     else
       render :new
     end
+  end
+
+  def update
+    if @redesign_summary.save
+      flash[:notice] = "Redesign summary saved successfully."
+    end
+    redirect_to edit_faculty_redesign_summary_path(@redesign_summary)
   end
 
   private

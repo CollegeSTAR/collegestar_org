@@ -182,3 +182,11 @@ h2 {
   @include span(18 of 18);
   @include clearfix();
 }
+
+#references {
+  p.reference {
+    margin: 5px 20px 5px 60px;
+    text-indent: -50px;
+    text-align: left;
+  }
+}

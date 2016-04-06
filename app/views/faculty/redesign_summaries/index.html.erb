@@ -8,14 +8,12 @@
           <tr>
             <th>Faculty Member</th>
             <th>Department</th>
-            <th>Technique Implemented</th>
             <th>Submission Date</th>
           </tr>
           <% @redesign_summaries.each do |summary| %>
             <tr>
               <td><%= link_to "#{summary.user.first_name} #{summary.user.last_name}", faculty_redesign_summary_path(summary) %></td>
               <td><%= link_to summary.user.department, faculty_redesign_summary_path(summary) %></td>
-              <td><%= link_to summary.implemented_technique, faculty_redesign_summary_path(summary) %></td>
               <td><%= link_to summary.created_at.strftime("%m/%d/%Y"), faculty_redesign_summary_path(summary) %>
             </tr>
           <% end %>

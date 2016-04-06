@@ -3,7 +3,6 @@ require 'spec_helper'
 RSpec.describe RedesignSummary do
   let(:redesign_summary) { create(:redesign_summary) }
   describe "validations" do
-    it { should validate_presence_of(:implemented_technique) }
     it { should validate_presence_of(:summary_content) }
 
 
