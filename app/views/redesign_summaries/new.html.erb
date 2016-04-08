@@ -1,0 +1,15 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+    <h1>Create a new Redesign Summary</h1>
+    <p>
+        <%= link_to( 
+                     fa_icon("arrow-left", text: "Back to my summaries"), 
+                     profile_redesign_summaries_path(current_user)
+                   )
+        %>
+      </p>
+      <%= render 'redesign_summaries/forms/new', locals: {redesign_summary: @redesign_summary } %>
+    </div>
+  </div>
+</div>

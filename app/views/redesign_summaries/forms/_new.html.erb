@@ -1,5 +1,5 @@
-<%= form_for [:faculty, @redesign_summary]  do |f| %>
-  <%= f.hidden_field :uuid, value: @redesign_summary.uuid %>
+<%= form_for [:profile, @redesign_summary]  do |f| %>
+  <%= render 'shared/redesign_summaries/forms/fields/uuid', f: f %>
   <%= render 'shared/redesign_summaries/forms/fields/questions', f: f %>
   <%= render 'shared/redesign_summaries/forms/attachment_drop_zone' %>
   <%= render 'shared/redesign_summaries/forms/submit', f: f %>

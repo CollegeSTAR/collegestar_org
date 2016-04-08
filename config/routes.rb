@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :password_resets, except: [:index, :show],  path: '/password-reset'
   resources :users, only: [:index, :new, :create, :update, :destroy]
-  resources :profile, only: [:edit, :show], controller: :users, as: :profile do
+  resources :profiles, only: [:edit, :show], controller: :users, as: :profiles do
     resources :modules, only: [:index, :show], controller: :udl_module_history, as: :modules
+    resources :redesign_summaries, except: [:show], path: '/redesign-summaries'
   end
   resources :news_articles, only: [:new], path: '/news-article'
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:index, :show, :create, :destroy]
   resources :surveys, param: :slug
   namespace :faculty do
-    resources :redesign_summaries, path: '/redesign-summaries'
+    resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
   end
   namespace :api do
     namespace :v1 do

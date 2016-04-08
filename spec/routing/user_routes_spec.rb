@@ -23,12 +23,12 @@ describe UsersController do
     expect(get('/users/new')).to route_to('users#new')
   end
 
-  context 'profile alias' do
-    it 'get: /profile/1' do
-      expect(get('/profile/1')).to route_to('users#show', id: '1')
+  context 'profiles alias' do
+    it 'get: /profiles/1' do
+      expect(get('/profiles/1')).to route_to('users#show', id: '1')
     end
-    it 'get: profile/1/edit' do
-      expect(get('/profile/1/edit')).to route_to('users#edit', id: '1')
+    it 'get: profiles/1/edit' do
+      expect(get('/profiles/1/edit')).to route_to('users#edit', id: '1')
     end
     it 'get: /profiles' do
       expect(get('/profiles')).to_not be_routable
