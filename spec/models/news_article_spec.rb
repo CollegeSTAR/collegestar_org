@@ -1,4 +1,18 @@
 RSpec.describe NewsArticle do
+
+  describe "validations" do
+    describe "feature_article" do
+      context "not feature_article" do
+        it { should_not validate_uniqueness_of(:feature_article) }
+      end
+      context "is feature_aticle" do
+        subject do
+          create(:news_article, feature_article: true)
+        end
+        it { should validate_uniqueness_of(:feature_article) }
+      end
+    end
+  end
   it "uses slug to look up articles" do
     @article = create(:news_article)
     expect(NewsArticle.find_by(slug: @article.slug)).to eq(@article)
