@@ -10,12 +10,21 @@
         <div id="user-dropdown" class="user-menu">
           <ul>
             <li><%= link_to '<i class="fa fa-cog fa-lg"></i>&nbsp; Edit Profile'.html_safe, profile_path(current_user) %></li>
+            <li><%= link_to '<i class="fa fa-book fa-la"></i>&nbsp; My Redesign Summaries'.html_safe, profile_redesign_summaries_path(profile_id: current_user) %></li>
+            <!--
             <li><%= link_to '<i class="fa fa-history fa-la"></i>&nbsp; My Module History'.html_safe, udl_modules_path %></li>
             <li><%= link_to '<i class="fa fa-cubes fa-la"></i>&nbsp; My Communities'.html_safe, communities_path %></li>
             <li><%= link_to '<i class="fa fa-line-chart fa-la"></i>&nbsp; My Surveys'.html_safe, surveys_path %></li>
-            <li><%= link_to '<i class="fa fa-graduation-cap fa-la"></i>&nbsp; Universities'.html_safe, campuses_path %></li>
-            <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
-            <li><%= link_to '<i class="fa fa-file-o fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
+            -->
+            <% if can? :manage, Campus %>
+              <li><%= link_to '<i class="fa fa-graduation-cap fa-la"></i>&nbsp; Campuses'.html_safe, campuses_path %></li>
+            <% end %>
+            <% if can? :index, User %>
+              <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
+            <% end %>
+            <% if can? :manage, UdlModule %>
+              <li><%= link_to '<i class="fa fa-file-o fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
+            <% end %>
             <li><%= link_to "Logout", logout_path %></li>
           </ul>
         </div>
