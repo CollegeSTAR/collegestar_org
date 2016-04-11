@@ -51,6 +51,12 @@ body {
   @include clearfix();
 }
 
+#feature-wrapper {
+  @include span(18 of 18 no-gutters);
+  margin-top: gutter();
+  @include clearfix();
+}
+
 #single-column-wrapper {
   @include span(18 of 18 no-gutters);
   margin-top: gutter(18);
