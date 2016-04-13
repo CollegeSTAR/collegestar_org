@@ -16,7 +16,6 @@
 //= require jquery-ui/datepicker
 //= require jquery-fileupload/basic
 //= require ckeditor/init
-//= require turbolinks
 //= require user_menu
 //= require_tree .
 
