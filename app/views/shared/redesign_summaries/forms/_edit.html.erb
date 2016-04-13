@@ -2,6 +2,7 @@
   <%= f.hidden_field :uuid, value: @redesign_summary.uuid %>
   <%= render 'faculty/redesign_summaries/forms/fields/questions', f: f %>
   <%= render 'faculty/redesign_summaries/forms/attachment_drop_zone' %>
+  <%= render 'shared/redesign_summaries/forms/fields/review_ready', f: f %>
   <%= render 'faculty/redesign_summaries/forms/submit', f: f %>
 <% end %>
 <%= render 'faculty/redesign_summaries/forms/attachment_upload' %>

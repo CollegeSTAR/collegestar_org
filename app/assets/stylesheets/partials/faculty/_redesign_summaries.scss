@@ -109,6 +109,11 @@
   text-align: center;
 }
 
+#form-review-ready-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+}
+
 #redesign-summary-submit-wrapper {
   @include span(18 of 18 no-gutters);
   text-align: center;

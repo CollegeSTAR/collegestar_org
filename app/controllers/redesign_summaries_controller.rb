@@ -1,7 +1,6 @@
 class RedesignSummariesController < ApplicationController
   before_action :set_redesign_summary, only: [:edit, :update]
   before_action :set_current_user
-  load_and_authorize_resource
 
   def new
     @redesign_summary = RedesignSummary.new
@@ -24,6 +23,7 @@ class RedesignSummariesController < ApplicationController
       flash[:notice] = "Redesign summary created successfully."
       redirect_to edit_profile_redesign_summary_path(profile_id: @current_user, id: @redesign_summary)
     else
+      flash[:notice] = "You must select at least one UDL Principle"
       render :new
     end
   end 
@@ -67,7 +67,8 @@ class RedesignSummariesController < ApplicationController
                                               :summary_content,
                                               :representation,
                                               :action_expression,
-                                              :engagement
+                                              :engagement,
+                                              :review_ready
                                             )
 
   end

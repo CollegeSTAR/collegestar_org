@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406195644) do
+ActiveRecord::Schema.define(version: 20160413144256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20160406195644) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "review_ready",          default: false
   end
 
   add_index "redesign_summaries", ["user_id"], name: "index_redesign_summaries_on_user_id", using: :btree
