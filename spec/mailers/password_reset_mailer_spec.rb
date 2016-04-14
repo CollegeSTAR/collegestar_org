@@ -4,6 +4,7 @@ RSpec.describe PasswordResetMailer do
   let(:user) { create(:user) }
   describe "#reset_instructions" do
     before(:each) do
+      ActionMailer::Base.deliveries = []
       user.generate_token :password_reset_token
       user.save
       PasswordResetMailer.reset_instructions(user).deliver_now

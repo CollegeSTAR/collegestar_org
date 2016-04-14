@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
       ContactMailer.contact_us(@contact).deliver_now
       render :sent
     else
-      render :new
+      render :new, notice: "There was a problem sending your email, please try again."
     end
   end
 
