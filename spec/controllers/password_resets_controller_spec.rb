@@ -19,14 +19,13 @@ RSpec.describe PasswordResetsController do
       before(:each) do
         @user = create(:user)
       end
-      it "responds successfully with http status of 200" do
+      it "responds with redirect" do
         post :create, user: { email: @user.email }
-        expect(response).to be_success
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(302)
       end
-      it "should render create template" do
+      it "should redirect to new_password_reset_path" do
         post :create, user: { email: @user.email }
-        expect(response).to render_template(:create)
+        expect(response).to redirect_to( new_password_reset_path )
       end
       it "should find a user by provided email address" do
         post :create, user: { email: @user.email }

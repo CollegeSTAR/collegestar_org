@@ -1,24 +1,24 @@
 require 'spec_helper'
 
 RSpec.describe PasswordResetsController do
-  describe 'password reset routes' do
-    it 'post: /password-reset' do
-      expect(post('/password-reset')).to route_to('password_resets#create')
+  describe 'password resets routes' do
+    it 'post: /password-resets' do
+      expect(post('/password-resets')).to route_to('password_resets#create')
     end
-    it 'get: /password-reset/new' do
-      expect(get('/password-reset/new')).to route_to('password_resets#new')
+    it 'get: /password-resets/new' do
+      expect(get('/password-resets/new')).to route_to('password_resets#new')
     end
-    it 'get: /password-reset/1/edit' do
-      expect(get('/password-reset/1/edit')).to route_to('password_resets#edit', id: '1')
+    it 'get: /password-resets/1/edit' do
+      expect(get('/password-resets/1/edit')).to route_to('password_resets#edit', id: '1')
     end
-    it 'patch: /password-reset/1' do
-      expect(patch('/password-reset/1')).to route_to('password_resets#update', id: '1')
+    it 'patch: /password-resets/1' do
+      expect(patch('/password-resets/1')).to route_to('password_resets#update', id: '1')
     end
-    it 'put: /password-reset/1' do
-      expect(put('/password-reset/1')).to route_to('password_resets#update', id: '1')
+    it 'put: /password-resets/1' do
+      expect(put('/password-resets/1')).to route_to('password_resets#update', id: '1')
     end
-    it 'delete: /password-reset/1' do
-      expect(delete('password-reset/1')).to route_to('password_resets#destroy' , id: '1')
+    it 'delete: /password-resets/1' do
+      expect(delete('password-resets/1')).to route_to('password_resets#destroy' , id: '1')
     end
 
     context 'named routes' do

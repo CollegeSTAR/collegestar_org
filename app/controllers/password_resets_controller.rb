@@ -13,6 +13,7 @@ class PasswordResetsController < ApplicationController
     if @user.generate_password_reset
       PasswordResetMailer.reset_instructions(@user).deliver_now
     end
+    redirect_to new_password_reset_path, notice: "An email has been sent to the provided email address with reset instructions. Thank you."
   end
 
   def update
