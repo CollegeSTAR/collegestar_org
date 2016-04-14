@@ -25,13 +25,13 @@ RSpec.describe Contact do
     it "should not add contact.email to recipient list if send_copy is 0" do
       @recipients_list = []
       @contact = build(:contact)
-      @recipients_list = @contact.add_recipient(@recipients_list)
+      @recipients_list = @contact.add_recipients(@recipients_list)
       expect(@recipients_list).to match_array([])
     end
     it "should add contact.email to recipient list if send_copy is 1" do
       @recipients_list = []
       @contact = build(:contact, send_copy: 1)
-      @recipients_list = @contact.add_recipient(@recipients_list)
+      @recipients_list = @contact.add_recipients(@recipients_list)
       expect(@recipients_list).to match_array([@contact.email])
     end
   end

@@ -29,18 +29,18 @@ Rails.application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
+  # Set this to :smtp, if you want to test actual sending of email.
   config.action_mailer.delivery_method = :test
 
   #Use Mandrill with smtp for action_mailer
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: ENV["SMTP_HOST"],
-    authentication: :plain,
+    authentication: ENV['SMTP_AUTHENTICATION_TYPE'],
     domain: ENV["SMTP_DOMAIN"],
     enable_starttls_auto: true,
-    password: ENV["MANDRILL_API_KEY"],
+    password: ENV["SENDGRID_API_KEY"],
     port: ENV["SMTP_PORT"],
-    user_name: ENV["MANDRILL_SMTP_USERNAME"]
+    user_name: ENV["SENDGRID_USER_NAME"]
   }
   config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
 
