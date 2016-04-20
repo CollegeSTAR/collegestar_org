@@ -89,7 +89,6 @@ h3 {
   @include heading(1.1); 
   margin: 1em 2.3em;
   padding: 0;
-  font-style: italic;
 }
 h4 { @include heading(1.1); }
 h5 { @include heading(1.1); }
