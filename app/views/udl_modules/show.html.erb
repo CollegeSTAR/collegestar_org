@@ -23,9 +23,11 @@
     </section>
 
     <article id="module-content">
+    <!--
       <div id="module-introduction-video-wrapper">
         <img src="http://placehold.it/640x360">
       </div>
+    -->
 
     <div id="module-introduction-wrapper">   
        <aside id="toc">
@@ -129,7 +131,9 @@
                <% end %>
              </h3>
            </div>
-         <%= section.content.html_safe %>
+           <div class="module-section-content-wrapper">
+             <%= section.content.html_safe %>
+           </div>
        <% end %>
        <% if can? :update, @udl_module %>
          <p>
@@ -162,8 +166,10 @@
                <% end %>
              </h3>
            </div>
-         <%= section.content.html_safe %>
-       <% end %> 
+         <div class="module-section-content-wrapper">
+             <%= section.content.html_safe %>
+         </div>       
+         <% end %> 
        <% if can? :update, @udl_module %>
        <p>
          <%= link_to(
@@ -195,7 +201,9 @@
                <% end %>
              </h3>
            </div>
-         <%= section.content.html_safe %>
+         <div class="module-section-content-wrapper">
+             <%= section.content.html_safe %>
+         </div>       
        <% end %>
        <% if can? :update, @udl_module %>
        <p>
@@ -229,7 +237,10 @@
                <% end %>
              </h3>
            </div>
-         <%= section.content.html_safe %>
+         <div class="module-section-content-wrapper">
+             <%= section.content.html_safe %>
+         </div>       
+
        <% end %>
        <% if can? :update, @udl_module %>
        <p>
