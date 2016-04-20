@@ -61,6 +61,6 @@ ul#news_articles {
 }
 
 #new-article-link-wrapper {
-  @include span(18of 18 no-gutters);
+  @include span(18 of 18 no-gutters);
   padding: gutter();
 }
