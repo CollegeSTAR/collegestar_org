@@ -214,26 +214,38 @@ ol {
     caption {
       font-size: $base-font-size * .85;
     }
+    thead {
 
-    th {
-      border: $default-border-width solid #333;
-      border-bottom: $default-border-width * 2 solid #333;
-      padding: .5em 1em;
-      background-color: #30518D;
-      color: #F7F7F7;
-    }
-    
-    tr {
-      
-      &:nth-child(even) {
-        background-color: #DDD;
+      tr {
+
+        th {
+          border: $default-border-width solid #333;
+          border-bottom: $default-border-width * 2 solid #333;
+          padding: .5em 1em;
+          background-color: #30518D;
+          color: #F7F7F7;
+        }
       }
     }
+    tbody {
+      tr {
+        
+        &:nth-child(even) {
+          background-color: #DDD;
+        }
+        th {
+          border: $default-border-width solid #333;
+          border-right: $default-border-width * 2 solid #333;
+          padding: .5em 1em;
+          background-color: transparent;
+        }
+      }
 
-    td {
-      padding: 1em;
-      border: $default-border-width solid #333;
-      vertical-align: text-top;
+      td {
+        padding: 1em;
+        border: $default-border-width solid #333;
+        vertical-align: text-top;
+      }
     }
   }
 }
@@ -286,7 +298,7 @@ blockquote {
 }
 
 #references {
-  p.reference {
+  p {
     margin: 5px 20px 5px 60px;
     text-indent: -50px;
     text-align: left;
