@@ -4,7 +4,7 @@
     <%= f.check_box :hide_title %>
   </div>
   <div class="field">
-    <%= f.cktext_area :content %>
+    <%= f.cktext_area :content, ckeditor: { toolbar: 'module_author', height: 600 } %>
   </div>   
   <div class="actions">
     <p>
