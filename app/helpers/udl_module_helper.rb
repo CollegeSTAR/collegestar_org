@@ -11,4 +11,11 @@ module UdlModuleHelper
    class_name = 'udl-none' if !udl_module.udl_representation && !udl_module.udl_action_expression && !udl_module.udl_engagement
    class_name
   end
+
+  def module_admin?(user)
+    user.roles.each do |role|
+      return true if ['admin','modules_admin'].include? role.name
+    end
+    false
+  end
 end
