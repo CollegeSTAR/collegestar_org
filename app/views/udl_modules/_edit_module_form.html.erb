@@ -1,3 +1,4 @@
+<div id="udl-module-edit-fields-wrapper">
 <%= form_for(@udl_module) do |f| %>
   <% if @udl_module.errors.any? %>
     <div id="error_explanation">
@@ -17,13 +18,13 @@
       <%= f.text_field :title %>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-text-area">
     <%= f.label :sub_heading %><br>
     <%= f.text_field :sub_heading %>
   </div>
 
   <h1>Description</h1>
-  <div class="field">
+  <div class="form-text-area">
     <%= f.label :description, "Please provide a brief summary about this module." %><br>
     <%= f.text_area :description %>
   </div>
@@ -53,7 +54,7 @@
     <%= f.label :release_date %><br>
     <%= f.date_select :release_date %>
   </div>
-  <div class="actions">
+  <div id="udl-module-edit-form-submit-wrapper">
     <%= button_tag(
           type: 'submit',
           class: 'create-button'
@@ -62,3 +63,4 @@
           end %>
   </div>
 <% end %>
+</div>

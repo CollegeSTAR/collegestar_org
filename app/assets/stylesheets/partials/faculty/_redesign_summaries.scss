@@ -115,7 +115,5 @@
 }
 
 #redesign-summary-submit-wrapper {
-  @include span(18 of 18 no-gutters);
-  text-align: center;
-  padding: 2 * gutter();
+    @include form-submit-wrapper;
 }
