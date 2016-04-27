@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div id="user-edit-fields-wrapper">
   <div class="field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -39,7 +39,8 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions">
+  <div id="user-submit-form-wrapper">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

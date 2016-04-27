@@ -304,3 +304,11 @@ blockquote {
     text-align: left;
   }
 }
+
+#udl-module-edit-fields-wrapper {
+    padding: gutter();	
+}
+
+#udl-module-edit-form-submit-wrapper {
+    @include form-submit-wrapper;
+}
