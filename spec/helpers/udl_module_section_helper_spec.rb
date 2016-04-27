@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe UdlModuleHelper do
+RSpec.describe UdlModuleSectionHelper do
   let(:admin) { create(:admin_user) }
   let(:user) { create(:user) }
   describe "#module_admin?" do
