@@ -1,0 +1,10 @@
+ @mixin form-submit-wrapper() {
+     @include span(18 of 18 no-gutters);
+     text-align: center;
+     padding: 2 * gutter();
+}
+
+ @mixin form-fields-wrapper() {
+   @include span(18 of 18 no gutters);
+   padding: gutter();   
+}
