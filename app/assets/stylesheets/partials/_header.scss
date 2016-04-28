@@ -15,12 +15,21 @@
       display: inherit;
       background: $black asset-url('logo_left_2x.png') no-repeat;
       background-size: contain;
+      height: 252px;
     }
+
+    a {
+      height: 250px;
+      display: block;
+    }
+
     img {
       position: relative;
       z-index: -1000;
-      max-height: 100%;
       max-width: 100%;
+      height: 250px;
+      padding: 0;
+      margin: 0;
     }
   }
 
