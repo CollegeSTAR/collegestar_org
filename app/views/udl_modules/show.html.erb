@@ -28,7 +28,7 @@
         <img src="http://placehold.it/640x360">
       </div>
     -->
-
+    <a id="module-top"></a>
     <div id="module-introduction-wrapper">   
        <aside id="toc">
          <h1>Contents</h1>
@@ -112,7 +112,16 @@
      
      <div id="module-udl-principles">
        <a id="udl-principles"></a>
-       <h2>UDL Principles</h2>
+       <div class="module-section-header-wrapper">
+         <h2>UDL Principles</h2>
+         <div class="module-back-to-top-wrapper">
+           <%= link_to(
+                        fa_icon("arrow-up", text: "Back to top"),
+                        udl_module_path(@udl_module, anchor: 'module-top')
+               )
+           %>
+         </div>
+       </div>
        
        <% @udl_module.get_sections_by_page(:udl_principles).each do |section| %>
          <a id="<%= section.slug %>"></a>
@@ -147,7 +156,16 @@
       </div>
       <div id="module-instructional-practice">
        <a id="instructional-practice"></a>
-       <h2>Instructional Practice</h2>
+       <div class="module-section-header-wrapper">
+         <h2>Instructional Practice</h2>
+         <div class="module-back-to-top-wrapper">
+           <%= link_to(
+                        fa_icon("arrow-up", text: "Back to top"),
+                        udl_module_path(@udl_module, anchor: 'module-top')
+               )
+           %>
+         </div>
+       </div>
        
        <% @udl_module.get_sections_by_page(:instructional_practice).each do |section| %>
          <a id="<%= section.slug %>"></a>
@@ -182,7 +200,16 @@
      </div>
      <div id="module-learn-more">
        <a id="learn-more"></a>
-       <h2>Learn More</h2>
+       <div class="module-section-header-wrapper">
+         <h2>Learn More</h2>
+         <div class="module-back-to-top-wrapper">
+           <%= link_to(
+                        fa_icon("arrow-up", text: "Back to top"),
+                        udl_module_path(@udl_module, anchor: 'module-top')
+               )
+           %>
+         </div>
+       </div>
        
        <% @udl_module.get_sections_by_page(:learn_more).each do |section| %>
          <a id="<%= section.slug %>"></a>
@@ -218,7 +245,16 @@
 
     <div id="module-references">
        <a id="references-and-resources"></a>
-       <h2>References &amp; Resources</h2>
+       <div class="module-section-header-wrapper">
+         <h2>References &amp; Resources</h2>
+         <div class="module-back-to-top-wrapper">
+           <%= link_to(
+                        fa_icon("arrow-up", text: "Back to top"),
+                        udl_module_path(@udl_module, anchor: 'module-top')
+               )
+           %>
+         </div>
+       </div>
        
        <% @udl_module.get_sections_by_page(:references).each do |section| %>
          <a id="<%= section.slug %>"></a>

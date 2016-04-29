@@ -312,3 +312,8 @@ blockquote {
 #udl-module-edit-form-submit-wrapper {
     @include form-submit-wrapper;
 }
+
+.module-back-to-top-wrapper {
+  float: right;
+  padding-right: gutter();
+}
