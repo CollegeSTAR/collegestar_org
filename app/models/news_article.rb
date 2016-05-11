@@ -2,7 +2,7 @@ class NewsArticle < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
   validates :content, presence: true
-  validates :feature_article, uniqueness: true, if: :feature_article
+  validates :feature_article, uniqueness: true, if: :feature_article?
 
   def self.order_by_created_date_and_limit(limit = 10)
     articles = limit(limit).order(created_at: :desc)

@@ -2,8 +2,14 @@ RSpec.describe NewsArticle do
 
   describe "validations" do
     describe "feature_article" do
+      # I can't figure out how to get shoulda matchers to work with this test.
+      # Shoulda sets feature_article to an arbitrary variable to be read as false,
+      # this causes issues with ruby/rails.
       context "not feature_article" do
-        it { should_not validate_uniqueness_of(:feature_article) }
+        it "should not validate uniqueness" do
+          create(:news_article)
+          expect(build(:news_article)).to be_valid
+        end
       end
       context "is feature_aticle" do
         subject do
