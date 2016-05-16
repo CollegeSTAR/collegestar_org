@@ -1,0 +1,12 @@
+<%= form_for [:faculty, @module_proposal] do |f| %>
+  <%= render 'faculty/module_proposals/forms/fields/name', f: f  %>
+  <%= render 'faculty/module_proposals/forms/fields/email', f: f %>
+  <%= render 'faculty/module_proposals/forms/fields/university', f: f %>
+  <%= render 'faculty/module_proposals/forms/fields/department', f: f %>
+  <hr>
+  <%= render 'faculty/module_proposals/forms/fields/title', f: f %>
+  <%= render 'faculty/module_proposals/forms/fields/description', f: f %>
+  <%= render 'faculty/module_proposals/forms/fields/completion_date', f: f %>
+  
+  <%= render 'faculty/module_proposals/forms/fields/edit_submit', f: f %>
+<% end %>

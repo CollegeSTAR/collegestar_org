@@ -58,7 +58,6 @@ Rails.application.routes.draw do
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug
   resources :events, param: :slug
-  resources :module_proposals, path: '/module-proposals'
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
   end
@@ -68,6 +67,7 @@ Rails.application.routes.draw do
   resources :surveys, param: :slug
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
+    resources :module_proposals, path: '/module-proposals'
   end
   namespace :api do
     namespace :v1 do

@@ -1,4 +1,4 @@
-class ModuleProposalsController < ApplicationController
+class Faculty::ModuleProposalsController < ApplicationController
   load_and_authorize_resource except: [:new, :create]
   before_action :set_module_proposal, only: [:show, :edit, :update, :destroy]
   def index
@@ -28,7 +28,7 @@ class ModuleProposalsController < ApplicationController
 
   def update
     if @module_proposal.update( module_proposal_params )
-      redirect_to @module_proposal, notice: "Successfully updated module proposal."
+      redirect_to [:faculty, @module_proposal, notice: "Successfully updated module proposal."
     else
       flash[:error] = @module_proposal.errors
       render :edit
