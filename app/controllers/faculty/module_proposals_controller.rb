@@ -28,7 +28,7 @@ class Faculty::ModuleProposalsController < ApplicationController
 
   def update
     if @module_proposal.update( module_proposal_params )
-      redirect_to [:faculty, @module_proposal, notice: "Successfully updated module proposal."
+      redirect_to [:faculty, @module_proposal], notice: "Successfully updated module proposal."
     else
       flash[:error] = @module_proposal.errors
       render :edit

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ModuleProposalsController, type: :controller do
+RSpec.describe Faculty::ModuleProposalsController, type: :controller do
   let(:module_proposal) { create(:module_proposal) }
   
   context "not authenticated" do
@@ -141,7 +141,7 @@ RSpec.describe ModuleProposalsController, type: :controller do
           module_proposal.reload
         end
         it "redirects to #show" do
-          expect(response).to redirect_to(module_proposal)
+          expect(response).to redirect_to([:faculty, module_proposal])
         end
         it { should set_flash[:notice] }
       end
