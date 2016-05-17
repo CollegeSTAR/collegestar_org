@@ -37,11 +37,11 @@ class UdlModule < ActiveRecord::Base
   end
 
   def get_sections_by_page(page)
-    sections.where( parent: page ).order( 'module_section_associations.section_page_position ASC' )
+    sections.where( "parent = ?", page ).order( 'module_section_associations.section_page_position ASC' )
   end
 
   def get_page_section_count( page )
-    sections.where( parent: page ).count
+    sections.where( "parent = ?", page ).count
   end
 
   def to_param
