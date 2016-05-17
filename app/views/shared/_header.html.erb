@@ -17,7 +17,7 @@
         <div id="user-name"><i class="fa fa-user fa-lg"></i>&nbsp; <%= current_user.first_name %> <%= current_user.last_name %></div>
         <div id="user-dropdown" class="user-menu">
           <ul>
-            <li><%= link_to '<i class="fa fa-cog fa-lg"></i>&nbsp; Edit Profile'.html_safe, profile_path(current_user) %></li>
+            <li><%= link_to '<i class="fa fa-cog fa-lg"></i>&nbsp; Edit Profile'.html_safe, edit_profile_path(current_user) %></li>
             <li><%= link_to '<i class="fa fa-book fa-la"></i>&nbsp; My Redesign Summaries'.html_safe, profile_redesign_summaries_path(profile_id: current_user) %></li>
             <!--
             <li><%= link_to '<i class="fa fa-history fa-la"></i>&nbsp; My Module History'.html_safe, udl_modules_path %></li>

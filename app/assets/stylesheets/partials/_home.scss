@@ -41,21 +41,29 @@
 }
 
 #campus-wrapper {
+  @include span(18 of 18 no-gutters);
   margin: 0px auto;
   text-align: center;
   border: none;
 }
 
 .campus {
-  width: 200px;
-  margin: 0px 10px;
-  padding: 0;
+  width: 100%;
   border: none;
   display: inline-block;
   vertical-align: top;
   @include item_wrapper();  
+  @include breakpoint($full) {
+    width: 200px;
+    margin: 0px 10px;
+    padding: 0;
+  }
+
 }
 
+#campus-header-wrapper {
+  @include span(18 of 18 no-gutters);
+}
 
 #home-partners-wrapper {
   @include span(18 of 18 wide);

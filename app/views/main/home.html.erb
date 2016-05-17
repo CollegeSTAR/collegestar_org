@@ -6,9 +6,10 @@
 <p>
 College STAR (Supporting Transition, Access, and Retention: A UNC System Project Supporting Students with Learning Differences) is a collaborative project designed to enable participating universities to help our campuses become welcoming environments for students with learning differences. This initiative is designed to reach students with formally-identified disabilities (specifically, learning disabilities and AD/HD) as well as students who do not have a disability label but who may benefit from instructional understandings and strategies designed for students who learn differently from what is most typical. Participating campuses are currently working together to build models of student and faculty support focused on student learning as well as understandings about Universal Design for Learning. Together we will build resources and models that can be shared with others now and in the future. This website will continue to grow as we build those resources. <%= link_to "learn more", about_path, class: 'read-more' %>
 </p>
-
-<h1>Participating Campuses</h1>
-<%= link_to 'view all', campuses_path, class: 'view-all' %>
+<div id="campus-header-wrapper">
+  <h1>Participating Campuses</h1>
+  <%= link_to 'view all', campuses_path, class: 'view-all' %>
+</div>
 <div id="campus-wrapper">
 <% @campuses.each do |campus| %>
 <div class="campus">
