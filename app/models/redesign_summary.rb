@@ -9,7 +9,7 @@ class RedesignSummary < ActiveRecord::Base
 
   def add_existing_attachments( args={} )
     attachment_klass = args.fetch( :attachment_klass, RedesignSummaryAttachment)
-    summary_attachments = attachment_klass.where( redesign_summary_uuid: uuid )
+    summary_attachments = attachment_klass.where( "redesign_summary_uuid = ?", uuid )
     summary_attachments.each do |attachment|
       attachments << attachment
     end
