@@ -15,7 +15,7 @@
       display: inherit;
       background: $black asset-url('logo_left_2x.png') no-repeat;
       background-size: contain;
-      height: 252px;
+      //height: 252px;
     }
 
     a {
@@ -27,7 +27,7 @@
       position: relative;
       z-index: -1000;
       max-width: 100%;
-      height: 250px;
+      //height: 250px;
       padding: 0;
       margin: 0;
     }
@@ -36,7 +36,7 @@
   #header-right {
     background-color: $white;
     position: relative;
-    @include span(18 of 18 no-gutters);
+    @include span(18 of 18 wide);
     @include breakpoint($full) {
       @include span(14 of 18 at 5 wide);
       background-color: $black;
@@ -49,19 +49,13 @@
       right: 0;
       z-index: 1;
       margin: 4px;
-      color: $black;
-      @include breakpoint($full) {
-        color: $white;
-      }
+      color: $white;
       
       a {
         margin: 2px;
-        color: $black;
         text-decoration: none;
         font-size: .85em;
-        @include breakpoint($full) {
-          color: $white;
-        }
+        color: $white;
       }
       
     }
@@ -122,23 +116,26 @@
   #title-image {
     position: relative;
     width: 100%;
+    height: auto;
     margin: 0;
-    background: asset-url('cs-emblem-light.jpg') no-repeat;
+    background: asset-url('mobile_header_title.png') no-repeat;
     background-size: contain;
+    background-color: $black;
     @include breakpoint($full) {
       background: asset-url('header_title.png') no-repeat;
     }
     img {
       position: relative;
-      max-height: 100%;
-      max-width: 100%;
+      height: auto;
+      width: 100%;
       margin: 0;
       padding: 0;
+      background-color: transparent;
     }
   }
 
   #nav-wrapper {
-    height: 30px;
+    height: 2.4em;
     margin: 0px;
     padding: 0px;
     color: $white;
@@ -211,7 +208,8 @@
 }
 
 #search_bar {
-	height: 24px;
+  display: none;
+	height: 1.8em;
 	width: 120px;
 	margin: 2px 6px;
 	padding: 0px 8px;
@@ -227,6 +225,9 @@
 	cursor: text;
 	float: right;
 	clear: none;
+  @include breakpoint($full) {
+    display: inherit;
+  }
 }
 
 #search_icon {
@@ -245,7 +246,7 @@
 }
 
 #search_text {
-	height: 18px;
+	height: 1.5em;
 	line-height: 18px;
 	float: left;
 	clear: none;

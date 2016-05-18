@@ -1,7 +1,7 @@
 $("Document").ready( function() {
   $("#search_bar_noScript").attr("id", "search_bar");  
   
-  var search_bg_file = $('#search_bar').css('background-image');
+  var search_bg_file = "<%= asset_path('search_bg.png', type: :image) %>";
 
   $('#search_text').delay(500).css(
 			{
@@ -29,7 +29,7 @@ $("Document").ready( function() {
 			});
 			$('#search_text').delay(500).css(
 			{
-				"width": "270px",
+				"width": "260px",
 				"outline": "none"
 			});
 			$('#search_text').delay(500).focus();
