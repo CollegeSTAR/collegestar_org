@@ -2,63 +2,15 @@
   <div id="single-column-wrapper">
     <div id="content">
       <p id="notice"><%= notice %></p>
-      
-      <h1><%= @campus.name %></h1>
-      
-      <p>
-        <strong>Slug:</strong>
-        <%= @campus.slug %>
-      </p>
-      
-      <p>
-        <strong>Abbreviation:</strong>
-        <%= @campus.abbreviation %>
-      </p>
-      
-      <p>
-        <strong>Institution Type:</strong>
-        <%= @campus.institution_type %>
-      </p>
-      
-      <p>
-        <strong>Director:</strong>
-        <%= @campus.director_id %>
-      </p>
-      
-      <p>
-        <strong>Website url:</strong>
-        <%= @campus.website_url %>
-      </p>
-      
-      <p>
-        <strong>Address 1:</strong>
-        <%= @campus.address_1 %>
-      </p>
-      
-      <p>
-        <strong>Address 2:</strong>
-        <%= @campus.address_2 %>
-      </p>
-      
-      <p>
-        <strong>City:</strong>
-        <%= @campus.city %>
-      </p>
-      
-      <p>
-        <strong>State:</strong>
-        <%= @campus.state %>
-      </p>
-      
-      <p>
-        <strong>Zip:</strong>
-        <%= @campus.zip %>
-      </p>
-      <p>
-        <strong>Image:</strong>
-        <%= image_tag @campus.image.url(:medium) %>
-      </p>
-      
+      <div id="campus-title-wrapper">      
+        <div id="campus-image">
+          <%= image_tag @campus.image.url(:medium) %>
+        </div>
+        <div id="campus-title">
+          <h1><%= @campus.name %></h1>
+        </div>
+     </div> 
+           
       <% if can? :update, @campus %>
         <%= link_to 'Edit', edit_campus_path(@campus) %> | 
       <% end %>

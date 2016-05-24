@@ -26,3 +26,16 @@
     border: none;
   } 
 }
+
+#campus-title-wrapper {
+  @include span(18 of 18 no-gutters);
+
+  #campus-image {
+    @include span(4 of 18 no-gutters);
+    padding-left: gutter();
+  }
+
+  #campus-title {
+    @include span(14 of 18 at 5 no-gutters);
+  }
+}
