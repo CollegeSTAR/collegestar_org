@@ -5,17 +5,6 @@ RSpec.describe EventsController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
-      
-    it "renders index template" do
-      get :index
-      expect(response).to render_template(:index)
-    end
-
-    it "laods all events into @events" do 
-      @event_1, @event_2 = create(:event), create(:event)
-      get :index
-      expect(assigns(:events)).to match_array([@event_1, @event_2])
-    end
   end
 
   describe "GET #show" do
@@ -24,17 +13,6 @@ RSpec.describe EventsController do
       get :show, slug: @event
       expect(response).to be_success
       expect(response).to have_http_status(200)
-    end
-    
-    it "renders show template" do 
-      @event = create(:event)
-      get :show, slug: @event
-      expect(response).to render_template(:show)
-    end
-    it "loads correct event into @event" do 
-      @event = create(:event)
-      get :show, slug: @event
-      expect(assigns(:event)).to eq(@event)
     end
   end
 
@@ -54,10 +32,6 @@ RSpec.describe EventsController do
         get :new
         expect(response).to be_success
         expect(response).to have_http_status(200)
-      end
-      it "renders the new template" do 
-        get :new
-        expect(response).to render_template(:new)
       end
     end
   end
@@ -80,10 +54,6 @@ RSpec.describe EventsController do
       it "responds successfully with an HTTP 200 status code" do 
         expect(response).to be_success
         expect(response).to have_http_status(200)
-      end
-
-      it "should load edit template" do 
-        expect(response).to render_template("edit")
       end
     end
   end
@@ -118,11 +88,6 @@ RSpec.describe EventsController do
           expect{
             post :create, event: FactoryGirl.attributes_for(:event, name: nil)
           }.to_not change(Event, :count)
-        end
-        
-        it "re-renders the event new template" do
-          post :create, event: FactoryGirl.attributes_for(:event, name: nil)
-          expect(response).to render_template(:new)
         end
       end
     end

@@ -9,9 +9,6 @@ RSpec.describe CommunitiesController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
-    it "renders the index view" do
-      expect(response).to render_template(:index)
-    end
   end
 
   describe "#show" do
@@ -22,9 +19,6 @@ RSpec.describe CommunitiesController do
     it "responds successfully with a http status code of 200" do
       expect(response).to be_success
       expect(response).to have_http_status(200)
-    end
-    it "renders the show view" do
-      expect(response).to render_template(:show)
     end
   end
 
@@ -37,9 +31,6 @@ RSpec.describe CommunitiesController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
-    it "renders the edit view" do
-      expect(response).to render_template(:edit)
-    end
   end
   
   describe "#new" do
@@ -49,9 +40,6 @@ RSpec.describe CommunitiesController do
     it "responds successfully with a http status code of 200" do
       expect(response).to be_success
       expect(response).to have_http_status(200)
-    end
-    it "renders new template" do
-      expect(response).to render_template(:new)
     end
   end
 
@@ -72,10 +60,6 @@ RSpec.describe CommunitiesController do
         expect{
           post :create, community: attributes_for(:community, name: nil)
         }.to_not change(Community, :count)
-      end
-      it "should redirect to #new" do
-          post :create, community: attributes_for(:community, name: nil)
-          expect(response).to render_template(:new)
       end
     end
   end

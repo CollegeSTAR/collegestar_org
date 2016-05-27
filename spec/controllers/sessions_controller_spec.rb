@@ -9,9 +9,6 @@ RSpec.describe SessionsController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
-    it "renders sessions#new template" do
-      expect(response).to render_template(:new)
-    end
   end
 
   describe "#create" do
@@ -34,9 +31,6 @@ RSpec.describe SessionsController do
       before(:each) do
         post :create, email: "not_correct@example.com", password: @user_attributes[:password]
       end
-      it "should render the new view" do
-        expect(response).to render_template(:new)
-      end
       it "should not set the auth_token cookie" do
         expect(cookies[:auth_token]).to be_nil  
       end
@@ -44,9 +38,6 @@ RSpec.describe SessionsController do
     context "with incorrect password" do
       before(:each) do
         post :create, email: @user_attributes[:email], password: "not_correct_password"
-      end
-      it "should render the new view" do
-        expect(response).to render_template(:new)
       end
       it "should not set the user_id session variable" do
         expect(cookies[:auth_token]).to be_nil

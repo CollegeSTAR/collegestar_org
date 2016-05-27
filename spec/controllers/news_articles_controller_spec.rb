@@ -7,26 +7,6 @@ RSpec.describe NewsArticlesController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
-
-    it "renders the index template" do
-      get :index
-      expect(response).to render_template(:index)
-    end
-
-    it "loads all news_articles into @articles" do
-      articles = [
-        article_one,
-        article_two
-      ]
-      get :index
-      expect(assigns(:news_articles)).to match_array(articles)
-    end
-    it "loads articles in reverse date order" do
-      article_one
-      article_two
-      get :index
-      expect(assigns(:news_articles)).to eq([article_two, article_one])
-    end
   end
 
   describe "GET #show" do 
@@ -35,12 +15,6 @@ RSpec.describe NewsArticlesController do
       get :show, slug: @news_article
       expect(response).to be_success
       expect(response).to have_http_status(200)
-    end
-
-    it "should load the correct news_article" do
-      @news_article = create(:news_article)
-      get :show, slug: @news_article
-      expect(assigns(:news_article)).to eq(@news_article)
     end
   end
 
@@ -60,11 +34,6 @@ RSpec.describe NewsArticlesController do
         get :new
         expect(response).to be_success
         expect(response).to have_http_status(200)
-      end
-
-      it "should load the new template" do
-        get :new
-        expect(response).to render_template("new")
       end
     end
   end
@@ -89,12 +58,6 @@ RSpec.describe NewsArticlesController do
       it "responds successfully with an HTTP 200 status code" do 
         expect(response).to be_success
         expect(response).to have_http_status(200)
-      end
-
-      it "should load edit template" do 
-        @news_article = create(:news_article)
-        get :edit , slug: @news_article
-        expect(response).to render_template("edit")
       end
     end
   end
@@ -130,11 +93,6 @@ RSpec.describe NewsArticlesController do
             post :create, news_article: FactoryGirl.attributes_for(:news_article, title: nil)
           }.to_not change(NewsArticle, :count)
         end
-
-        it "re-renders the new_news_article template" do
-          post :create, news_article: FactoryGirl.attributes_for(:news_article, title: nil)
-          expect(response).to render_template(:new)
-        end
       end
     end
   end
@@ -159,9 +117,6 @@ RSpec.describe NewsArticlesController do
         cookies[:auth_token] = @user.auth_token
         patch :update, slug: @news_article, news_article: attr
         @news_article.reload
-      end
-      it "redirects to #show @news_article upon update" do
-        expect(response).to redirect_to @news_article
       end
 
       it "Displays flash message about article update." do

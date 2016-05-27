@@ -10,15 +10,6 @@ RSpec.describe UdlModulesController do
       expect(response).to be_successful
       expect(response).to have_http_status(200)
     end
-    it "should render index template" do
-      get :index
-      expect(response).to render_template(:index)
-    end
-    it "loads all modules" do
-      modules = [ module_one, module_two ]
-      get :index
-      expect(assigns(:udl_modules)).to match_array(modules)
-    end
   end
 
   describe "show" do
@@ -29,14 +20,6 @@ RSpec.describe UdlModulesController do
       get :show, slug: module_one.slug
       expect(response).to be_successful
       expect(response).to have_http_status(200)
-    end
-    it "should render show template" do
-      get :show, slug: module_one.slug
-      expect(response).to render_template(:show)
-    end
-    it "load udl_module" do
-      get :show, slug: module_one.slug
-      expect(assigns(:udl_module)).to eq(module_one)
     end
   end
 
@@ -56,10 +39,6 @@ RSpec.describe UdlModulesController do
       get :new
       expect(response).to be_successful
       expect(response).to have_http_status(200)
-    end
-    it "should render new template" do
-      get :new
-      expect(response).to render_template(:new)
     end
   end
 

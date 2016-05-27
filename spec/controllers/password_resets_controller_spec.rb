@@ -9,9 +9,6 @@ RSpec.describe PasswordResetsController do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
-    it "renders reset_passwords#new template" do
-      expect(response).to render_template(:new) 
-    end
   end
 
   describe "#create" do
@@ -26,10 +23,6 @@ RSpec.describe PasswordResetsController do
       it "should redirect to new_password_reset_path" do
         post :create, user: { email: @user.email }
         expect(response).to redirect_to( new_password_reset_path )
-      end
-      it "should find a user by provided email address" do
-        post :create, user: { email: @user.email }
-        expect(assigns(:user)).to eq(@user)
       end
       it "should create user#password_reset token" do
         post :create, user: { email: @user.email }

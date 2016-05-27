@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe SharedModuleSectionsController do
-  describe "GET new" do
-    it "should render the new template" do
-      get :new
-      expect(response).to render_template(:new)
-    end
-  end
   describe "POST create" do
     it "should create a new record" do
       expect {
@@ -32,17 +26,6 @@ RSpec.describe SharedModuleSectionsController do
       ).to redirect_to(
           edit_shared_module_section_path( slug: assigns(:shared_module_section).slug )
       )
-    end
-  end
-  describe "GET edit" do
-    let(:section) { create(:shared_introduction_section) }
-    it "should display the edit template" do
-      get :edit, slug: section.slug
-      expect(response).to render_template(:edit)
-    end
-    it "should set @shared_module_section" do
-      get :edit, slug: section.slug
-      expect(assigns(:shared_module_section)).to eq(section)
     end
   end
 

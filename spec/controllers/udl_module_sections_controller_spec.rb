@@ -15,23 +15,8 @@ RSpec.describe UdlModuleSectionsController do
       }.to change { UdlModuleSection.count }.by(1)
     end
   end
+  
   describe "#edit" do
-    it "should render edit template" do
-      udl_module.add_section(section)
-      get :edit, udl_module_slug: udl_module.slug, slug: section.slug
-      expect(response).to render_template(:edit)
-    end
-    it "should set udl_module" do
-      udl_module.add_section(section)
-      get :edit, udl_module_slug: udl_module.slug, slug: section.slug
-      expect(assigns(:udl_module)).to eq(udl_module)
-    end
-    it "should set udl_module_section" do
-      udl_module.add_section(section)
-      get :edit, udl_module_slug: udl_module.slug, slug: section.slug
-      expect(assigns(:udl_module_section)).to eq(section)
-    end
-
     context "without authorized user" do
       it "should redirect user" do
         udl_module.add_section(section)
