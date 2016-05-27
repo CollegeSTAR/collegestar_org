@@ -74,10 +74,8 @@ class UdlModulesController < ApplicationController
   # DELETE /udl_modules/1
   # DELETE /udl_modules/1.json
   def destroy
-    @udl_module.destroy
-    respond_to do |format|
-      format.html { redirect_to udl_modules_url, notice: 'Udl module was successfully destroyed.' }
-      format.json { head :no_content }
+    if @udl_module.destroy
+      redirect_to udl_modules_url, notice: 'Udl module was successfully destroyed.'
     end
   end
 

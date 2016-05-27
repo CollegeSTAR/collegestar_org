@@ -1,6 +1,6 @@
 class UdlModuleSectionsController < ApplicationController
   before_action :set_section, only: [ :edit, :update, :destroy]
-  before_action :set_module, only: [ :index, :create, :edit, :update ]
+  before_action :set_module, only: [ :index, :create, :edit, :update, :destroy ]
   before_action :current_user
   load_and_authorize_resource
 
