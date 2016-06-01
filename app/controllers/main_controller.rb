@@ -12,6 +12,9 @@ class MainController < ApplicationController
   def students
   end
 
+  def stepp_program
+  end
+
   def faculty
     @udl_modules = UdlModule.released
   end
