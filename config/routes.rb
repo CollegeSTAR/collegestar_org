@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'home' => 'main#home', as: :home
   get 'about' => 'main#about', as: :about
   get 'students' => 'main#students', as: :students
+  get 'students/stepp-program' => 'main#stepp_program', as: :stepp_program
   get 'faculty' => 'main#faculty', as: :faculty
   get 'terms' => 'main#terms', as: :terms
   get 'frequently-asked-questions' => 'main#faq', as: :faq
@@ -15,7 +16,9 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
 
-  # Legacy Udl Module redirects
+  # Legacy site redirects
+    get 'students/project-stepp', to: redirect('/students/stepp-program')
+
   # The original modules had a "coded" naming convention, this was a really bad idea for SEO.
   # we need to 301 redirect these old module url's to the new naming scheme
 
