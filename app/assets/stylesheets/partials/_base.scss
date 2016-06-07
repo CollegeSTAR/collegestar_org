@@ -69,6 +69,8 @@ body {
   @include clearfix();
   img {
     box-shadow: 5px 5px 2px #CCC;
+    margin-right: 2 * gutter();
+    margin-bottom: 2 * gutter();
   }
 }
 

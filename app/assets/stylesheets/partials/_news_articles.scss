@@ -5,9 +5,17 @@
 #news-feature {
   @include bordered-panel();
   @include clearfix();
+  h1 {
+    a {
+      color: $black;
+    }
+  }
   
   img {
+    float: left;
     box-shadow: 5px 5px 2px #CCC;
+    margin-left: 4 * gutter();
+    margin-right: 2 * gutter();
   }
 }
 
@@ -63,4 +71,28 @@ ul#news_articles {
 #new-article-link-wrapper {
   @include span(18 of 18 no-gutters);
   padding: gutter();
+}
+
+#side_bar_feature {
+  h2 {
+    font-size: .75em;
+    border: none;
+    margin: 0;
+    a {
+      color: $cs_orange;
+    }
+  }
+  .thumb_nail {
+    margin: .5em;
+    margin-bottom: .25em;
+    border: none;
+    float: left;
+  } 
+  p {
+    font-size: .75em;
+    text-align: left;
+    margin: gutter();
+    margin-top: .5em;
+    margin-left: .5em;
+  }
 }
