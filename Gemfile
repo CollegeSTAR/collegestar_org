@@ -23,6 +23,9 @@ gem 'ckeditor'
 #Use font Awesome
 gem 'font-awesome-rails'
 
+#Use premailer to process email styles
+gem 'premailer-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
