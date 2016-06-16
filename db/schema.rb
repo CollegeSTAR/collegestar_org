@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414200708) do
+ActiveRecord::Schema.define(version: 20160616152954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,27 @@ ActiveRecord::Schema.define(version: 20160414200708) do
 
   add_index "access_controls", ["role_id"], name: "index_access_controls_on_role_id", using: :btree
   add_index "access_controls", ["user_id"], name: "index_access_controls_on_user_id", using: :btree
+
+  create_table "campus_unit_associations", force: :cascade do |t|
+    t.integer "campus_id"
+    t.integer "campus_unit_id"
+    t.string  "timestamps"
+  end
+
+  add_index "campus_unit_associations", ["campus_id"], name: "index_campus_unit_associations_on_campus_id", using: :btree
+  add_index "campus_unit_associations", ["campus_unit_id"], name: "index_campus_unit_associations_on_campus_unit_id", using: :btree
+
+  create_table "campus_units", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "campus_id"
+    t.string   "director_first_name"
+    t.string   "director_last_name"
+    t.string   "director_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "campus_units", ["campus_id"], name: "index_campus_units_on_campus_id", using: :btree
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",               null: false
@@ -241,6 +262,9 @@ ActiveRecord::Schema.define(version: 20160414200708) do
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
+  add_foreign_key "campus_unit_associations", "campus_units"
+  add_foreign_key "campus_unit_associations", "campuses"
+  add_foreign_key "campus_units", "campuses"
   add_foreign_key "module_author_associations", "udl_modules", column: "module_id"
   add_foreign_key "module_author_associations", "users", column: "author_id"
   add_foreign_key "module_faculty_associations", "udl_modules", column: "module_id"

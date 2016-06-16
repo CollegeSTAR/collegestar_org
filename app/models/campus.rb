@@ -4,6 +4,8 @@ class Campus < ActiveRecord::Base
   validates :abbreviation, presence: :true, uniqueness: :true
 
   belongs_to :director, class_name: "User"
+  has_many :campus_unit_associations
+  has_many :campus_units, through: :campus_unit_associations
   has_attached_file :image, :styles => { :medium => "250x250>", :thumb => "75x75>" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
