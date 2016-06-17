@@ -1,7 +1,7 @@
 class StudentNominationFaculty < ActiveRecord::Base
   
   validates :first_name, :last_name, :email,
-            :campus_unit_id, :campus_department_id, presence: true
+            :campus_unit_id, presence: true
   validates_uniqueness_of :email
 
   belongs_to :department, class_name: 'CampusDepartment', foreign_key: 'campus_department_id'
