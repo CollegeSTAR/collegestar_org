@@ -12,8 +12,8 @@ RSpec.describe Campus do
 
   describe "associations" do
     it { should belong_to(:director) }
-    it { should have_many(:campus_unit_associations) }
-    it { should have_many(:campus_units).through(:campus_unit_associations) }
+    it { should have_many(:units).class_name('CampusUnit') }
+    it { should have_many(:departments).class_name('CampusDepartment') }
   end
 
   it "should find a campus by slug" do

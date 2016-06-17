@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616152954) do
+ActiveRecord::Schema.define(version: 20160617145445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,16 @@ ActiveRecord::Schema.define(version: 20160616152954) do
   add_index "access_controls", ["role_id"], name: "index_access_controls_on_role_id", using: :btree
   add_index "access_controls", ["user_id"], name: "index_access_controls_on_user_id", using: :btree
 
-  create_table "campus_unit_associations", force: :cascade do |t|
+  create_table "campus_departments", force: :cascade do |t|
+    t.string  "name"
     t.integer "campus_id"
-    t.integer "campus_unit_id"
+    t.string  "chair_first_name"
+    t.string  "chair_last_name"
+    t.string  "chair_email"
     t.string  "timestamps"
   end
 
-  add_index "campus_unit_associations", ["campus_id"], name: "index_campus_unit_associations_on_campus_id", using: :btree
-  add_index "campus_unit_associations", ["campus_unit_id"], name: "index_campus_unit_associations_on_campus_unit_id", using: :btree
+  add_index "campus_departments", ["campus_id"], name: "index_campus_departments_on_campus_id", using: :btree
 
   create_table "campus_units", force: :cascade do |t|
     t.string   "name"
@@ -207,6 +209,37 @@ ActiveRecord::Schema.define(version: 20160616152954) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "student_nomination_faculty", force: :cascade do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.integer "campus_department_id"
+    t.integer "campus_unit_id"
+    t.string  "timestamps"
+  end
+
+  add_index "student_nomination_faculty", ["campus_department_id"], name: "index_student_nomination_faculty_on_campus_department_id", using: :btree
+  add_index "student_nomination_faculty", ["campus_unit_id"], name: "index_student_nomination_faculty_on_campus_unit_id", using: :btree
+
+  create_table "student_nominations", force: :cascade do |t|
+    t.string   "student_name"
+    t.string   "student_email"
+    t.string   "student_gender"
+    t.string   "student_age"
+    t.boolean  "share_student_name"
+    t.boolean  "student_gift_card"
+    t.boolean  "contact_student"
+    t.boolean  "student_disability_current"
+    t.boolean  "student_disability_eligible"
+    t.text     "strategy_name"
+    t.text     "strategy_description"
+    t.text     "strategy_effectiveness"
+    t.text     "quotes"
+    t.integer  "student_nomination_faculty_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "udl_module_sections", force: :cascade do |t|
     t.string  "title"
     t.text    "content"
@@ -262,8 +295,7 @@ ActiveRecord::Schema.define(version: 20160616152954) do
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
-  add_foreign_key "campus_unit_associations", "campus_units"
-  add_foreign_key "campus_unit_associations", "campuses"
+  add_foreign_key "campus_departments", "campuses"
   add_foreign_key "campus_units", "campuses"
   add_foreign_key "module_author_associations", "udl_modules", column: "module_id"
   add_foreign_key "module_author_associations", "users", column: "author_id"
@@ -272,5 +304,7 @@ ActiveRecord::Schema.define(version: 20160616152954) do
   add_foreign_key "module_section_associations", "udl_module_sections", column: "section_id"
   add_foreign_key "module_section_associations", "udl_modules", column: "module_id"
   add_foreign_key "redesign_summaries", "users"
+  add_foreign_key "student_nomination_faculty", "campus_departments"
+  add_foreign_key "student_nomination_faculty", "campus_units"
   add_foreign_key "users", "campuses"
 end
