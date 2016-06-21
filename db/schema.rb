@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617145445) do
+ActiveRecord::Schema.define(version: 20160621175339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -238,6 +238,7 @@ ActiveRecord::Schema.define(version: 20160617145445) do
     t.integer  "student_nomination_faculty_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "anonymous"
   end
 
   create_table "udl_module_sections", force: :cascade do |t|
