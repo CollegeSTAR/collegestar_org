@@ -48,6 +48,8 @@ gem 'bcrypt', '~> 3.1.7'
 # USe cancancan for authorization
 gem 'cancancan', '~> 1.12'
 
+gem 'kaminari'
+
 #manages sending email
 gem 'mandrill-api'
 
