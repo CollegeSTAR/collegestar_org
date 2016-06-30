@@ -30,6 +30,9 @@
       <% if can? :create, User %> 
         <%= link_to 'New User', new_user_path %>
       <% end %>
+
+      <br>
+      <%= paginate @users %>
     </div>
   </div>
 </div>
