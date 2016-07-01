@@ -2,8 +2,12 @@
 lock '3.4.0'
 
 set :application, 'collegestar_org'
-set :repo_url, 'git@collegestar.org:/home/git/collegestar_org.git'
+set :repo_url, 'git@github.com:CollegeSTAR/collegestar_org.git'
 set :branch, 'master'
+
+#Configure rbenv
+set :rbenv_type, :user
+set :rbenv_ruby, '2.3.1'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -24,10 +28,10 @@ set :deploy_to, '/home/deploy/collegestar_org'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/application.yml', 'public/google5642de4eaf7585a4.html')
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/assets', 'public/ckeditor_assets')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

@@ -67,6 +67,9 @@ gem 'web-console', '~> 2.0', group: :development
 group :development, :test do
 
   # Use Capistrano for deployment
+  gem 'capistrano', '~> 3.1', group: :development
+  gem 'capistrano-rbenv', '~>2.0', group: :development
+  gem 'capistrano-bundler', '~> 1.1.2', group: :development
   gem 'capistrano-rails', group: :development
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
