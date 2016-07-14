@@ -6,3 +6,46 @@
   input {
   }
 }
+
+#login_wrapper {
+  width: 95%;
+  margin: 2 * gutter() auto;
+  @include breakpoint($full) {
+    width: span(6); 
+  }
+
+  #remember_me {
+    margin: gutter();
+  
+    label {
+      display: inline;
+    }
+  }
+
+  #submit_wrapper {
+    margin: 2 * gutter() auto;
+    text-align: center;
+
+    input[type=submit] {
+      width: 85%;
+
+      @include breakpoint($full) {
+        width: 100%;
+      }
+    }
+  } 
+ 
+  #forgot_password_wrapper {
+    p {
+      text-align: center;
+    }
+  }
+
+  #create_account_wrapper {
+    p {
+      text-align: center;
+      color: $aluminum;
+
+    }
+  }
+}
