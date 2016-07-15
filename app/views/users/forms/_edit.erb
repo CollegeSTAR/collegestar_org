@@ -1,0 +1,5 @@
+<%= form_for(@user) do |f| %>
+  <%= render "users/forms/errors", users: @users %>
+  <%= render "users/forms/fields/fields", f: f %>
+  <%= render "users/forms/fields/update_user_submit", f: f %>
+<% end %>
