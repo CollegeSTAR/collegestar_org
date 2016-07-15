@@ -4,6 +4,7 @@ FactoryGirl.define do
     sequence( :first_name ) { |n| "John_#{n}" }
     sequence( :last_name ) { |n| "Smith_#{n}" }
     sequence( :email ) { "#{first_name}.#{last_name}@example.com".downcase }
+    department "IT"
     password "secret_pass"
     password_confirmation "secret_pass"
     phone_number "1236541234"
