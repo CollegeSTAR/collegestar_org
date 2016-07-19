@@ -68,9 +68,9 @@ Rails.application.routes.draw do
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
   resources :surveys, param: :slug
+  resources :module_proposals, path: '/module-proposals'
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
-    resources :module_proposals, path: '/module-proposals'
   end
   namespace :api do
     namespace :v1 do
