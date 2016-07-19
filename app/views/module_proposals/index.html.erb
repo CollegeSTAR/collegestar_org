@@ -12,9 +12,9 @@
           </tr>
           <% @module_proposals.each do |proposal| %>
           <tr>
-            <td><%= link_to "#{proposal.first_name} #{proposal.last_name}", faculty_module_proposal_path( proposal ) %></td>
-            <td><%= link_to proposal.title, faculty_module_proposal_path( proposal ) %></td>
-            <td><%= link_to proposal.created_at.strftime("%m/%d/%Y"), faculty_module_proposal_path( proposal ) %></td>
+            <td><%= link_to "#{proposal.first_name} #{proposal.last_name}", module_proposal_path( proposal ) %></td>
+            <td><%= link_to proposal.title, module_proposal_path( proposal ) %></td>
+            <td><%= link_to proposal.created_at.strftime("%m/%d/%Y"), module_proposal_path( proposal ) %></td>
           <% end %>
         </table>
       </div>
