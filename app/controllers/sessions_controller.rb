@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if @session.auth_token
       redirect_to root_url
     else
-      flash.now[:error] = "Incorrect Username and/or password, please try again."
+      flash.now[:error] = "Incorrect username and/or password, please try again."
       render "new"
     end
   end
