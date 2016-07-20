@@ -17,15 +17,15 @@ RSpec.describe PasswordResetsController do
         @user = create(:user)
       end
       it "responds with redirect" do
-        post :create, user: { email: @user.email }
+        post :create, params: { user: { email: @user.email } }
         expect(response).to have_http_status(302)
       end
       it "should redirect to new_password_reset_path" do
-        post :create, user: { email: @user.email }
+        post :create, params: { user: { email: @user.email } }
         expect(response).to redirect_to( new_password_reset_path )
       end
       it "should create user#password_reset token" do
-        post :create, user: { email: @user.email }
+        post :create, params: { user: { email: @user.email } }
         @verify_user = User.find(@user.id)
         expect(@verify_user.password_reset_token).to_not be_nil
       end
@@ -45,7 +45,7 @@ RSpec.describe PasswordResetsController do
       mailer_double = instance_double("Mailer", deliver: true)
       expect(PasswordResetMailer).to receive(:reset_confirmation).with(@user).and_return( mailer_double )
       expect(mailer_double).to receive(:deliver_now)
-      patch :update, id: @user.password_reset_token, user: { password: 'testing_password', password_confirmation: 'testing_password' }
+      patch :update, params: { id: @user.password_reset_token, user: { password: 'testing_password', password_confirmation: 'testing_password' } }
     end
   end
 end

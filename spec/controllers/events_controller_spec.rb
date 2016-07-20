@@ -10,7 +10,7 @@ RSpec.describe EventsController do
   describe "GET #show" do
     it "responds successfully with HTTP status code 200" do
       @event = create(:event)
-      get :show, slug: @event
+      get :show, params: { slug: @event }
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
@@ -40,7 +40,7 @@ RSpec.describe EventsController do
     context "while not authenticated" do
       it "should redirect to login" do
         @event = create(:event)
-        get :edit, slug: @event
+        get :edit, params: { slug: @event }
         expect(response).to redirect_to(login_path)
       end
     end
@@ -49,7 +49,7 @@ RSpec.describe EventsController do
         @user = create(:admin_user)
         cookies[:auth_token] = @user.auth_token
         @event = create(:event)
-        get :edit, slug: @event
+        get :edit, params: { slug: @event }
       end
       it "responds successfully with an HTTP 200 status code" do 
         expect(response).to be_success
@@ -61,7 +61,7 @@ RSpec.describe EventsController do
   describe "POST #create" do
     context "while not authenticated" do
       it "should redirect to login_path if user is not authenticated" do
-        post :create, event: FactoryGirl.attributes_for(:event)
+        post :create, params: { event: FactoryGirl.attributes_for(:event) }
         expect(response).to redirect_to(login_path)
       end
     end
@@ -73,12 +73,12 @@ RSpec.describe EventsController do
       context "with valid attributes" do
         it "saves the event to the database" do 
           expect{
-            post :create, event: FactoryGirl.attributes_for(:event)
+            post :create, params: { event: FactoryGirl.attributes_for(:event) }
           }.to change(Event, :count).by(1) 
         end
 
         it "redirects to event show page for new event." do
-          post :create, event: FactoryGirl.attributes_for(:event)
+          post :create, params: { event: FactoryGirl.attributes_for(:event) }
           expect(response).to redirect_to Event.last
         end
       end
@@ -86,7 +86,7 @@ RSpec.describe EventsController do
       context "with invalid attributes" do
         it "does not save the evena to the database." do
           expect{
-            post :create, event: FactoryGirl.attributes_for(:event, name: nil)
+            post :create, params: { event: FactoryGirl.attributes_for(:event, name: nil) }
           }.to_not change(Event, :count)
         end
       end
@@ -103,7 +103,7 @@ RSpec.describe EventsController do
 
     context "while not authenticated" do
       it "should redirect to login_path" do
-        patch :update, slug: @event, event: attr
+        patch :update, params: { slug: @event, event: attr }
         expect(response).to redirect_to(login_path)  
       end
     end
@@ -111,7 +111,7 @@ RSpec.describe EventsController do
       before(:each) do
         @user = create(:admin_user)
         cookies[:auth_token] = @user.auth_token
-        patch :update, slug: @event, event: attr
+        patch :update, params: { slug: @event, event: attr }
         @event.reload
       end
       it "redirects to #show @event upon update" do
@@ -130,7 +130,7 @@ RSpec.describe EventsController do
     end
     context "while not authenticated" do
       it "should redirect to login_path" do
-        delete :destroy, slug: @event
+        delete :destroy, params: { slug: @event }
         expect(response).to redirect_to(login_path)
       end
     end
@@ -138,7 +138,7 @@ RSpec.describe EventsController do
       before(:each) do
         @user = create(:admin_user)
         cookies[:auth_token] = @user.auth_token
-        delete :destroy, slug: @event
+        delete :destroy, params: { slug: @event }
       end
       it "responds successfully with status code 302" do
         expect(response).to have_http_status(302)

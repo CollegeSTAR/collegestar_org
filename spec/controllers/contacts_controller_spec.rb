@@ -18,7 +18,7 @@ RSpec.describe ContactsController do
   describe "#create" do
     context "with correct params" do
       before(:each) do
-        post :create, contact: attributes_for(:contact)
+        post :create, params: { contact: attributes_for(:contact) }
       end
       it "should successfully return a response with status 200" do
         expect(response).to be_success

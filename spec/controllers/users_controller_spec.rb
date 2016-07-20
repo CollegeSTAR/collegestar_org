@@ -28,7 +28,7 @@ RSpec.describe UsersController do
     end
     context "while not authenticated" do
       it "should redirect to login_path" do
-        get :show, id: @user
+        get :show, params: { id: @user }
         expect(response).to redirect_to login_path
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe UsersController do
         cookies[:auth_token] = @user.auth_token
       end
       it "should successfully render profile" do
-        get :show, id: @user
+        get :show, params: { id: @user }
         expect(response).to be_success
         expect(response).to have_http_status(200)
       end
@@ -51,11 +51,11 @@ RSpec.describe UsersController do
     end
     it "should delete the record" do
       expect {
-        delete :destroy, id: @user
+        delete :destroy, params: { id: @user }
       }.to change { User.count } .by(-1)
     end
     it "should redirect to users index" do
-      delete :destroy, id: @user
+      delete :destroy, params: { id: @user }
       expect(response).to redirect_to users_path
     end
   end

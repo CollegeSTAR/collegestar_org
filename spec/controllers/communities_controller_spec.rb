@@ -14,7 +14,7 @@ RSpec.describe CommunitiesController do
   describe "#show" do
     before(:each) do
       @community = create(:community)
-      get :show, slug: @community
+      get :show, params: { slug: @community }
     end
     it "responds successfully with a http status code of 200" do
       expect(response).to be_success
@@ -25,7 +25,7 @@ RSpec.describe CommunitiesController do
   describe "#edit" do
     before(:each) do
       @community = create(:community)
-      get :edit, slug: @community
+      get :edit, params: { slug: @community }
     end
     it "responds successfully with a http status code of 200" do
       expect(response).to be_success
@@ -47,18 +47,18 @@ RSpec.describe CommunitiesController do
     context "valid parameters" do
       it "should create a new community record" do
         expect{
-          post :create, community: attributes_for(:community)
+          post :create, params: { community: attributes_for(:community) }
         }.to change(Community, :count).by(1)
       end
       it "should redirect to #show for newly created community" do
-          post :create, community: attributes_for(:community)
+          post :create, params: { community: attributes_for(:community) }
           expect(response).to redirect_to(Community.last)
       end
     end
     context "invalid parameters" do
       it "should not create a new community record" do
         expect{
-          post :create, community: attributes_for(:community, name: nil)
+          post :create, params: { community: attributes_for(:community, name: nil) }
         }.to_not change(Community, :count)
       end
     end

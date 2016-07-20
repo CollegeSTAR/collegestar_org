@@ -11,7 +11,7 @@ RSpec.describe UdlModuleSectionsController do
   describe "#create" do
     it "should create a new section" do
       expect{
-        post :create, udl_module_slug: udl_module.slug, udl_module_section: attributes_for(:introduction_section)
+        post :create, params: { udl_module_slug: udl_module.slug, udl_module_section: attributes_for(:introduction_section) }
       }.to change { UdlModuleSection.count }.by(1)
     end
   end
@@ -21,7 +21,7 @@ RSpec.describe UdlModuleSectionsController do
       it "should redirect user" do
         udl_module.add_section(section)
         cookies.delete :auth_token
-       get :edit, udl_module_slug: udl_module.slug, slug: section.slug
+       get :edit, params: { udl_module_slug: udl_module.slug, slug: section.slug }
        expect(response).to redirect_to(login_path)
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe UdlModuleSectionsController do
     end
     it "should update the module_section" do
     new_content = 'new content blah blah blah'
-    patch :update, udl_module_slug: udl_module.slug, slug: section.slug, udl_module_section: attributes_for(:introduction_section, content: new_content)
+    patch :update, params: { udl_module_slug: udl_module.slug, slug: section.slug, udl_module_section: attributes_for(:introduction_section, content: new_content) }
     section.reload
     expect(section.content).to eq(new_content)
     end

@@ -12,7 +12,7 @@ RSpec.describe NewsArticlesController do
   describe "GET #show" do 
     it "responds successfully with an HTTP 200 status code" do
       @news_article = create(:news_article)
-      get :show, slug: @news_article
+      get :show, params: { slug: @news_article }
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
@@ -44,7 +44,7 @@ RSpec.describe NewsArticlesController do
     end
     context "while not authenticated" do
       it "should redirect to login_path" do
-        get :edit, slug: @news_article
+        get :edit, params: { slug: @news_article }
         expect(response).to redirect_to(login_path)
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe NewsArticlesController do
       before(:each) do
         @user = create(:admin_user)
         cookies[:auth_token] = @user.auth_token
-        get :edit, slug: @news_article
+        get :edit, params: { slug: @news_article }
       end
 
       it "responds successfully with an HTTP 200 status code" do 
@@ -65,7 +65,7 @@ RSpec.describe NewsArticlesController do
   describe "POST #create" do
     context "while not authenticated" do
       it "should redirect to login_path" do
-        post :create, news_article: FactoryGirl.attributes_for(:news_article)
+        post :create, params: { news_article: FactoryGirl.attributes_for(:news_article) }
         expect(response).to redirect_to(login_path)
       end
     end
@@ -77,12 +77,12 @@ RSpec.describe NewsArticlesController do
       context "with valid attributes" do
         it "creates a new contact" do
           expect{
-            post :create, news_article: FactoryGirl.attributes_for(:news_article)
+            post :create, params: { news_article: FactoryGirl.attributes_for(:news_article) }
           }.to change(NewsArticle, :count).by(1) 
         end
 
         it "redirects to news_articles show page for new article." do
-          post :create, news_article: FactoryGirl.attributes_for(:news_article)
+          post :create, params: { news_article: FactoryGirl.attributes_for(:news_article) }
           expect(response).to redirect_to NewsArticle.last
         end  
       end
@@ -90,7 +90,7 @@ RSpec.describe NewsArticlesController do
       context "with invalid attributes" do
         it "does not save the news_article to the database." do
           expect{
-            post :create, news_article: FactoryGirl.attributes_for(:news_article, title: nil)
+            post :create, params: { news_article: FactoryGirl.attributes_for(:news_article, title: nil) }
           }.to_not change(NewsArticle, :count)
         end
       end
@@ -107,7 +107,7 @@ RSpec.describe NewsArticlesController do
           end
     context "while not authenticated" do
       it "should redirect to login_path" do
-        patch :update, slug: @news_article, news_article: attr
+        patch :update, params: { slug: @news_article, news_article: attr }
         expect(response).to redirect_to(login_path)
       end
     end
@@ -115,7 +115,7 @@ RSpec.describe NewsArticlesController do
       before(:each) do
         @user = create(:admin_user)
         cookies[:auth_token] = @user.auth_token
-        patch :update, slug: @news_article, news_article: attr
+        patch :update, params: { slug: @news_article, news_article: attr }
         @news_article.reload
       end
 
@@ -132,7 +132,7 @@ RSpec.describe NewsArticlesController do
 
     context "while not authenticated" do
       it "redirects to login_path" do
-        delete :destroy, slug: @news_article
+        delete :destroy, params: { slug: @news_article }
         expect(response).to redirect_to(login_path)
       end
     end
@@ -140,7 +140,7 @@ RSpec.describe NewsArticlesController do
       before(:each) do
         @user = create(:admin_user)
         cookies[:auth_token] = @user.auth_token
-        delete :destroy, slug: @news_article
+        delete :destroy, params: { slug: @news_article }
       end
       it "responds successfully with status code 302" do
         expect(response).to have_http_status(302)

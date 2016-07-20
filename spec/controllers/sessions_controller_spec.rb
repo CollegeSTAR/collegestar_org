@@ -18,7 +18,7 @@ RSpec.describe SessionsController do
     end
     context "with correct params" do
       before(:each) do
-        post :create, email: @user.email, password: @user_attributes[:password]
+        post :create, params: { email: @user.email, password: @user_attributes[:password] }
       end
       it "should set user_id session if user is found." do
         expect(cookies[:auth_token]).to eq(@user.auth_token)
@@ -29,7 +29,7 @@ RSpec.describe SessionsController do
     end
     context "with incorrect email" do
       before(:each) do
-        post :create, email: "not_correct@example.com", password: @user_attributes[:password]
+        post :create, params: { email: "not_correct@example.com", password: @user_attributes[:password] }
       end
       it "should not set the auth_token cookie" do
         expect(cookies[:auth_token]).to be_nil  
@@ -37,7 +37,7 @@ RSpec.describe SessionsController do
     end
     context "with incorrect password" do
       before(:each) do
-        post :create, email: @user_attributes[:email], password: "not_correct_password"
+        post :create, params: { email: @user_attributes[:email], password: "not_correct_password" }
       end
       it "should not set the user_id session variable" do
         expect(cookies[:auth_token]).to be_nil
@@ -50,7 +50,7 @@ RSpec.describe SessionsController do
       before(:each) do
         @user = create(:user)
         @user_attributes = attributes_for(:user)
-        post :create, email: @user.email, password: @user_attributes[:password]
+        post :create, params: { email: @user.email, password: @user_attributes[:password] }
         get :destroy
       end
       it "should unset the session[:user_id] variable" do

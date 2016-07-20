@@ -17,7 +17,7 @@ RSpec.describe UdlModulesController do
       module_one
     end
     it "should respond successfully" do
-      get :show, slug: module_one.slug
+      get :show, params: { slug: module_one.slug }
       expect(response).to be_successful
       expect(response).to have_http_status(200)
     end
@@ -51,25 +51,25 @@ RSpec.describe UdlModulesController do
     end
 
     it "should add user as author of module" do
-      post :create, udl_module: mod_attributes
+      post :create, params: { udl_module: mod_attributes }
       udl_module = UdlModule.find_by slug: mod_attributes[:slug]
       expect(udl_module.authors).to match_array([user])
     end
 
     it "author_is_contributing_faculty is selected" do
-      post :create, udl_module: mod_attributes, author_is_contributing_faculty: "1"
+      post :create, params: { udl_module: mod_attributes, author_is_contributing_faculty: "1" }
       udl_module = UdlModule.find_by slug: mod_attributes[:slug]
       expect(udl_module.faculty).to match_array([user])
     end
 
     it "author_is_contributing_faculty is not selected" do
-      post :create, udl_module: mod_attributes
+      post :create, params: { udl_module: mod_attributes }
       udl_module = UdlModule.find_by slug: mod_attributes[:slug]
       expect(udl_module.faculty).to_not include([user])
     end
     it "adds shared_sections" do
       shared_section
-      post :create, udl_module: mod_attributes
+      post :create, params: { udl_module: mod_attributes }
       udl_module = UdlModule.find_by slug: mod_attributes[:slug]
       expect(udl_module.sections).to match_array([shared_section])
     end
