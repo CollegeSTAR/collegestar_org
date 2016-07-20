@@ -1,5 +1,5 @@
 class PasswordResetsController < ApplicationController
-  before_filter :set_user, only: [:edit, :update, :delete]
+  before_action :set_user, only: [:edit, :update, :delete]
 
   def new
     @user = User.new
