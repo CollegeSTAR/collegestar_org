@@ -14,7 +14,7 @@ class Contact
   validates :message, presence: true
 
   def send_copy=(value)
-    @send_copy = ActiveRecord::Type::Boolean.new.type_cast_from_database(value)
+    @send_copy = ActiveRecord::Type::Boolean.new.cast(value)
   end
 
   def add_recipients(recipients=[])
