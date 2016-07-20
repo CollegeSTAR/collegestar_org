@@ -35,7 +35,7 @@ RSpec.feature "User management" do
         fill_in 'Password', with: user.password
         fill_in 'Password confirmation', with: user.password_confirmation
         click_button 'Create Account'
-        expect(page).to have_css("#error_explanation", "prohibited this user from being saved:")
+        expect(page).to have_content("prohibited this user from being saved:")
       end    
     end
   end
@@ -54,7 +54,7 @@ RSpec.feature "User management" do
         fill_in 'Last name', with: "NewLastName"
         fill_in 'Email', with: "new_email@example.com"
         click_button "Update Account"
-        expect(page).to have_css("h1","NewFirstName NewLastName")
+        expect(page).to have_content("NewFirstName NewLastName")
       end
     end
     context "while not logged in" do
@@ -76,7 +76,7 @@ RSpec.feature "User management" do
         click_button 'Log In'
 
         visit "/users"
-        expect(page).to have_css("h1", "Users")
+        expect(page).to have_content("Users")
       end
     end
     context "Without correct authorization" do
