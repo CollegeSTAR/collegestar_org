@@ -8,12 +8,16 @@ gem 'responders', '~> 2.0'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use css design framework
 gem 'bourbon', '5.0.0.beta.4'
+# Use susy css grid system
 gem 'susy'
+# Use breakpoint with susy for media queries
 gem 'breakpoint'
-gem 'foundation-rails', '~>5.5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 
