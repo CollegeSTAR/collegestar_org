@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-   @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+    if cookies[:auth_token]
+      return @current_user ||= User.find_by_auth_token!(cookies[:auth_token])
+    else
+      return false
+    end
   end
 
   def create_session(args = {})
