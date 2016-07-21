@@ -25,6 +25,9 @@ CKEDITOR.editorConfig = function( config )
   // The location of a script that handles file uploads.
   config.filebrowserUploadUrl = "/ckeditor/attachment_files";
 
+  //Enable spellcheck
+  config.disableNativeSpellChecker = false;
+
   config.allowedContent = true;
 
   // Toolbar groups configuration.
