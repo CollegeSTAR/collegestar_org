@@ -70,13 +70,14 @@ RSpec.feature "User management" do
     let(:user) { create(:user) }
     context "With correct authorization" do
       scenario "User logs in and views Users index" do
+        user
         visit "/login"
         fill_in 'Email', with: admin.email
         fill_in 'Password', with: admin.password
         click_button 'Log In'
 
         visit "/users"
-        expect(page).to have_content("Users")
+        expect(page).to have_content(user.first_name)
       end
     end
     context "Without correct authorization" do
