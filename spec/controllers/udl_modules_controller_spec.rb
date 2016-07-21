@@ -30,7 +30,7 @@ RSpec.describe UdlModulesController do
     end
     context "not authenticated" do
       it "should redirect to login" do
-        cookies[:auth_token] = nil
+        cookies.delete :auth_token
         get :new
         expect(response).to redirect_to(login_path)
       end
