@@ -1,5 +1,5 @@
 class NewsArticlesController < ApplicationController
-  load_and_authorize_resource except: [:index, :show]
+  #load_and_authorize_resource except: [:index, :show]
   before_action :set_news_article, only: [:show, :edit, :update, :destroy]
 
   # GET /news_articles

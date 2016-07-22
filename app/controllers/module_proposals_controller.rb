@@ -1,5 +1,5 @@
 class ModuleProposalsController < ApplicationController
-  load_and_authorize_resource except: [:new, :create]
+  #load_and_authorize_resource except: [:new, :create]
   before_action :set_module_proposal, only: [:show, :edit, :update, :destroy]
   def index
     @module_proposals = ModuleProposal.all
