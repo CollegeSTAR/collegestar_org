@@ -43,12 +43,6 @@ class User < ActiveRecord::Base
     return NullUser.new
   end
 
-  def generate_abilities(ability)
-    roles.each do |role|
-      role.apply_abilities ability
-    end
-  end
-
   def generate_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now

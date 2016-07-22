@@ -206,15 +206,4 @@ RSpec.describe User do
       expect(user_with_role.roles).to match_array([admin_role])
     end
   end
-
-  describe "#generate_abilities" do
-    subject(:role) { create(:basic_role)  }
-    let(:user) { create(:user) }
-    let(:ability) { double("ability") }
-    it "should call apply_abilities on each role with ability as argument" do
-      user.roles << role
-      is_expected.to receive(:apply_abilities).with(ability)
-      user.generate_abilities ability
-    end
-  end
 end
