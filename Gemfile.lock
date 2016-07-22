@@ -170,6 +170,8 @@ GEM
     premailer-rails (1.9.4)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -299,6 +301,7 @@ DEPENDENCIES
   paperclip (~> 4.2)
   pg
   premailer-rails
+  pundit
   rails (= 5.0.0)
   responders (~> 2.0)
   rspec-rails (~> 3.0)

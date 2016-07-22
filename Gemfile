@@ -52,6 +52,10 @@ gem 'bcrypt', '~> 3.1.7'
 # USe cancancan for authorization
 gem 'cancancan', '~> 1.12'
 
+#Use pundit for authorization
+gem 'pundit'
+
+#Use kaminari for pagination
 gem 'kaminari'
 
 #manages sending email
