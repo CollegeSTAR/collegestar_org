@@ -20,21 +20,4 @@ RSpec.describe Role do
       expect(@role.valid?).to be_truthy
     end
   end
-
-  describe "#apply_abilities" do
-    before(:each) do
-      @ability = double("ability")
-    end
-    it "should call can on ability class with correct arguments" do
-      @role = create(:admin_role)
-      expect(@ability).to receive(:can).with(:manage, :all)
-      @role.apply_abilities @ability
-    end
-
-    it "should format subject appropriately" do
-      @role = create(:event_admin_role)
-      expect(@ability).to receive(:can).with(:manage, Event)
-      @role.apply_abilities @ability
-    end
-  end
 end
