@@ -27,7 +27,7 @@
       </table>
       
       <br>
-      <% if can? :create, User %> 
+      <% if policy(@users).create? %> 
         <%= link_to 'New User', new_user_path %>
       <% end %>
 
