@@ -1,23 +1,27 @@
 class ModuleProposalsController < ApplicationController
-  #load_and_authorize_resource except: [:new, :create]
   before_action :set_module_proposal, only: [:show, :edit, :update, :destroy]
   def index
     @module_proposals = ModuleProposal.all
+    authorize @module_proposals
   end
   
   def new
     @module_proposal = ModuleProposal.new
+    authorize @module_proposal
   end
 
   def show
+    authorize @module_proposal
   end
 
   def edit
+    authorize @module_proposal
   end
 
   def create
     @module_proposal = ModuleProposal.new( module_proposal_params ) 
     @module_proposal.module_type = "new_module"
+    authorize @module_proposal
     if @module_proposal.save
       render :confirmation       
     else
@@ -27,6 +31,7 @@ class ModuleProposalsController < ApplicationController
   end
 
   def update
+    authorize @module_proposal
     if @module_proposal.update( module_proposal_params )
       redirect_to @module_proposal, notice: "Successfully updated module proposal."
     else
@@ -36,6 +41,7 @@ class ModuleProposalsController < ApplicationController
   end
 
   def destroy
+    authorize @module_proposal 
     @module_proposal.destroy
     flash[:notice] = "Successfully deleted module proposal."
     render :index 
