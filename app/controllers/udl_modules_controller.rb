@@ -1,32 +1,36 @@
 class UdlModulesController < ApplicationController
-  #load_and_authorize_resource except: [:show, :index]
   before_action :set_udl_module, only: [:show, :edit, :update, :destroy]
 
   # GET /udl_modules
   # GET /udl_modules.json
   def index
     @udl_modules = UdlModule.all
+    authorize @udl_modules
     @shared_module_sections = UdlModuleSection.shared_sections
   end
 
   # GET /udl_modules/1
   # GET /udl_modules/1.json
   def show
+    authorize @udl_module
   end
 
   # GET /udl_modules/new
   def new
     @udl_module = UdlModule.new
+    authorize @udl_module
   end
 
   # GET /udl_modules/1/edit
   def edit
+    authorize @udl_module
   end
 
   # POST /udl_modules
   # POST /udl_modules.json
   def create
     @udl_module = UdlModule.new(udl_module_params)
+    authorize @udl_module
     @udl_module.slug ||= @udl_module.title.parameterize if @udl_module.title
     @udl_module.authors << current_user
     if params[:author_is_contributing_faculty]
@@ -60,6 +64,7 @@ class UdlModulesController < ApplicationController
   # PATCH/PUT /udl_modules/1
   # PATCH/PUT /udl_modules/1.json
   def update
+    authorize @udl_module
     respond_to do |format|
       if @udl_module.update(udl_module_params)
         format.html { redirect_to edit_udl_module_path(@udl_module), notice: 'Udl module was successfully updated.' }
@@ -74,6 +79,7 @@ class UdlModulesController < ApplicationController
   # DELETE /udl_modules/1
   # DELETE /udl_modules/1.json
   def destroy
+    authorize @udl_module
     if @udl_module.destroy
       redirect_to udl_modules_url, notice: 'Udl module was successfully destroyed.'
     end
