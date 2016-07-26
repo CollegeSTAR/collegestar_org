@@ -81,6 +81,7 @@ RSpec.describe User do
     it "has many faculty_modules" do
       is_expected.to have_many(:faculty_modules).class_name('UdlModule').through(:module_faculty_associations).source('module')
     end
+    it { should have_many(:roles) }
   end
 
   describe "#full_name" do
@@ -197,13 +198,22 @@ RSpec.describe User do
     end
   end
 
-  describe "Roles" do
-      let(:user) { create(:user) }
-      let(:admin_role) { create(:admin_role) }
-    it "should add admin role to roles" do
-      user.roles << admin_role
-      user_with_role = User.find_by email: user.email
-      expect(user_with_role.roles).to match_array([admin_role])
+  describe "#has_role?" do
+    let(:admin_user) { create(:admin_user) }
+    let(:non_admin_user) { create(:user) }
+
+    context "with requested role" do
+      it "should return true with a single symbol" do
+        expect( admin_user.has_role? :admin ).to be_truthy
+      end
+      it "should return true with an array of symbols" do
+        expect( admin_user.has_role? [ :modules_admin, :admin ] ).to be_truthy
+      end
+    end
+    context "without requested role" do
+      it "should return false" do
+        expect(non_admin_user.has_role? :admin).to be_falsey
+      end
     end
   end
 end
