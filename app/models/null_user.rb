@@ -2,8 +2,8 @@ class NullUser < User
   def authenticate( password )
     false
   end
-
-  def generate_abilities( ability )
-    nil
+  
+  def has_roles?( requested_roles )
+    false
   end
 end
