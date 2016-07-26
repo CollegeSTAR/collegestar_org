@@ -1,25 +1,28 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource except: [:index, :show]
   
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
+    authorize @events
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    authorize @event
   end
 
   # GET /events/new
   def new
     @event = Event.new
+    authorize @event
   end
 
   # GET /events/1/edit
   def edit
+    authorize @event
   end
 
   # POST /events
@@ -27,7 +30,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.slug ||= @event.name.parameterize if @event.name
-
+    authorize @event
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -42,6 +45,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    authorize @event
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -56,6 +60,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    authorize @event
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'The event was removed.' }
