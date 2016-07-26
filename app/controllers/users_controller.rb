@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
-  #load_and_authorize_resource except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.order(:last_name, :first_name, :email).page params[:page]
+    authorize @users
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    authorize @user, :show?
   end
 
   # GET /users/new
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @campuses = Campus.all
+    authorize @user
   end
 
   # POST /users
@@ -47,6 +49,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    authorize @user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to profile_path(@user), notice: 'User was successfully updated.' }
@@ -61,6 +64,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    authorize @user
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'Successfully removed user.' }

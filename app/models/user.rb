@@ -62,4 +62,17 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?( column => self[column] )
   end
+
+  #  Use this to query the user's roles.
+  #  It can accept either 
+  #
+  def has_role?(requested_roles=[])
+    requested_roles = [requested_roles].flatten #if a single role is given we put it in an array to make iteration easier
+    self.roles.each do |role|
+      if requested_roles.include? role.name.to_sym
+        return true
+      end
+    end
+    return false
+  end
 end

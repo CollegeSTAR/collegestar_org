@@ -18,7 +18,7 @@
       </p>
       
       <%= link_to 'Edit', edit_profile_path(@user) %> 
-      <% if can? :index, @user %>
+      <% if policy(@user).index? %>
       | 
       <%= link_to 'Back', users_path %>
       <% end %>
