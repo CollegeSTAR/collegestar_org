@@ -33,4 +33,8 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     show?
   end
+
+  def view_admin?
+    index?
+  end
 end
