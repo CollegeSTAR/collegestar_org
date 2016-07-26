@@ -37,6 +37,15 @@ class ApplicationPolicy
     false
   end
 
+  # Used this in views to test for listing admin links
+  #
+  # ex: <%= if policy(User).view_admin? %>
+  #     <%= link_to "Users", users_path %>
+  #      <% end %>
+  def view_admin?
+    false
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end
