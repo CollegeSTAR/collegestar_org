@@ -12,7 +12,7 @@
   </div>
   <div id="header-right">
     <div id="login-box">
-    <% if current_user %>
+    <% if current_user.id %>
       <div id="user-menu-wrapper">
         <div id="user-name"><i class="fa fa-user fa-lg"></i>&nbsp; <%= current_user.first_name %> <%= current_user.last_name %></div>
         <div id="user-dropdown" class="user-menu">
@@ -24,13 +24,13 @@
             <li><%= link_to '<i class="fa fa-cubes fa-la"></i>&nbsp; My Communities'.html_safe, communities_path %></li>
             <li><%= link_to '<i class="fa fa-line-chart fa-la"></i>&nbsp; My Surveys'.html_safe, surveys_path %></li>
             -->
-            <% if can? :manage, Campus %>
+            <% if policy(Campus).update? %>
               <li><%= link_to '<i class="fa fa-graduation-cap fa-la"></i>&nbsp; Campuses'.html_safe, campuses_path %></li>
             <% end %>
-            <% if can? :index, User %>
+            <% if policy(User).index? %>
               <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
             <% end %>
-            <% if can? :manage, UdlModule %>
+            <% if policy(UdlModule).update? %>
               <li><%= link_to '<i class="fa fa-file-o fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
             <% end %>
             <li><%= link_to "Logout", logout_path %></li>
