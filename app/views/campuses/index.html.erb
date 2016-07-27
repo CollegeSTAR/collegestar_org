@@ -5,7 +5,7 @@
       <p id="notice"><%= notice %></p>
       
       <h1>Particpating Campuses</h1>
-      <% if can? :create, @campus %>      
+      <% if policy(Campus).create? %>      
         <%= link_to 'New Campus', new_campus_path %>
        <% end %> 
       <div id="campuses"> 
@@ -16,7 +16,7 @@
           </div>
           <div class="campus-info">
             <h2><%= campus.name %>
-              <% if can? :update, campus %>
+              <% if policy(campus).update? %>
                 <span class="edit-campus-link"> 
                    <%= link_to(
                          fa_icon( "pencil", text: "Edit this campus"), 

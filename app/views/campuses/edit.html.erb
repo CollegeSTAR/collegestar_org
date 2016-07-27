@@ -6,7 +6,7 @@
       <%= render 'form' %>
       
       <%= link_to 'Show', @campus %>
-      <% if can? :index, @campus %>
+      <% if policy(@campus).index? %>
         |  
         <%= link_to 'Back', campuses_path %>
       <% end %>

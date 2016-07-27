@@ -11,10 +11,10 @@
         </div>
      </div> 
            
-      <% if can? :update, @campus %>
+      <% if policy(@campus).update? %>
         <%= link_to 'Edit', edit_campus_path(@campus) %> | 
       <% end %>
-      <% if can? :index, @campus %>
+      <% if policy(@campus).index? %>
         <%= link_to 'Back', campuses_path %>
       <% end %>
     </div>
