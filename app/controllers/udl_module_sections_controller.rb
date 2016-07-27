@@ -1,6 +1,6 @@
 class UdlModuleSectionsController < ApplicationController
   before_action :set_section, only: [ :edit, :update, :destroy]
-  before_action :set_module, only: [ :index, :create, :edit, :update, :destroy ]
+  before_action :set_module
   before_action :current_user
 
   def index

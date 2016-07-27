@@ -3,7 +3,7 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
   <main>
-    <% if can? :update, @udl_module %>
+    <% if policy(@udl_module).update? %>
     <div id="admin-tools">
       <%= link_to(
             fa_icon('bars', text: 'settings'),
@@ -23,11 +23,6 @@
     </section>
 
     <article id="module-content">
-    <!--
-      <div id="module-introduction-video-wrapper">
-        <img src="http://placehold.it/640x360">
-      </div>
-    -->
     <a id="module-top"></a>
     <div id="module-introduction-wrapper">   
        <aside id="toc">
@@ -84,7 +79,7 @@
                <% unless section.hide_title %>
                  <%= section.title %> 
                <% end %>
-               <% if can? :update, @udl_module %> 
+               <% if policy(@udl_module).update? %> 
                  <span class="edit-module-section-link"> 
                    <%= link_to(
                          fa_icon( "pencil", text: "Edit this section"), 
@@ -98,7 +93,7 @@
              <%= section.content.html_safe %>
            </div>
        <% end %>
-       <% if can? :update, @udl_module %>
+       <% if policy(@udl_module).update? %>
          <p>
            <%= link_to(
                  fa_icon("plus", text: "Add a section"), 
@@ -130,7 +125,7 @@
                <% unless section.hide_title %>
                  <%= section.title %> 
                <% end %>
-               <% if can? :update, @udl_module %>
+               <% if policy(@udl_module).update? %>
                <span class="edit-module-section-link"> 
                  <%= link_to(
                        fa_icon( "pencil", text: "Edit this section" ), 
@@ -144,7 +139,7 @@
              <%= section.content.html_safe %>
            </div>
        <% end %>
-       <% if can? :update, @udl_module %>
+       <% if policy(@udl_module).update? %>
          <p>
            <%= link_to( 
                  fa_icon( "plus", text: "Add a section" ), 
@@ -174,7 +169,7 @@
                <% unless section.hide_title %>
                  <%= section.title %>
                <% end %>
-               <% if can? :update, @udl_module %>
+               <% if policy(@udl_module).update? %>
                <span class="edit-module-section-link"> 
                  <%= link_to(
                        fa_icon( "pencil", text: "Edit this section" ), 
@@ -188,7 +183,7 @@
              <%= section.content.html_safe %>
          </div>       
          <% end %> 
-       <% if can? :update, @udl_module %>
+       <% if policy(@udl_module).update? %>
        <p>
          <%= link_to(
                fa_icon( "plus", text: "Add a section" ), 
@@ -218,7 +213,7 @@
                <% unless section.hide_title %>
                  <%= section.title %>
                <% end %>
-               <% if can? :update, @udl_module %>
+               <% if policy(@udl_module).update? %>
                <span class="edit-module-section-link"> 
                  <%= link_to(
                        fa_icon( "pencil", text: "Edit this section" ),
@@ -232,7 +227,7 @@
              <%= section.content.html_safe %>
          </div>       
        <% end %>
-       <% if can? :update, @udl_module %>
+       <% if policy(@udl_module).update? %>
        <p>
          <%= link_to(
                fa_icon( "plus", text: "Add a section" ),
@@ -263,7 +258,7 @@
                <% unless section.hide_title %>
                  <%= section.title %>
                <% end %>
-               <% if can? :update, @udl_module %>
+               <% if policy(@udl_module).update? %>
                <span class="edit-module-section-link"> 
                  <%= link_to( 
                        fa_icon( 'pencil', text: 'Edit this section' ), 
@@ -278,7 +273,7 @@
          </div>       
 
        <% end %>
-       <% if can? :update, @udl_module %>
+       <% if policy(@udl_module).update? %>
        <p>
          <%= link_to(
                fa_icon( 'plus', text: 'Add a section' ),

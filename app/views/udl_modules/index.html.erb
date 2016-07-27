@@ -7,7 +7,7 @@
       <ul> 
           <% @udl_modules.each do |udl_module| %>
               <li><%= link_to( udl_module.title, udl_module ) %>
-              <% if can? :edit, udl_module %>
+              <% if policy(udl_module).edit? %>
                 <span class="edit-module-link"> 
                   <%= link_to(
                     fa_icon( "pencil", text: "Edit this module" ),
@@ -18,7 +18,7 @@
           <% end %>
       </ul>
       <br>
-      <% if can? :create, @udl_module %> 
+      <% if policy(UdlModule).create? %> 
         <%= link_to(
               fa_icon( 'plus', text: 'New Udl module' ),
               new_udl_module_path,
@@ -26,54 +26,54 @@
             ) %>
       <% end %>      
       
-      <% if can? :create, @udl_module %>
-      <h2>Shared Sections</h2>
-      <h3>Introduction</h3>
-      <ul>
-      <% @shared_module_sections[:introduction].each do |section| %>
-        <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-      <% end %>
-      </ul>
-
-      <h3>Udl Principles</h3>
-      <ul>
-      <% @shared_module_sections[:udl_principles].each do |section| %>
-        <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-      <% end %>
-      </ul>
-      
-      <h3>Instructional Practice</h3>
-      <ul>
-      <% @shared_module_sections[:instructional_practice].each do |section| %>
-        <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-      <% end %>
-      </ul>
-      
-      <h3>Literature Base</h3>
-      <ul>
-      <% @shared_module_sections[:literature_base].each do |section| %>
-        <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-      <% end %>
-      </ul>
-      <h3>Learn More</h3>
-      <ul>
-      <% @shared_module_sections[:learn_more].each do |section| %>
-        <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-      <% end %>
-      </ul>
-          
-      <h3>References and Resources</h3>
-      <ul>
-      <% @shared_module_sections[:references_and_resources].each do |section| %>
-        <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-      <% end %>
-      </ul>
-      <%= link_to(
-            fa_icon( 'plus', text: 'Add Shared Section' ),
-            new_shared_module_section_path,
-            class: 'create-button'
-          ) %>
-
+      <% if policy(UdlModule).admin? %>
+        <h2>Shared Sections</h2>
+        <h3>Introduction</h3>
+        <ul>
+        <% @shared_module_sections[:introduction].each do |section| %>
+          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
+        <% end %>
+        </ul>
+  
+        <h3>Udl Principles</h3>
+        <ul>
+        <% @shared_module_sections[:udl_principles].each do |section| %>
+          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
+        <% end %>
+        </ul>
+        
+        <h3>Instructional Practice</h3>
+        <ul>
+        <% @shared_module_sections[:instructional_practice].each do |section| %>
+          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
+        <% end %>
+        </ul>
+        
+        <h3>Literature Base</h3>
+        <ul>
+        <% @shared_module_sections[:literature_base].each do |section| %>
+          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
+        <% end %>
+        </ul>
+        <h3>Learn More</h3>
+        <ul>
+        <% @shared_module_sections[:learn_more].each do |section| %>
+          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
+        <% end %>
+        </ul>
+            
+        <h3>References and Resources</h3>
+        <ul>
+        <% @shared_module_sections[:references_and_resources].each do |section| %>
+          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
+        <% end %>
+        </ul>
+        <%= link_to(
+              fa_icon( 'plus', text: 'Add Shared Section' ),
+              new_shared_module_section_path,
+              class: 'create-button'
+            ) %>
+  
       <% end %>
 
     </div>

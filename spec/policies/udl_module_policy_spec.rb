@@ -87,6 +87,24 @@ RSpec.describe UdlModulePolicy do
     end
   end
 
+  permissions :admin? do
+    it "grants admins access" do
+      expect(subject).to permit(admin, UdlModule.new)
+    end
+    it "grants module_admins access" do
+      expect(subject).to permit(module_admin, UdlModule.new)
+    end
+    it "denies module_authors access" do
+      expect(subject).to_not permit(module_author, UdlModule.new)
+    end
+    it "denies users access" do
+      expect(subject).to_not permit(user, UdlModule.new)
+    end
+    it "denies null_users access" do
+      expect(subject).to_not permit(null_user, UdlModule.new)
+    end
+  end
+
   permissions :view_admin? do
     it "grants admins access" do
       expect(subject).to permit(admin, UdlModule.new)

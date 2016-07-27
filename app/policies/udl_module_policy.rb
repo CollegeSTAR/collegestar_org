@@ -52,6 +52,11 @@ class UdlModulePolicy < ApplicationPolicy
     false
   end
 
+  def admin?
+    return true if user.has_role? @accepted_admin_roles
+    false
+  end
+
   def view_admin?
     return true if user.has_role?( [ @accepted_admin_roles , :modules_author ].flatten )
     false
