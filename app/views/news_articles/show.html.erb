@@ -4,7 +4,7 @@
       <p id="notice"><%= notice %></p>
       
       <h1><%= @news_article.title %>
-        <% if can? :edit, @news_article %>
+        <% if policy(@news_article).edit? %>
           <span class="edit-news-article-link"> 
             <%= link_to(
               fa_icon( "pencil", text: "Edit this article" ),

@@ -31,7 +31,7 @@
             <li>
               <div class="news_article_wrapper">
                 <h2><%= link_to news_article.title, news_article %>
-                  <% if can? :update, news_article %>
+                  <% if policy(news_article).update? %>
                     <span class="edit-news-article-link">
                       <%= link_to(
                         fa_icon( "pencil", text: "Edit this article" ),
@@ -50,7 +50,7 @@
             </li>
           <% end %>
        </ul> 
-      <% if can? :create, NewsArticle %>
+      <% if policy(NewsArticle).create? %>
         <div id="new-article-link-wrapper">
         <%= link_to(
               fa_icon( 'plus', text: 'Add News Article' ),
