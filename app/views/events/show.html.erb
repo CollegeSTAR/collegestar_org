@@ -56,10 +56,10 @@
   <%= @event.zip_code %>
 </p>
 
-<% if can? :edit, @event %>
+<% if policy(@event).edit? %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <% end %>
-<% if can? :index, @event %>
+<% if policy(@event).index? %>
   <%= link_to 'Back', events_path %>
 <% end %>
 </div>
