@@ -2,15 +2,16 @@ class Faculty::RedesignSummariesController < ApplicationController
 
   before_action :set_redesign_summary, only: [:show, :edit, :update]
   before_action :set_current_user
-  load_and_authorize_resource
   
   def new
     @redesign_summary = RedesignSummary.new
+    authorize @redesign_summary
     @redesign_summary.summary_content = Faculty::RedesignSummaryHelper.summary_content(@redesign_summary)
   end
 
   def index
     @redesign_summaries = RedesignSummary.all
+    authorize @redesign_summaries
   end
 
   def show
@@ -21,6 +22,7 @@ class Faculty::RedesignSummariesController < ApplicationController
 
   def create
     @redesign_summary = RedesignSummary.new( redesign_summary_params )
+    authorize @redesign_summary
     @redesign_summary.add_existing_attachments( attachment_klass: RedesignSummaryAttachment )
     @redesign_summary.user = @current_user
    
@@ -33,6 +35,7 @@ class Faculty::RedesignSummariesController < ApplicationController
   end
 
   def update
+    authorize @redesign_summary
     if @redesign_summary.save
       flash[:notice] = "Redesign summary saved successfully."
     end

@@ -97,6 +97,18 @@ FactoryGirl.define do
     password_confirmation "secret_pass"
     phone_number "1236541234"
     after(:create) { |user| user.roles << create(:news_articles_admin_role) }
+  end
+
+  factory :redesign_summaries_admin_user, class: User do
+    title "Mr. "
+    first_name "John"
+    last_name "Smith"
+    email "john.redesign.summaries.smith@example.com"
+    password "secret_pass"
+    password_confirmation "secret_pass"
+    phone_number "1236541234"
+    after(:create) { |user| user.roles << create(:redesign_summaries_admin_role) }
 
   end
+
 end

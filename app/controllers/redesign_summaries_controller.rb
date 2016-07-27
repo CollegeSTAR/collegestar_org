@@ -4,18 +4,22 @@ class RedesignSummariesController < ApplicationController
 
   def new
     @redesign_summary = RedesignSummary.new
+    authorize @redesign_summary
     @redesign_summary.summary_content = Faculty::RedesignSummaryHelper.summary_content(@redesign_summary)
   end
 
   def index
     @redesign_summaries = RedesignSummary.where( user_id: @current_user.id )
+    authorize @redesign_summaries
   end
 
   def edit
+    authorize @redesign_summary
   end
 
    def create
     @redesign_summary = RedesignSummary.new( create_redesign_summary_params )
+    authorize @redesign_summaries
     @redesign_summary.add_existing_attachments( attachment_klass: RedesignSummaryAttachment )
     @redesign_summary.user = @current_user
    
@@ -27,8 +31,9 @@ class RedesignSummariesController < ApplicationController
       render :new
     end
   end 
-
+  
   def update
+    authorize @redesign_summary
     if @redesign_summary.update( redesign_summary_params )
       redirect_to edit_profile_redesign_summary_path(
                                                       profile_id: @current_user, 

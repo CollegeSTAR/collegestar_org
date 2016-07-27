@@ -53,4 +53,10 @@ FactoryGirl.define do
     action "manage"
     subject "news_article"
   end
+  
+  factory :redesign_summaries_admin_role, class: Role do
+    name "redesign_summaries_admin"
+    action "manage"
+    subject "redesign_summaries"
+  end
 end
