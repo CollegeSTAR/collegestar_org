@@ -25,7 +25,7 @@
 
 <br>
 
-<% if can? :create, @event %>
+<% if policy(Event).create? %>
 <%= link_to 'New Event', new_event_path %>
 <% end %>
 <h2>Past Events</h2>
