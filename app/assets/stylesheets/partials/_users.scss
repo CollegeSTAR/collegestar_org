@@ -9,3 +9,12 @@
 #user-submit-form-wrapper {
     @include form-submit-wrapper;
 }
+
+#users-table-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+}
+
+table#users {
+  @include admin-table;
+}
