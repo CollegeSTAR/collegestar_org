@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718190207) do
+ActiveRecord::Schema.define(version: 20160728145903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +18,9 @@ ActiveRecord::Schema.define(version: 20160718190207) do
   create_table "access_controls", id: false, force: :cascade do |t|
     t.integer "role_id"
     t.integer "user_id"
+    t.index ["role_id"], name: "index_access_controls_on_role_id", using: :btree
+    t.index ["user_id"], name: "index_access_controls_on_user_id", using: :btree
   end
-
-  add_index "access_controls", ["role_id"], name: "index_access_controls_on_role_id", using: :btree
-  add_index "access_controls", ["user_id"], name: "index_access_controls_on_user_id", using: :btree
 
   create_table "campus_departments", force: :cascade do |t|
     t.string  "name"
@@ -31,9 +29,8 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.string  "chair_last_name"
     t.string  "chair_email"
     t.string  "timestamps"
+    t.index ["campus_id"], name: "index_campus_departments_on_campus_id", using: :btree
   end
-
-  add_index "campus_departments", ["campus_id"], name: "index_campus_departments_on_campus_id", using: :btree
 
   create_table "campus_units", force: :cascade do |t|
     t.string   "name"
@@ -43,9 +40,8 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.string   "director_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["campus_id"], name: "index_campus_units_on_campus_id", using: :btree
   end
-
-  add_index "campus_units", ["campus_id"], name: "index_campus_units_on_campus_id", using: :btree
 
   create_table "campuses", force: :cascade do |t|
     t.string   "name",               null: false
@@ -65,12 +61,11 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.datetime "image_updated_at"
     t.string   "slug",               null: false
     t.integer  "director_id"
+    t.index ["abbreviation"], name: "campuses_abbreviation_index", unique: true, using: :btree
+    t.index ["director_id"], name: "index_campuses_on_director_id", using: :btree
+    t.index ["name"], name: "campuses_name_index", unique: true, using: :btree
+    t.index ["slug"], name: "campuses_slug_index", unique: true, using: :btree
   end
-
-  add_index "campuses", ["abbreviation"], name: "campuses_abbreviation_index", unique: true, using: :btree
-  add_index "campuses", ["director_id"], name: "index_campuses_on_director_id", using: :btree
-  add_index "campuses", ["name"], name: "campuses_name_index", unique: true, using: :btree
-  add_index "campuses", ["slug"], name: "campuses_slug_index", unique: true, using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -83,10 +78,9 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.integer  "height"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
-
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "communities", force: :cascade do |t|
     t.string   "name"
@@ -94,9 +88,8 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "slug",        null: false
+    t.index ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
   end
-
-  add_index "communities", ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name",                                      null: false
@@ -113,27 +106,24 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "slug",                                      null: false
+    t.index ["name"], name: "events_name_index", unique: true, using: :btree
+    t.index ["name"], name: "index_events_on_name", unique: true, using: :btree
+    t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
-
-  add_index "events", ["name"], name: "events_name_index", unique: true, using: :btree
-  add_index "events", ["name"], name: "index_events_on_name", unique: true, using: :btree
-  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "module_author_associations", force: :cascade do |t|
     t.integer "author_id"
     t.integer "module_id"
+    t.index ["author_id"], name: "index_module_author_associations_on_author_id", using: :btree
+    t.index ["module_id"], name: "index_module_author_associations_on_module_id", using: :btree
   end
-
-  add_index "module_author_associations", ["author_id"], name: "index_module_author_associations_on_author_id", using: :btree
-  add_index "module_author_associations", ["module_id"], name: "index_module_author_associations_on_module_id", using: :btree
 
   create_table "module_faculty_associations", force: :cascade do |t|
     t.integer "faculty_id"
     t.integer "module_id"
+    t.index ["faculty_id"], name: "index_module_faculty_associations_on_faculty_id", using: :btree
+    t.index ["module_id"], name: "index_module_faculty_associations_on_module_id", using: :btree
   end
-
-  add_index "module_faculty_associations", ["faculty_id"], name: "index_module_faculty_associations_on_faculty_id", using: :btree
-  add_index "module_faculty_associations", ["module_id"], name: "index_module_faculty_associations_on_module_id", using: :btree
 
   create_table "module_proposals", force: :cascade do |t|
     t.string   "first_name",      null: false
@@ -154,10 +144,9 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.integer "section_id"
     t.integer "module_id"
     t.integer "section_page_position"
+    t.index ["module_id"], name: "index_module_section_associations_on_module_id", using: :btree
+    t.index ["section_id"], name: "index_module_section_associations_on_section_id", using: :btree
   end
-
-  add_index "module_section_associations", ["module_id"], name: "index_module_section_associations_on_module_id", using: :btree
-  add_index "module_section_associations", ["section_id"], name: "index_module_section_associations_on_section_id", using: :btree
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title"
@@ -183,10 +172,9 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "review_ready",          default: false
+    t.index ["user_id"], name: "index_redesign_summaries_on_user_id", using: :btree
+    t.index ["uuid"], name: "index_redesign_summaries_on_uuid", using: :btree
   end
-
-  add_index "redesign_summaries", ["user_id"], name: "index_redesign_summaries_on_user_id", using: :btree
-  add_index "redesign_summaries", ["uuid"], name: "index_redesign_summaries_on_uuid", using: :btree
 
   create_table "redesign_summary_attachments", force: :cascade do |t|
     t.string   "attachment_file_name"
@@ -197,15 +185,12 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.integer  "redesign_summary_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["redesign_summary_id"], name: "index_redesign_summary_attachments_on_redesign_summary_id", using: :btree
+    t.index ["redesign_summary_uuid"], name: "index_redesign_summary_attachments_on_redesign_summary_uuid", using: :btree
   end
-
-  add_index "redesign_summary_attachments", ["redesign_summary_id"], name: "index_redesign_summary_attachments_on_redesign_summary_id", using: :btree
-  add_index "redesign_summary_attachments", ["redesign_summary_uuid"], name: "index_redesign_summary_attachments_on_redesign_summary_uuid", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
-    t.string   "action"
-    t.string   "subject"
     t.string   "conditions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -218,10 +203,9 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.integer "campus_department_id"
     t.integer "campus_unit_id"
     t.string  "timestamps"
+    t.index ["campus_department_id"], name: "index_student_nomination_faculty_on_campus_department_id", using: :btree
+    t.index ["campus_unit_id"], name: "index_student_nomination_faculty_on_campus_unit_id", using: :btree
   end
-
-  add_index "student_nomination_faculty", ["campus_department_id"], name: "index_student_nomination_faculty_on_campus_department_id", using: :btree
-  add_index "student_nomination_faculty", ["campus_unit_id"], name: "index_student_nomination_faculty_on_campus_unit_id", using: :btree
 
   create_table "student_nominations", force: :cascade do |t|
     t.string   "student_name"
@@ -290,11 +274,10 @@ ActiveRecord::Schema.define(version: 20160718190207) do
     t.string   "title"
     t.string   "department"
     t.integer  "campus_id"
+    t.index ["campus_id"], name: "index_users_on_campus_id", using: :btree
+    t.index ["event_consent"], name: "index_users_on_event_consent", using: :btree
+    t.index ["module_consent"], name: "index_users_on_module_consent", using: :btree
   end
-
-  add_index "users", ["campus_id"], name: "index_users_on_campus_id", using: :btree
-  add_index "users", ["event_consent"], name: "index_users_on_event_consent", using: :btree
-  add_index "users", ["module_consent"], name: "index_users_on_module_consent", using: :btree
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
