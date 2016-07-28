@@ -1,4 +1,9 @@
 class UserPolicy < ApplicationPolicy
+ 
+  def initialize(user, record)
+    super(user, record)
+    @accepted_admin_roles << :users_admin
+  end
 
   def index?
     if user.has_role?( @accepted_admin_roles )

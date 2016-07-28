@@ -20,6 +20,10 @@ FactoryGirl.define do
     name "campus_admin"
   end
   
+  factory :granter_role, class: Role do
+    name "granter"
+  end
+ 
   factory :module_admin_role, class: Role do
     name "modules_admin"
   end
@@ -38,5 +42,9 @@ FactoryGirl.define do
   
   factory :redesign_summaries_admin_role, class: Role do
     name "redesign_summaries_admin"
+  end
+  
+  factory :users_admin_role, class: Role do
+    name "users_admin"
   end
 end

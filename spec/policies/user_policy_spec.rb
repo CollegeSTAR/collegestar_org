@@ -2,7 +2,8 @@ require 'spec_helper'
 
 RSpec.describe UserPolicy do
   subject { described_class }
-  let(:admin_user) { create(:admin_user) }
+  let(:admin) { create(:admin_user) }
+  let(:users_admin) { create(:users_admin_user) }
   let(:user) { create(:user) }
   let(:user_two) { create(:user) }
   
@@ -11,7 +12,10 @@ RSpec.describe UserPolicy do
       expect(subject).to_not permit(user, User.new)
     end
     it "grants access with admin role" do
-      expect(subject).to permit(admin_user, User.new)
+      expect(subject).to permit(admin, User.new)
+    end
+    it "grants access with user_admin role" do
+      expect(subject).to permit(users_admin, User.new)
     end
   end
 
@@ -23,7 +27,10 @@ RSpec.describe UserPolicy do
       expect(subject).to_not permit(user, user_two)
     end
     it "grants access with admin role" do
-      expect(subject).to permit(admin_user, user)
+      expect(subject).to permit(admin, user)
+    end
+    it "grants access with user_admin role" do
+      expect(subject).to permit(users_admin, User.new)
     end
     it "grants access to user's own profile" do
       expect(subject).to permit(user, user)
