@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe UdlModuleSection do
+  
+  describe "validations" do
+    it { should validate_presence_of(:title) }
+  end
   describe "associations" do
     it "has many modules" do
       is_expected.to have_many(:modules).through(:module_section_associations)

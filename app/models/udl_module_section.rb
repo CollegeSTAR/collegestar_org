@@ -1,4 +1,5 @@
 class UdlModuleSection < ActiveRecord::Base
+  validates :title, presence: true
   has_many :module_section_associations, foreign_key: 'section_id', inverse_of: :section, dependent: :destroy
   has_many :modules, class_name: 'UdlModule', through: :module_section_associations
   
