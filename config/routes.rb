@@ -52,7 +52,9 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [:create, :destroy]
   resources :password_resets, except: [:index, :show], path: '/password-resets'
-  resources :users, only: [:index, :new, :create, :update, :destroy]
+  resources :users, only: [:index, :new, :create, :update, :destroy] do
+    resources :password_updates, only: [:create]
+  end
   resources :profiles, only: [:edit, :show], controller: :users, as: :profiles do
     resources :modules, only: [:index, :show], controller: :udl_module_history, as: :modules
     resources :redesign_summaries, except: [:show], path: '/redesign-summaries'

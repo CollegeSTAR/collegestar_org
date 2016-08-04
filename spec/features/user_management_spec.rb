@@ -64,6 +64,25 @@ RSpec.feature "User management" do
       end
     end
   end
+  
+  feature "change one's password" do
+    let(:user) { create(:user) }
+    context "with correct current password" do
+      scenario "User changes password" do
+        visit "/login"
+        fill_in "Email", with: user.email
+        fill_in "Password", with: user.password
+        click_button 'Log In'
+
+        visit "/profiles/#{user.id}/edit"
+        fill_in "Current password", with: user.password
+        fill_in "New password", with: "new password"
+        fill_in "New password confirmation", with: "new password"
+        click_button "Change password"
+        expect(page).to have_text("Successfully changed password.")
+      end
+    end
+  end
 
   feature "View user index" do
     let(:admin) { create(:admin_user) }

@@ -6,6 +6,10 @@
     @include form-fields-wrapper;
 }
 
+#change-password-wrapper {
+  @include form-fields-wrapper;
+}
+
 #user-submit-form-wrapper {
     @include form-submit-wrapper;
 }

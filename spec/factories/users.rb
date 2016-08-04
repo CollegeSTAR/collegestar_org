@@ -120,4 +120,14 @@ FactoryGirl.define do
     phone_number "1236541234"
     after(:create) { |user| user.roles << create(:users_admin_role) }
   end
+
+  factory :password_update_user, class: User do
+    title "Mr. "
+    first_name "John"
+    last_name "Smith"
+    email "password.updater@example.com"
+    password "secret_pass"
+    password_confirmation "secret_pass"
+    phone_number "1236541234"
+  end
 end

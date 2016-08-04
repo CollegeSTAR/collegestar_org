@@ -1,5 +1,11 @@
 <%= form_for(@user) do |f| %>
   <%= render "users/forms/errors", users: @users %>
-  <%= render "users/forms/fields/fields", f: f %>
+  <div id="user-edit-fields-wrapper">
+    <%= render "users/forms/fields/fields", f: f %>
+  </div>
+  <% if policy(Role).grant? %>
+    <h2>User's Roles</h2>
+    <%= render "users/forms/fields/roles", f: f %>
+  <% end %>
   <%= render "users/forms/fields/update_user_submit", f: f %>
 <% end %>

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    authorize @user, :show?
+    authorize @user
   end
 
   # GET /users/new
@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @campuses = Campus.all
+    @roles = Role.all
+    @password_updater = PasswordUpdater.new
     authorize @user
   end
 
@@ -30,19 +32,15 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(create_user_params)
-    respond_to do |format|
-      if @user.save
-        create_session( 
-          email: @user.email,
-          password: @user.password
-        )
-        format.html { redirect_to profile_path(@user), notice: 'Thank you for signing up!' }
-        format.json { render :show, status: :created, location: profile_path(@user) }
-      else
-        @campuses = Campus.all
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      create_session( 
+        email: @user.email,
+        password: @user.password
+      )
+      redirect_to profile_path(@user), notice: 'Thank you for signing up!'
+    else
+      @campuses = Campus.all
+      render :new
     end
   end
 
@@ -50,14 +48,12 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     authorize @user
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to profile_path(@user), notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+        redirect_to profile_path(@user), notice: 'User was successfully updated.'
+    else
+      @campuses = Campus.all
+      @roles = Role.all
+      render :edit
     end
   end
 
@@ -82,7 +78,7 @@ class UsersController < ApplicationController
     def create_user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :campus_id, :department)
     end
-
+    
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :campus_id, :department)
     end

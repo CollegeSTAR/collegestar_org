@@ -42,4 +42,9 @@ class UserPolicy < ApplicationPolicy
   def view_admin?
     index?
   end
+
+  def change_password?
+    return true if user.id != nil && user.id == record.id
+    false
+  end
 end
