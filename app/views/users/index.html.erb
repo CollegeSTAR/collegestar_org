@@ -8,14 +8,14 @@
       <div id="users-table-wrapper">
       <table id="users">
           <tr>
-            <th>First name</th>
             <th>Last name</th>
+            <th>First name</th>
             <th>Email</th>
           </tr>
           <% @users.each do |user| %>
             <tr>
-              <td><%= link_to user.first_name, profile_path(user) %></td>
               <td><%= link_to user.last_name, profile_path(user) %></td>
+              <td><%= link_to user.first_name, profile_path(user) %></td>
               <td><%= link_to user.email, profile_path(user) %></td>
             </tr>
           <% end %>
