@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ContactsController do
   describe "#index" do
     let(:user) { create(:user) }
-    let(:contact_admin_role) { create(:contact_admin_role) }
+    let(:contact_admin_role) { create(:contact_admin) }
     before(:each) do
       cookies[:auth_token] = user.auth_token
       user.roles << contact_admin_role

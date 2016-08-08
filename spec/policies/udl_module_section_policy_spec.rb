@@ -3,9 +3,9 @@ require 'spec_helper'
 RSpec.describe UdlModuleSectionPolicy do
   subject { described_class }
   let(:admin) { create(:admin_user) }
-  let(:module_admin) { create(:module_admin_user) }
-  let(:module_author) { create(:module_author_user) }
-  let(:module_author_2) { create(:module_author_user_2) }
+  let(:module_admin) { create(:modules_admin_user) }
+  let(:module_author) { create(:modules_author_user) }
+  let(:module_author_2) { create(:modules_author_user) }
   let(:author_owned_module) { create(:udl_module) }
   let(:user) { create(:user) }
   let(:null_user) { NullUser.new }

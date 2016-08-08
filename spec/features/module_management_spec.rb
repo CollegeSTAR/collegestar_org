@@ -4,7 +4,7 @@ RSpec.feature "Module Management" do
 
   feature "add section to module" do
     let(:udl_module) { create(:udl_module) }
-    let(:module_admin) { create(:module_admin_user) }
+    let(:module_admin) { create(:modules_admin_user) }
     before(:each) do 
       #login
       visit "/login"

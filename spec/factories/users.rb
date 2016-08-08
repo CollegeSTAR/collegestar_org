@@ -1,3 +1,15 @@
+module FactoryHelper
+ extend self
+
+  def find_role( role_name )
+    if Role.find_by_name( role_name ).blank?
+      role = FactoryGirl.create(role_name.to_sym)
+    else
+      role = Role.find_by_name role_name
+    end
+  end
+end
+
 FactoryGirl.define do
   factory :user do
     title "Mr."
@@ -8,119 +20,44 @@ FactoryGirl.define do
     password "secret_pass"
     password_confirmation "secret_pass"
     phone_number "1236541234"
-  end
 
-  factory :admin_user, class: User do
-    title "Mr."
-    first_name "Tanner_admin"
-    last_name "Jones_admin"
-    sequence(:email) { |n| "admin#{n}@collegestar.org" }
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:admin_role) }
-  end
+    factory :admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "admin" ) }
+    end
 
-  factory "campus_admin_user", class: User do
-    title "Mr."
-    first_name "Tanner_admin"
-    last_name "Jones_admin"
-    sequence(:email) { |n| "admin#{n}@collegestar.org" }
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:campus_admin_role) }
-  end
- 
-  factory "events_admin_user", class: User do
-    title "Mr."
-    first_name "Tanner_admin"
-    last_name "Jones_admin"
-    sequence(:email) { |n| "admin#{n}@example.org" }
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:events_admin_role) }
-  end
+    factory :campus_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "campus_admin" ) }
+    end
 
+    factory :events_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "events_admin" ) }
+    end
 
-  factory :module_admin_user, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "john.smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:module_admin_role) }
+    factory :modules_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "modules_admin" ) }
+    end
+
+    factory :modules_author_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "modules_author") }
+    end
+
+    factory :module_proposals_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "module_proposals_admin" ) }
+    end
+
+    factory :news_articles_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "news_articles_admin" ) }
+    end
+    
+    factory :redesign_summaries_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "redesign_summaries_admin" ) }
+    end
+
+    factory :users_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "users_admin" ) }
+    end
   end
-
-  factory :module_author_user, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "john.j.smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:module_author_role) }
-  end
-
-  factory :module_author_user_2, class: User do
-    title "Ms. "
-    first_name "Jane"
-    last_name "Smith"
-    email "jane.smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:module_author_role) }
-  end
-
-  factory :module_proposals_admin_user, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "john.m.smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:module_proposals_admin_role) }
-  end
-
-  factory :news_articles_admin_user, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "john.article.smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:news_articles_admin_role) }
-  end
-
-  factory :redesign_summaries_admin_user, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "john.redesign.summaries.smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:redesign_summaries_admin_role) }
-  end
-
-  factory :users_admin_user, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "john.redesign.summaries.smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
-    after(:create) { |user| user.roles << create(:users_admin_role) }
-  end
-
+  
   factory :password_update_user, class: User do
     title "Mr. "
     first_name "John"
