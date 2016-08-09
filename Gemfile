@@ -53,7 +53,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 
 #Use interactor for business logic encapsulation
-gem 'interactor', '~> 3.0'
+gem 'interactor-rails', '~> 2.0'
 
 #Use kaminari for pagination
 gem 'kaminari'
