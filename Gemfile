@@ -52,6 +52,9 @@ gem 'bcrypt', '~> 3.1.7'
 #Use pundit for authorization
 gem 'pundit'
 
+#Use interactor for business logic encapsulation
+gem 'interactor', '~> 3.0'
+
 #Use kaminari for pagination
 gem 'kaminari'
 
