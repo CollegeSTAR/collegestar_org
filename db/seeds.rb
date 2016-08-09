@@ -26,7 +26,7 @@ roles.each do |role|
     new_role.description = role[:description]
     new_role.grantable = role[:grantable]
   end
-  found_role.description = role[:description] if found_role.description == role[:description]
-  found_role.grantable = role[:grantable] if found_role.grantable == role[:grantable]
+  found_role.description = role[:description] if found_role.description != role[:description]
+  found_role.grantable = role[:grantable] if found_role.grantable != role[:grantable]
   found_role.save
 end
