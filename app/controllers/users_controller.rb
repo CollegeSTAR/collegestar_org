@@ -48,8 +48,12 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     authorize @user
-    if @user.update(user_params)
-        redirect_to profile_path(@user), notice: 'User was successfully updated.'
+    
+    # Non Grantable user roles will not be included in the user_params, we need
+    # to merge them in or they will be wiped out on update.
+    result = AssignUserRoles.call(user: @user, user_params: user_params)
+    if @user.update( user_params.merge(role_ids: result.role_ids) )
+        redirect_to edit_profile_path(@user), notice: 'User was successfully updated.'
     else
       @campuses = Campus.all
       @roles = Role.all
@@ -80,6 +84,6 @@ class UsersController < ApplicationController
     end
     
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :campus_id, :department)
+      params.require(:user).permit(:first_name, :last_name, :email, :campus_id, :department, role_ids: [])
     end
 end

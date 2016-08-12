@@ -3,8 +3,10 @@
     <div id="content">
       <h1>Edit your profile</h1>
       <%= render 'users/forms/edit' %>
-      <h1>Change your password</h1>
-      <%= render 'users/forms/change_password' %>
+      <% if policy(@user).change_password? %>
+        <h1>Change your password</h1>
+        <%= render 'users/forms/change_password' %>
+      <% end %>
     </div>
   </div>
 </div>

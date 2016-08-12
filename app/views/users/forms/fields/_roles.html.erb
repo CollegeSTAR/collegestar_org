@@ -1,5 +1,8 @@
-<ul>
-  <% @roles.each do |role| %>
-    <li><%= role.description %></li>
-  <% end %>
-</ul>
+<div id="user-roles-wrapper">
+  <ul>
+    <%= hidden_field_tag "user[role_ids][]", nil %>
+    <% Role.grantable.each do |role| %>
+      <li><%= check_box_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id), id: dom_id(role) %><%= label_tag dom_id(role), role.description %></li>
+    <% end %>
+  </ul>
+<div>

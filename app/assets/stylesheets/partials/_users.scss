@@ -22,3 +22,20 @@
 table#users {
   @include admin-table;
 }
+
+#user-roles-wrapper {
+  ul {
+    list-style-type: none;
+    margin: gutter() 2 * gutter();
+
+    li {
+      list-style-type: none;
+      margin: gutter() 0;
+
+      label {
+        display: inline;
+        font-weight: normal;
+      }
+    }
+  }
+}

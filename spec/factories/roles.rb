@@ -8,6 +8,7 @@ FactoryGirl.define do
   factory :admin, class: Role do
     name "admin"
     description "Admin: Has keys to the kingdom."
+    grantable false
   end
 
   factory :events_admin, class: Role do
@@ -68,5 +69,17 @@ FactoryGirl.define do
     name "users_admin"
     description "Users Admin: "
     grantable false
+  end
+
+  factory :non_grantable_role, class: Role do
+    name "non_grantable_role"
+    description "A role that should not be scoped to grantable"
+    grantable false
+  end
+
+  factory :grantable_role, class: Role do
+    name "grantable_role"
+    description "A role that should be scoped to grantable"
+    grantable true
   end
 end

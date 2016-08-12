@@ -53,7 +53,7 @@ RSpec.feature "User management" do
         fill_in 'First name', with: "NewFirstName"
         fill_in 'Last name', with: "NewLastName"
         fill_in 'Email', with: "new_email@example.com"
-        click_button "Update Account"
+        click_button "Update Account Settings"
         expect(page).to have_content("NewFirstName NewLastName")
       end
     end
@@ -61,6 +61,23 @@ RSpec.feature "User management" do
       scenario "Edit user profile" do
         visit "/profiles/#{user.id}/edit"
         expect(page).to have_text("Log In")
+      end
+    end
+
+    context "with non grantable role" do
+      let(:admin_user) { create(:admin_user) }
+      let(:admin_role) { create(:admin_role) }
+      let(:news_articles_admin) { create(:news_articles_admin) }
+      scenario "User updates profile" do
+        visit "/login"
+        fill_in 'Email', with: admin_user.email
+        fill_in 'Password', with: admin_user.password
+        click_button 'Log In'
+        
+        visit "/profiles/#{admin_user.id}/edit"
+        click_button "Update Account"
+        
+        expect(page).to have_content("User's Roles")
       end
     end
   end
