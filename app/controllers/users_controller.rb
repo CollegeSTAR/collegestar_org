@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @campuses = Campus.all
-    @roles = Role.all
+    @roles = Role.grantable.order(:description)
     @password_updater = PasswordUpdater.new
     authorize @user
   end
