@@ -11,7 +11,7 @@
 
 6. Create a rails virtual database in terminal using "$RAILS_ENV=test bin/rake db:create".
 
-7. Navigate or cd to your collegestar_org directory and type the following commmands "$vagrant init", "$vagrant vb-guest", "$vagrant ssh", "$vagrant up", "$bin/rails server --binding 0.0.0.0" to launch the rails app.
+7. Navigate or cd to your development_box directory and type the following commmands "$vagrant init", "$vagrant vb-guest", "$vagrant up", "$vagrant ssh", "$bin/rails server --binding 0.0.0.0" to launch the rails app.
 
 8. Navigate to your preffered browser and input "http://localhost:3000/" as the url and the collegestar site should appear. 
 
