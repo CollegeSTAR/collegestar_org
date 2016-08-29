@@ -23,6 +23,7 @@ class ModuleProposalsController < ApplicationController
     @module_proposal.module_type = "new_module"
     authorize @module_proposal
     if @module_proposal.save
+      ModuleProposalMailer.confirmation(@module_proposal).deliver_now
       render :confirmation       
     else
       flash[:error] = @module_proposal.errors
