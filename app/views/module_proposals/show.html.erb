@@ -7,12 +7,12 @@
       <p>Email: <strong><%= @module_proposal.email %></strong></p>
       <p>University: <strong><%= @module_proposal.university %></strong></p>
       <p>Department: <strong><%= @module_proposal.department %></strong></p>
-      <p>Preferred Payment Method: <strong><%= @module_proposal.payment_method %></strong></p>
       
       <h2>Proposed Module</h2>
       <p>Module Type: <strong><%= @module_proposal.module_type %></strong></p> 
       <p>Working Title: <strong><%= @module_proposal.title %></strong></p>
       <p>Description: <strong><%= @module_proposal.description %></strong></p>
+      <p>Estimated Start Date: <strong><%= @module_proposal.start_date.strftime("%m/%d/%Y") %></strong></p>
       <p>Estimated Completion Date: <strong><%= @module_proposal.completion_date.strftime("%m/%d/%Y") %></strong></p>
       <p><%= link_to "Back to Proposals", module_proposals_path %></p>
     </div>

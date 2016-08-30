@@ -73,13 +73,14 @@
   @include span(18 of 18 no-gutters);
 }
 
-#form-completion-date-wrapper {
+
+#form-start-date-wrapper, #form-completion-date-wrapper {
   margin-top: gutter();
   margin-bottom: gutter();
   @include span(18 of 18);
 }
 
-#form-completion-date-field {
+#form-start-date-field, #form-completion-date-field {
   @include span(8 of 18);
 
   input[type=text] {

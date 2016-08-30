@@ -55,6 +55,6 @@ class ModuleProposalsController < ApplicationController
     end
 
     def module_proposal_params
-      params.require(:module_proposal).permit(:first_name, :last_name, :university, :department, :email, :module_type, :title, :description, :completion_date, :payment_method)
+      params.require(:module_proposal).permit(:first_name, :last_name, :university, :department, :email, :module_type, :title, :description, :start_date, :completion_date)
     end
 end
