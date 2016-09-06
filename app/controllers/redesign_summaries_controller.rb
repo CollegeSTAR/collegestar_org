@@ -19,7 +19,7 @@ class RedesignSummariesController < ApplicationController
 
    def create
     @redesign_summary = RedesignSummary.new( create_redesign_summary_params )
-    authorize @redesign_summaries
+    authorize @redesign_summary
     @redesign_summary.add_existing_attachments( attachment_klass: RedesignSummaryAttachment )
     @redesign_summary.user = @current_user
    
