@@ -23,6 +23,7 @@ class ModuleProposalsController < ApplicationController
     @module_proposal.module_type = "new_module"
     authorize @module_proposal
     if @module_proposal.save
+      ModuleProposalMailer.confirmation(@module_proposal).deliver_now
       render :confirmation       
     else
       flash[:error] = @module_proposal.errors
@@ -54,6 +55,6 @@ class ModuleProposalsController < ApplicationController
     end
 
     def module_proposal_params
-      params.require(:module_proposal).permit(:first_name, :last_name, :university, :department, :email, :module_type, :title, :description, :completion_date, :payment_method)
+      params.require(:module_proposal).permit(:first_name, :last_name, :university, :department, :email, :module_type, :title, :description, :start_date, :completion_date)
     end
 end
