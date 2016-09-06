@@ -1,28 +1,21 @@
 == README
+1. In order to access the collegestar_org Rails app you must first do the following.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2. Install or mount Nfs via homebrew. http://www.cyberciti.biz/faq/apple-mac-osx-nfs-mount-command-tutorial/
 
-Things you may want to cover:
+3. Download and install vagrant to create vagrant files. https://www.vagrantup.com/downloads.html
 
-* Ruby version
+4. Download and install virtual box. https://www.virtualbox.org/wiki/Downloads
 
-* System dependencies
+5. Create a folder to house the development_box and collegestar_org app.
 
-* Configuration
+6. Create a rails virtual database in terminal using "$RAILS_ENV=test bin/rake db:create".
 
-* Database creation
+7. Navigate or cd to your development_box directory and type the following commmands "$vagrant init", "$vagrant vb-guest", "$vagrant up", "$vagrant ssh", "$bin/rails server --binding 0.0.0.0" to launch the rails app.
 
-* Database initialization
+8. Navigate to your preffered browser and input "http://localhost:3000/" as the url and the collegestar site should appear. 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+9. In order to exit enter the command "$exit" followed by either "$vagrant halt"(Recommended) or "$vagrant destroy"(Not Recommended). 
 
 
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
