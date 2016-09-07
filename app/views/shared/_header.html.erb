@@ -33,6 +33,9 @@
             <% if policy(UdlModule).view_admin? %>
               <li><%= link_to '<i class="fa fa-file-o fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
             <% end %>
+            <% if policy(ModuleProposal).view_admin? %>
+              <li><%= link_to '<i class="fa fa-map-o fa-la"></i>&nbsp; Module Proposals'.html_safe, module_proposals_path %></li>
+            <% end %>
             <li><%= link_to "Logout", logout_path %></li>
           </ul>
         </div>
