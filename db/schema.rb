@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830021849) do
+ActiveRecord::Schema.define(version: 20160907194321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160830021849) do
     t.boolean  "feature_article", default: false
     t.text     "feature_excerpt"
     t.text     "sidebar_excerpt"
+    t.boolean  "released",        default: false, null: false
   end
 
   create_table "redesign_summaries", force: :cascade do |t|
