@@ -58,6 +58,32 @@
               class: 'create-button'
             ) %>
         </div>
+        
+        <h1>Unreleased News Articles</h1>
+        <ul id="unreleased_news_articles">
+          <% @unreleased_news_articles.each do |news_article| %>
+            <li>
+              <div class="news_article_wrapper">
+                <h2><%= link_to news_article.title, news_article %>
+                  <% if policy(news_article).update? %>
+                    <span class="edit-news-article-link">
+                      <%= link_to(
+                        fa_icon( "pencil", text: "Edit this article" ),
+                        edit_news_article_path( news_article ) 
+                      ) %>
+                    </span>
+                  <% end %>
+                </h2>
+                <div class="thumb_nail">
+                  <%= link_to( image_tag("seal-2x.png"), news_article ) %>
+                </div>
+                <div class="excerpt">
+                  <p><%= news_article.excerpt.html_safe %></p>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul> 
       <% end %>
     </div>
   </div>

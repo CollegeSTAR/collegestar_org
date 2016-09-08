@@ -10,7 +10,8 @@ class NewsArticlePolicy < ApplicationPolicy
   end
 
   def show?
-    index?
+    return true if user.has_role?( @accepted_admin_roles )
+    return true unless record.released == false
   end
 
   def new?

@@ -26,6 +26,10 @@
   <div class="field">
     <%= f.label :image_url %><br>
     <%= f.text_field :image_url %>
+  </div>  
+  <div class="field">
+    <%= f.label :released, "Publish this article to the public site." %><br>
+    <%= f.check_box :released %>
   </div>
   <div class="actions">
     <%= f.submit %>

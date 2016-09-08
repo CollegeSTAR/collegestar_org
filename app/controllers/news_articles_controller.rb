@@ -5,6 +5,7 @@ class NewsArticlesController < ApplicationController
   # GET /news_articles.json
   def index
     @news_articles = NewsArticle.non_featured_reverse_date_order
+    @unreleased_news_articles = NewsArticle.unreleased
     authorize @news_articles
   end
 
@@ -76,6 +77,6 @@ class NewsArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_article_params
-      params.require(:news_article).permit(:title, :content, :excerpt, :image_url)
+      params.require(:news_article).permit(:title, :content, :excerpt, :image_url, :released)
     end
 end
