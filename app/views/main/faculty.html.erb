@@ -11,10 +11,6 @@
       </p>
       <h3>College STAR Modules</h3>
 
-      <p>
-Thank you for visiting the College STAR Faculty Development Modules.  We are currently in the process of updating and expanding our module offerings.  During this process, some of the Faculty Development Modules  may not be available.  To access previous versions of all of our modules please visit <%= link_to nil, "http://legacy.collegestar.org/faculty", target: "_blank" %>
-      </p>
-
       <ul>
         <% @udl_modules.each do |udl_module| %>
           <li><%= link_to( udl_module.title, udl_module ) %></li>
