@@ -171,3 +171,17 @@ a.read-more {
 .hidden {
   display: none;
 }
+
+img {
+  &.float-right {
+    float: right;
+    margin-left: gutter();
+  }
+}
+
+img {
+  &.float-left {
+    float: left;
+    margin-right: gutter();
+  }
+}
