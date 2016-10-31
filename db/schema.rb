@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028184335) do
+ActiveRecord::Schema.define(version: 20161031162256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 20161028184335) do
     t.integer "user_id"
     t.index ["role_id"], name: "index_access_controls_on_role_id", using: :btree
     t.index ["user_id"], name: "index_access_controls_on_user_id", using: :btree
+  end
+
+  create_table "assessment_answer_choices", force: :cascade do |t|
+    t.string  "text"
+    t.string  "explanation"
+    t.integer "position"
+  end
+
+  create_table "assessment_questions", force: :cascade do |t|
+    t.string  "question"
+    t.string  "explanation"
+    t.integer "udl_module_section_id"
+    t.boolean "ordered"
+    t.index ["udl_module_section_id"], name: "index_assessment_questions_on_udl_module_section_id", using: :btree
   end
 
   create_table "campus_departments", force: :cascade do |t|
@@ -290,6 +304,7 @@ ActiveRecord::Schema.define(version: 20161028184335) do
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
+  add_foreign_key "assessment_questions", "udl_module_sections"
   add_foreign_key "campus_departments", "campuses"
   add_foreign_key "campus_units", "campuses"
   add_foreign_key "module_assessments", "udl_modules"
