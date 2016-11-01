@@ -31,10 +31,13 @@
               <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
             <% end %>
             <% if policy(UdlModule).view_admin? %>
-              <li><%= link_to '<i class="fa fa-file-o fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
+              <li><%= link_to '<i class="fa fa-file fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
             <% end %>
             <% if policy(ModuleProposal).view_admin? %>
-              <li><%= link_to '<i class="fa fa-map-o fa-la"></i>&nbsp; Module Proposals'.html_safe, module_proposals_path %></li>
+              <li><%= link_to '<i class="fa fa-map fa-la"></i>&nbsp; Module Proposals'.html_safe, module_proposals_path %></li>
+            <% end %>
+            <% if policy(RedesignSummary).view_admin? %>
+              <li><%= link_to '<i class="fa fa-archive fa-la"></i>&nbsp; Redesign Summaries'.html_safe, faculty_redesign_summaries_path %></li>
             <% end %>
             <li><%= link_to "Logout", logout_path %></li>
           </ul>
