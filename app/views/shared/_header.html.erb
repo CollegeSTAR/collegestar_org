@@ -28,7 +28,7 @@
               <li><%= link_to '<i class="fa fa-graduation-cap fa-la"></i>&nbsp; Campuses'.html_safe, campuses_path %></li>
             <% end %>
             <% if policy(User).view_admin? %>
-              <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
+              <li><%= link_to '<i class="fa fa-user fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
             <% end %>
             <% if policy(UdlModule).view_admin? %>
               <li><%= link_to '<i class="fa fa-file fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
@@ -38,6 +38,9 @@
             <% end %>
             <% if policy(RedesignSummary).view_admin? %>
               <li><%= link_to '<i class="fa fa-archive fa-la"></i>&nbsp; Redesign Summaries'.html_safe, faculty_redesign_summaries_path %></li>
+            <% end %>
+            <% if policy(StarLearningCommunityRegistration).view_admin? %>
+              <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; STAR Learning Communities'.html_safe, star_learning_communities_registrations_path %></li>
             <% end %>
             <li><%= link_to "Logout", logout_path %></li>
           </ul>
