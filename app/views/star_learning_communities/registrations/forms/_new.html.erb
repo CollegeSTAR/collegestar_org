@@ -1,0 +1,23 @@
+<%= form_for [:star_learning_communities, @registration], url: star_learning_communities_registrations_path do |f| %>
+  <div id="name-wrapper">
+    <%= render 'shared/forms/fields/name', f: f %>
+  </div>
+  <div id="phone-email-wrapper">
+    <%= render 'shared/forms/fields/email', f: f %>
+    <%= render 'shared/forms/fields/phone', f: f %>
+  </div>
+  <%= render 'shared/forms/fields/department', f: f %>
+  <%= render 'shared/forms/fields/university', f: f %>
+  <div id="star-learning-communities-registration-form-current-communities-wrapper">
+    <%= render 'star_learning_communities/registrations/forms/fields/current_learning_communities', f: f %>
+  </div>
+  <div id="star_learning_communities_registrations_other_options" class="hidden">
+    <%= render 'star_learning_communities/registrations/forms/fields/instructional_practice', f: f %>
+    <%= render 'star_learning_communities/registrations/forms/fields/instructional_practice_justification', f: f %>
+    <%= render 'star_learning_communities/registrations/forms/fields/udl_principles', f: f %>
+    <%= render 'star_learning_communities/registrations/forms/fields/network_established', f: f %>
+  </div>
+  <div id="star-learning-communities-registration-form-submit-wrapper">
+    <%= f.submit "Submit your registration" %>
+  </div>
+<% end %>

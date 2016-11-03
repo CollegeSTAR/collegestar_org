@@ -1,0 +1,20 @@
+<h1>We have received your STAR Learning Community request</h1>
+
+<p>
+  <%= @registration.first_name %> <%= @registration.last_name %>,
+</p>
+
+<% if @registration.slc == "Other" %>
+  <p>
+  Thank you for interest in developing a new STAR Learning Community. We will be sure to contact you soon to provide you with information regarding the next steps in the process. If you have any questions, you may email us at <%= mail_to "support@collegestar.org" %>.
+  </p>
+<% else %>
+  <p>
+  Thank you for expressing your interest in joining a STAR Learning Community. We will be sure to contact you soon to provide you with information regarding the next steps in the process. If you have any questions, you may email us at <%= mail_to "support@collegestar.org" %>.
+  </p>
+<% end %>
+
+<p>
+Thanks,<br>
+The College STAR Team
+</p>

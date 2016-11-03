@@ -1,0 +1,25 @@
+<div id="star-learning-communities-registration-form-slc-wrapper">
+  <div class="form-label">
+    <%= f.label :slc, "Current Learning Communities" %>
+  </div>
+  <div class="form-select-box">
+    <%= f.select( :slc,
+          [
+            'Current Learning Communities',
+            'Flipping Classrooms',
+            'Annotated Readings',
+            'Course Redesign',
+            'Read/Write Gold',
+            'Service Learning',
+            'Course Organizer Routine',
+            'Lecture Capture',
+            'Problem Based Learning',
+            'Transparent Instruction',
+            'Assignment Choices',
+            'Other'
+          ],
+          { selected: 'Current Learning Communities', disabled: 'Current Learning Communities' }
+        )
+     %>
+  </div>
+</div>

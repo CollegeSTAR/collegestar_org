@@ -12,6 +12,11 @@
  *
  */
 @import "bourbon";
+@import "mixins/base-mixins";
+@import "mixins/button-mixins";
+@import "mixins/forms-mixins";
+@import "mixins/table-mixins";
+@import "mixins/udl_module-mixins";
 @import "base/base";
 @import "partials/variables";
 @import "jquery-ui/core";
@@ -21,10 +26,6 @@
 @import "susy";
 @import "breakpoint";
 @import "partials/susy_globals";
-@import "mixins/base-mixins";
-@import "mixins/forms-mixins";
-@import "mixins/table-mixins";
-@import "mixins/udl_module-mixins";
 @import "partials/base";
 @import "partials/header";
 @import "partials/side_bar";
@@ -43,3 +44,4 @@
 @import "partials/udl_modules";
 @import "partials/module_proposals";
 @import "partials/faculty/redesign_summaries";
+@import "partials/star_learning_communities";

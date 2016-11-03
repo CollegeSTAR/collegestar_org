@@ -74,6 +74,11 @@ Rails.application.routes.draw do
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
   end
+ 
+  get '/star-learning-communities', to: 'star_learning_communities#show'
+  namespace :star_learning_communities, path: '/star-learning-communities' do
+    resources :registrations
+  end
   namespace :api do
     namespace :v1 do
       namespace :faculty do

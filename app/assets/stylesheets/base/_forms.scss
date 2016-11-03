@@ -12,9 +12,12 @@ legend {
 }
 
 label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: $small-spacing / 2;
+  @include form-label;
+}
+
+p.label {
+ @include form-label;
+ text-align: left;
 }
 
 input,

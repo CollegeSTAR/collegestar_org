@@ -71,6 +71,12 @@ FactoryGirl.define do
     grantable false
   end
 
+  factory :star_learning_communities_admin, class: Role do
+    name "star_learning_communities_admin"
+    description "STAR Learning Communities Admin: "
+    grantable true
+  end
+
   factory :non_grantable_role, class: Role do
     name "non_grantable_role"
     description "A role that should not be scoped to grantable"

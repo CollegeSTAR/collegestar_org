@@ -15,3 +15,53 @@
   font-size: $base-font-size;
   font-weight: bold;
 }
+
+.form-label {
+  @include span( 18 of 18 no-gutters);
+}
+
+.form-check-box-wrapper {
+  @include span( 18 of 18 no-gutters);
+  margin: gutter() 2*gutter() 0 2*gutter();
+  
+  .form-check-box {
+    float: left;
+    display: inline
+  }
+  .form-label {
+    width: auto;
+    float: left;
+    display: inline;
+
+    label {
+      font-weight: normal;
+    }
+  }
+}
+
+.form-radio-button-wrapper {
+  @include span( 18 of 18 no-gutters);
+  margin: gutter() 2*gutter() 0 2*gutter();
+
+  .form-radio-button {
+    float: left;
+    display: inline;
+  }
+  .form-label {
+    width: auto;
+    float: left;
+    display: inline;
+
+    label {
+      font-weight: normal;
+    }
+  }
+}
+
+#form-phone-wrapper {
+  @include span( 18 of 18 );
+  
+  input {
+    @include span( 6 of 18 no-gutters );
+  }
+}

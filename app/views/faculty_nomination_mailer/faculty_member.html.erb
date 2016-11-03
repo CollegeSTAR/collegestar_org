@@ -1,20 +1,23 @@
-<p>
+<p style="text-align:center;">
 <%= image_tag attachments['seal_letter_head.png'].url, alt: 'College STAR Letter head' %>
 </p>
 
 <p>
-Dear FACULTY MEMBER,
+Dear <%= @faculty_member.first_name %> <%= @faculty_member.last_name %>,
 </p>
 <p>
-Congratulations! During the Spring 2016 semester, College STAR polled ECU students to learn about teaching practices used by their instructors that they considered particularly effective. One of your students responded to our inquiry and specifically mentioned instructional practices you use. We would like to take this opportunity to share with you what this student said.
+Congratulations! During the Spring 2016 semester, College STAR polled ECU students to learn about teaching practices used by their instructors that they considered particularly effective. <%= (@student_count > 1) ? "A few" : "One" %> of your students responded to our inquiry and specifically mentioned instructional practices you use. We would like to take this opportunity to share with you what <%= (@student_count > 1) ? "these students": "this student" %> said.
 </p>
 <p>
-Student(s) statement:
+Student <%= (@student_count > 1) ? "statements" : "statement" %>:
+<% @faculty_member.student_nominations.each do |nomination| %>
 </p>
-<blockquote>
-This faculty member is great. Everything they do is awesome!<br/>
-<strong>John Smith</strong>
+<blockquote style="margin-left:40px; margin-right:40px;">
+<%= nomination.quotes %><br/>
+<strong><%= (nomination.anonymous == true) ? "Anonymous": nomination.student_name %></strong>
 </blockquote>
+
+<% end %>
 
 <p>
 <%= link_to "College STAR", "https://www.collegestar.org" %> is a grant-funded project that provides participating campuses in the UNC System the opportunity to work together to create welcoming environments for students with learning differences and build models of faculty and student support based upon principles of Universal Design for Learning. We thank you for your commitment to utilizing effective practices that have a positive impact on student learning

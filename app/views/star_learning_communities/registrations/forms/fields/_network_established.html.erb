@@ -1,0 +1,21 @@
+<div id="star-learning-communities-registration-form-networw-established">
+  <p class="label">
+    Do you alread have a network of collegues whom would be intested in this learning community
+  </p>
+  <div class="form-radio-button-wrapper">
+    <div class="form-label">
+      <%= f.label :network_established_1, 'Yes, I already know of 4-6 faculty members who would like to work with me.' %>
+    </div>
+    <div class="form-radio-button">
+      <%= f.radio_button :network_established, 1 %>
+    </div>
+  </div>    
+  <div class="form-radio-button-wrapper">
+    <div class="form-label">
+      <%= f.label :network_established_0, 'No, please add my topic to the list in which College STAR is recruiting.' %>
+    </div>
+    <div class="form-radio-button">
+      <%= f.radio_button :network_established, 0 %>
+    </div>
+  </div>
+</div>

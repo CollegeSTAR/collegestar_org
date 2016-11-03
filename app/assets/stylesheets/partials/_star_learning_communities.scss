@@ -1,0 +1,31 @@
+#star-learning-communities-registration-form-wrapper {
+  @include form-fields-wrapper();
+}
+
+#star-learning-communities-registration-form-current-communities-wrapper {
+  @include span(18 of 18 no-gutter);
+}
+
+#star-learning-communities-registration-form-submit-wrapper {
+  @include form-submit-wrapper();
+}
+
+#phone-email-wrapper {
+  @include span(18 of 18 no-gutter);
+  @include clearfix;
+
+  #form-email-wrapper {
+    @include span(6 of 18);
+  }
+
+  #form-phone-wrapper {
+    @include span(6 of 18 at 7);
+    margin-top: gutter();
+    
+    .form-text-field {
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

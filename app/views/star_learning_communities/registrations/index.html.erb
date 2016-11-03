@@ -1,0 +1,25 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <p id="notice"><%= notice %></p>
+      <h1>STAR Learning Community Registrations</h1>
+      
+      <div id="module-proposals-table-wrapper">
+        <table id="module-proposals">
+          <tr>
+            <th id="name-heading">Faculty Name</th>
+            <th id="title-heading">STAR Learning Community</th>
+            <th id="date-submitted-heading">Date Submitted</th>
+          </tr>
+          <% @registrations.each do |registration| %>
+          <tr>
+            <td><%= link_to "#{registration.first_name} #{registration.last_name}", star_learning_communities_registration_path( registration ) %></td>
+            <td><%= link_to registration.slc, star_learning_communities_registration_path( registration ) %></td>
+            <td><%= link_to registration.created_at.strftime("%m/%d/%Y"), star_learning_communities_registration_path( registration ) %></td>
+          <% end %>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

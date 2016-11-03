@@ -1,0 +1,19 @@
+@mixin basic-button() {
+  margin: 8 * gutter();
+  padding: 1em;
+}
+
+@mixin create-button() {
+  @include basic-button;
+  font-size: 1.5 * $base-font-size;
+  color: $white;
+  background-color: $link-blue;
+  border: $default-border-width solid darken( $link-blue, 15%);
+  border-bottom: 2 * $default-border-width solid darken( $link-blue, 15%);
+  border-radius: $default-radius;
+
+  &:hover {
+    color: $white;
+    background-color: darken( $link-blue, 5%);
+  }
+}

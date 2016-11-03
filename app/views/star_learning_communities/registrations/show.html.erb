@@ -1,0 +1,63 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @registration.first_name %> <%= @registration.last_name %> - <%= @registration.slc %></h1>
+      <div class="model-basic-info">
+      <p>
+        Email: <strong><%= @registration.email %></strong>
+      </p>
+      <p>
+        Phone: <strong><%= @registration.phone %></strong>
+      </p>
+      <p>
+        Department: <strong><%= @registration.department %></strong>
+      </p>
+      <p>
+        University: <strong><%= @registration.university %></strong>
+      </p>
+      </div>
+
+      <div>
+        <h3>STAR Leanring Community</h3>
+        <p>
+          <%= @registration.slc %>
+        </p>
+
+        <% if @registration.slc == "Other" %>
+
+          <h3>Describe the instructional practice you hope to explore through a learning community</h3>
+          <p>
+            <%= @registration.instructional_practice.html_safe %>
+          </p>
+          <h3>Breifly describe why you feel this instructional approach will make a positive difference for your students with learning differences.</h3>
+          <p>
+            <%= @registration.instructional_practice_justification.html_safe %>
+          </p>
+          <h3>Please select the UDL Principle(s) that are most closely aligned with your proposal. (Check all that apply)</h3>
+          <% if @registration.udl_representation %>
+            <p>
+            Multiple Means of Representation
+            </p>
+          <% end %>
+          <% if @registration.udl_action_expression %>
+            <p>
+            Multiple Means of Action and Expression
+            </p>
+          <% end %>
+          <% if @registration.udl_engagement %>
+            <p>
+            Multiple Means of Engagement
+            </p>
+          <% end %>
+          
+          <h3>Do you alread have a network of collegues whom would be intested in this learning community</h3>
+          <p>
+          <%= @registration.network_established ? "Yes" : "No" %>
+          </p>
+        <% end %>
+      </div>
+
+      <%= link_to 'Back to registrations', star_learning_communities_registrations_path %>
+    </div>
+  </div>
+</div>

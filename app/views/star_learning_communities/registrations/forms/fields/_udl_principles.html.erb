@@ -1,0 +1,27 @@
+<div id="star-learning-communities-registration-form-udl-principles">
+  <p class="label">Please select the UDL Principle(s) that are most closely aligned with your proposal. (Check all that apply)</p>    
+  <div class="form-check-box-wrapper">
+    <div class="form-label">
+      <%= f.label :udl_representation, 'Multiple Means of Representation' %>
+    </div>
+    <div class="form-check-box">
+      <%= f.check_box(:udl_representation) %>
+    </div>
+  </div>
+  <div class="form-check-box-wrapper">
+    <div class="form-label">
+      <%= f.label :udl_action_expression, 'Multiple Means of Action & Expression' %>
+    </div>
+    <div class="form-check-box">
+      <%= f.check_box(:udl_action_expression) %>
+    </div>
+  </div>
+  <div class="form-check-box-wrapper">
+    <div class="form-label">
+      <%= f.label :udl_engagement, 'Multiple Means of Engagement' %>
+    </div>
+    <div class="form-check-box">
+      <%= f.check_box(:udl_engagement) %>
+    </div>
+  </div>
+</div>
