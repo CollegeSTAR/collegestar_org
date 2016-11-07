@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101171800) do
+ActiveRecord::Schema.define(version: 20161107192407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20161101171800) do
     t.string  "text"
     t.string  "explanation"
     t.integer "position"
+    t.integer "assessment_question_id"
+    t.index ["assessment_question_id"], name: "index_assessment_answer_choices_on_assessment_question_id", using: :btree
   end
 
   create_table "assessment_questions", force: :cascade do |t|
@@ -328,6 +330,7 @@ ActiveRecord::Schema.define(version: 20161101171800) do
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
+  add_foreign_key "assessment_answer_choices", "assessment_questions"
   add_foreign_key "assessment_questions", "udl_module_sections"
   add_foreign_key "campus_departments", "campuses"
   add_foreign_key "campus_units", "campuses"

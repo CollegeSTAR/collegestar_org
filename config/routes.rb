@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   resources :events, param: :slug
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
+    resource :assessment, only: [ :show, :edit, :update]
   end
   resources :shared_module_sections, except: [:show, :index], param: :slug, controller: :shared_module_sections, path: '/shared-module-sections'
   resources :communities, param: :slug
