@@ -14,9 +14,9 @@
           </tr>
           <% @users.each do |user| %>
             <tr>
-              <td><%= link_to user.last_name, profile_path(user) %></td>
-              <td><%= link_to user.first_name, profile_path(user) %></td>
-              <td><%= link_to user.email, profile_path(user) %></td>
+              <td><%= link_to user.last_name, edit_profile_path(user) %></td>
+              <td><%= link_to user.first_name, edit_profile_path(user) %></td>
+              <td><%= link_to user.email, edit_profile_path(user) %></td>
             </tr>
           <% end %>
       </table>
