@@ -1,6 +1,10 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
+      <% if params.has_key? :dynamic_content %>
+        <h1><%= @page_content.title.html_safe %></h1>
+        <%= @page_content.text.html_safe %>
+      <% else %>
       <h1>College STAR Online Modules and Case Studies – Proposal Form</h1>
       <p> 
       We are always looking for new ideas that help campuses welcome and anticipate the rich diversity of learning profiles that students bring to our college classrooms today, and we welcome your proposal submissions for College STAR professional development resources.  Currently we are accepting applications for two types of proposals: 
@@ -24,6 +28,7 @@
       <p>
       We look forward to hearing your ideas. Thank you for all of your hard work on behalf of your students!
       </p>
+      <% end %>
       <div id="module-proposals-form-wrapper">
         <%= render 'module_proposals/forms/new' %>
       </div>

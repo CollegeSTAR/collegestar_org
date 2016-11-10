@@ -59,6 +59,7 @@ Rails.application.routes.draw do
     resources :modules, only: [:index, :show], controller: :udl_module_history, as: :modules
     resources :redesign_summaries, except: [:show], path: '/redesign-summaries'
   end
+  resources :pages, param: :slug
   resources :news_articles, only: [:new], path: '/news-article'
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug

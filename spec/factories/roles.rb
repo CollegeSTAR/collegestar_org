@@ -58,6 +58,12 @@ FactoryGirl.define do
     description "News Articles Admin: "
     grantable true
   end
+
+  factory :page_admin, class: Role do
+    name "page_admin"
+    description "Page Content Admin"
+    grantable true
+  end
   
   factory :redesign_summaries_admin, class: Role do
     name "redesign_summaries_admin"

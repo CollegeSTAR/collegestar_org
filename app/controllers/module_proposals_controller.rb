@@ -6,6 +6,7 @@ class ModuleProposalsController < ApplicationController
   end
   
   def new
+    @page_content = Page.guaranteed_find slug: 'module-proposals-new'
     @module_proposal = ModuleProposal.new
     authorize @module_proposal
   end

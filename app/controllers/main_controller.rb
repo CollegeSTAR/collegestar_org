@@ -7,6 +7,7 @@ class MainController < ApplicationController
   end
 
   def about
+    @page_content = Page.guaranteed_find slug: 'about'
   end
 
   def students

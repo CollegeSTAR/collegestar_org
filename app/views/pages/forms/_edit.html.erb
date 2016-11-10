@@ -1,0 +1,7 @@
+<div id="pages-form-wrapper">
+  <%= form_for @page  do |f| %>
+    <%= render 'pages/forms/fields/title', f: f %>
+    <%= render 'pages/forms/fields/text', f: f %>
+    <%= render 'pages/forms/fields/submit', f: f %>
+  <% end %>
+</div>

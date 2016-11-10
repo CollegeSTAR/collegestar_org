@@ -48,7 +48,11 @@ FactoryGirl.define do
     factory :news_articles_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "news_articles_admin" ) }
     end
-    
+     
+    factory :page_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "page_admin" ) }
+    end
+   
     factory :redesign_summaries_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "redesign_summaries_admin" ) }
     end

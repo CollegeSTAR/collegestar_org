@@ -1,0 +1,22 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <div id="notice"><%= notice %></div>
+      <h1>Pages</h1>
+      <div id="pages-table-wrapper">
+        <table id="pages">
+          <tr>
+            <th id="title">Title</th>
+            <th id="updated">Last Updated</th>
+          </tr>
+          <% @pages.each do |page| %>
+            <tr>
+              <td><%= link_to page.title, edit_page_path(slug: page.slug)  %></td>
+              <td><%= link_to page.updated_at, edit_page_path(slug: page.slug) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

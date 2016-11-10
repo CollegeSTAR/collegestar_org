@@ -3,6 +3,10 @@
 <%= render "shared/side_bar" %>
   <div id="right-column-wrapper">
     <div id="content">
+      <% if params.has_key?(:page) %>
+        <h1><%= @page_content.title %></h1>
+        <%= @page_content.text.html_safe %>
+      <% else %>
       <h1>About College STAR</h1>
       <p>
 College STAR (Supporting Transition Access and Retention: A UNC System Initiative Supporting Students with Learning Differences) is a grant-funded project that will enable universities in the UNC System to partner in the development of initiatives focused on helping campuses become more welcoming of students with learning differences. These initiatives include both students and faculty, and are intended to support students who have identified Learning Disabilities, diagnosed Attention Deficit Hyperactivity Disorder, or students who do not have a disability label but who may benefit from instructional understandings and strategies designed for students who learn differently from what is typical. This work is made possible by generous funding over a 3-year period from the Oak Foundation ($3 million grant), the North Carolina GlaxoSmithKline Foundation ($1 million matching funds), and a coalition of Greensboro-area foundations including the Joseph M. Bryan Foundation, the Cemala Foundation, the Weaver Foundation, the Tannenbaum-Sternberger Foundation, and the Michel Family Foundation ($500,000).
@@ -53,10 +57,13 @@ Each campus will develop a network of comprehensive supports for students with l
         <li>Promoting increased awareness and use of assistive technology resources</li>
         <li>Creating and disseminating convenient, useful, and credible online resources</li>
       </ul>
+
+
       <h2>Want to Know More?</h2>
       <p>
 Please check our <%= link_to "Frequently Asked Questions", "frequently-asked-questions" %> page for answers to common questions College STAR receives.
       </p>
+      <% end %>
     </div>
   </div>
 </div>
