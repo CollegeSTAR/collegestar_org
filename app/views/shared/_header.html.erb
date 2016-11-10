@@ -40,7 +40,7 @@
               <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; STAR Learning Communities'.html_safe, star_learning_communities_registrations_path %></li>
             <% end %>             
             <% if policy(UdlModule).view_admin? %>
-              <li><%= link_to '<i class="fa fa-file fa-la"></i>&nbsp; Modules'.html_safe, udl_modules_path %></li>
+              <li><%= link_to '<i class="fa fa-file fa-la"></i>&nbsp; UDL Modules'.html_safe, udl_modules_path %></li>
             <% end %>
             <% if policy(User).view_admin? %>
               <li><%= link_to '<i class="fa fa-user fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
