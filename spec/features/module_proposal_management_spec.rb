@@ -14,7 +14,7 @@ RSpec.feature "Module Proposal Management" do
       fill_in "Email", with: "jonesjoe@example"
       fill_in "University", with: "East Carolina University"
       fill_in "Department", with: "English"
-      fill_in "Working Title", with: "My Module Idea"
+      fill_in "Proposed Module Title", with: "My Module Idea"
       fill_in "description of the proposed content", with: "My description"
       fill_in "estimated start date", with: "#{time.year}-#{time.month}-#{time.day}"      
       time += 86400
