@@ -3,67 +3,8 @@
 <%= render "shared/side_bar" %>
   <div id="right-column-wrapper">
     <div id="content">
-      <% if params.has_key?(:page) %>
         <h1><%= @page_content.title %></h1>
         <%= @page_content.text.html_safe %>
-      <% else %>
-      <h1>About College STAR</h1>
-      <p>
-College STAR (Supporting Transition Access and Retention: A UNC System Initiative Supporting Students with Learning Differences) is a grant-funded project that will enable universities in the UNC System to partner in the development of initiatives focused on helping campuses become more welcoming of students with learning differences. These initiatives include both students and faculty, and are intended to support students who have identified Learning Disabilities, diagnosed Attention Deficit Hyperactivity Disorder, or students who do not have a disability label but who may benefit from instructional understandings and strategies designed for students who learn differently from what is typical. This work is made possible by generous funding over a 3-year period from the Oak Foundation ($3 million grant), the North Carolina GlaxoSmithKline Foundation ($1 million matching funds), and a coalition of Greensboro-area foundations including the Joseph M. Bryan Foundation, the Cemala Foundation, the Weaver Foundation, the Tannenbaum-Sternberger Foundation, and the Michel Family Foundation ($500,000).
-      </p>
-
-      <%= image_tag('at_a_glance.jpg', class: 'float-right') %>
-      <p>
-College STAR will provide a network of supports for students who historically have slipped through the cracks of the education system—students who are capable of college success, but who often struggle academically because they learn differently. By weaving together direct supports for students, instructional supports for faculty members, and partnerships with public school settings, this initiative offers an opportunity for participating campuses to learn together and put in place effective strategies for teaching students with varying learning differences in postsecondary settings. By blending direct supports for select groups of students who learn differently and instructional development support based on principles of Universal Design for Learning for the faculty who teach increasingly diverse groups of learners in today’s college classrooms, we hope to make a positive difference for a wide variety of students.
-      </p>
-      <p>
-Currently, East Carolina University, the University of North Carolina at Greensboro, and Appalachian State University will be working together with the support of UNC General Administration through the spring of 2014 to implement this phase of the College STAR project. If all goes well, and if future funding is secured, we hope to enter the next phase of this project by bringing on more UNC System Campuses. Eventually our goal is to have multiple models that interested schools can draw from as they think about best practices for serving the diverse learners on our campuses today.
-     </p>
-     <p>
-Each participating campus is charged with developing a two-fold initiative (Component A and Component B - to be more directly named as desired on each campus). These are not to be cookie-cutter programs that are identical on each campus, but instead are designed with the specific campus mission, culture, and priorities in mind. A commitment to shared learning does, however, permeate throughout the College STAR initiative, and each campus model does contribute directly to a variety of common priorities, outcomes, and goals. A common evaluation model, annual Shared Learning Conference, and commitment to cross-campus connections will facilitate this shared learning priority.
-      </p>
-      <h2>Component A</h2>
-      <p>
-Each campus will develop a network of comprehensive supports for students with learning differences for whom college access and/or retention has traditionally been limited. These individual campus-based initiatives will weave together a system of campus resources that identify and recruit students with learning differences, facilitate transition from high school or community college for selected participants, and provide support throughout their undergraduate experience.
-      </p>
-      <h3>Component A &mdash; Key Features</h3>
-
-      <p>Activies Focused on:</p>
-      <ul>
-        <li>Identifying and serving students who are traditionally underserved</li>
-        <li>Identifying and validating predictors of success for college students with learning differences</li>
-        <li>Using and monitoring a network of services based on best-practices</li>
-        <li>Using and monitoring informed strategies and direct support based on best-practices</li>
-        <li>Collaborating with K-12 educational environments</li>
-        <li>Providing incoming transition supports</li>
-        <li>Providing supports related to university graduation</li>
-        <li>Articulating model programs that can be applied in other postsecondary environments</li>
-      </ul>
-
-      <h2>Component B</h2>
-      <p>
-      Each campus will develop an integrated system of campus-wide student and/or faculty supports that are focused on teaching students with learning differences, reinforce direct services provided to students, and that focus on principles of Universal Design for Learning (UDL).
-      </p>
-      <h3>Component B &mdash;  Key Features</h3>
-      <p>
-      Activities Focused on:
-      </p>
-      <ul>
-        <li>Identifying instructional strategies that are effective for students with learning differences</li>
-        <li>Facilitating ongoing student/faculty collaboration</li>
-        <li>Increasing range of academic considerations for students without a requirement of formal disability identification</li>
-        <li>Providing faculty supports that increase understanding about learning differences and use of UDL principles</li>
-        <li>Infusing support and engagement opportunities for both faculty and students</li>
-        <li>Promoting increased awareness and use of assistive technology resources</li>
-        <li>Creating and disseminating convenient, useful, and credible online resources</li>
-      </ul>
-
-
-      <h2>Want to Know More?</h2>
-      <p>
-Please check our <%= link_to "Frequently Asked Questions", "frequently-asked-questions" %> page for answers to common questions College STAR receives.
-      </p>
-      <% end %>
     </div>
   </div>
 </div>

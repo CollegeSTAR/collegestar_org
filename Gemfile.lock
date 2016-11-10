@@ -138,6 +138,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    liquid (3.0.6)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -301,6 +302,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   kaminari
+  liquid
   mandrill-api
   paperclip (~> 4.2)
   pg

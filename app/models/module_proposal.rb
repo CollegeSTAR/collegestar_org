@@ -11,4 +11,6 @@ class ModuleProposal < ActiveRecord::Base
                 'case_study'
               ] 
             }
+
+  liquid_methods :first_name
 end

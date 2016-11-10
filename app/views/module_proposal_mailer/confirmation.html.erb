@@ -1,12 +1,1 @@
-<h1>We received your module proposal!</h1>
-
-<p>
-Hello <%= @proposal.first_name %>,
-</p>
-<p>
-Thanks for submitting a module proposal. The College STAR team will next meet on December 2nd to discuss module production for Spring and Summer 2017. We will reach out if your topic is selected. Thank you for all of your hard work! If you have any questions, feel free to reach out to us at <%= mail_to "support@collegestar.org" %>.
-</p>
-<p>
-Sincerely,<br>
-The College STAR Team
-</p>
+<%= Liquid::Template.parse(@page_content.text).render('proposal' => @proposal).html_safe %>
