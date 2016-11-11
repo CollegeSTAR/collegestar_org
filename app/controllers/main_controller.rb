@@ -3,6 +3,7 @@ class MainController < ApplicationController
   before_action :load_news_articles
 
   def home
+    @page_content = Page.guaranteed_find slug: 'home'
     @campuses = Campus.find_by_featured(3)
   end
 

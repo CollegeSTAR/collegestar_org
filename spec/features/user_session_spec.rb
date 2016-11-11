@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature "User Session Management" do
   let(:user) { create(:user) }
-  
+
   feature "Create Sessions" do
     context "with correct credentials" do
       scenario "user logs in" do
@@ -11,7 +11,7 @@ RSpec.feature "User Session Management" do
         fill_in "Email", with: user.email
         fill_in "Password", with: user.password
         click_button "Log In"
-        expect(page).to have_content "Welcome to College STAR"
+        expect(page).to have_text "#{user.first_name} #{user.last_name}"
       end
     end
     context "with incorrect credentials" do

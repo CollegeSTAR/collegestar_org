@@ -1,54 +1,50 @@
 <div id="content-wrapper">
-<%= render "shared/side_bar" %>
+  <%= render "shared/side_bar" %>
   <div id="right-column-wrapper">
     <div id="home-content-top">
-      <h1>Welcome to College STAR</h1>
-<p>
-College STAR (Supporting Transition, Access, and Retention: A UNC System Project Supporting Students with Learning Differences) is a collaborative project designed to enable participating universities to help our campuses become welcoming environments for students with learning differences. This initiative is designed to reach students with formally-identified disabilities (specifically, learning disabilities and AD/HD) as well as students who do not have a disability label but who may benefit from instructional understandings and strategies designed for students who learn differently from what is most typical. Participating campuses are currently working together to build models of student and faculty support focused on student learning as well as understandings about Universal Design for Learning. Together we will build resources and models that can be shared with others now and in the future. This website will continue to grow as we build those resources. <%= link_to "learn more", about_path, class: 'read-more' %>
-</p>
-<div id="campus-header-wrapper">
-  <h1>Participating Campuses</h1>
-  <%= link_to 'view all', campuses_path, class: 'view-all' %>
-</div>
-<div id="campus-wrapper">
-<% @campuses.each do |campus| %>
-<div class="campus">
-<%= link_to(campus) do %>
-<%= image_tag campus.image.url(:medium) %>
-<p>
-<%=  campus.name %>
-</p>
-<% end %>
-</div>
-<% end %>
-</div>
-</div>
+      <h1><%= @page_content.title.html_safe %></h1>
+      <%= @page_content.text.html_safe %>
+      <div id="campus-header-wrapper">
+        <h1>Participating Campuses</h1>
+        <%= link_to 'view all', campuses_path, class: 'view-all' %>
+      </div>
+    <div id="campus-wrapper">
+      <% @campuses.each do |campus| %>
+        <div class="campus">
+          <%= link_to(campus) do %>
+            <%= image_tag campus.image.url(:medium) %>
+            <p>
+              <%=  campus.name %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<div id="home-supporters-wrapper">
-  <h1>Supporters</h1>  
-<%= link_to 'view all', supporters_path, class: 'view-all' %>
-  <div class="supporter">
-    <%= link_to image_tag("danland_logo.png"), "supporters" %>
-    <p>the oak foundation usa</p>
+  <div id="home-supporters-wrapper">
+    <h1>Supporters</h1>  
+    <%= link_to 'view all', supporters_path, class: 'view-all' %>
+    <div class="supporter">
+      <%= link_to image_tag("danland_logo.png"), "supporters" %>
+      <p>the oak foundation usa</p>
+    </div>
+    <div class="supporter">
+      <%= link_to image_tag("gskf.png"), "supporters" %>
+      <p>nc glaxosmithkline foundation</p>
+    </div>
   </div>
-  <div class="supporter">
-    <%= link_to image_tag("gskf.png"), "supporters" %>
-    <p>nc glaxosmithkline foundation</p>
-  </div>
-</div>
 
-<div id="home-partners-wrapper">
-  <h1>Partners &amp; Connections</h1>
-<%= link_to 'view all', partners_path, class: 'view-all' %>
-  <div class="partner">
-    <%= link_to image_tag("unc_ga.png"), "partners" %>
-    <p>UNC General Administration</p>
-  </div>
-  <div class="partner">
-    <%= link_to image_tag("doe.png"), "partners" %>
-    <p>Department of Education</p>
-  </div>
-</div>
-
+  <div id="home-partners-wrapper">
+    <h1>Partners &amp; Connections</h1>
+    <%= link_to 'view all', partners_path, class: 'view-all' %>
+    <div class="partner">
+      <%= link_to image_tag("unc_ga.png"), "partners" %>
+      <p>UNC General Administration</p>
+    </div>
+    <div class="partner">
+      <%= link_to image_tag("doe.png"), "partners" %>
+      <p>Department of Education</p>
+    </div>
   </div>
 </div>
