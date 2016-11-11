@@ -1,0 +1,29 @@
+#flash-wrapper {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  width: span(18 of 18);
+  
+  @include breakpoint($full) {
+    width: span(9 of 18);
+    margin-right: -1 * span(4.5);
+    right: 50%;
+  }
+}
+
+#flash-notice {
+  @include flash-notification($link-blue);
+
+  #flash-notice-close {
+    @include flash-close; 
+  }
+}
+
+#flash-error {
+  @include flash-notification($delete-btn-bg-color);
+
+  #flash-error-close {
+    @include flash-close;  
+  }
+}

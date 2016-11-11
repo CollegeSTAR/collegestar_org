@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require modernizr
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui/datepicker
 //= require jquery-fileupload/basic
+//= require cropper
 //= require ckeditor/init
 //= require user_menu
 //= require_tree .
-
-//$(function(){ $(document).foundation(); });

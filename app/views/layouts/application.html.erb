@@ -8,7 +8,6 @@
        
     <%= favicon_link_tag '/favicon.ico' %>
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
@@ -16,9 +15,14 @@
   <body>
     <div id="site">
       <%= render 'shared/header' %>
-      <% flash.each do | name, msg | %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
+      <div id="flash-wrapper">
+        <% flash.each do | name, msg | %>
+          <%= content_tag :div, id: "flash-#{name}" do %>
+            <%= content_tag :div, "<i class='fa fa-close fa-large'></i>".html_safe, id: "flash-#{name}-close" %>
+            <%= msg %>
+          <% end %>
+        <% end %>
+      </div>
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>

@@ -63,3 +63,28 @@
   font-size: $base-font-size * .5;
   font-weight: bold;
 }
+
+@mixin flash-notification( $background-color ) {
+  position: relative;
+  margin-top: gutter();
+  padding: 2*gutter();
+  width: 100%;
+  background-color: lighten($background-color, 10%);
+  border: 1px solid darken($background-color, 10%);
+  border-radius: $default-radius;
+  color: $white;
+  font-weight: bold;
+  text-align: center; 
+}
+
+@mixin flash-close() {
+  position: absolute;
+  top: 0;
+  right: .5em;
+  color: darken($white, 5%);
+  
+  &:hover {
+    color: $white;
+    cursor: pointer;
+  }
+}
