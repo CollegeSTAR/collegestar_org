@@ -1,0 +1,25 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @contact.subject %></h1>
+      <p>
+        <strong>Contact's name:</strong> <%= @contact.name %>
+      </p>
+      <p>
+        <strong>Contact's email:</strong> <%= @contact.email %>
+      </p>
+      <p>
+        <strong>Subject: </strong> <%= @contact.subject %>
+      </p>
+      <p>
+        <strong>Message:</strong>
+      <p>
+      <p>
+        <%= @contact.message %>
+      </p>
+      <p>
+        <%= link_to "Back to contact management", contacts_path %>
+      </p>
+    </div>
+  </div>
+</div>

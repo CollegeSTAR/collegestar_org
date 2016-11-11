@@ -17,9 +17,9 @@ FactoryGirl.define do
     grantable true
   end
 
-  factory :contact_admin, class: Role do
-    name "contact_admin"
-    description "Contact Admin: "
+  factory :contacts_admin, class: Role do
+    name "contacts_admin"
+    description "Contact Admin: Can administer contacts"
     grantable true
   end
 

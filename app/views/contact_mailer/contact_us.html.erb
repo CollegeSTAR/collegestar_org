@@ -1,3 +1,4 @@
-<h1>College STAR Contact Us email</h1>
+<%= @page_content.text.html_safe %>
+<h1><%= @contact.subject %></h1>
 <p>Sender: <%= @contact.name %></p>
 <p>Message: <%= @contact.message %></p>

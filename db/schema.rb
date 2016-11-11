@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107195717) do
+ActiveRecord::Schema.define(version: 20161111152807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,17 @@ ActiveRecord::Schema.define(version: 20161107195717) do
     t.datetime "updated_at",  null: false
     t.string   "slug",        null: false
     t.index ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "subject"
+    t.text     "message"
+    t.boolean  "send_copy"
+    t.string   "status",     default: "unread", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "events", force: :cascade do |t|

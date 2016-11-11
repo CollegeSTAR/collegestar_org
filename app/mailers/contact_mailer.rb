@@ -1,13 +1,11 @@
 class ContactMailer < ApplicationMailer
-  DEFAULT_ADDRESS = "web@collegestar.org"  
 
   def contact_us(contact)
+    @page_content = Page.guaranteed_find slug: 'contacts-mailer-contact-us'
     @contact = contact
-    @recipients = [ContactMailer::DEFAULT_ADDRESS]
-    @contact.add_recipients(@recipients)
 
     mail(
-      to: @contact.recipients,
+      to: @contact.email,
       subject: @contact.subject
     )
   end

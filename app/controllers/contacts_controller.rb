@@ -1,24 +1,37 @@
 class ContactsController < ApplicationController
-  #load_and_authorize_resource except: [:new, :create]
-  respond_to :html
+  before_action :set_contact, only: [:show]
+
   def index
+    @contacts = Contact.all   
+    authorize @contacts
   end
 
   def new
+    @page_content = Page.guaranteed_find slug: 'contact-us'
     @contact = Contact.new
+    authorize @contact
   end
 
   def create
     @contact = Contact.new(contact_params)
-    if @contact.valid?
-      ContactMailer.contact_us(@contact).deliver_now
-      render :sent
+    authorize @contact
+    if @contact.save
+      ContactMailer.contact_us(@contact).deliver_now if @contact.send_copy
+      redirect_to new_contact_path, notice: "We've received your inquery and will be in touch."
     else
       render :new, notice: "There was a problem sending your email, please try again."
     end
   end
 
+  def show
+    authorize @contact
+  end
+
   private
+    
+    def set_contact
+      @contact = Contact.find params[:id]
+    end
 
     def contact_params
       params.require(:contact).permit(:name, :email, :subject, :message, :send_copy)

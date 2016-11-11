@@ -1,1 +1,23 @@
-<h1>Contact Us</h1>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Contact Us</h1>
+      <div id="contact-table-wrapper">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>DateTime Submitted</th>
+          </tr>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <td><%= link_to contact.name, contact_path( contact ) %></td>
+              <td><%= link_to contact.subject, contact_path( contact ) %></td>
+              <td><%= link_to contact.created_at, contact_path( contact ) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
