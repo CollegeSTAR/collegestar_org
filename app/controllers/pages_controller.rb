@@ -12,8 +12,11 @@ class PagesController < ApplicationController
 
   def update
     authorize @page
-    @page.update( page_params )
-    redirect_to edit_page_path @page
+    if @page.update( page_params )
+      redirect_to edit_page_path( @page ), notice: "Page updated successfully."
+    else
+      redirect_to edit_page_path @page
+    end
   end
 
   def new
