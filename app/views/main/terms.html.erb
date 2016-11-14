@@ -3,19 +3,8 @@
 <%= render "shared/side_bar" %>
   <div id="right-column-wrapper">
     <div id="content">
-      <h1>College STAR Terms of Use Policy</h1>
-        <p>
-        All of the materials on the College STAR website are designed to be freely available to the public and may be used for any purpose as long as the appropriate credit is given to the College STAR project by citing below 
-          <p>Images or text: Obtained from the College STAR Project, University of North Carolina System</p>
-          <p>To cite a professional development module please follow this format (Note:  The correct citation for each individual module is also located above the reference list within the module). </p>
-          <p class="reference">
-          Developer's last name and initials followed by contributor’s last name and initials. (n.d.). Title of the module. University of North Carolina System: College STAR Project. Retrieved from <a class="regLink" href="http://www.collegestar.org" >http://www.collegestar.org</a></p>
-          <p>
-          For example:
-          </p>
-          <p class="reference">Steinweg, S.B., Shea, C. (2012). Student Information Charts: College STAR Project. Retrieved from <a class="regLink" href="http://www.collegestar.org" >http://www.collegestar.org</a></p>
-          <p>To cite the website follow the format below:</p>  
-          <p class="reference"> College STAR (Supporting Transition Access and Retention):  A UNC System Initiative Supporting Students with Learning Differences. (2012). Retrieved from <a class="regLink" href="http://www.collegestar.org" >http://www.collegestar.org</a></p>
+      <h1><%= @page_content.title.html_safe %></h1>
+      <%= @page_content.text.html_safe %>
     </div>
   </div>
 </div>

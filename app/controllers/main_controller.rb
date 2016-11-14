@@ -25,6 +25,7 @@ class MainController < ApplicationController
   end
 
   def terms
+    @page_content = Page.guaranteed_find slug: 'terms'
   end
 
   def faq
