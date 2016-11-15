@@ -20,10 +20,10 @@
   }
 }
 
-#flash-error {
+#flash-error, #flash-alert {
   @include flash-notification($delete-btn-bg-color);
 
-  #flash-error-close {
+  #flash-error-close, #flash-alert-close {
     @include flash-close;  
   }
 }
