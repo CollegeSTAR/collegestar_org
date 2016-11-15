@@ -1,0 +1,9 @@
+ul#faq-nav-list {
+  list-style-type: none;
+  margin: 4 * gutter();
+
+  li {
+    list-style-type: none;
+    margin: gutter() 0 0 0;
+  }
+}

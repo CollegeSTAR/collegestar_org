@@ -38,14 +38,6 @@ RSpec.describe MainController do
     end
   end
 
-  describe "#faq" do
-    it "responds successfully with an http status code of 200" do
-      get :faq
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-    end
-  end
-
   describe "#supporters" do
     it "responds successfully with an http status code of 200" do
       get :supporters

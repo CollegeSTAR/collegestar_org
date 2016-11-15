@@ -28,7 +28,13 @@ FactoryGirl.define do
     description "Campus Admin: "
     grantable true
   end
-  
+ 
+  factory :content_editor, class: Role do
+    name "content_editor"
+    description "Frequently Asked Quesitons Admin: "
+    grantable true
+  end
+ 
   factory :granter, class: Role do
     name "granter"
     description "Granter: "

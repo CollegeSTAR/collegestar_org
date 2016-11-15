@@ -1,0 +1,21 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>College STAR Frequently Asked Questions</h1>
+      <ul id="faq-nav-list">
+        <% @faqs.each do |faq| %>
+          <li><%= link_to( faq.question.html_safe, frequently_asked_questions_path( anchor: faq.slug ) ) %></li>
+        <% end %>
+      </ul>
+      <% @faqs.each do |faq| %>
+        <a id="<%= faq.slug %>"></a>
+        <h3>Q: <%= faq.question.html_safe %></h3>
+        <p><strong>A: </strong><%= faq.answer.html_safe %></p>
+      <% end %>
+      <h3>Still have questions?</h3>
+      <p>
+      If you failed to find an answer to your question please feel free to contact a member of the College STAR team through our <%= link_to "Contact Us", new_contact_path %> page. We will do our best to answer any and all questions as quickly as possible.
+      </p>
+    </div>
+  </div>
+</div>

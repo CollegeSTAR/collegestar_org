@@ -36,7 +36,10 @@ FactoryGirl.define do
     factory :events_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "events_admin" ) }
     end
-
+    
+    factory :content_editor_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "content_editor" ) }
+    end
     factory :modules_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "modules_admin" ) }
     end

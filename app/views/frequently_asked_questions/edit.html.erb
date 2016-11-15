@@ -1,0 +1,24 @@
+<% content_for :title, "Frequently Asked Questions" %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @faq.question.html_safe %></h1>
+
+      <%= render 'frequently_asked_questions/forms/edit' %>
+
+      <div id="danger-zone">
+        <h1>Danger Zone</h1>
+
+        <%= link_to(
+              fa_icon('minus', text: 'Delete this question'),
+              frequently_asked_question_path( @faq ),
+              data: {
+                method: :delete,
+                confirm: 'Are you sure you want to delete this FAQ question?'
+              },
+              class: 'delete-button'
+            ) %>
+      </div>
+    </div>
+  </div>
+</div>

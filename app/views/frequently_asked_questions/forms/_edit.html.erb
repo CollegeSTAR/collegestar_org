@@ -1,0 +1,10 @@
+<div id="faq-form-wrapper">
+  <%= form_for @faq do |f| %>
+    
+    <%= render 'frequently_asked_questions/forms/fields', f: f %>
+
+    <div id="form-faq-submit-wrapper">
+      <%= f.submit "Update FAQ Question" %>
+    </div>
+  <% end %>
+</div> 

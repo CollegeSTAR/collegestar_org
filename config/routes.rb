@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'students/stepp-program' => 'main#stepp_program', as: :stepp_program
   get 'faculty' => 'main#faculty', as: :faculty
   get 'terms' => 'main#terms', as: :terms
-  get 'frequently-asked-questions' => 'main#faq', as: :faq
   get 'supporters' => 'main#supporters'
   get 'partners' => 'main#partners'
   get 'contact-us' => 'contacts#new', as: :new_contact
@@ -68,6 +67,7 @@ Rails.application.routes.draw do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
     resource :assessment, only: [ :show, :edit, :update]
   end
+  resources :frequently_asked_questions, except: [:show], path: '/frequently-asked-questions'
   resources :shared_module_sections, except: [:show, :index], param: :slug, controller: :shared_module_sections, path: '/shared-module-sections'
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]

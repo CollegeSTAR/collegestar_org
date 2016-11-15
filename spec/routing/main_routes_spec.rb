@@ -20,9 +20,6 @@ RSpec.describe MainController do
     it 'get: /terms'do
       expect(get('/terms')).to route_to('main#terms')
     end
-    it 'get: /faq' do
-      expect(get('/frequently-asked-questions')).to route_to('main#faq')
-    end
     it 'get: /supporters' do
       expect(get('/supporters')).to route_to('main#supporters')
     end
@@ -48,9 +45,6 @@ RSpec.describe MainController do
       end
       it 'get: terms_path' do
         expect(get(terms_path)).to route_to('main#terms')
-      end
-      it 'get: faq_path' do
-        expect(get(faq_path)).to route_to('main#faq')
       end
       it 'get: supporters_path' do
         expect(get(supporters_path)).to route_to('main#supporters')
