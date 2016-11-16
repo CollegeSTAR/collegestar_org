@@ -2,6 +2,7 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @module_proposal.title %></h1>
+      <p><%= link_to( fa_icon( 'pencil', text: 'Edit this module' ), edit_module_proposal_path( @module_proposal ) ) %></p>
       
       <p>Faculty Member: <strong><%= @module_proposal.first_name %> <%= @module_proposal.last_name %></strong></p>
       <p>Email: <strong><%= @module_proposal.email %></strong></p>
