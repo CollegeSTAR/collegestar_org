@@ -42,7 +42,7 @@ RSpec.describe UdlModule do
     it "has many sections" do
       is_expected.to have_many(:sections).through(:module_section_associations).class_name('UdlModuleSection')
     end
-    it { should have_one(:assessment).class_name('ModuleAssessment') }
+    it { should have_many(:assessment_questions)} 
   end
 
   describe "scopes" do

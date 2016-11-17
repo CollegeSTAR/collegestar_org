@@ -7,6 +7,7 @@ RSpec.describe AssessmentQuestion do
   end
   
   describe 'associations' do
+    it { should belong_to( :udl_module ) }
     it { should have_many( :assessment_answer_choices ) }
   end
 end
