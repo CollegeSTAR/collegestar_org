@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205193759) do
+ActiveRecord::Schema.define(version: 20161207182733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20161205193759) do
     t.integer "udl_module_section_id"
     t.boolean "ordered"
     t.integer "udl_module_id"
+    t.integer "correct_answer_choice_id"
+    t.index ["correct_answer_choice_id"], name: "index_assessment_questions_on_correct_answer_choice_id", using: :btree
     t.index ["udl_module_id"], name: "index_assessment_questions_on_udl_module_id", using: :btree
     t.index ["udl_module_section_id"], name: "index_assessment_questions_on_udl_module_section_id", using: :btree
   end
@@ -135,7 +137,6 @@ ActiveRecord::Schema.define(version: 20161205193759) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "slug",                                      null: false
-    t.index ["name"], name: "events_name_index", unique: true, using: :btree
     t.index ["name"], name: "index_events_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
@@ -362,6 +363,7 @@ ActiveRecord::Schema.define(version: 20161205193759) do
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
   add_foreign_key "assessment_answer_choices", "assessment_questions"
+  add_foreign_key "assessment_questions", "assessment_answer_choices", column: "correct_answer_choice_id"
   add_foreign_key "assessment_questions", "udl_module_sections"
   add_foreign_key "assessment_questions", "udl_modules"
   add_foreign_key "campus_departments", "campuses"

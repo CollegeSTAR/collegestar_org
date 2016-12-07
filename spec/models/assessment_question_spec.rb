@@ -8,6 +8,7 @@ RSpec.describe AssessmentQuestion do
   
   describe 'associations' do
     it { should belong_to( :udl_module ) }
+    it {should have_one( :correct_answer_choice).class_name( 'AssessmentAnswerChoice' ) }
     it { should have_many( :assessment_answer_choices ) }
   end
 end
