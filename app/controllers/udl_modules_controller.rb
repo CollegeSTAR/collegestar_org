@@ -29,35 +29,14 @@ class UdlModulesController < ApplicationController
   # POST /udl_modules
   # POST /udl_modules.json
   def create
-    @udl_module = UdlModule.new(udl_module_params)
-    authorize @udl_module
-    @udl_module.slug ||= @udl_module.title.parameterize if @udl_module.title
-    @udl_module.authors << current_user
-    if params[:author_is_contributing_faculty]
-      @udl_module.faculty << current_user
-    end
-
-    respond_to do |format|
-      if @udl_module.save    
-        shared_sections = UdlModuleSection.shared_sections
-        [
-          :introduction, 
-          :udl_principles, 
-          :instructional_practice, 
-          :literature_base, 
-          :learn_more, 
-          :references_and_resources
-        ].each do |page|
-          shared_sections[page].each do |section|
-            @udl_module.add_section( section )
-          end
-        end
-        format.html { redirect_to @udl_module, notice: 'Udl module was successfully created.' }
-        format.json { render :show, status: :created, location: @udl_module }
-      else
-        format.html { render :new }
-        format.json { render json: @udl_module.errors, status: :unprocessable_entity }
-      end
+    authorize UdlModule
+    result = CreateUdlModule.call( user: current_user, udl_module_params: udl_module_params, params: params )
+    @udl_module = result.udl_module  
+    
+    if result.success?
+      redirect_to @udl_module, notice: 'Udl module was successfully created.'
+    else
+      render :new
     end
   end
 
