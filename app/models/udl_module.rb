@@ -1,4 +1,14 @@
 class UdlModule < ActiveRecord::Base
+  
+  PAGES = [
+    :introduction, 
+    :udl_principles, 
+    :instructional_practice, 
+    :literature_base, 
+    :learn_more, 
+    :references_and_resources   
+  ]
+
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
 

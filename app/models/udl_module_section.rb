@@ -9,7 +9,7 @@ class UdlModuleSection < ActiveRecord::Base
 
   def self.shared_sections
     result = {}
-    [:introduction, :udl_principles, :instructional_practice, :literature_base, :learn_more, :references_and_resources].each do |page|
+    UdlModule::PAGES.each do |page|
       result[page] = self.where("shared = ? AND parent = ?", true, page.to_s)
     end
     result
