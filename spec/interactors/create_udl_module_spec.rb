@@ -13,9 +13,12 @@ RSpec.describe CreateUdlModule do
   let(:user) { create(:user) }
   let(:udl_module) { class_double(UdlModule) }
   let(:udl_module_section) { class_double(UdlModuleSection) }
+  let(:assessment_question) { class_double(AssessmentQuestion) }
   let(:shared_introduction_section) { create(:shared_introduction_section) }
   
   describe "call" do
+    
+
     context "with correct attributues" do
       it "succeeds" do
         expect(context).to be_a_success
@@ -49,6 +52,14 @@ RSpec.describe CreateUdlModule do
         it "should add shared sections" do
           expect(context.udl_module.sections).to include( shared_introduction_section )
         end
+      end
+
+      it "should add 10 assessment questions" do
+        expect(context.udl_module.assessment_questions.length).to eq(10)
+      end
+
+      it "should add 4 answer choices to a question" do
+        expect(context.udl_module.assessment_questions.first.assessment_answer_choices.length).to eq(4)
       end
     end
 
