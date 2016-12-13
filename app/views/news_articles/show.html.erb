@@ -1,15 +1,13 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
-      <p id="notice"><%= notice %></p>
-      
       <h1><%= @news_article.title %>
         <% if policy(@news_article).edit? %>
           <span class="edit-news-article-link"> 
             <%= link_to(
-              fa_icon( "pencil", text: "Edit this article" ),
-              edit_news_article_path( @news_article ) 
-            ) %>
+                  fa_icon( "pencil", text: "Edit this article" ),
+                  edit_news_article_path( @news_article ) 
+                ) %>
           </span>
         <% end %>
       </h1>
@@ -17,10 +15,9 @@
         <%= @news_article.content.html_safe %>
         <div id="back-link-wrapper">
           <%= link_to( 
-                       fa_icon("arrow-left", text: "back to Articles"), 
-                       news_articles_path 
-                     )
-          %>
+                fa_icon("arrow-left", text: "back to Articles"), 
+                news_articles_path 
+              ) %>
         </div>
     </div>
   </div>
