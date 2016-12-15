@@ -1,0 +1,71 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Disability Support "Access" Office Diretory</h1>
+
+      <p>
+        Below you'll find a listing of Disability Support "Access" offices on college and university campuses in North Carolina.
+      </p>
+
+      <ul>
+        <li><%= link_to 'Community Colleges', '#community-colleges' %></li>
+        <li><%= link_to 'UNC System Universities', '#unc-system-universities' %></li>
+        <li><%= link_to 'Private Universities', '#private-universities' %></li>
+      </ul>
+      
+      <h2>Community Colleges</h2>
+      
+      <div id="dss-contacts-community-college-table-wrapper">
+      <a id="community-colleges"></a>
+        <table id="dss-contacts-community-college">
+          <tr>
+            <th>Community College</th>
+            <th>Name of Disability Service Office</th>
+          </tr>
+          <% @community_college_dss_contacts.each do |community_college| %>
+            <tr>
+              <td><%= link_to community_college.campus_name, dss_contact_path( community_college ) %></td>
+              <td><%= link_to community_college.dss_office, dss_contact_path( community_college ) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      
+      <h2>UNC System Universities</h2>
+      
+      <div id="dss-contacts-unc-table-wrapper">
+      <a id="unc-system-universities"></a>
+        <table id="dss-contacts-unc">
+          <tr>
+            <th>University</th>
+            <th>Name of Disability Service Office</th>
+          </tr>
+          <% @unc_dss_contacts.each do |unc_campus| %>
+            <tr>
+              <td><%= link_to unc_campus.campus_name, dss_contact_path( unc_campus ) %></td>
+              <td><%= link_to unc_campus.dss_office, dss_contact_path( unc_campus ) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      
+      <h2>Private Universities</h2>
+      
+      <div id="dss-contacts-private-college-table-wrapper">
+      <a id="private-universities"></a>
+        <table id="dss-contacts-private-college">
+          <tr>
+            <th>University</th>
+            <th>Name of Disability Service Office</th>
+          </tr>
+          <% @private_college_dss_contacts.each do |private_college| %>
+            <tr>
+              <td><%= link_to private_college.campus_name, dss_contact_path( private_college ) %></td>
+              <td><%= link_to private_college.dss_office, dss_contact_path( private_college ) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

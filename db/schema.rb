@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207182733) do
+ActiveRecord::Schema.define(version: 20161214193910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,20 +23,24 @@ ActiveRecord::Schema.define(version: 20161207182733) do
   end
 
   create_table "assessment_answer_choices", force: :cascade do |t|
-    t.string  "text"
-    t.string  "explanation"
-    t.integer "position"
-    t.integer "assessment_question_id"
+    t.string   "text"
+    t.string   "explanation"
+    t.integer  "position"
+    t.integer  "assessment_question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["assessment_question_id"], name: "index_assessment_answer_choices_on_assessment_question_id", using: :btree
   end
 
   create_table "assessment_questions", force: :cascade do |t|
-    t.string  "question"
-    t.string  "explanation"
-    t.integer "udl_module_section_id"
-    t.boolean "ordered"
-    t.integer "udl_module_id"
-    t.integer "correct_answer_choice_id"
+    t.string   "question"
+    t.string   "explanation"
+    t.integer  "udl_module_section_id"
+    t.boolean  "ordered"
+    t.integer  "udl_module_id"
+    t.integer  "correct_answer_choice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["correct_answer_choice_id"], name: "index_assessment_questions_on_correct_answer_choice_id", using: :btree
     t.index ["udl_module_id"], name: "index_assessment_questions_on_udl_module_id", using: :btree
     t.index ["udl_module_section_id"], name: "index_assessment_questions_on_udl_module_section_id", using: :btree
@@ -120,6 +124,20 @@ ActiveRecord::Schema.define(version: 20161207182733) do
     t.string   "status",     default: "unread", null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "dss_contacts", force: :cascade do |t|
+    t.string   "slug",                    null: false
+    t.string   "institution_type",        null: false
+    t.string   "campus_name",             null: false
+    t.string   "dss_office",              null: false
+    t.text     "description_of_services"
+    t.string   "contact_person"
+    t.string   "contact_email"
+    t.string   "contact_phone_number"
+    t.string   "dss_website"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "events", force: :cascade do |t|

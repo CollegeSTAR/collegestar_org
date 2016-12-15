@@ -1,0 +1,16 @@
+<div id="content_wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @dss_contact.campus_name %></h1>
+      <p><strong>Name of Disability Service Office:</strong> <%= @dss_contact.dss_office.html_safe %></p>
+      <p><strong>Description of Services:</strong></p>
+      <p><%= @dss_contact.description_of_services %></p>
+      <p><strong>Contact:</strong> <%= @dss_contact.contact_person %><br />
+        <strong>Email:</strong> <%= mail_to @dss_contact.contact_email %><br />
+        <strong>Phone:</strong> <%= @dss_contact.contact_phone_number %>
+      </p>
+      <p><strong>Website:</strong> <%= link_to @dss_contact.dss_website, "http://#{@dss_contact.dss_website}", target: '_blank' %></p>
+      <p><%= link_to 'Back to DSS contact directory', dss_contacts_path %></p>
+    </div>
+  </div>
+</div>

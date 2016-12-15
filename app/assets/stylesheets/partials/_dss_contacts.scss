@@ -1,0 +1,8 @@
+#dss-contacts-community-college-table-wrapper, #dss-contacts-unc-table-wrapper, #dss-contacts-private-college-table-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+
+  table#dss-contacts-community-college, table#dss-contacts-unc, table#dss-contacts-private-college {
+    @include admin-table;
+  }
+}
