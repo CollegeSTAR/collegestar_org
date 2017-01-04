@@ -14,7 +14,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery-ui/datepicker
+//= require jquery-ui/widgets/datepicker
 //= require jquery-fileupload/basic
 //= require cropper
 //= require ckeditor/init

@@ -25,7 +25,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'ckeditor'
 
 #Use liquid template engine for user editable views
-gem 'liquid'
+gem 'liquid', '~> 3'
 
 #Use font Awesome
 gem 'font-awesome-rails'
