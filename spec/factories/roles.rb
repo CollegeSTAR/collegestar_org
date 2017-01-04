@@ -34,7 +34,14 @@ FactoryGirl.define do
     description "Frequently Asked Quesitons Admin: "
     grantable true
   end
- 
+
+  factory :dss_contacts_admin, class: Role do
+    name "dss_contacts_admin"
+    description "DSS Contacts Admin: "
+    grantable true
+  end
+
+
   factory :granter, class: Role do
     name "granter"
     description "Granter: "
