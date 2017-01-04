@@ -19,7 +19,8 @@ roles = [
   { name: "redesign_summaries_admin", description: "Redesign Summaries Administrator: Administrative rights to Redesign Summaries.", grantable: true },
   { name: "redesign_summaries_author", description: "Redesign Summaries Author: Rights to create Redesign Summaries.", grantable: true },
   { name: "users_admin", description: "User Administrator: Administrative rights to Users.", grantable: false },
-  { name: "star_learning_communities_admin", description: "STAR Learning Communities Administrator: Administrative rights to SLC's.", grantable: true }
+  { name: "star_learning_communities_admin", description: "STAR Learning Communities Administrator: Administrative rights to SLC's.", grantable: true },
+  { name: "dss_contacts__admin", description: "Disability Support Services Contacts Administrator: Administrative rights to DSS Contacts index.", grantable: true }
 ]
 
 roles.each do |role|
