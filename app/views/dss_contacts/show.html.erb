@@ -12,6 +12,15 @@
              </span>
         <% end %>
       </h1>
+      <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: @dss_contact.campus_name,
+              parents: [
+                [ 'students', students_path ],
+                [ 'disability support office directory', dss_contacts_path ]
+              ]
+            ) %>
+      </div>
+
       <p><strong>Name of Disability Service Office:</strong> <%= @dss_contact.dss_office.html_safe %></p>
       <p><strong>Description of Services:</strong></p>
       <p><%= @dss_contact.description_of_services %></p>

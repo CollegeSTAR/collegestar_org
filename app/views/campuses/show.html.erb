@@ -8,6 +8,14 @@
         </div>
         <div id="campus-title">
           <h1><%= @campus.name %></h1>
+          <div id="bread-crumb-wrapper">
+            <%= format_bread_crumb( page_name: @campus.name,
+                  parents: [
+                    [ 'campuses', campuses_path ]
+                  ]
+                ) %>
+          </div>
+
         </div>
      </div> 
            
