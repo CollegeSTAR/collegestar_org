@@ -203,3 +203,20 @@ img {
     max-width: 100%;
   }
 }
+
+#bread-crumb-wrapper {
+  margin: -1*gutter() gutter() gutter() 1.5*gutter();
+  padding: 0;
+  color: $aluminum;
+  font-size: .75em;
+
+  a {
+    color:$aluminum;
+    font-size: 1em;
+
+    &:hover {
+      color: darken($aluminum, 10%);
+      font-style: italic;
+    }
+  }
+}

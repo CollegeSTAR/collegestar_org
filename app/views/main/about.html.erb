@@ -3,7 +3,11 @@
 <%= render "shared/side_bar" %>
   <div id="right-column-wrapper">
     <div id="content">
-        <h1><%= @page_content.title %></h1>
+        <h1><%= @page_content.title %></h1>      
+        <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: 'about' ) %>
+      </div>
+
         <%= @page_content.text.html_safe %>
     </div>
   </div>

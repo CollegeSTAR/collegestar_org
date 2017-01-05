@@ -3,7 +3,11 @@
 <%= render "shared/side_bar" %>
   <div id="right-column-wrapper">
     <div id="content">
-      <h1>College STAR Partners &amp; Connections</h1>
+      <h1>College STAR Partners &amp; Connections</h1>        
+      <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: 'partners & connections' ) %>
+      </div>
+
       <p>The College STAR program proudly partners with the following organizations:</p>
 	    <div class="partner-wrapper">
 	    	<a name="uncga"></a>

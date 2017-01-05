@@ -4,7 +4,11 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
       
-      <h1>Particpating Campuses</h1>
+      <h1>Participating Campuses</h1>        
+      <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: 'participating campuses' ) %>
+      </div>
+
       <% if policy(Campus).create? %>      
         <%= link_to 'New Campus', new_campus_path %>
        <% end %> 

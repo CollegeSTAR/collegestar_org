@@ -2,6 +2,7 @@
   @include span(18 of 18);
   text-align: right;
   padding-right: gutters();
+  margin-top: gutter();
 
   a {
     color: $muted-text-color;
@@ -27,7 +28,7 @@
   margin-left: gutter();
   margin-right: gutter();
   margin-top: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   padding-left: gutter();
   padding-right: gutter();
   border-bottom: $default-border-width solid $default-border-color;

@@ -1,7 +1,15 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
-      <h1>Disability Support "Access" Office Directory</h1>
+      <h1>Disability Support "Access" Office Directory</h1>        
+      <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: 'disability support office directory',
+              parents: [
+                [ 'students', students_path ]
+              ]
+            ) %>
+      </div>
+
 
       <p>
         Below you'll find a listing of Disability Support "Access" offices on college and university campuses in North Carolina.

@@ -2,6 +2,10 @@
   <div id="single-column-wrapper">
   <div id="content">
     <h1><%= @page_content.title.html_safe %></h1>
+    <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: 'contact us' ) %>
+      </div>
+
     <%= @page_content.text.html_safe %>
     <%= render 'form' %>
   </div>

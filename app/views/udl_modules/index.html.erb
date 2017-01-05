@@ -3,7 +3,15 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
       
-      <h1>Facutly Development Modules</h1>
+      <h1>Facutly Development Modules</h1>        
+      <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: 'udl modules',
+              parents: [
+                [ 'faculty', faculty_path ]
+              ]
+            ) %>
+      </div>
+
       <ul> 
           <% @udl_modules.each do |udl_module| %>
               <li><%= link_to( udl_module.title, udl_module ) %>
@@ -22,7 +30,7 @@
         <%= link_to(
               fa_icon( 'plus', text: 'New Udl module' ),
               new_udl_module_path,
-              class: 'create-button'
+              class: 'create-module-button'
             ) %>
       <% end %>      
       
@@ -71,7 +79,7 @@
         <%= link_to(
               fa_icon( 'plus', text: 'Add Shared Section' ),
               new_shared_module_section_path,
-              class: 'create-button'
+              class: 'create-module-button'
             ) %>
   
       <% end %>

@@ -1,7 +1,15 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
-      <h1>College STAR Frequently Asked Questions</h1>
+      <h1>College STAR Frequently Asked Questions</h1>        
+      <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: 'frequently asked questions',
+              parents: [
+                [ 'about', about_path ]
+              ]
+            ) %>
+      </div>
+
       <ul id="faq-nav-list">
         <% @faqs.each do |faq| %>
           <li><%= link_to( faq.question.html_safe, frequently_asked_questions_path( anchor: faq.slug ) ) %></li>
