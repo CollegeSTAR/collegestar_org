@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20161214193910) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "slug",                                      null: false
+    t.index ["name"], name: "events_name_index", unique: true, using: :btree
     t.index ["name"], name: "index_events_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
