@@ -1,5 +1,5 @@
 @mixin basic-button() {
-  margin: 8 * gutter();
+  margin: 4 * gutter();
   padding: 1em;
 }
 
@@ -16,4 +16,21 @@
     color: $white;
     background-color: darken( $link-blue, 5%);
   }
+}
+
+@mixin delete-button() {
+  @include basic-button;
+  padding: .5em;
+  font-size: $base-font-size;
+  color: $white;
+  background-color: $warning-red;
+  border: $default-border-width solid darken( $warning-red, 15%);
+  border-bottom: 2 * $default-border-width solid darken( $warning-red, 15%);
+  border-radius: $default-radius;
+
+  &:hover {
+    color: $white;
+    background-color: darken( $warning-red, 5%);
+  }
+
 }

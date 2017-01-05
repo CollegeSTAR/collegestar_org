@@ -1,11 +1,21 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
-      <h1>Disability Support "Access" Office Diretory</h1>
+      <h1>Disability Support "Access" Office Directory</h1>
 
       <p>
         Below you'll find a listing of Disability Support "Access" offices on college and university campuses in North Carolina.
       </p>
+
+      <% if policy(DssContact).create? %>
+        <p>
+        <%= link_to( 
+              fa_icon('plus', text: 'Add new Dss Contact'), 
+              new_dss_contact_path
+            )
+        %>
+        </p>
+      <% end %>
 
       <ul>
         <li><%= link_to 'Community Colleges', '#community-colleges' %></li>

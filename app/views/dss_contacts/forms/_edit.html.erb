@@ -1,0 +1,26 @@
+<div id="form-dss-contacts-wrapper">
+  <%= form_for @dss_contact do |f| %>
+    
+    <%= render 'dss_contacts/forms/fields/dss_office', f: f %>
+    <%= render 'dss_contacts/forms/fields/description_of_services', f: f %>
+    <%= render 'dss_contacts/forms/fields/contact_person', f: f %>
+    <%= render 'dss_contacts/forms/fields/contact_email', f: f %>
+    <%= render 'dss_contacts/forms/fields/contact_phone_number', f: f %>
+    <%= render 'dss_contacts/forms/fields/dss_website', f: f %>
+    <%= render 'dss_contacts/forms/fields/edit_submit', f: f %>
+  <% end %>
+</div>
+<div id="dss-contacts-danger-zone-wrapper">
+  <%= render 'shared/danger_zone_header' %>
+
+  <div id='dss-contacts-delete-button-wrapper'>
+  <%= link_to( 
+        fa_icon( 'warning', text: "Delete DSS Contact"), 
+        dss_contact_path( @dss_contact ), method: :delete, 
+        data: { confirm: "Are you sure you want to delete this DSS Contact?" },
+        class: 'delete-button',
+        id: 'delete-dss-contact-link'
+      )
+  %>
+  </div>
+</div>

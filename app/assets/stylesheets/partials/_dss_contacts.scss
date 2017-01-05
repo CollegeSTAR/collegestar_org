@@ -6,3 +6,31 @@
     @include admin-table;
   }
 }
+
+#form-dss-contacts-wrapper {
+  @include form-fields-wrapper();
+}
+
+#dss-contacts-danger-zone-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+}
+
+#dss-contacts-submit-wrapper {
+  @include form-submit-wrapper();
+}
+
+.edit-dss-contact-link {
+  font-size: .5em;
+}
+
+#dss-contacts-danger-zone-wrapper {
+  h2 {
+    color: $warning-red;
+  }
+
+  #dss-contacts-delete-button-wrapper {
+    margin: gutter();
+    text-align: center;
+  }
+}
