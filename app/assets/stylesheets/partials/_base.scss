@@ -73,6 +73,10 @@ body {
     margin-right: 2 * gutter();
     margin-bottom: 2 * gutter();
   }
+
+  main {
+    margin-top: gutter();
+  }
 }
 
 h1 { 

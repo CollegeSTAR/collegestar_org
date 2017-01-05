@@ -27,7 +27,7 @@
   @include span(17.6 of 18);
   margin-left: gutter();
   margin-right: gutter();
-  margin-top: 0;
+  margin-top: gutter();
   margin-bottom: 0;
   padding-left: gutter();
   padding-right: gutter();
