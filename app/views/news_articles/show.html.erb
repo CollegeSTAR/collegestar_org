@@ -2,14 +2,6 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @news_article.title %>
-      <div id="bread-crumb-wrapper">
-        <%= format_bread_crumb( page_name: @news_article.title,
-              parents: [
-                [ 'news archive', news_articles_path ]
-              ]
-            ) %>
-      </div>
-
         <% if policy(@news_article).edit? %>
           <span class="edit-news-article-link"> 
             <%= link_to(
@@ -18,7 +10,14 @@
                 ) %>
           </span>
         <% end %>
-      </h1>
+      </h1>      
+      <div id="bread-crumb-wrapper">
+        <%= format_bread_crumb( page_name: @news_article.title,
+              parents: [
+                [ 'news archive', news_articles_path ]
+              ]
+            ) %>
+      </div>
       
         <%= @news_article.content.html_safe %>
         <div id="back-link-wrapper">
