@@ -18,8 +18,10 @@ class UdlModule < ActiveRecord::Base
   has_many :authors, through: :module_author_associations, class_name: "User"
   has_many :faculty, through: :module_faculty_associations, class_name: "User"
   has_many :sections, -> { order 'module_section_associations.section_page_position ASC' }, through: :module_section_associations, class_name: 'UdlModuleSection'
-  has_many :assessment_questions
+  has_many :assessment_questions, -> { order(created_at: :asc) }
   scope :released, -> { where released: true }
+
+  accepts_nested_attributes_for :assessment_questions
 
   def initialize(attributes={})
     super
