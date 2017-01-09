@@ -4,6 +4,10 @@
       <h1>New News Article</h1>
       
       <%= render 'news_article_form' %>
+
+      <div class="cropper-image-wrapper">
+        <%= image_tag("at_a_glance", id: "image") %>
+      </div>
       <div id="back-link-wrapper">
         <%= link_to( 
                      fa_icon("arrow-left", text: "Back to articles"), 
