@@ -157,6 +157,54 @@
          </p>
        <% end %>
       </div>
+      
+      <% if policy(@udl_module).view_admin? %>
+        <div id="udl-module-alignment">
+          <a id="udl-alignment"></a>
+          <div class="module-section-header-wrapper">
+            <h2>UDL Alignment</h2>
+            <div class="module-back-to-top-wrapper">
+              <%= link_to(
+                    fa_icon("arrow-up", text: "Back to top"),
+                    udl_module_path(@udl_module, anchor: "module-top")
+                  )
+              %>
+            </div>
+          </div>
+          
+          <% @udl_module.get_sections_by_page(:udl_module_alignment).each do |section| %>
+           <a id="<%= section.slug %>"></a>
+           <div class="module-section-title-wrapper">
+               <h3>
+                 <% unless section.hide_title %>
+                   <%= section.title %> 
+                 <% end %>
+                 <% if policy(@udl_module).update? %>
+                 <span class="edit-module-section-link"> 
+                   <%= link_to(
+                         fa_icon( "pencil", text: "Edit this section" ), 
+                         edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug)
+                       ) %>
+                 </span>
+                 <% end %>
+               </h3>
+             </div>
+             <div class="module-section-content-wrapper">
+               <%= section.content.html_safe %>
+             </div>
+         <% end %>
+         <% if policy(@udl_module).update? %>
+           <p>
+             <%= link_to( 
+                   fa_icon( "plus", text: "Add a section" ), 
+                   new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "udl_principles"),
+                   class: 'create-module-button'
+                 ) %>
+           </p>
+         <% end %>
+        </div>
+      <% end %>
+
       <div id="module-instructional-practice">
        <a id="instructional-practice"></a>
        <div class="module-section-header-wrapper">
