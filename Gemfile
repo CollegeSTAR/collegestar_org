@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 # Use CKEditor for WYSIWYG editor
-gem 'ckeditor'
+gem 'ckeditor', git: "https://github.com/galetahub/ckeditor.git"
 
 #Use liquid template engine for user editable views
 gem 'liquid', '~> 3'
