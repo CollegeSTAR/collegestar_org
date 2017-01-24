@@ -2,8 +2,8 @@ CKEDITOR.editorConfig = function( config )
 {
 
 // Define changes to default configuration here. For example:
-  /*Remove language plugin */
-  config.removePlugins = 'language';
+  /* Remove language plugin */
+  //config.removePlugins = 'language';
 
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
