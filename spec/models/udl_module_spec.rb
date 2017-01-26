@@ -28,9 +28,16 @@ RSpec.describe UdlModule do
   describe "scopes" do
     context "released" do
       it "returns only released modules" do
-        not_yet_released_module = create(:udl_module)
+        not_yet_released_module = create(:udl_module, released: false)
         released_module = create(:udl_module, released: true)
         expect(UdlModule.released).to match_array([released_module])
+      end
+    end
+    context "unreleased" do
+      it "returns only unreleased modules" do
+        not_yet_released_module = create(:udl_module, released: false)
+        released_module = create(:udl_module, released: true)
+        expect(UdlModule.unreleased).to match_array([not_yet_released_module])
       end
     end
   end

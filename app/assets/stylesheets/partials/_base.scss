@@ -97,7 +97,12 @@ h3 {
   margin: 1em 2.3em;
   padding: 0;
 }
-h4 { @include heading(1.1); }
+h4 { 
+  @include heading(1); 
+  margin: 1em 3em;
+  padding: 0;
+}
+
 h5 { @include heading(1.1); }
 h6 { @include heading(1.1); }
 

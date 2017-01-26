@@ -4,8 +4,10 @@ class UdlModulesController < ApplicationController
   # GET /udl_modules
   # GET /udl_modules.json
   def index
-    @udl_modules = UdlModule.all
-    authorize @udl_modules
+    @page_content = Page.guaranteed_find slug: 'modules'
+    @released_modules = UdlModule.released
+    @unreleased_modules = UdlModule.unreleased
+    authorize @released_modules
     @shared_module_sections = UdlModuleSection.shared_sections
   end
 

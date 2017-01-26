@@ -3,7 +3,7 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
       
-      <h1>Facutly Development Modules</h1>        
+      <h1><%= @page_content.title.html_safe %></h1>        
       <div id="bread-crumb-wrapper">
         <%= format_bread_crumb( page_name: 'udl modules',
               parents: [
@@ -12,8 +12,10 @@
             ) %>
       </div>
 
+      <%= @page_content.text.html_safe %>
+      <h3>Currently Available Modules</h3>
       <ul> 
-          <% @udl_modules.each do |udl_module| %>
+          <% @released_modules.each do |udl_module| %>
               <li><%= link_to( udl_module.title, udl_module ) %>
               <% if policy(udl_module).edit? %>
                 <span class="edit-module-link"> 
@@ -27,61 +29,80 @@
       </ul>
       <br>
       <% if policy(UdlModule).create? %> 
+        <h2>Faculty Development Module Administration</h2>
+        <p>
         <%= link_to(
               fa_icon( 'plus', text: 'New Udl module' ),
               new_udl_module_path,
               class: 'create-module-button'
             ) %>
+        </p>
+
+        <h3>Unreleased Faculty Development Modules</h3>
+          <ul>
+          <% @unreleased_modules.each do |udl_module| %>
+            <li><%= link_to( udl_module.title, udl_module ) %>
+              <% if policy(udl_module).edit? %>
+                <span class="edit-module-link"> 
+                  <%= link_to(
+                    fa_icon( "pencil", text: "Edit this module" ),
+                    edit_udl_module_path( udl_module ) 
+                  ) %>
+                </span>
+              <% end %>
+          <% end %>
+          </ul>
       <% end %>      
       
       <% if policy(UdlModule).admin? %>
-        <h2>Shared Sections</h2>
-        <h3>Introduction</h3>
+        <h3>Shared Sections</h3>
+        <h4>Introduction</h4>
         <ul>
         <% @shared_module_sections[:introduction].each do |section| %>
           <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
         <% end %>
         </ul>
   
-        <h3>Udl Principles</h3>
+        <h4>Udl Principles</h4>
         <ul>
         <% @shared_module_sections[:udl_principles].each do |section| %>
           <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
         <% end %>
         </ul>
         
-        <h3>Instructional Practice</h3>
+        <h4>Instructional Practice</h4>
         <ul>
         <% @shared_module_sections[:instructional_practice].each do |section| %>
           <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
         <% end %>
         </ul>
         
-        <h3>Literature Base</h3>
+        <h4>Literature Base</h4>
         <ul>
         <% @shared_module_sections[:literature_base].each do |section| %>
           <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
         <% end %>
         </ul>
-        <h3>Learn More</h3>
+        <h4>Learn More</h4>
         <ul>
         <% @shared_module_sections[:learn_more].each do |section| %>
           <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
         <% end %>
         </ul>
             
-        <h3>References and Resources</h3>
+        <h4>References and Resources</h4>
         <ul>
         <% @shared_module_sections[:references_and_resources].each do |section| %>
           <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
         <% end %>
         </ul>
+        <p>
         <%= link_to(
               fa_icon( 'plus', text: 'Add Shared Section' ),
               new_shared_module_section_path,
               class: 'create-module-button'
             ) %>
-  
+        </p> 
       <% end %>
 
     </div>
