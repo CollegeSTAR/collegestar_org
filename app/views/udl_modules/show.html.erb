@@ -1,4 +1,6 @@
 <% content_for :title, @udl_module.title %>
+<%= render 'shared/social_media/facebook_init' %>
+<%= render 'shared/social_media/twitter_init' %>
 
 <div id="content-wrapper">
   <div id="single-column-wrapper">
@@ -30,7 +32,7 @@
               ]
             ) %>
       </div>
-
+      <%= render 'shared/social_media/buttons', tweet_text: URI.encode( @udl_module.title ) %>  
 
     <article id="module-content">
     <a id="module-top"></a>

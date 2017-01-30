@@ -25,10 +25,7 @@
 
 #module-title {
   @include span(17.6 of 18);
-  margin-left: gutter();
-  margin-right: gutter();
-  margin-top: gutter();
-  margin-bottom: 0;
+  margin: gutter();
   padding-left: gutter();
   padding-right: gutter();
   border-bottom: $default-border-width solid $default-border-color;
