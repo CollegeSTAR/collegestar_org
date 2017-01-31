@@ -1,0 +1,7 @@
+<% social_media_args ||= {} %>
+<div id="bread-crumb-social-media-wrapper">
+  <div id="bread-crumb-wrapper">
+    <%= format_bread_crumb( bread_crumb_args ) %>
+  </div>
+    <%= render 'shared/social_media/buttons', args: social_media_args %>  
+</div>
