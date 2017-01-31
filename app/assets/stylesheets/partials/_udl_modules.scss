@@ -152,11 +152,13 @@
   @include clearfix();
 }
 
-h2 {
-  font-weight: bold;  
-  font-size: $base-font-size * 1.4;
-  border-bottom: $default-border-width solid $default-border-color;
-  @include module-header();
+.module-page {
+  h2 {
+    font-weight: bold;  
+    font-size: $base-font-size * 1.4;
+    border-bottom: $default-border-width solid $default-border-color;
+    @include module-header();
+  }
 }
 
 .module-section-title-wrapper {
