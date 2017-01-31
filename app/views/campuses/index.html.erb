@@ -5,9 +5,7 @@
       <p id="notice"><%= notice %></p>
       
       <h1>Participating Campuses</h1>        
-      <div id="bread-crumb-wrapper">
-        <%= format_bread_crumb( page_name: 'participating campuses' ) %>
-      </div>
+      <%= render 'shared/bread_crumb_social_media', bread_crumb_args: { page_name: 'participating campuses' } %>
 
       <% if policy(Campus).create? %>      
         <%= link_to 'New Campus', new_campus_path %>

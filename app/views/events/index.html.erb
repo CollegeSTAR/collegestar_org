@@ -4,11 +4,14 @@
 <div id="content">
 <p id="notice"><%= notice %></p>
 
-<h1>College STAR Events</h1>        
-<div id="bread-crumb-wrapper">
-  <%= format_bread_crumb( page_name: 'events' ) %>
-</div>
-
+<h1>College STAR Events</h1>
+<%= render( 
+      'shared/bread_crumb_social_media', 
+      bread_crumb_args: {
+        page_name: 'events'
+      }
+    )
+%>
 
 <h2>Upcoming Events</h2>
 <table>

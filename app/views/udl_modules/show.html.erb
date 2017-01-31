@@ -24,15 +24,20 @@
        <h2><%= @udl_module.sub_heading %>
       </div>
     </section>        
-    <div id="bread-crumb-wrapper">
-        <%= format_bread_crumb( page_name: @udl_module.title, 
-              parents: [
-                [ 'faculty', faculty_path ],
-                ['udl modules', udl_modules_path ]
-              ]
-            ) %>
-      </div>
-      <%= render 'shared/social_media/buttons', tweet_text: URI.encode( @udl_module.title ) %>  
+    <%= render(
+          'shared/bread_crumb_social_media', 
+          bread_crumb_args: { 
+            page_name: @udl_module.title,
+            parents: [
+              [ 'faculty', faculty_path ],
+              ['udl modules', udl_modules_path ]
+            ],
+          },
+          social_media_args: {
+            show: true,
+            tweet_text: @udl_module.title
+          }
+        ) %>
 
     <article id="module-content">
     <a id="module-top"></a>

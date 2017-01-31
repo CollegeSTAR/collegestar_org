@@ -12,15 +12,19 @@
                 ) %>
           </span>
         <% end %>
-      </h1>      
-      <div id="bread-crumb-wrapper">
-        <%= format_bread_crumb( page_name: @news_article.title,
+      </h1>
+      <%= render( 'shared/bread_crumb_social_media', 
+            bread_crumb_args: {
+              page_name: @news_article.title,
               parents: [
                 [ 'news archive', news_articles_path ]
               ]
-            ) %>
-      </div>
-      <%= render 'shared/social_media/buttons', tweet_text: URI.encode(@news_article.title) %>  
+            },
+            social_media_args: {
+              show: true,
+              tweet_text: @news_article.title
+            }
+        ) %>
       
         <%= @news_article.content.html_safe %>
         <div id="back-link-wrapper">

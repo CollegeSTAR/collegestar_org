@@ -4,9 +4,7 @@
   <div id="right-column-wrapper">
     <div id="content">
       <h1>College STAR for Faculty</h1>        
-      <div id="bread-crumb-wrapper">
-        <%= format_bread_crumb( page_name: 'faculty' ) %>
-      </div>
+      <%= render 'shared/bread_crumb_social_media', bread_crumb_args: { page_name: 'faculty' } %>
 
 
       <h2>Professional Development Modules</h2>

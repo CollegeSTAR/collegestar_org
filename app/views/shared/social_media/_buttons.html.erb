@@ -1,17 +1,10 @@
 <div id="social-buttons-wrapper">          
   <div id="twitter-wrapper">
     <div class="twitter-share-button">
-      <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= tweet_text %>&via=CollegeSTAR_ORG">Tweet</a>
+      <%= format_twitter_share_button( args ) %>
     </div>
   </div>
   <div id="facebook-wrapper">
-    <div class="fb-like" 
-      data-href= <%= request.original_url %> 
-      data-layout="button" 
-      data-action="like" 
-      data-size="small" 
-      data-show-faces="false" 
-      data-share="true">
-    </div>
+    <%= format_facebook_share_button( args ) %>
   </div>
 </div>

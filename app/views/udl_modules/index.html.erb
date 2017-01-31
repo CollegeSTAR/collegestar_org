@@ -1,17 +1,23 @@
+<%= render 'shared/social_media/facebook_init' %>
+<%= render 'shared/social_media/twitter_init' %>
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
       <p id="notice"><%= notice %></p>
       
       <h1><%= @page_content.title.html_safe %></h1>        
-      <div id="bread-crumb-wrapper">
-        <%= format_bread_crumb( page_name: 'udl modules',
+      <%= render( 'shared/bread_crumb_social_media', 
+            bread_crumb_args: {
+              page_name: 'udl modules',
               parents: [
-                [ 'faculty', faculty_path ]
+                [ 'faculty', faculty_path]
               ]
-            ) %>
-      </div>
-
+            }, 
+            social_media_args: {
+              show: true,
+              tweet_text: 'Faculty Development Modules'
+            }
+          ) %>
       <%= @page_content.text.html_safe %>
       <h3>Currently Available Modules</h3>
       <ul> 

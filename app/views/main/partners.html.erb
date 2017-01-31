@@ -4,9 +4,7 @@
   <div id="right-column-wrapper">
     <div id="content">
       <h1>College STAR Partners &amp; Connections</h1>        
-      <div id="bread-crumb-wrapper">
-        <%= format_bread_crumb( page_name: 'partners & connections' ) %>
-      </div>
+      <%= render 'shared/bread_crumb_social_media', bread_crumb_args: { page_name: 'partners & connections' } %>
 
       <p>The College STAR program proudly partners with the following organizations:</p>
 	    <div class="partner-wrapper">
