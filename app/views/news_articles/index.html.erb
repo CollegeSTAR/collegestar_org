@@ -50,6 +50,10 @@
             </li>
           <% end %>
        </ul> 
+       <div id="pagination-wrapper">
+         <%= paginate @news_articles %>
+       </div>
+
       <% if policy(NewsArticle).create? %>
         <div id="new-article-link-wrapper">
         <%= link_to(

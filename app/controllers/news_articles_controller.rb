@@ -4,7 +4,7 @@ class NewsArticlesController < ApplicationController
   # GET /news_articles
   # GET /news_articles.json
   def index
-    @news_articles = NewsArticle.non_featured_reverse_date_order
+    @news_articles = NewsArticle.non_featured_reverse_date_order.page( params[:page] ).per(10)
     @unreleased_news_articles = NewsArticle.unreleased
     authorize @news_articles
   end

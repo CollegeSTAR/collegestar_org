@@ -96,3 +96,9 @@ ul#news_articles {
     margin-left: .5em;
   }
 }
+
+#pagination-wrapper {
+  @include span(18 of 18);
+  margin: gutter();
+  text-align: center;
+}
