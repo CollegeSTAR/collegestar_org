@@ -5,6 +5,8 @@ $('Document').ready( function() {
   slc.change( function() {
     if( slc.val() == "Other") {
       options_div.removeClass('hidden');
+    } else {
+      options_div.addClass('hidden');    
     }
   });
 });
