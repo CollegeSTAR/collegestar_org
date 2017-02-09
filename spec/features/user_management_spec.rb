@@ -21,6 +21,20 @@ RSpec.feature "User management" do
         click_button 'Create Account'
         expect(page).to have_text("Thank you for signing up!")
       end
+
+      scenario "Creates a new User with Other campus selected" do
+        visit "signup"
+
+        fill_in 'First name', with: user.first_name
+        fill_in 'Last name', with: user.last_name
+        fill_in 'Email', with: user.email
+        select  "Other", from: 'Campus'
+        fill_in 'Department', with: user.department
+        fill_in 'Password', with: user.password
+        fill_in 'Password confirmation', with: user.password_confirmation
+        click_button 'Create Account'
+        expect(page).to have_text("Thank you for signing up!")
+      end
     end
 
     context "With incorrect information" do

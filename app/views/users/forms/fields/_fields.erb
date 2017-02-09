@@ -1,20 +1,3 @@
-<div class="field">
-  <%= f.label :first_name %><br>
-  <%= f.text_field :first_name %>
-</div>
-<div class="field">
-  <%= f.label :last_name %><br>
-  <%= f.text_field :last_name %>
-</div>
-<div class="field">
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
-</div>
-<div class="field">
-  <%= f.label :campus_id, "Campus" %><br>
-  <%= f.collection_select(:campus_id, @campuses, :id, :name) %>
-</div>
-<div class="field">
-  <%= f.label :department %><br>
-  <%= f.text_field :department %>
-</div>
+<%= render 'users/forms/fields/name', f: f %>
+
+

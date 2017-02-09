@@ -1,7 +1,9 @@
 <%= form_for(@user) do |f| %>
   <%= render "users/forms/errors", users: @users %>
   <div id="user-edit-fields-wrapper">
-    <%= render "users/forms/fields/fields", f: f %>
+    <%= render "users/forms/fields/name_email", f: f %>
+    <%= render "users/forms/fields/new_campuses", f: f %>
+    <%= render "users/forms/fields/department", f: f %>
     <%= render "users/forms/fields/password_fields", f: f %>
   </div>
   <%= render "users/forms/fields/create_user_submit", f: f %>

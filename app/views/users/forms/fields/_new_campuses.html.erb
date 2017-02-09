@@ -1,0 +1,4 @@
+<div class="field">
+  <%= f.label :campus_id, "Campus" %><br>
+  <%= f.collection_select(:campus_id, @campuses, :id, :name, prompt: true) %>
+</div>

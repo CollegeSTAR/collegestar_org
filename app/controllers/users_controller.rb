@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_campuses_with_null, only: [:new]
 
   # GET /users
   # GET /users.json
@@ -17,12 +18,11 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @campuses = Campus.all
   end
 
   # GET /users/1/edit
   def edit
-    @campuses = Campus.all
+    @campuses = Campus.all    
     @roles = Role.grantable.order(:description)
     @password_updater = PasswordUpdater.new
     authorize @user
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       )
       redirect_to profile_path(@user), notice: 'Thank you for signing up!'
     else
-      @campuses = Campus.all
+      set_campuses_with_null
       render :new
     end
   end
@@ -76,6 +76,12 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def set_campuses_with_null
+      @campuses = Campus.all
+      @campuses = @campuses.to_a
+      @campuses << NullCampus.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
