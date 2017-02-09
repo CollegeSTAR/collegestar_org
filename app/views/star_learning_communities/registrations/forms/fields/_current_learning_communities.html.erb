@@ -4,21 +4,18 @@
   </div>
   <div class="form-select-box">
     <%= f.select( :slc,
-          [
-            'Current Learning Communities',
-            'Flipping Classrooms',
-            'Annotated Readings',
-            'Course Redesign',
-            'Read/Write Gold',
-            'Service Learning',
+          [ 
+            'Sonocent',
+            'Read & Write',
             'Course Organizer Routine',
-            'Lecture Capture',
-            'Problem Based Learning',
-            'Transparent Instruction',
             'Assignment Choices',
+            'Assignment Balance',
+            'Learning Differences',
+            'Transparent Instruction',
+            'Annotated Readings',
             'Other'
           ],
-          { selected: 'Current Learning Communities', disabled: 'Current Learning Communities' }
+          { prompt: true }
         )
      %>
   </div>
