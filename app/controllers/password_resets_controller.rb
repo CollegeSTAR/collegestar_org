@@ -9,11 +9,14 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(user_params)
+    @user = User.guaranteed_find_by(user_params)
     if @user.generate_password_reset
       PasswordResetMailer.reset_instructions(@user).deliver_now
+      redirect_to new_password_reset_path, notice: "An email has been sent to the provided email address with reset instructions. Thank you."
+    else
+      flash[:error] = "We do not have an account matching the email address provided."
+      redirect_to new_password_reset_path 
     end
-    redirect_to new_password_reset_path, notice: "An email has been sent to the provided email address with reset instructions. Thank you."
   end
 
   def update

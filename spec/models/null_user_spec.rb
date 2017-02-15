@@ -19,4 +19,10 @@ RSpec.describe NullUser do
       expect(null_user.has_role? :admin ).to be_falsey
     end
   end
+
+  describe "#generate_password_reset" do
+    it "should return false" do
+      expect(null_user.generate_password_reset).to be_falsey
+    end
+  end
 end
