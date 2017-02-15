@@ -216,4 +216,11 @@ RSpec.describe User do
       end
     end
   end
+
+  describe "#prepare_email" do
+    subject(:user) { create(:user_with_uppercase_email) }
+    it "should return a downcased user email" do
+      expect(user.email).to eq(user.email.downcase)
+    end
+  end
 end

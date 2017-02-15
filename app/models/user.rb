@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  before_save :prepare_email
+
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }
   validates :email, presence: true, uniqueness: true, email: true
@@ -75,4 +77,10 @@ class User < ActiveRecord::Base
     end
     return false
   end
+  
+  private
+
+    def prepare_email
+      self.email = self.email.downcase
+    end
 end

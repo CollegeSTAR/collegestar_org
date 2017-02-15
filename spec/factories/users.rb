@@ -86,4 +86,14 @@ FactoryGirl.define do
     password_confirmation "secret_pass"
     phone_number "1236541234"
   end
+
+  factory :user_with_uppercase_email, class: User do
+    title "Mr. "
+    first_name "John"
+    last_name "Smith"
+    email "John.Smith@example.com"
+    password "secret_pass"
+    password_confirmation "secret_pass"
+    phone_number "1234567890"
+  end
 end

@@ -2,7 +2,7 @@ class Session
   attr_reader :auth_token, :permanent
  
   def self.create(args)
-    user = User.guaranteed_find_by email: args[:email]
+    user = User.guaranteed_find_by email: args[:email].downcase
     if user.authenticate( args[:password] )
       return Session.new auth_token: user.auth_token, permanent: args.fetch(:permanent, false)
     else
