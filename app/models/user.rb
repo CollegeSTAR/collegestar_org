@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
   before_save :prepare_email
+  
+  before_create do 
+    generate_token(:auth_token)
+    generate_token(:activation_token)
+  end
 
   validates :first_name, presence: true, length: { in: 2..50 }
   validates :last_name, presence: true, length: { in: 2..50 }
@@ -19,11 +24,6 @@ class User < ActiveRecord::Base
   has_many :module_faculty_associations, foreign_key: 'faculty_id'
   has_many :faculty_modules, through: :module_faculty_associations, source: 'module'
   has_many :redesign_summaries
-
-  before_create do 
-    generate_token(:auth_token)
-    generate_token(:activation_token)
-  end
   
   def full_name
     full_name = title ? "#{title} " : ""
