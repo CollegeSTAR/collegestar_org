@@ -83,7 +83,7 @@
                <% end %>
              </ol>
            </li>
-           <li><%= link_to("About the Author", udl_module_url(@udl_module, anchor: "about-the-authro")) %>
+           <li><%= link_to("About the Author", udl_module_url(@udl_module, anchor: "about-the-author")) %>
              <ol>
                <% @udl_module.get_sections_by_page(:about_the_author).each do |section| %>
                  <% unless section.hide_title %>
