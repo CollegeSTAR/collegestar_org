@@ -96,6 +96,12 @@ FactoryGirl.define do
     grantable true
   end
 
+  factory :udl_resources_admin, class: Role do
+    name "udl_resources_admin"
+    description "Universal Design For Learning Resource Admin: "
+    grantable true
+  end
+
   factory :non_grantable_role, class: Role do
     name "non_grantable_role"
     description "A role that should not be scoped to grantable"

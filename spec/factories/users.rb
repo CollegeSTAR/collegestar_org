@@ -75,6 +75,10 @@ FactoryGirl.define do
     factory :star_learning_communities_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "star_learning_communities_admin" ) }
     end
+    factory :udl_resources_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "udl_resources_admin" ) }
+    end
+
   end
   
   factory :password_update_user, class: User do

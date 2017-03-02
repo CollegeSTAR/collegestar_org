@@ -1,0 +1,46 @@
+<% content_for :title, "Universal Design for Learning Resources" %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Universal Design for Learning</h1>
+      <%= render(
+            'shared/bread_crumb_social_media',
+            bread_crumb_args: {
+              page_name: 'Universal Design for Learning Resources'
+            }
+          ) %>
+
+      <p>
+        According to <a href="http://www.cast.org" target="_blank">CAST</a>, an educational research and development organization focused on expanding learning opportunities for all, "Universal Design for Learning is a set of principles for curriculum development that give all individuals equal opportunities to learn." At College STAR, one of our core tenets is to infuse Universal Design for Learning (UDL) into all aspects of the project. Below you will find resources that are directly related to UDL.
+      </p>
+     
+      <% if policy(UniversalDesignForLearningResource).view_admin? %>
+        <p>
+          <%= link_to(
+                fa_icon("plus", text: "New UDL Resource"),
+                new_universal_design_for_learning_path
+              ) %>
+        </p>
+      <% end %>
+      
+      <ul id="published-udl-resources">
+      <% @published_udl_resources.each do |resource| %>
+        <li><h2><%= link_to resource.title.html_safe, universal_design_for_learning_path(resource) %></h2>
+          <%= resource.description.html_safe %>
+        </li>
+      <% end %>
+      </ul>
+      
+      <% if policy(UniversalDesignForLearningResource).view_admin? %>
+        <h3>Unpublished Resources</h3>
+        <ul id="unpublished-udl-resources">
+        <% @unpublished_udl_resources.each do |resource| %>
+          <li><h2><%= link_to resource.title.html_safe, universal_design_for_learning_path(resource) %></h2>
+            <%= resource.description.html_safe %>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

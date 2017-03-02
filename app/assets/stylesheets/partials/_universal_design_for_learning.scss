@@ -1,0 +1,11 @@
+#universal-design-for-learning-form-wrapper {
+  @include form-fields-wrapper();
+}
+
+#universal-design-for-learning-form-submit-wrapper {
+  @include form-submit-wrapper;
+}
+
+.edit-universal-design-for-learning-resource-link {
+  @include edit_link;
+}

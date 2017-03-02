@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214193910) do
+ActiveRecord::Schema.define(version: 20170301183043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20161214193910) do
     t.integer "user_id"
     t.index ["role_id"], name: "index_access_controls_on_role_id", using: :btree
     t.index ["user_id"], name: "index_access_controls_on_user_id", using: :btree
+  end
+
+  create_table "administrator_unit_associations", force: :cascade do |t|
+    t.integer "institutional_administrator_id"
+    t.integer "institutional_unit_id"
+    t.index ["institutional_administrator_id"], name: "index_admin_unit_associations_on_administrator_id", using: :btree
+    t.index ["institutional_unit_id"], name: "index_admin_unit_associations_on_unit_id", using: :btree
   end
 
   create_table "assessment_answer_choices", force: :cascade do |t|
@@ -155,7 +162,6 @@ ActiveRecord::Schema.define(version: 20161214193910) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "slug",                                      null: false
-    t.index ["name"], name: "events_name_index", unique: true, using: :btree
     t.index ["name"], name: "index_events_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
@@ -167,6 +173,25 @@ ActiveRecord::Schema.define(version: 20161214193910) do
     t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "institutional_administrators", force: :cascade do |t|
+    t.string "title"
+    t.string "first_name",               null: false
+    t.string "last_name",                null: false
+    t.string "admin_email"
+    t.string "admin_assistant"
+    t.string "admin_assistant_email"
+    t.string "admin_assistant_location"
+    t.string "phone"
+  end
+
+  create_table "institutional_units", force: :cascade do |t|
+    t.string  "type"
+    t.string  "name"
+    t.string  "mail_stop"
+    t.integer "institutional_unit_id"
+    t.index ["institutional_unit_id"], name: "index_institutional_units_on_institutional_unit_id", using: :btree
   end
 
   create_table "module_assessments", force: :cascade do |t|
@@ -352,6 +377,14 @@ ActiveRecord::Schema.define(version: 20161214193910) do
     t.boolean  "udl_engagement"
   end
 
+  create_table "universal_design_for_learning_resources", force: :cascade do |t|
+    t.string  "title",                       null: false
+    t.text    "description"
+    t.string  "slug",                        null: false
+    t.text    "content"
+    t.boolean "published",   default: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             null: false
     t.string   "last_name",              null: false
@@ -381,12 +414,15 @@ ActiveRecord::Schema.define(version: 20161214193910) do
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade
   add_foreign_key "access_controls", "users", on_delete: :cascade
+  add_foreign_key "administrator_unit_associations", "institutional_administrators"
+  add_foreign_key "administrator_unit_associations", "institutional_units"
   add_foreign_key "assessment_answer_choices", "assessment_questions"
   add_foreign_key "assessment_questions", "assessment_answer_choices", column: "correct_answer_choice_id"
   add_foreign_key "assessment_questions", "udl_module_sections"
   add_foreign_key "assessment_questions", "udl_modules"
   add_foreign_key "campus_departments", "campuses"
   add_foreign_key "campus_units", "campuses"
+  add_foreign_key "institutional_units", "institutional_units"
   add_foreign_key "module_assessments", "udl_modules"
   add_foreign_key "module_author_associations", "udl_modules", column: "module_id"
   add_foreign_key "module_author_associations", "users", column: "author_id"

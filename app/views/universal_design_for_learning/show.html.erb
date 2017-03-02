@@ -1,0 +1,31 @@
+<% content_for :title, @udl_resource.title.html_safe %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+        
+      <h1><%= @udl_resource.title.html_safe %>
+        <% if policy(UniversalDesignForLearningResource).edit? %>
+          <span class="edit-universal-design-for-learning-resource-link">
+          <%= link_to(
+                fa_icon( "pencil", text: "Edit this Resource"),
+                edit_universal_design_for_learning_path(@udl_resource)
+              ) %>
+        <% end %>
+        </span>
+      </h1>
+      <%= render(
+            'shared/bread_crumb_social_media',
+            bread_crumb_args: {
+              page_name: @udl_resource.title.downcase.html_safe,
+              parents: [
+                ['universal design for learning resources', universal_design_for_learning_path]
+              ]
+            }
+          ) %>
+      <%= @udl_resource.content.html_safe %>
+      <p>
+        <%= link_to "Back to UDL Resources", universal_design_for_learning_index_path %>
+      </p>
+    </div>
+  </div>
+</div>

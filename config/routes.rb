@@ -67,6 +67,8 @@ Rails.application.routes.draw do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
     resource :assessment, only: [ :show, :edit, :update]
   end
+
+  resources :universal_design_for_learning, param: :slug, path: '/universal-design-for-learning'
   resources :frequently_asked_questions, except: [:show], path: '/frequently-asked-questions'
   resources :shared_module_sections, except: [:show, :index], param: :slug, controller: :shared_module_sections, path: '/shared-module-sections'
   resources :communities, param: :slug

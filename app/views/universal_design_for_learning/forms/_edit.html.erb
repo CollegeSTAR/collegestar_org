@@ -1,0 +1,11 @@
+<div id="universal-design-for-learning-form-wrapper">
+  <%= form_for @udl_resource, url: universal_design_for_learning_path( @udl_resource ) do |f| %>
+    <%= render 'universal_design_for_learning/forms/fields/title', f: f %>
+    <%= render 'universal_design_for_learning/forms/fields/published', f: f %>
+    <%= render 'universal_design_for_learning/forms/fields/description', f: f %>
+    <%= render 'universal_design_for_learning/forms/fields/content', f: f %>
+    <div id="universal-design-for-learning-form-submit-wrapper">
+      <%= f.submit "Update UDL resource" %>
+    </div>
+  <% end %>
+</div>

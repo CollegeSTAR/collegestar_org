@@ -1,0 +1,12 @@
+<% content_for :title, @udl_resource.title.html_safe %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Update <%= @udl_resource.title.html_safe %></h1>
+
+      <%= render 'universal_design_for_learning/forms/edit' %>
+      <p>
+        <%= link_to "Back to UDL Resource", universal_design_for_learning_path( @udl_resource ) %>
+    </div>
+  </div>
+</div>
