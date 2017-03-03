@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301183043) do
+ActiveRecord::Schema.define(version: 20170303203741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,20 @@ ActiveRecord::Schema.define(version: 20170301183043) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "department_chair_associations", force: :cascade do |t|
+    t.integer "institutional_unit_id"
+    t.integer "chair_id"
+    t.index ["chair_id"], name: "index_department_chair_associations_on_chair_id", using: :btree
+    t.index ["institutional_unit_id"], name: "index_dep_char_assoc_on_institutional_department_id", using: :btree
+  end
+
+  create_table "department_faculty_associations", force: :cascade do |t|
+    t.integer "department_id"
+    t.integer "faculty_id"
+    t.index ["department_id"], name: "index_department_faculty_associations_on_department_id", using: :btree
+    t.index ["faculty_id"], name: "index_department_faculty_associations_on_faculty_id", using: :btree
+  end
+
   create_table "dss_contacts", force: :cascade do |t|
     t.string   "slug",                    null: false
     t.string   "institution_type",        null: false
@@ -186,11 +200,21 @@ ActiveRecord::Schema.define(version: 20170301183043) do
     t.string "phone"
   end
 
+  create_table "institutional_faculty", force: :cascade do |t|
+    t.string  "first_name", null: false
+    t.string  "last_name",  null: false
+    t.string  "email",      null: false
+    t.integer "campus_id"
+    t.index ["campus_id"], name: "index_institutional_faculty_on_campus_id", using: :btree
+  end
+
   create_table "institutional_units", force: :cascade do |t|
     t.string  "type"
     t.string  "name"
     t.string  "mail_stop"
     t.integer "institutional_unit_id"
+    t.integer "campus_id"
+    t.index ["campus_id"], name: "index_institutional_units_on_campus_id", using: :btree
     t.index ["institutional_unit_id"], name: "index_institutional_units_on_institutional_unit_id", using: :btree
   end
 
@@ -422,6 +446,12 @@ ActiveRecord::Schema.define(version: 20170301183043) do
   add_foreign_key "assessment_questions", "udl_modules"
   add_foreign_key "campus_departments", "campuses"
   add_foreign_key "campus_units", "campuses"
+  add_foreign_key "department_chair_associations", "institutional_administrators", column: "chair_id"
+  add_foreign_key "department_chair_associations", "institutional_units"
+  add_foreign_key "department_faculty_associations", "institutional_faculty", column: "faculty_id"
+  add_foreign_key "department_faculty_associations", "institutional_units", column: "department_id"
+  add_foreign_key "institutional_faculty", "campuses"
+  add_foreign_key "institutional_units", "campuses"
   add_foreign_key "institutional_units", "institutional_units"
   add_foreign_key "module_assessments", "udl_modules"
   add_foreign_key "module_author_associations", "udl_modules", column: "module_id"
