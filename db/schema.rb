@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306200354) do
+ActiveRecord::Schema.define(version: 20170306202552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,13 @@ ActiveRecord::Schema.define(version: 20170306200354) do
     t.index ["name"], name: "events_name_index", unique: true, using: :btree
     t.index ["name"], name: "index_events_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
+  end
+
+  create_table "faculty_course_associations", force: :cascade do |t|
+    t.integer "institutional_faculty_id"
+    t.integer "institutional_course_id"
+    t.index ["institutional_course_id"], name: "index_faculty_course_associations_on_institutional_course_id", using: :btree
+    t.index ["institutional_faculty_id"], name: "index_faculty_course_associations_on_institutional_faculty_id", using: :btree
   end
 
   create_table "frequently_asked_questions", force: :cascade do |t|
@@ -449,6 +456,8 @@ ActiveRecord::Schema.define(version: 20170306200354) do
   add_foreign_key "campus_units", "campuses"
   add_foreign_key "department_faculty_associations", "institutional_faculty", column: "faculty_id"
   add_foreign_key "department_faculty_associations", "institutional_units", column: "department_id"
+  add_foreign_key "faculty_course_associations", "institutional_courses"
+  add_foreign_key "faculty_course_associations", "institutional_faculty"
   add_foreign_key "institutional_courses", "campuses"
   add_foreign_key "institutional_faculty", "campuses"
   add_foreign_key "institutional_units", "campuses"

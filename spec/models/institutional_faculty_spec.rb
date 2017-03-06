@@ -12,5 +12,7 @@ RSpec.describe InstitutionalFaculty do
   end
   describe "associations" do
     it { should belong_to(:campus) }
+    it { should have_many(:faculty_course_associations) }
+    it { should have_many(:courses).through(:faculty_course_associations).source(:institutional_course) }
   end
 end
