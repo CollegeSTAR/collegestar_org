@@ -11,6 +11,8 @@ RSpec.describe InstitutionalAdministrator do
   end
 
   describe "associations" do
-    it { should have_many(:administrator_unit_associations) }
+    it { should have_many(:administrator_unit_associations).dependent(:destroy) }
+    it { should have_many(:colleges).through(:administrator_unit_associations).source(:institutional_college) }
+    it { should have_many(:departments).through(:administrator_unit_associations).source(:institutional_department) }
   end
 end

@@ -3,6 +3,6 @@ class InstitutionalFaculty < ActiveRecord::Base
   validates_uniqueness_of :email
 
   belongs_to :campus
-  has_many :faculty_course_associations
+  has_many :faculty_course_associations, dependent: :destroy
   has_many :courses, through: :faculty_course_associations, source: :institutional_course
 end

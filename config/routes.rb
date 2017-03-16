@@ -61,7 +61,13 @@ Rails.application.routes.draw do
   resources :pages, param: :slug
   resources :news_articles, only: [:new], path: '/news-article'
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
-  resources :campuses, param: :slug
+  resources :campuses, param: :slug do
+    resources :institutional_colleges, param: :slug, path: '/colleges' do
+      resources :institutional_departments, param: :slug, path: '/departments'
+    end
+    resources :institutional_administrators, path: '/administrators'
+  end
+
   resources :events, param: :slug
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
@@ -79,11 +85,12 @@ Rails.application.routes.draw do
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
   end
- 
+
   get '/star-learning-communities', to: 'star_learning_communities#show'
   namespace :star_learning_communities, path: '/star-learning-communities' do
     resources :registrations
   end
+
   namespace :api do
     namespace :v1 do
       namespace :faculty do
