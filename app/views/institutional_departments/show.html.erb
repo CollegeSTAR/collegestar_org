@@ -1,0 +1,13 @@
+<% content_for :title, @department.name.html_safe %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @department.name.html_safe %></h1>
+      <h2>Chair</h2>
+      <p>
+        <%= "#{@department.current_chair.title.html_safe} #{@department.current_chair.first_name.html_safe} #{@department.current_chair.last_name.html_safe}" %>
+      </p>
+    </div>
+  </div>
+</div>

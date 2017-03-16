@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306202552) do
+ActiveRecord::Schema.define(version: 20170315202414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170306202552) do
   create_table "administrator_unit_associations", force: :cascade do |t|
     t.integer "institutional_administrator_id"
     t.integer "institutional_unit_id"
+    t.boolean "current_chair",                  default: false
+    t.boolean "current_dean"
     t.index ["institutional_administrator_id"], name: "index_admin_unit_associations_on_administrator_id", using: :btree
     t.index ["institutional_unit_id"], name: "index_admin_unit_associations_on_unit_id", using: :btree
   end
@@ -217,11 +219,14 @@ ActiveRecord::Schema.define(version: 20170306202552) do
   end
 
   create_table "institutional_units", force: :cascade do |t|
-    t.string  "type"
-    t.string  "name"
-    t.string  "mail_stop"
-    t.integer "institutional_unit_id"
-    t.integer "campus_id"
+    t.string   "type"
+    t.string   "name"
+    t.string   "mail_stop"
+    t.integer  "institutional_unit_id"
+    t.integer  "campus_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug",                  null: false
     t.index ["campus_id"], name: "index_institutional_units_on_campus_id", using: :btree
     t.index ["institutional_unit_id"], name: "index_institutional_units_on_institutional_unit_id", using: :btree
   end

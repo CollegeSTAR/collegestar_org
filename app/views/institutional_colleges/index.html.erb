@@ -1,0 +1,23 @@
+<% content_for :title, "#{@campus.name.html_safe} Schools & Colleges"  %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @campus.name.html_safe %> Schools &amp; Colleges</h1>
+      <div id="campus-units-table-wrapper">
+        <table id="campus-units">
+          <tr>
+            <th width="80%">College/School</th>
+            <th width="20%">Last updated</th>
+          </tr>
+          <% @units.each do |unit| %>
+            <tr>
+              <td><%= link_to unit.name, campus_institutional_college_path( campus_slug: @campus.slug, slug: unit.slug ) %></td>
+              <td><%= unit.updated_at.strftime("%b %d, %Y") %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

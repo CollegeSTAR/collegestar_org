@@ -1,0 +1,24 @@
+<% content_for :title, "#{@college.name.html_safe}" %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @college.name.html_safe %></h1>
+      <h2>Dean</h2>
+      <p>
+        <%= "#{@college.current_dean.title.html_safe} #{@college.current_dean.first_name.html_safe} #{@college.current_dean.last_name.html_safe}" %>
+      </p>
+
+      <h2>Departments</h2>
+      <ul>
+      <% @college.departments.each do |department| %>
+        <li><%= link_to department.name, campus_institutional_college_institutional_department_path( 
+                  campus_slug: @campus.slug,
+                  institutional_college_slug: @college.slug,
+                  slug: department.slug
+                ) %>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
