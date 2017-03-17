@@ -14,6 +14,9 @@ class CreateFacultyNominationSurveys < ActiveRecord::Migration[5.0]
       t.string :student_age, default: ""
       t.boolean :student_dss_eligible, default: false
       t.boolean :student_currently_using_dss, default: false
+      t.text :quotes
+
+      t.timestamps null: false
     end
   end
 end

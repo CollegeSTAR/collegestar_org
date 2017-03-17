@@ -183,19 +183,22 @@ ActiveRecord::Schema.define(version: 20170317144451) do
   end
 
   create_table "faculty_nomination_surveys", force: :cascade do |t|
-    t.boolean "remain_anonymous",            default: true
-    t.boolean "share_name_with_faculty",     default: false
-    t.boolean "contact_for_more_info",       default: false
-    t.string  "student_name",                default: ""
-    t.string  "student_email",               default: ""
-    t.string  "teaching_strategy",                           null: false
-    t.text    "strategy_description",                        null: false
-    t.text    "reasons_for_effectiveness",                   null: false
-    t.integer "institutional_faculty_id",                    null: false
-    t.string  "student_gender",              default: ""
-    t.string  "student_age",                 default: ""
-    t.boolean "student_dss_eligible",        default: false
-    t.boolean "student_currently_using_dss", default: false
+    t.boolean  "remain_anonymous",            default: true
+    t.boolean  "share_name_with_faculty",     default: false
+    t.boolean  "contact_for_more_info",       default: false
+    t.string   "student_name",                default: ""
+    t.string   "student_email",               default: ""
+    t.string   "teaching_strategy",                           null: false
+    t.text     "strategy_description",                        null: false
+    t.text     "reasons_for_effectiveness",                   null: false
+    t.integer  "institutional_faculty_id",                    null: false
+    t.string   "student_gender",              default: ""
+    t.string   "student_age",                 default: ""
+    t.boolean  "student_dss_eligible",        default: false
+    t.boolean  "student_currently_using_dss", default: false
+    t.text     "quotes"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.index ["institutional_faculty_id"], name: "index_faculty_nomination_surveys_on_institutional_faculty_id", using: :btree
   end
 
