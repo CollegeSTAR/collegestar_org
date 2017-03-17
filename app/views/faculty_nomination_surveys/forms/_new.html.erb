@@ -1,0 +1,9 @@
+<%= form_for( @survey, url: new_campus_faculty_nomination_survey_path( campus_slug: @campus.slug ) ) do |f| %>
+  <p>
+    <%= f.label :remain_anonymous, "I would like for my nomination to remain anonymous and do not wish to provide my name and contact information." %>
+    <%= f.check_box :remain_anonymous, checked: false  %>
+  </p>
+  <p>
+
+  </p>
+<% end %>
