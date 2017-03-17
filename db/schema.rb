@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315202414) do
+ActiveRecord::Schema.define(version: 20170317144451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,7 +171,6 @@ ActiveRecord::Schema.define(version: 20170315202414) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "slug",                                      null: false
-    t.index ["name"], name: "events_name_index", unique: true, using: :btree
     t.index ["name"], name: "index_events_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
@@ -181,6 +180,23 @@ ActiveRecord::Schema.define(version: 20170315202414) do
     t.integer "institutional_course_id"
     t.index ["institutional_course_id"], name: "index_faculty_course_associations_on_institutional_course_id", using: :btree
     t.index ["institutional_faculty_id"], name: "index_faculty_course_associations_on_institutional_faculty_id", using: :btree
+  end
+
+  create_table "faculty_nomination_surveys", force: :cascade do |t|
+    t.boolean "remain_anonymous",            default: true
+    t.boolean "share_name_with_faculty",     default: false
+    t.boolean "contact_for_more_info",       default: false
+    t.string  "student_name",                default: ""
+    t.string  "student_email",               default: ""
+    t.string  "teaching_strategy",                           null: false
+    t.text    "strategy_description",                        null: false
+    t.text    "reasons_for_effectiveness",                   null: false
+    t.integer "institutional_faculty_id",                    null: false
+    t.string  "student_gender",              default: ""
+    t.string  "student_age",                 default: ""
+    t.boolean "student_dss_eligible",        default: false
+    t.boolean "student_currently_using_dss", default: false
+    t.index ["institutional_faculty_id"], name: "index_faculty_nomination_surveys_on_institutional_faculty_id", using: :btree
   end
 
   create_table "frequently_asked_questions", force: :cascade do |t|
@@ -463,6 +479,7 @@ ActiveRecord::Schema.define(version: 20170315202414) do
   add_foreign_key "department_faculty_associations", "institutional_units", column: "department_id"
   add_foreign_key "faculty_course_associations", "institutional_courses"
   add_foreign_key "faculty_course_associations", "institutional_faculty"
+  add_foreign_key "faculty_nomination_surveys", "institutional_faculty"
   add_foreign_key "institutional_courses", "campuses"
   add_foreign_key "institutional_faculty", "campuses"
   add_foreign_key "institutional_units", "campuses"
