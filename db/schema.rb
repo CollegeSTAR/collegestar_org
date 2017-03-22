@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317144451) do
+ActiveRecord::Schema.define(version: 20170322172645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(version: 20170317144451) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "slug",                                      null: false
+    t.index ["name"], name: "events_name_index", unique: true, using: :btree
     t.index ["name"], name: "index_events_on_name", unique: true, using: :btree
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
@@ -230,10 +231,12 @@ ActiveRecord::Schema.define(version: 20170317144451) do
   end
 
   create_table "institutional_faculty", force: :cascade do |t|
-    t.string  "first_name", null: false
-    t.string  "last_name",  null: false
-    t.string  "email",      null: false
+    t.string  "first_name",              null: false
+    t.string  "last_name",               null: false
+    t.string  "email",                   null: false
     t.integer "campus_id"
+    t.string  "student_generated_email"
+    t.boolean "student_generated"
     t.index ["campus_id"], name: "index_institutional_faculty_on_campus_id", using: :btree
   end
 
@@ -409,13 +412,17 @@ ActiveRecord::Schema.define(version: 20170317144451) do
   end
 
   create_table "udl_module_sections", force: :cascade do |t|
-    t.string  "title"
-    t.text    "content"
-    t.string  "parent"
-    t.string  "slug"
-    t.boolean "shared"
-    t.integer "default_shared_position"
-    t.boolean "hide_title",              default: false
+    t.string   "title"
+    t.text     "content"
+    t.string   "parent"
+    t.string   "slug"
+    t.boolean  "shared"
+    t.integer  "default_shared_position"
+    t.boolean  "hide_title",              default: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "udl_modules", force: :cascade do |t|
