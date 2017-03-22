@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322172645) do
+ActiveRecord::Schema.define(version: 20170322195916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,8 @@ ActiveRecord::Schema.define(version: 20170322172645) do
     t.text     "quotes"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.integer  "campus_id"
+    t.index ["campus_id"], name: "index_faculty_nomination_surveys_on_campus_id", using: :btree
     t.index ["institutional_faculty_id"], name: "index_faculty_nomination_surveys_on_institutional_faculty_id", using: :btree
   end
 
@@ -489,6 +491,7 @@ ActiveRecord::Schema.define(version: 20170322172645) do
   add_foreign_key "department_faculty_associations", "institutional_units", column: "department_id"
   add_foreign_key "faculty_course_associations", "institutional_courses"
   add_foreign_key "faculty_course_associations", "institutional_faculty"
+  add_foreign_key "faculty_nomination_surveys", "campuses"
   add_foreign_key "faculty_nomination_surveys", "institutional_faculty"
   add_foreign_key "institutional_courses", "campuses"
   add_foreign_key "institutional_faculty", "campuses"
