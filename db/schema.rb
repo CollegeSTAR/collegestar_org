@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322195916) do
+ActiveRecord::Schema.define(version: 20170327145904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -201,7 +201,11 @@ ActiveRecord::Schema.define(version: 20170322195916) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.integer  "campus_id"
+    t.string   "faculty_first_name"
+    t.string   "faculty_last_name"
+    t.integer  "department_id"
     t.index ["campus_id"], name: "index_faculty_nomination_surveys_on_campus_id", using: :btree
+    t.index ["department_id"], name: "index_faculty_nomination_surveys_on_department_id", using: :btree
     t.index ["institutional_faculty_id"], name: "index_faculty_nomination_surveys_on_institutional_faculty_id", using: :btree
   end
 
@@ -493,6 +497,7 @@ ActiveRecord::Schema.define(version: 20170322195916) do
   add_foreign_key "faculty_course_associations", "institutional_faculty"
   add_foreign_key "faculty_nomination_surveys", "campuses"
   add_foreign_key "faculty_nomination_surveys", "institutional_faculty"
+  add_foreign_key "faculty_nomination_surveys", "institutional_units", column: "department_id"
   add_foreign_key "institutional_courses", "campuses"
   add_foreign_key "institutional_faculty", "campuses"
   add_foreign_key "institutional_units", "campuses"
