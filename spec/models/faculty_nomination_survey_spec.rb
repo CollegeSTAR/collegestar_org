@@ -11,5 +11,6 @@ RSpec.describe FacultyNominationSurvey do
 
   describe "associations" do
     it { should belong_to(:institutional_faculty) }
+    it { should belong_to(:department).class_name("InstitutionalDepartment") }
   end
 end
