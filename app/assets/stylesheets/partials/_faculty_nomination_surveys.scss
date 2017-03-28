@@ -1,0 +1,11 @@
+#faculty-nomination-survey-form-wrapper {
+  @include form-fields-wrapper();
+
+  .label {
+    @include form-label();
+  }
+}
+
+#faculty-nomination-survey-submit-wrapper {
+  @include form-submit-wrapper();
+}
