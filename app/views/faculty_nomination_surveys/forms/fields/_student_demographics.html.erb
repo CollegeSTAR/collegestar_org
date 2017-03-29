@@ -1,22 +1,21 @@
-<h2>Optional Demographic Information</h2>
-<div>
-  <div class="label">
+<div class="field-wrapper">
+  <div class="group-label">
     <%= f.label :student_gender, "What is your gender?" %>
   </div>
   <div>
-    <div class="label">
+    <div class="radio-button-label">
       <%= f.label :student_gender_male, "Male" %>
     </div>
     <div class="radio-button">
       <%= f.radio_button :student_gender, 'male' %>
     </div>      
-    <div class="label">
+    <div class="radio-button-label">
       <%= f.label :student_gender_female, "Female" %>
     </div>
     <div class="radio-button">
       <%= f.radio_button :student_gender, 'female' %>
     </div>
-    <div class="label">
+    <div class="radio-button-label">
       <%= f.label :student_gender_other, "Other" %>
     </div>
     <div class="radio-button">
@@ -25,24 +24,24 @@
   </div>
 </div>
 
-<div>
-  <div class="label">
+<div class="field-wrapper">
+  <div class="select-box-label">
     <%= f.label :student_age, "What is your age?" %>
   </div>
   <div class="select-box">
     <%= f.select(:student_age, [["18-24", "18-24" ], ["25-34", "25-34"], ["35-older", "35-older"]], prompt: true) %>
   </div>
 </div>
-<div>
-  <div class="label">
+<div class="field-wrapper">
+  <div class="checkbox-label">
     <%= f.label :student_dss_eligible, "I am currently, or have been in the past, considered eligible for services for students with disabilities." %>
   </div>
   <div class="checkbox">
     <%= f.check_box :student_dss_eligible, checked: false %>
   </div>
 </div>
-<div>
-  <div class="label">
+<div class="field-wrapper">
+  <div class="checkbox-label">
     <%= f.label :student_currently_using_dss, "I am currently using a service(s) for students with disabilities." %>
   </div>
   <div class="checkbox">

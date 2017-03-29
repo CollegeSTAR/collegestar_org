@@ -1,8 +1,57 @@
 #faculty-nomination-survey-form-wrapper {
   @include form-fields-wrapper();
+  
+  .heading-wrapper {
+    @include span(18 of 18 no-gutters);
 
-  .label {
-    @include form-label();
+    h2 {
+      border-bottom: solid 1px $default-border-color;
+    }
+  }
+  .field-wrapper {
+    @include span(18 of 18 no-gutter);
+    
+    .checkbox-label, .radio-button-label {
+      @include form-label();
+      @include span(16 of 18 at 3 no-gutters);
+      padding-right: 4*gutter();
+    }
+    .text-field-label, .text-area-label, .select-box-label, .group-label {
+      width: span(16 of 18);
+      margin: gutter() auto;
+    }
+    .checkbox, .radio-button {
+      @include span(2 of 18 at 2 no-gutters);
+      text-align: right;
+    }
+    .text-field, .text-area, .select-box {
+      width: span(16 of 18);
+      margin: gutter() auto;
+    }
+    .text-area textarea {
+      height: 250px;
+      resize: none;
+    }
+  }
+
+  .show-example-link, .hide-example-link {
+    font-size: .75em;
+    font-style: italic;
+    font-weight: normal;
+
+    &:hover {
+    }
+  }
+
+  .strategy-example {
+    width: span(16 of 18 no-gutters);
+    margin: gutter() auto;
+
+    p {
+      color: $muted-text-color;
+      font-style: italic;
+      font-size: .9em;
+    }
   }
 }
 

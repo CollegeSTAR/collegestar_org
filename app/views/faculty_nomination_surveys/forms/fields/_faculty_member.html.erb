@@ -1,23 +1,27 @@
-<h3>Faculty Member</h3>
-<div class="label">
-  <%= f.label :faculty_first_name, "First Name" %>
+<div class="field-wrapper">
+  <div class="text-field-label">
+    <%= f.label :faculty_first_name, "First Name" %>
+  </div>
+  <div class="text-field">
+    <%= f.text_field :faculty_first_name %>
+  </div>
 </div>
-<div class="text-field">
-  <%= f.text_field :faculty_first_name %>
+<div class="field-wrapper">
+  <div  class="text-field-label">
+    <%= f.label :faculty_last_name, "Last Name" %>
+  </div>
+  <div class="text-field">
+    <%= f.text_field :faculty_last_name %>
+  </div> 
 </div>
-<div  class="label">
-  <%= f.label :faculty_last_name, "Last Name" %>
+<div class="field-wrapper">
+  <div class="select-box-label">
+    <%= f.label :Department_id, "Department" %>
+  </div>
+  <div class="select-box">
+  <%= f.collection_select :department_id, @departments, :id, :name, prompt: true %>
+  </div>
 </div>
-<div class="text-field">
-  <%= f.text_field :faculty_last_name %>
-</div> 
-<div class="label">
-  <%= f.label :Department_id, "Department" %>
-</div>
-<div class="select-box">
-<%= f.collection_select :department_id, @departments, :id, :name, prompt: true %>
-</div>
-
 <!--
 <div id="faculty-nomination-survey-faculty-member-wrapper">
 

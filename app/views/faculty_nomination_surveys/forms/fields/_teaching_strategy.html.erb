@@ -1,23 +1,39 @@
-<div>
-  <div class="label">
-    <%= f.label :teaching_strategy, "1. What would oyu call the teaching strategy?" %>
+<div class="field-wrapper">
+  <div class="text-area-label">
+    <%= f.label :teaching_strategy, "1. What would you call the teaching strategy? <a href='' id='show-example-teaching-strategy-link' class='hidden show-example-link'>show example</a>".html_safe %>
+  </div>
+  <div id="teaching-strategy-example" class="hidden strategy-example">
+    <p>
+      Using Clickers to take roll. <a id="hide-example-teaching-strategy-link" class="hide-example-link" href="">hide example</a>
+    </p>
   </div>
   <div class="text-area">
     <%= f.text_area :teaching_strategy %>
   </div>
 </div>
-<div>
-  <div class="label">
-    <%= f.label :strategy_description, "2. Describe the instructional strategy, technique, or routine. Please be as specific as possible." %>
+<div class="field-wrapper">
+  <div class="text-area-label">
+    <%= f.label :strategy_description, "2. Describe the instructional strategy, technique, or routine. Please be as specific as possible. <a href='' id='show-example-strategy-description-link' class='hidden show-example-link'>show example</a>".html_safe %>
+  </div>  
+  <div id="strategy-description-example" class="hidden strategy-example">
+    <p>
+      My professor uses clickers to take roll by giving a quick quiz about the assigned reading before she begins her presentation. <a id="hide-example-strategy-description-link" class="hide-example-link" href="">hide example</a>
+    </p>
   </div>
   <div class="text-area">
     <%= f.text_area :strategy_description %>
   </div>
 </div>
-<div>
-  <div class="label">
-    <%= f.label :reasons_for_effectiveness, "3. Why did you find this strategy, technique, or routine to be effective for you? Please be as specific as possible." %>
+<div class="field-wrapper">
+  <div class="text-area-label">
+    <%= f.label :reasons_for_effectiveness, "3. Why did you find this strategy, technique, or routine to be effective for you? Please be as specific as possible. <a href='' id='show-example-reasons-for-effectiveness-link' class='hidden show-example-link'>show example</a>".html_safe %>
   </div>
+  <div id="reasons-for-effectiveness-example" class="hidden strategy-example">
+    <p>
+      This helps me come to class because I know attendance counts toward my grade and it causes me to read the assigned reading for the day so I can get a good grade on the quiz. I’ve found that I understand the lecture better when I do the reading before class.  It just makes more sense and I can remember the information better. <a id="hide-example-reasons-for-effectiveness-link" class="hide-example-link" href="">hide example</a>
+    </p>
+  </div>
+
   <div class="text-area">
     <%= f.text_area :reasons_for_effectiveness %>
   </div>

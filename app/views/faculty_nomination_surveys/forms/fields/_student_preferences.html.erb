@@ -1,32 +1,33 @@
-<div>
-  <div class="label">
-    <%= f.label :remain_anonymous, "I would like for my nomination to remain anonymous and do not wish to provide my name and contact information." %>
-  </div>
+<div class="field-wrapper">
   <div class="checkbox">
     <%= f.check_box :remain_anonymous, checked: false  %>
   </div>
-</div>
-<div>
-  <div class="label">
-    <%= f.label :share_name_with_faculty, "Please include my name <em>only</em> in consideration for an ECU branded item from the Dowdy Student Store if the strategy I nominate is featured in an online professional development module.".html_safe %>
+  <div class="checkbox-label">
+    <%= f.label :remain_anonymous, "I would like for my nomination to remain anonymous and do not wish to provide my name and contact information." %>
   </div>
+</div>
+<div class="field-wrapper">
   <div class="checkbox">
     <%= f.check_box :share_name_with_faculty, checked: false %>
   </div>
-</div>
-<div>
-  <div class="label">
-    <%= f.label :share_name, "Please include my name in communication to the faculty member I featured in my strategy nomination." %>
+  <div class="checkbox-label">
+    <%= f.label :share_name_with_faculty, "Please include my name <em>only</em> in consideration for an ECU branded item from the Dowdy Student Store if the strategy I nominate is featured in an online professional development module.".html_safe %>
   </div>
+</div>
+<div class="field-wrapper">
   <div class="checkbox">
     <%= f.check_box :share_name, checked: false %>
   </div>
-</div>
-<div>
-  <div class="label">
-    <%= f.label :contact_for_more_info, "Feel free to contact me for further information or/and to participate in collaborative faculty/student opportunities that may arise as a result of the strategy I nominated." %>
+  <div class="checkbox-label">
+    <%= f.label :share_name, "Please include my name in communication to the faculty member I featured in my strategy nomination." %>
   </div>
+</div>
+<div class="field-wrapper">
   <div class="checkbox">
   <%= f.check_box :contact_for_more_info %>
+  </div>
+
+  <div class="checkbox-label">
+    <%= f.label :contact_for_more_info, "Feel free to contact me for further information or/and to participate in collaborative faculty/student opportunities that may arise as a result of the strategy I nominated." %>
   </div>
 </div>
