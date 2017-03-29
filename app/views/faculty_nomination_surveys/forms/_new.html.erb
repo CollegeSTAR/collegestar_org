@@ -1,0 +1,28 @@
+<div id="faculty-nomination-survey-form-wrapper">
+  <%= form_for( @survey, url: campus_faculty_nomination_surveys_path( campus_slug: @campus.slug ) ) do |f| %>
+    <div class="heading-wrapper">   
+      <h2>Please share your preferences for the following:</h2>
+    </div>
+    <%= render 'faculty_nomination_surveys/forms/fields/student_preferences', f: f %>
+    <%= render 'faculty_nomination_surveys/forms/fields/student_contact_info', f: f %>
+    <div class="heading-wrapper">
+      <h2>Faculty Member</h2>
+    </div>
+    <p>
+    Please provide the information below for the faculty member that you wish to nominate.
+    </p>
+    <%= render 'faculty_nomination_surveys/forms/fields/faculty_member', f: f %>
+    <div class="heading-wrapper">
+      <h2>Teaching Strategy</h2>
+    </div>
+    <%= render 'faculty_nomination_surveys/forms/fields/teaching_strategy', f: f %>
+    <div class="heading-wrapper">
+      <h2>Optional Demographic Information</h2>
+    </div>
+    <%= render 'faculty_nomination_surveys/forms/fields/student_demographics', f: f %>
+    
+    <div id="faculty-nomination-survey-submit-wrapper">
+      <%= f.submit "Submit Survey" %>
+    </div>
+  <% end %>
+</div>

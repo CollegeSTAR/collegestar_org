@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315202414) do
+ActiveRecord::Schema.define(version: 20170327145904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,6 +183,32 @@ ActiveRecord::Schema.define(version: 20170315202414) do
     t.index ["institutional_faculty_id"], name: "index_faculty_course_associations_on_institutional_faculty_id", using: :btree
   end
 
+  create_table "faculty_nomination_surveys", force: :cascade do |t|
+    t.boolean  "remain_anonymous",            default: true
+    t.boolean  "share_name_with_faculty",     default: false
+    t.boolean  "contact_for_more_info",       default: false
+    t.string   "student_name",                default: ""
+    t.string   "student_email",               default: ""
+    t.string   "teaching_strategy",                           null: false
+    t.text     "strategy_description",                        null: false
+    t.text     "reasons_for_effectiveness",                   null: false
+    t.integer  "institutional_faculty_id",                    null: false
+    t.string   "student_gender",              default: ""
+    t.string   "student_age",                 default: ""
+    t.boolean  "student_dss_eligible",        default: false
+    t.boolean  "student_currently_using_dss", default: false
+    t.text     "quotes"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "campus_id"
+    t.string   "faculty_first_name"
+    t.string   "faculty_last_name"
+    t.integer  "department_id"
+    t.index ["campus_id"], name: "index_faculty_nomination_surveys_on_campus_id", using: :btree
+    t.index ["department_id"], name: "index_faculty_nomination_surveys_on_department_id", using: :btree
+    t.index ["institutional_faculty_id"], name: "index_faculty_nomination_surveys_on_institutional_faculty_id", using: :btree
+  end
+
   create_table "frequently_asked_questions", force: :cascade do |t|
     t.string   "question"
     t.text     "answer"
@@ -211,10 +237,12 @@ ActiveRecord::Schema.define(version: 20170315202414) do
   end
 
   create_table "institutional_faculty", force: :cascade do |t|
-    t.string  "first_name", null: false
-    t.string  "last_name",  null: false
-    t.string  "email",      null: false
+    t.string  "first_name",              null: false
+    t.string  "last_name",               null: false
+    t.string  "email",                   null: false
     t.integer "campus_id"
+    t.string  "student_generated_email"
+    t.boolean "student_generated"
     t.index ["campus_id"], name: "index_institutional_faculty_on_campus_id", using: :btree
   end
 
@@ -390,13 +418,17 @@ ActiveRecord::Schema.define(version: 20170315202414) do
   end
 
   create_table "udl_module_sections", force: :cascade do |t|
-    t.string  "title"
-    t.text    "content"
-    t.string  "parent"
-    t.string  "slug"
-    t.boolean "shared"
-    t.integer "default_shared_position"
-    t.boolean "hide_title",              default: false
+    t.string   "title"
+    t.text     "content"
+    t.string   "parent"
+    t.string   "slug"
+    t.boolean  "shared"
+    t.integer  "default_shared_position"
+    t.boolean  "hide_title",              default: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "udl_modules", force: :cascade do |t|
@@ -463,6 +495,9 @@ ActiveRecord::Schema.define(version: 20170315202414) do
   add_foreign_key "department_faculty_associations", "institutional_units", column: "department_id"
   add_foreign_key "faculty_course_associations", "institutional_courses"
   add_foreign_key "faculty_course_associations", "institutional_faculty"
+  add_foreign_key "faculty_nomination_surveys", "campuses"
+  add_foreign_key "faculty_nomination_surveys", "institutional_faculty"
+  add_foreign_key "faculty_nomination_surveys", "institutional_units", column: "department_id"
   add_foreign_key "institutional_courses", "campuses"
   add_foreign_key "institutional_faculty", "campuses"
   add_foreign_key "institutional_units", "campuses"

@@ -5,4 +5,5 @@ class InstitutionalFaculty < ActiveRecord::Base
   belongs_to :campus
   has_many :faculty_course_associations, dependent: :destroy
   has_many :courses, through: :faculty_course_associations, source: :institutional_course
+  has_many :faculty_nomination_surveys
 end

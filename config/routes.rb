@@ -66,6 +66,11 @@ Rails.application.routes.draw do
       resources :institutional_departments, param: :slug, path: '/departments'
     end
     resources :institutional_administrators, path: '/administrators'
+    resources :faculty_nomination_surveys, path: '/faculty-nomination-surveys' do
+      member do
+        get 'confirmation'
+      end
+    end
   end
 
   resources :events, param: :slug
