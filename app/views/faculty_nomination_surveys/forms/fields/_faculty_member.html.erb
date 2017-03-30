@@ -19,7 +19,15 @@
     <%= f.label :Department_id, "Department" %>
   </div>
   <div class="select-box">
-  <%= f.collection_select :department_id, @departments, :id, :name, prompt: true %>
+  <%= f.select( :department_id ) do %>
+      <%= content_tag(:option, "please select") %>
+      <% @colleges.each do |college| %>
+        <%= content_tag(:option, "--#{college.name}--".html_safe, disabled: true) %>
+        <% college.departments.order( :name ).each do |department| %>
+          <%= content_tag(:option, department.name, value: department.id ) %>
+        <% end %>
+      <% end %>
+  <% end %>
   </div>
 </div>
 <!--

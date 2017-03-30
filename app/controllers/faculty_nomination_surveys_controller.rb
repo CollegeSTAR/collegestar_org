@@ -4,12 +4,12 @@ class FacultyNominationSurveysController < ApplicationController
 
   def new
     @survey = FacultyNominationSurvey.new
-    @departments = InstitutionalDepartment.all
+    @colleges = InstitutionalCollege.order(:name)
   end
 
   def create
     @survey = FacultyNominationSurvey.new( faculty_nomination_survey_params )
-    @survey.institutional_faculty_id = 1 #DB requires faculty, but we haven't implemented that yet.
+    @survey.institutional_faculty_id = 3 #DB requires faculty, but we haven't implemented that yet.
     if @survey.save
       redirect_to confirmation_campus_faculty_nomination_survey_path(campus_slug: @campus.slug, id: @survey.id ), notice: "Successfully created nomination."
     else
@@ -32,6 +32,7 @@ class FacultyNominationSurveysController < ApplicationController
 
   def faculty_nomination_survey_params
     params.require(:faculty_nomination_survey).permit(
+      :campus_id,
       :remain_anonymous,
       :share_name_with_faculty,
       :contact_for_more_info,
