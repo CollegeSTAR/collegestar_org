@@ -9,7 +9,7 @@ class FacultyNominationSurveysController < ApplicationController
 
   def create
     @survey = FacultyNominationSurvey.new( faculty_nomination_survey_params )
-    @survey.institutional_faculty_id = 3 #DB requires faculty, but we haven't implemented that yet.
+    @survey.institutional_faculty_id = InstitutionalFaculty.first.id #DB requires faculty, but we haven't implemented that yet.
     if @survey.save
       redirect_to confirmation_campus_faculty_nomination_survey_path(campus_slug: @campus.slug, id: @survey.id ), notice: "Successfully created nomination."
     else
