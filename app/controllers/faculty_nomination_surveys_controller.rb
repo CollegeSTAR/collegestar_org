@@ -4,7 +4,7 @@ class FacultyNominationSurveysController < ApplicationController
 
   def new
     @survey = FacultyNominationSurvey.new
-    @colleges = InstitutionalCollege.order(:name)
+    set_colleges
   end
 
   def create
@@ -13,6 +13,12 @@ class FacultyNominationSurveysController < ApplicationController
     if @survey.save
       redirect_to confirmation_campus_faculty_nomination_survey_path(campus_slug: @campus.slug, id: @survey.id ), notice: "Successfully created nomination."
     else
+      error_message = "The following fields cannot be blank: <br />".html_safe
+      @survey.errors.each do |error|
+        error_message += "#{error} <br />".humanize.html_safe
+      end
+      flash[:error] = error_message
+      set_colleges
       render :new
     end
   end
@@ -24,6 +30,10 @@ class FacultyNominationSurveysController < ApplicationController
 
   def set_campus
     @campus = Campus.find_by slug: params[:campus_slug]
+  end
+
+  def set_colleges
+    @colleges = InstitutionalCollege.order(:name)
   end
 
   def set_faculty_nomination_survey
