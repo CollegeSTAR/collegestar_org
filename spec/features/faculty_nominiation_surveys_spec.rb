@@ -11,7 +11,7 @@ RSpec.feature "Faculty Nomination Surveys" do
                             # Right now, the database has a foreign key constraint on this column and we must provide it a record.
       visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/new"
 
-      check("Please include my name only in consideration for an ECU branded item from the Dowdy Student Store if the strategy I nominate is featured in an online professional development module.")
+      check("Please include my name in communication to the faculty member I featured in my strategy nomination.")
       fill_in "Student name", with: "John Doe"
       fill_in "Student email", with: "john.doe.example.edu"
 
