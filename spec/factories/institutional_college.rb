@@ -6,5 +6,11 @@ FactoryGirl.define do
     mail_stop "123"
 
     campus
+
+    factory :institutional_college_with_departments do
+      after(:create) do |college|
+        create(:institutional_department, institutional_unit: college)
+      end
+    end
   end
 end
