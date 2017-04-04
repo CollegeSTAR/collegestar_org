@@ -19,7 +19,7 @@ RSpec.feature "Module Proposal Management" do
       fill_in "estimated start date", with: "#{time.year}-#{time.month}-#{time.day}"      
       time += 86400
       fill_in "estimated completion date", with: "#{time.year}-#{time.month}-#{time.day}"
-      click_button "Submit Module Proposal"
+      click_button "Submit Proposal"
       expect(page).to have_text("Module Proposal Received")
     end
   end
