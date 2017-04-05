@@ -42,4 +42,13 @@ RSpec.feature "Faculty Nomination Surveys" do
       expect(page).to have_content(survey.faculty_first_name)
     end
   end
+
+  feature "View individual survey" do
+    scenario "User visits a survey page" do
+      survey
+      visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/#{survey.id}"
+      
+      expect(page).to have_content(survey.teaching_strategy)
+    end
+  end
 end

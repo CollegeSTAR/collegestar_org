@@ -6,6 +6,9 @@ class FacultyNominationSurveysController < ApplicationController
     @surveys = FacultyNominationSurvey.order( created_at: :desc)
   end
 
+  def show
+  end
+
   def new
     @survey = FacultyNominationSurvey.new
     set_colleges
@@ -41,7 +44,7 @@ class FacultyNominationSurveysController < ApplicationController
   end
 
   def set_faculty_nomination_survey
-    @survey = FacultyNominationSurvey.find_by slug: params[:slug]
+    @survey = FacultyNominationSurvey.find params[:id]
   end
 
   def faculty_nomination_survey_params
