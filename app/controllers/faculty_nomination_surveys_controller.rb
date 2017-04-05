@@ -2,6 +2,10 @@ class FacultyNominationSurveysController < ApplicationController
   before_action :set_campus
   before_action :set_faculty_nomination_survey, only: [ :show, :edit, :update, :destroy]
 
+  def index
+    @surveys = FacultyNominationSurvey.order( created_at: :desc)
+  end
+
   def new
     @survey = FacultyNominationSurvey.new
     set_colleges

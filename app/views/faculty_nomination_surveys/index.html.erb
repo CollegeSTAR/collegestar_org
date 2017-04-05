@@ -1,0 +1,24 @@
+<% content_for :title, "Faculty Nomination Surveys" %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Faculty Nomination Surveys</h1>
+
+      <div id="faculty-nomination-surveys-table-wrapper">
+        <table id="faculty-nomination-surveys">
+          <tr>
+            <th width="30%">Faculty Member</th>
+            <th width="70%">Strategy</th>
+          </tr>
+          <% @surveys.each do |survey| %>
+            <tr>
+              <td><%= survey.faculty_first_name.html_safe %> <%= survey.faculty_last_name.html_safe %></td>
+              <td> <%= truncate( survey.teaching_strategy.html_safe, length: 100, separator: ' ') %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

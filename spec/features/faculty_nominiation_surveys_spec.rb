@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.feature "Faculty Nomination Surveys" do
   let(:college) { create(:institutional_college_with_departments) }
   let(:institutional_faculty) { create(:institutional_faculty) } # This is a hack, we're going to associate the faculty in the future
+  let(:survey) { create(:faculty_nomination_survey) }
 
   feature "Submit surveys" do
     scenario "User visits survey" do
@@ -29,6 +30,16 @@ RSpec.feature "Faculty Nomination Surveys" do
       click_button "Submit Survey"
 
       expect(page).to have_content("Thanks for your nomination!")
+    end
+  end
+
+  feature "Surveys index" do
+    scenario "visit index page" do
+      survey
+      visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys"
+
+      expect(page).to have_content("Faculty Nomination Surveys")
+      expect(page).to have_content(survey.faculty_first_name)
     end
   end
 end
