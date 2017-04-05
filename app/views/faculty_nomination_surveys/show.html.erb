@@ -32,6 +32,12 @@
       <p><strong>Age:</strong> <%= @survey.student_age %></p>
       <p><strong>Eligible for services for students with disabilities:</strong> <%= @survey.student_dss_eligible %></p>
       <p><strong>Currently using a service(s) for students with disabilities:</strong> <%= @survey.student_currently_using_dss %></p>
+      
+      <p>
+        <%= link_to( fa_icon( 'arrow-left', text:  "Back to Faculty Nomination Surveys" ), 
+                     campus_faculty_nomination_surveys_path( campus_slug: @campus.slug ) 
+                   )%>
+      </p>
     </div>
   </div>
 </div>
