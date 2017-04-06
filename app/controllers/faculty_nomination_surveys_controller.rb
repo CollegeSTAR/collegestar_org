@@ -4,9 +4,11 @@ class FacultyNominationSurveysController < ApplicationController
 
   def index
     @surveys = FacultyNominationSurvey.order( created_at: :desc)
+    authorize @surveys
   end
 
   def show
+    authorize @survey
   end
 
   def new
