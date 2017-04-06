@@ -4,6 +4,18 @@ FactoryGirl.define do
     description "Basic: A basic role."
     grantable true
   end
+  
+  factory :non_grantable_role, class: Role do
+    name "non_grantable_role"
+    description "A role that should not be scoped to grantable"
+    grantable false
+  end
+
+  factory :grantable_role, class: Role do
+    name "grantable_role"
+    description "A role that should be scoped to grantable"
+    grantable true
+  end
 
   factory :admin, class: Role do
     name "admin"
@@ -11,21 +23,15 @@ FactoryGirl.define do
     grantable false
   end
 
-  factory :events_admin, class: Role do
-    name "events_admin"
-    description "Events Admin: Can administer events"
+factory :campus_admin, class: Role do
+    name "campus_admin"
+    description "Campus Admin: "
     grantable true
   end
 
   factory :contacts_admin, class: Role do
     name "contacts_admin"
     description "Contact Admin: Can administer contacts"
-    grantable true
-  end
-
-  factory :campus_admin, class: Role do
-    name "campus_admin"
-    description "Campus Admin: "
     grantable true
   end
  
@@ -40,7 +46,18 @@ FactoryGirl.define do
     description "DSS Contacts Admin: "
     grantable true
   end
+  
+  factory :events_admin, class: Role do
+    name "events_admin"
+    description "Events Admin: Can administer events"
+    grantable true
+  end
 
+  factory :faculty_nomination_surveys_admin, class: Role do
+    name "faculty_nomination_surveys_admin"
+    description "Faculty Nomination Surveys Admin: Can administer faculty nomination surveys"
+    grantable true
+  end
 
   factory :granter, class: Role do
     name "granter"
@@ -83,12 +100,6 @@ FactoryGirl.define do
     description "Redesign Summaries Admin: "
     grantable true
   end
-  
-  factory :users_admin, class: Role do
-    name "users_admin"
-    description "Users Admin: "
-    grantable false
-  end
 
   factory :star_learning_communities_admin, class: Role do
     name "star_learning_communities_admin"
@@ -101,16 +112,10 @@ FactoryGirl.define do
     description "Universal Design For Learning Resource Admin: "
     grantable true
   end
-
-  factory :non_grantable_role, class: Role do
-    name "non_grantable_role"
-    description "A role that should not be scoped to grantable"
+  
+  factory :users_admin, class: Role do
+    name "users_admin"
+    description "Users Admin: "
     grantable false
-  end
-
-  factory :grantable_role, class: Role do
-    name "grantable_role"
-    description "A role that should be scoped to grantable"
-    grantable true
   end
 end

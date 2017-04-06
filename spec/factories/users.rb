@@ -33,6 +33,10 @@ FactoryGirl.define do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "contacts_admin" ) }
     end
     
+    factory :content_editor_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "content_editor" ) }
+    end
+    
     factory :dss_contacts_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "dss_contacts_admin" ) }
     end
@@ -41,9 +45,10 @@ FactoryGirl.define do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "events_admin" ) }
     end
     
-    factory :content_editor_user, class: User do
-      after(:create) { |user| user.roles << FactoryHelper.find_role( "content_editor" ) }
+    factory :faculty_nomination_surveys_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "faculty_nomination_surveys_admin" ) }
     end
+
     factory :modules_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "modules_admin" ) }
     end
@@ -68,10 +73,6 @@ FactoryGirl.define do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "redesign_summaries_admin" ) }
     end
 
-    factory :users_admin_user, class: User do
-      after(:create) { |user| user.roles << FactoryHelper.find_role( "users_admin" ) }
-    end
-    
     factory :star_learning_communities_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "star_learning_communities_admin" ) }
     end
@@ -79,6 +80,9 @@ FactoryGirl.define do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "udl_resources_admin" ) }
     end
 
+    factory :users_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "users_admin" ) }
+    end
   end
   
   factory :password_update_user, class: User do
