@@ -38,6 +38,7 @@
   }
   &:hover {
     background-color: $tr-hover-bg-color;
+    color: $default-table-heading-text-color;
     
     a {
       @include table-tr-a;

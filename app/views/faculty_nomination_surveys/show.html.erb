@@ -1,1 +1,43 @@
-<h1>Show</h1>
+<% content_for :title, @survey.teaching_strategy.html_safe %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= truncate( @survey.teaching_strategy.html_safe, length: 50, separator: ' ' ) %></h1>
+      
+      <h2>Faculty Member</h2>
+      <p><strong>Name:</strong> <%= "#{@survey.faculty_first_name.html_safe} #{@survey.faculty_last_name.html_safe}" %></p>
+      <p><strong>Department:</strong> <%= @survey.department.name.html_safe %></p>
+
+      <h2>Teaching Strategy</h2>
+      <p><%= @survey.teaching_strategy.html_safe %></p>
+      <p><strong>Strategy Description:</strong><br />
+        <%= @survey.strategy_description.html_safe %>
+      </p>
+      <p><strong>Why did you find this strategy, technique, or routine to be effective for you?</strong><br />
+        <%= @survey.reasons_for_effectiveness.html_safe %>
+      </p>
+
+      <h2>Student Information</h2>
+      <p><strong>Student Name:</strong> <%= @survey.student_name.html_safe %></p>
+      <p><strong>Student Email:</strong> <%= @survey.student_email.html_safe %></p>
+      
+      <h3>Preferences</h3>
+      <p><strong>I wish to remain anonymous:</strong> <%= @survey.remain_anonymous %></p>
+      <p><strong>You may share my name with the faculty member:</strong> <%= @survey.share_name_with_faculty %></p>
+      <p><strong>You may contact me for more information:</strong> <%= @survey.contact_for_more_info %></p>
+
+      <h3>Optional Demographics</h3>
+      <p><strong>Gender:</strong> <%= @survey.student_gender %></p>
+      <p><strong>Age:</strong> <%= @survey.student_age %></p>
+      <p><strong>Eligible for services for students with disabilities:</strong> <%= @survey.student_dss_eligible %></p>
+      <p><strong>Currently using a service(s) for students with disabilities:</strong> <%= @survey.student_currently_using_dss %></p>
+      
+      <p>
+        <%= link_to( fa_icon( 'arrow-left', text:  "Back to Faculty Nomination Surveys" ), 
+                     campus_faculty_nomination_surveys_path( campus_slug: @campus.slug ) 
+                   )%>
+      </p>
+    </div>
+  </div>
+</div>

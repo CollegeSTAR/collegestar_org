@@ -1,0 +1,28 @@
+<% content_for :title, "Faculty Nomination Surveys" %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Faculty Nomination Surveys</h1>
+
+      <div id="faculty-nomination-surveys-table-wrapper">
+        <table id="faculty-nomination-surveys">
+          <tr>
+            <th width="30%">Faculty Member</th>
+            <th width="70%">Strategy</th>
+          </tr>
+          <% @surveys.each do |survey| %>
+            <tr>
+              <td><%= link_to( "#{survey.faculty_first_name.html_safe} #{survey.faculty_last_name.html_safe}", 
+                               campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: survey.id ) 
+                             ) %></td>             
+              <td> <%= link_to( "#{truncate( survey.teaching_strategy.html_safe, length: 100, separator: ' ')}",
+                                 campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: survey.id ) 
+                              ) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,15 @@ class FacultyNominationSurveysController < ApplicationController
   before_action :set_campus
   before_action :set_faculty_nomination_survey, only: [ :show, :edit, :update, :destroy]
 
+  def index
+    @surveys = FacultyNominationSurvey.order( created_at: :desc)
+    authorize @surveys
+  end
+
+  def show
+    authorize @survey
+  end
+
   def new
     @survey = FacultyNominationSurvey.new
     set_colleges
@@ -37,7 +46,7 @@ class FacultyNominationSurveysController < ApplicationController
   end
 
   def set_faculty_nomination_survey
-    @survey = FacultyNominationSurvey.find_by slug: params[:slug]
+    @survey = FacultyNominationSurvey.find params[:id]
   end
 
   def faculty_nomination_survey_params

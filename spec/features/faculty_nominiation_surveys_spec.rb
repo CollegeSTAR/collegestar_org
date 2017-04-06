@@ -3,6 +3,8 @@ require 'spec_helper'
 RSpec.feature "Faculty Nomination Surveys" do
   let(:college) { create(:institutional_college_with_departments) }
   let(:institutional_faculty) { create(:institutional_faculty) } # This is a hack, we're going to associate the faculty in the future
+  let(:survey) { create(:faculty_nomination_survey) }
+  let(:admin_user) { create(:admin_user) }
 
   feature "Submit surveys" do
     scenario "User visits survey" do
@@ -31,4 +33,51 @@ RSpec.feature "Faculty Nomination Surveys" do
       expect(page).to have_content("Thanks for your nomination!")
     end
   end
+  
+  context "while logged in" do
+    before(:each) do
+      visit "/login"
+      fill_in "Email", with: admin_user.email
+      fill_in "Password", with: admin_user.password
+      click_button "Log In"
+    end
+
+    feature "Surveys index" do
+      scenario "visit index page" do
+        survey
+        visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys"
+
+        expect(page).to have_content("Faculty Nomination Surveys")
+        expect(page).to have_content(survey.faculty_first_name)
+      end
+    end
+
+    feature "View individual survey" do
+      scenario "User visits a survey page" do
+        survey
+        visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/#{survey.id}"
+        
+        expect(page).to have_content(survey.teaching_strategy)
+      end
+    end
+  end
+
+  context "While not authorized" do
+    feature "Surveys index" do
+      scenario "visit index page" do
+        survey
+        visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys"
+
+        expect(page).to have_content("Password")
+      end
+    end
+
+    feature "View individual survey" do
+      scenario "User visits a survey page" do
+        survey
+        visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/#{survey.id}"
+        
+        expect(page).to have_content("Password")
+      end
+    end  end
 end
