@@ -88,3 +88,9 @@
     cursor: pointer;
   }
 }
+
+@mixin pagination-links-wrapper() {
+  @include span(18 of 18 no-gutters);
+  text-align: center;
+  margin-bottom: gutter();
+}

@@ -67,3 +67,7 @@
 #faculty-nomination-survey-submit-wrapper {
   @include form-submit-wrapper();
 }
+
+#faculty-nomination-surveys-pagination-wrapper {
+  @include pagination-links-wrapper();
+}
