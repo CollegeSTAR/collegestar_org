@@ -3,7 +3,7 @@ class FacultyNominationSurveysController < ApplicationController
   before_action :set_faculty_nomination_survey, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @surveys = FacultyNominationSurvey.order( created_at: :desc)
+    @surveys = FacultyNominationSurvey.order( created_at: :desc).page params[:page]
     authorize @surveys
   end
 
