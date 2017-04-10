@@ -1,0 +1,12 @@
+<%= form_for @proposal do |f| %>
+  <%= render 'case_study_proposals/forms/fields/name', f: f  %>
+  <%= render 'case_study_proposals/forms/fields/email', f: f %>
+  <%= render 'case_study_proposals/forms/fields/university', f: f %>
+  <%= render 'case_study_proposals/forms/fields/department', f: f %>
+  <hr>
+  <%= render 'case_study_proposals/forms/fields/title', f: f %>
+  <%= render 'case_study_proposals/forms/fields/description', f: f %>
+  <%= render 'case_study_proposals/forms/fields/completion_date', f: f %>
+  
+  <%= render 'case_study_proposals/forms/fields/edit_submit', f: f %>
+<% end %>

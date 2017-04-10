@@ -31,8 +31,8 @@
               <li><%= link_to '<i class="fa fa-envelope fa-la"></i>&nbsp; Contact Us Management'.html_safe, contacts_path %></li>
             <% end %>
 
-            <% if policy(ModuleProposal).view_admin? %>
-              <li><%= link_to '<i class="fa fa-map fa-la"></i>&nbsp; Module Proposals'.html_safe, module_proposals_path %></li>
+            <% if policy(CaseStudyProposal).view_admin? %>
+              <li><%= link_to '<i class="fa fa-map fa-la"></i>&nbsp; Case Study Proposals'.html_safe, case_study_proposals_path %></li>
             <% end %>
             <% if policy(Page).view_admin? %>
               <li><%= link_to '<i class="fa fa-drivers-license fa-la"></i>&nbsp; Page Content Editor'.html_safe, pages_path %></li>

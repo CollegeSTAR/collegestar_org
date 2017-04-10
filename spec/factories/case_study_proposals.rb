@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :module_proposal do
+  factory :case_study_proposal do
     first_name "John"
     last_name "Smith"
     university "UNC Something"

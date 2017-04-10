@@ -1,4 +1,4 @@
-class ModuleProposal < ActiveRecord::Base
+class CaseStudyProposal < ActiveRecord::Base
 
   validates :first_name, :last_name, :university, :department, :email, 
             :title, :description, :start_date, :completion_date,
