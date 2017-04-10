@@ -2,29 +2,32 @@
   <div id="single-column-wrapper">
     <div id="content">
       <p id="notice"><%= notice %></p>
+      <div id="bread-crumb-social-media-wrapper">
+        <div id="bread-crumb-wrapper">
+          <%= format_bread_crumb( page_name: @campus.name,
+                parents: [
+                  [ 'campuses', campuses_path ]
+                ]
+              ) %>
+        </div>
+      </div>
       <div id="campus-title-wrapper">      
         <div id="campus-image">
           <%= image_tag @campus.image.url(:medium) %>
         </div>
         <div id="campus-title">
           <h1><%= @campus.name %></h1>
-          <div id="bread-crumb-wrapper">
-            <%= format_bread_crumb( page_name: @campus.name,
-                  parents: [
-                    [ 'campuses', campuses_path ]
-                  ]
-                ) %>
-          </div>
-
+          
         </div>
-     </div> 
-           
-      <% if policy(@campus).update? %>
-        <%= link_to 'Edit', edit_campus_path(@campus) %> | 
-      <% end %>
-      <% if policy(@campus).index? %>
-        <%= link_to 'Back', campuses_path %>
-      <% end %>
+      </div> 
+      <div id="campus-navigation-wrapper">      
+       <% if policy(@campus).update? %>
+         <%= link_to 'Edit', edit_campus_path(@campus) %> | 
+       <% end %>
+       <% if policy(@campus).index? %>
+         <%= link_to 'Back', campuses_path %>
+       <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -29,6 +29,7 @@
 
 #campus-title-wrapper {
   @include span(18 of 18 no-gutters);
+  padding-top: gutter();
 
   #campus-image {
     @include span(4 of 18 no-gutters);
@@ -38,4 +39,9 @@
   #campus-title {
     @include span(14 of 18 at 5 no-gutters);
   }
+}
+
+#campus-navigation-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
 }
