@@ -2,7 +2,11 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @proposal.title %></h1>
+<<<<<<< 2325ae449f5e66f82001eb3f3e9c7a765538c63a
       <p><%= link_to( fa_icon( 'pencil', text: 'Edit this module' ), edit_case_study_proposal_path( @proposal ) ) %></p>
+=======
+      <p><%= link_to( fa_icon( 'pencil', text: 'Edit this proposal' ), edit_case_study_proposal_path( @proposal ) ) %></p>
+>>>>>>> Update link in CaseStudyProposals#show view
       
       <p>Faculty Member: <strong><%= @proposal.first_name %> <%= @proposal.last_name %></strong></p>
       <p>Email: <strong><%= @proposal.email %></strong></p>
