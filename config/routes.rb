@@ -86,7 +86,7 @@ Rails.application.routes.draw do
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
   resources :surveys, param: :slug
-  resources :module_proposals, path: '/case-study-proposals'
+  resources :case_study_proposals, path: '/case-study-proposals'
   resources :dss_contacts, param: :slug, path: '/disability-support-offices'
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'

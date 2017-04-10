@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe ModuleProposal, type: :model do
-  let(:module_proposal) { create(:module_proposal) }
+RSpec.describe CaseStudyProposal, type: :model do
+  let(:proposal) { create(:case_study_proposal) }
   describe "validations" do
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
@@ -15,9 +15,9 @@ RSpec.describe ModuleProposal, type: :model do
 
     context "custom validations" do
       it "should validate module_type" do
-        module_proposal.module_type = "not_a_module_type"
-        module_proposal.valid?
-        expect( module_proposal.errors[:module_type] ).to include("is not a valid module type")
+        proposal.module_type = "not_a_module_type"
+        proposal.valid?
+        expect( proposal.errors[:module_type] ).to include("is not a valid module type")
       end
     end
   end

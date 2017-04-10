@@ -1,0 +1,21 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @proposal.title %></h1>
+      <p><%= link_to( fa_icon( 'pencil', text: 'Edit this module' ), edit_case_study_proposal_path( @proposal ) ) %></p>
+      
+      <p>Faculty Member: <strong><%= @proposal.first_name %> <%= @proposal.last_name %></strong></p>
+      <p>Email: <strong><%= @proposal.email %></strong></p>
+      <p>University: <strong><%= @proposal.university %></strong></p>
+      <p>Department: <strong><%= @proposal.department %></strong></p>
+      
+      <h2>Proposed Case Study</h2>
+      <p>Module Type: <strong><%= @proposal.module_type %></strong></p> 
+      <p>Working Title: <strong><%= @proposal.title %></strong></p>
+      <p>Description: <strong><%= @proposal.description %></strong></p>
+      <p>Estimated Start Date: <strong><%= @proposal.start_date.strftime("%m/%d/%Y") %></strong></p>
+      <p>Estimated Completion Date: <strong><%= @proposal.completion_date.strftime("%m/%d/%Y") %></strong></p>
+      <p><%= link_to "Back to Proposals", case_study_proposals_path %></p>
+    </div>
+  </div>
+</div>

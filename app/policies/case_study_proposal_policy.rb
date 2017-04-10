@@ -1,4 +1,4 @@
-class ModuleProposalPolicy < ApplicationPolicy
+class CaseStudyProposalPolicy < ApplicationPolicy
   def initialize(user, record)
     super(user, record)
     @accepted_admin_roles << :module_proposals_admin

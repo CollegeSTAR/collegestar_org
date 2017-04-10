@@ -2,16 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#module-proposals-table-wrapper {
+#case-study-proposals-table-wrapper {
   @include span(18 of 18 no-gutters);  
   padding: gutter();
 
-  table#module-proposals {
+  table#case-study-proposals {
     @include admin-table;
   }
 }
 
-#module-proposals-form-wrapper {
+#case-study-proposals-form-wrapper {
   @include span(18 of 18 no-gutters);
   padding: gutter();
 }
@@ -109,11 +109,8 @@
   }
 }
 
-#module-proposal-form-submit-wrapper {
+#case-study-proposal-form-submit-wrapper {
   @include span(18 of 18);
   text-align: center;
   margin-top: 4em;
 }
-
-
-
