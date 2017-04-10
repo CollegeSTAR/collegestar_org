@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get '/modules/rwg/:page', to: redirect('/modules/read-write#%{page}')
   get '/modules/usoc', to: redirect('/modules/using-syllabi-to-organize-courses')
   get '/modules/usoc/:page', to: redirect('/modules/using-syllabi-to-organize-courses#%{page}')
+  get '/module-proposals/new', to: redirect('/case-study-proposals/new')
   
   resources :sessions, only: [:create, :destroy]
   resources :password_resets, except: [:index, :show], path: '/password-resets'
@@ -85,7 +86,7 @@ Rails.application.routes.draw do
   resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
   resources :surveys, param: :slug
-  resources :module_proposals, path: '/module-proposals'
+  resources :module_proposals, path: '/case-study-proposals'
   resources :dss_contacts, param: :slug, path: '/disability-support-offices'
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
