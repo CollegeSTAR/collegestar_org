@@ -2,6 +2,7 @@ class UniversalDesignForLearningController < ApplicationController
   before_action :set_udl_resource, only: [ :show, :edit, :update, :destroy]
 
   def index
+    @page_content = Page.guaranteed_find slug: "universal-design-for-learning"
     @published_udl_resources = UniversalDesignForLearningResource.published
     @unpublished_udl_resources = UniversalDesignForLearningResource.unpublished
     authorize UniversalDesignForLearningResource

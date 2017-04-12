@@ -2,18 +2,15 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
-      <h1>Universal Design for Learning</h1>
+      <h1><%= @page_content.title.html_safe %></h1>
       <%= render(
             'shared/bread_crumb_social_media',
             bread_crumb_args: {
               page_name: 'Universal Design for Learning Resources'
             }
           ) %>
-
-      <p>
-        According to <a href="http://www.cast.org" target="_blank">CAST</a>, an educational research and development organization focused on expanding learning opportunities for all, "Universal Design for Learning is a set of principles for curriculum development that give all individuals equal opportunities to learn." At College STAR, one of our core tenets is to infuse Universal Design for Learning (UDL) into all aspects of the project. Below you will find resources that are directly related to UDL.
-      </p>
-     
+       <%= @page_content.text.html_safe %>
+    
       <% if policy(UniversalDesignForLearningResource).view_admin? %>
         <p>
           <%= link_to(
