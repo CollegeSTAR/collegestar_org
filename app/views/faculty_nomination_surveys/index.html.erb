@@ -13,10 +13,10 @@
           </tr>
           <% @surveys.each do |survey| %>
             <tr>
-              <td><%= link_to( "#{survey.faculty_first_name.html_safe} #{survey.faculty_last_name.html_safe}", 
+              <td><%= link_to( "#{survey.faculty_first_name} #{survey.faculty_last_name}".html_safe, 
                                campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: survey.id ) 
                              ) %></td>             
-              <td> <%= link_to( "#{truncate( survey.teaching_strategy.html_safe, length: 100, separator: ' ')}",
+              <td> <%= link_to( "#{truncate( survey.teaching_strategy, length: 100, separator: ' ')}".html_safe,
                                  campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: survey.id ) 
                               ) %></td>
             </tr>
