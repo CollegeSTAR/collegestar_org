@@ -1,10 +1,27 @@
 require 'spec_helper'
 
 RSpec.feature "Module Management" do
+  let(:udl_module) { create(:udl_module) }
+  let(:module_admin) { create(:modules_admin_user) }
+
+  feature "list all modules" do
+    before(:each) do
+      udl_module
+      #login
+      visit "/login"
+      fill_in "Email", with: module_admin.email
+      fill_in "Password", with: module_admin.password
+      click_button "Log In"
+    end
+
+    scenario "visit udl modules page" do
+      visit "/modules"
+      
+      expect(page).to have_content(udl_module.title)
+    end
+  end
 
   feature "add section to module" do
-    let(:udl_module) { create(:udl_module) }
-    let(:module_admin) { create(:modules_admin_user) }
     before(:each) do 
       #login
       visit "/login"

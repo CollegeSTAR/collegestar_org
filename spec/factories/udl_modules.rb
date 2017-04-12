@@ -7,6 +7,7 @@ FactoryGirl.define do
     udl_action_expression '1'
     udl_engagement '0'
     description 'This is a test module used to test modules...'
+    released true
     
     factory :udl_module_with_sections do
       after(:create) do |udl_module|

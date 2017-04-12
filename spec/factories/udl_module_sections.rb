@@ -49,12 +49,12 @@ FactoryGirl.define do
     shared true
     default_shared_position 1
   end
-  
-  factory :shared_udl_principles_section, class: UdlModuleSection do
-    title "A shared udl principle section"
-    sequence(:slug) { |n| "a-shared-udl-principle-section-#{n}" }
-    content "This is a shared section in the udl principles page."
-    parent "udl_principles"
+ 
+  factory :shared_udl_alignment_section, class: UdlModuleSection do
+    title "A shared Udl Alignment section"
+    sequence(:slug) { |n| "a-shared-udl-alignment-section-#{n}" }
+    content "This is a shared section in the UDL Alignment page."
+    parent "udl_alignment"
     shared true
     default_shared_position 1
   end

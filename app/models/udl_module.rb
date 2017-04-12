@@ -2,7 +2,7 @@ class UdlModule < ActiveRecord::Base
   
   PAGES = [
     :introduction, 
-    :udl_principles, 
+    :udl_alignment, 
     :instructional_practice, 
     :literature_base, 
     :learn_more, 
