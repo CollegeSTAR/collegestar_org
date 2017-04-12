@@ -20,13 +20,14 @@
         </p>
       <% end %>
       
-      <ul id="published-udl-resources">
       <% @published_udl_resources.each do |resource| %>
-        <li><h2><%= link_to resource.title.html_safe, universal_design_for_learning_path(resource) %></h2>
-          <%= resource.description.html_safe %>
-        </li>
+        <div class="udl-resource-wrapper">
+          <h2><%= link_to resource.title.html_safe, universal_design_for_learning_path(resource) %></h2>
+          <p>
+            <%= resource.description.html_safe %>
+          </p>
+        </div>
       <% end %>
-      </ul>
       
       <% if policy(UniversalDesignForLearningResource).view_admin? %>
         <h3>Unpublished Resources</h3>
