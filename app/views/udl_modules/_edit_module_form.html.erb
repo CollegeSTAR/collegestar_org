@@ -22,6 +22,12 @@
     <%= f.label :sub_heading %><br>
     <%= f.text_field :sub_heading %>
   </div>
+  <h1>Title Image</h1>
+  <%= image_tag @udl_module.title_image.url(:thumb) %>
+  <div class="image-upload">
+    <%= f.label :title_image %>
+    <%= f.file_field :title_image %>
+  </div>
 
   <h1>Description</h1>
   <div class="form-text-area">
