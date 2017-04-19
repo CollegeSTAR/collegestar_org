@@ -1,3 +1,29 @@
+.udl-module-list-wrapper {
+  @include span(18 of 18 no-gutters);
+
+  .udl-module-wrapper {
+    @include span(16 of 18 no-gutters);
+    margin: gutter() span( 1 of 18);
+
+    .title-image-wrapper {
+      @include span(5 of 16 no-gutters);
+    }
+
+    .title-wrapper {
+      @include span(11 of 16 at 6 no-gutters);
+    }
+
+    .description-wrapper {
+      @include span(11 of 16 at 6 no-gutters);
+      
+      p {
+        margin: gutter();
+        padding: 0;
+      }
+    }
+  }
+}
+
 #admin-tools {
   @include span(18 of 18);
   text-align: right;

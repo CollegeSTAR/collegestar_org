@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410151528) do
+ActiveRecord::Schema.define(version: 20170418190552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -440,11 +440,15 @@ ActiveRecord::Schema.define(version: 20170410151528) do
     t.boolean  "released"
     t.date     "release_date"
     t.date     "latest_revision_date"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.boolean  "udl_representation"
     t.boolean  "udl_action_expression"
     t.boolean  "udl_engagement"
+    t.string   "title_image_file_name"
+    t.string   "title_image_content_type"
+    t.integer  "title_image_file_size"
+    t.datetime "title_image_updated_at"
   end
 
   create_table "universal_design_for_learning_resources", force: :cascade do |t|

@@ -20,19 +20,30 @@
           ) %>
       <%= @page_content.text.html_safe %>
       <h3>Currently Available Modules</h3>
-      <ul> 
+        <div class="udl-module-list-wrapper">
           <% @released_modules.each do |udl_module| %>
-              <li><%= link_to( udl_module.title, udl_module ) %>
-              <% if policy(udl_module).edit? %>
+            <div class="udl-module-wrapper">
+              <div class="title-image-wrapper">
+                <%= image_tag udl_module.title_image.url(:medium) %> 
+              </div>
+              <div class="title-wrapper">
+                <h1><%= link_to( udl_module.title, udl_module ) %>
+                <% if policy(udl_module).edit? %>
                 <span class="edit-module-link"> 
                   <%= link_to(
                     fa_icon( "pencil", text: "Edit this module" ),
                     edit_udl_module_path( udl_module ) 
                   ) %>
                 </span>
+                </h1>
               <% end %>
+              </div>
+              <div class="description-wrapper">
+                <%= udl_module.description.html_safe %>
+              </div>
+              </div>
           <% end %>
-      </ul>
+        </div>
       <br>
       <% if policy(UdlModule).create? %> 
         <h2>Faculty Development Module Administration</h2>

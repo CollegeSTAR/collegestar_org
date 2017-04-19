@@ -18,6 +18,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'rails_helper'
 require 'pundit/rspec'
+require 'paperclip/matchers'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -49,6 +50,8 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  config.include Paperclip::Shoulda::Matchers
 
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
