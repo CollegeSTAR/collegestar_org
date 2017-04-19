@@ -24,7 +24,11 @@
           <% @released_modules.each do |udl_module| %>
             <div class="udl-module-wrapper">
               <div class="title-image-wrapper">
-                <%= image_tag udl_module.title_image.url(:medium) %> 
+                <% if udl_module.title_image %>
+                  <%= image_tag udl_module.title_image.url(:medium) %> 
+                <% else %>
+                  <%= image_tag "defaults/medium/module_title_image" %>
+                <% end %>
               </div>
               <div class="title-wrapper">
                 <h1><%= link_to( udl_module.title, udl_module ) %>
