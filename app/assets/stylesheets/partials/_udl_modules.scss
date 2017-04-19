@@ -17,7 +17,7 @@
       @include span(11 of 16 at 6 no-gutters);
       
       p {
-        margin: gutter();
+        margin: gutter() 2*gutter();
         padding: 0;
       }
     }
