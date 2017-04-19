@@ -12,7 +12,7 @@ class UdlModule < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
 
-  has_attached_file :title_image, styles: { medium: "250x150", thumb: "100x60" }
+  has_attached_file :title_image, styles: { medium: "250x150", thumb: "100x60" }, default_url: "/images/defaults/:style/module_title_image.png"
   validates_attachment_content_type :title_image, content_type: /\Aimage\/.*\z/
 
   has_many :module_author_associations, foreign_key: 'module_id', inverse_of: :module, dependent: :destroy
