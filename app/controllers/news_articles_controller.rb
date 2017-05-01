@@ -32,14 +32,10 @@ class NewsArticlesController < ApplicationController
     @news_article = NewsArticle.new(news_article_params)
     @news_article.slug ||= @news_article.title.parameterize if @news_article.title
     authorize @news_article
-    respond_to do |format|
-      if @news_article.save
-        format.html { redirect_to @news_article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @news_article }
-      else
-        format.html { render :new }
-        format.json { render json: @news_article.errors, status: :unprocessable_entity }
-      end
+    if @news_article.save
+      redirect_to @news_article, notice: 'Article was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -47,15 +43,11 @@ class NewsArticlesController < ApplicationController
   # PATCH/PUT /news_articles/1.json
   def update
     authorize @news_article
-    respond_to do |format|
       if @news_article.update(news_article_params)
-        format.html { redirect_to @news_article, notice: 'Successfully updated article.' }
-        format.json { render :show, status: :ok, location: @news_article }
+        redirect_to @news_article, notice: 'Successfully updated article.'
       else
-        format.html { render :edit }
-        format.json { render json: @news_article.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /news_articles/1
@@ -63,10 +55,7 @@ class NewsArticlesController < ApplicationController
   def destroy
     authorize @news_article
     @news_article.destroy
-    respond_to do |format|
-      format.html { redirect_to news_articles_path, notice: 'The Article was removed.' }
-      format.json { head :no_content }
-    end
+    redirect_to news_articles_path, notice: 'The Article was removed.'
   end
 
   private

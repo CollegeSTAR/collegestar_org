@@ -3,14 +3,12 @@ class UsersController < ApplicationController
   before_action :set_campuses_with_null, only: [:new]
 
   # GET /users
-  # GET /users.json
   def index
     @users = User.order(:last_name, :first_name, :email).page params[:page]
     authorize @users
   end
 
   # GET /users/1
-  # GET /users/1.json
   def show
     authorize @user
   end
@@ -29,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(create_user_params)
     if @user.save
@@ -45,7 +42,6 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     authorize @user
     
@@ -62,14 +58,10 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     authorize @user
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Successfully removed user.' }
-      format.json { head :no_content }
-    end
+    redirect_to users_url, notice: 'Successfully removed user.'
   end
 
   private

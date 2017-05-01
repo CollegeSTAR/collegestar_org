@@ -2,7 +2,6 @@ class UdlModulesController < ApplicationController
   before_action :set_udl_module, only: [:show, :edit, :update, :destroy]
 
   # GET /udl_modules
-  # GET /udl_modules.json
   def index
     @page_content = Page.guaranteed_find slug: 'modules'
     @released_modules = UdlModule.released
@@ -12,7 +11,6 @@ class UdlModulesController < ApplicationController
   end
 
   # GET /udl_modules/1
-  # GET /udl_modules/1.json
   def show
     authorize @udl_module
   end
@@ -29,7 +27,6 @@ class UdlModulesController < ApplicationController
   end
 
   # POST /udl_modules
-  # POST /udl_modules.json
   def create
     authorize UdlModule
     result = CreateUdlModule.call( user: current_user, udl_module_params: udl_module_params, params: params )
@@ -43,22 +40,16 @@ class UdlModulesController < ApplicationController
   end
 
   # PATCH/PUT /udl_modules/1
-  # PATCH/PUT /udl_modules/1.json
   def update
     authorize @udl_module
-    respond_to do |format|
       if @udl_module.update(udl_module_params)
-        format.html { redirect_to edit_udl_module_path(@udl_module), notice: 'Udl module was successfully updated.' }
-        format.json { render :show, status: :ok, location: @udl_module }
+        redirect_to edit_udl_module_path(@udl_module), notice: 'Udl module was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @udl_module.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /udl_modules/1
-  # DELETE /udl_modules/1.json
   def destroy
     authorize @udl_module
     if @udl_module.destroy

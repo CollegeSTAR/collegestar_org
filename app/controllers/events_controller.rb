@@ -31,14 +31,10 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.slug ||= @event.name.parameterize if @event.name
     authorize @event
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      redirect_to @event, notice: 'Event was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -46,14 +42,10 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     authorize @event
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: 'Event was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -62,10 +54,7 @@ class EventsController < ApplicationController
   def destroy
     authorize @event
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'The event was removed.' }
-      format.json { head :no_content }
-    end
+      redirect_to events_url, notice: 'The event was removed.'
   end
 
   private

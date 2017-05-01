@@ -32,14 +32,10 @@ class CampusesController < ApplicationController
     @campus = Campus.new(campus_params)
     @campus.slug ||= @campus.name.parameterize if @campus.name
     authorize @campus
-    respond_to do |format|
-      if @campus.save
-        format.html { redirect_to @campus, notice: 'Campus was successfully created.' }
-        format.json { render :show, status: :created, location: @campus }
-      else
-        format.html { render :new }
-        format.json { render json: @campus.errors, status: :unprocessable_entity }
-      end
+    if @campus.save
+      redirect_to @campus, notice: 'Campus was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -47,14 +43,10 @@ class CampusesController < ApplicationController
   # PATCH/PUT /campuses/1.json
   def update
     authorize @campus
-    respond_to do |format|
-      if @campus.update(campus_params)
-        format.html { redirect_to @campus, notice: 'Campus was successfully updated.' }
-        format.json { render :show, status: :ok, location: @campus }
-      else
-        format.html { render :edit }
-        format.json { render json: @campus.errors, status: :unprocessable_entity }
-      end
+    if @campus.update(campus_params)
+      redirect_to @campus, notice: 'Campus was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -63,10 +55,7 @@ class CampusesController < ApplicationController
   def destroy
     authorize @campus
     @campus.destroy
-    respond_to do |format|
-      format.html { redirect_to campuses_url, notice: 'The campus was removed.' }
-      format.json { head :no_content }
-    end
+    redirect_to campuses_url, notice: 'The campus was removed.'
   end
 
   private
