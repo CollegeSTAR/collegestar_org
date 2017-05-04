@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe UdlModule do
     let(:udl_module) { create(:udl_module) }
     let(:introduction_section) { create(:introduction_section) }
-    let(:udl_principles_section) { create(:udl_principles_section) }
+    let(:udl_alignment_section) { create(:udl_alignment_section) }
     let(:instructional_practice_section) { create(:instructional_practice_section) }
     let(:learn_more_section) { create(:learn_more_section) }
     let(:references_section) { create(:references_section) }
@@ -47,7 +47,7 @@ RSpec.describe UdlModule do
   describe "#get_page_section_count" do
     let(:udl_module) { create(:udl_module) }
     let(:intro_section) { create(:introduction_section) }
-    let(:udl_principles_section) { create(:udl_principles_section) }
+    let(:udl_alignment_section) { create(:udl_alignment_section) }
     it "returns 0 when page has no sections" do
       expect(udl_module.get_page_section_count("introduction")).to eq(0)
     end
@@ -64,7 +64,7 @@ RSpec.describe UdlModule do
     end
     it "returns 1 when two sections exist in different pages" do
       udl_module.add_section( intro_section )
-      udl_module.add_section( udl_principles_section )
+      udl_module.add_section( udl_alignment_section )
       udl_module.save
       expect(udl_module.get_page_section_count("introduction")).to eq(1)
     end
@@ -115,7 +115,7 @@ RSpec.describe UdlModule do
   describe "#get_sections_by_page" do
     before(:each) do
       udl_module.add_section( introduction_section )
-      udl_module.add_section( udl_principles_section )
+      udl_module.add_section( udl_alignment_section )
       udl_module.add_section( instructional_practice_section )
       udl_module.add_section( learn_more_section )
       udl_module.add_section( references_section )
@@ -126,8 +126,8 @@ RSpec.describe UdlModule do
       expect(udl_module.get_sections_by_page :introduction).to match_array([introduction_section]) 
     end
     
-    it "returns only udl_principle_sections" do
-      expect(udl_module.get_sections_by_page :udl_principles).to match_array([udl_principles_section])
+    it "returns only udl_alignment_sections" do
+      expect(udl_module.get_sections_by_page :udl_alignment).to match_array([udl_alignment_section])
     end
 
     it "returns only instructional_practice_sections" do

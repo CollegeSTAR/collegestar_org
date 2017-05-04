@@ -118,7 +118,8 @@
          <p>
            <%= link_to(
                  fa_icon("plus", text: "Add a section"), 
-                 new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "introduction"), 
+                 new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "introduction"),
+                 id: "udl-module-add-introduction-section",
                  class: "create-module-button" 
                ) %>
          </p>
@@ -140,18 +141,21 @@
        </div>
          <% @udl_module.get_sections_by_page(:module_objectives).each do |section| %>
          <a id="<%= section.slug %>"></a>
-         <div class="module-section-title-wrapper">
+         <div class="module-section-title-wrapper" data-no-turbolink>
            <h3>
-             <% if policy(@udl_module).update? %>
-             <span class="edit-module-section-link"> 
-             <%= link_to(
-                   fa_icon( "pencil", text: "Edit this section" ), 
-                   edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug)
-                 ) %>
-           </span>
-           <% end %>
-         </h3>
-       </div>
+             <% unless section.hide_title %>
+               <%= section.title %> 
+             <% end %>
+             <% if policy(@udl_module).update? %> 
+               <span class="edit-module-section-link"> 
+                 <%= link_to(
+                       fa_icon( "pencil", text: "Edit this section"), 
+                       edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug) 
+                     ) %>
+               </span>
+             <% end %>
+           </h3>
+         </div>
          <div class="module-section-content-wrapper">
            <%= section.content.html_safe %>
          </div>
@@ -161,6 +165,7 @@
            <%= link_to( 
                  fa_icon( "plus", text: "Add a section" ), 
                  new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "module_objectives"),
+                 id: "udl-module-add-module-objectives-section",
                  class: 'create-module-button'
                ) %>
          </p>
@@ -206,6 +211,7 @@
            <%= link_to( 
                  fa_icon( "plus", text: "Add a section" ), 
                  new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "udl_alignment"),
+                 id: "udl-module-add-udl-alignment-section",
                  class: 'create-module-button'
                ) %>
          </p>
@@ -251,6 +257,7 @@
          <%= link_to(
                fa_icon( "plus", text: "Add a section" ), 
                new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "instructional_practice"),
+               id: 'udl-module-add-instructional-practice-section',
                class: 'create-module-button'
              ) %>
        </p>
@@ -295,6 +302,7 @@
          <%= link_to(
                fa_icon( "plus", text: "Add a section" ),
                new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "learn_more"),
+               id: 'udl-module-add-learn-more-section',
                class: 'create-module-button'
              ) %>
        </p>
@@ -341,6 +349,7 @@
          <%= link_to(
                fa_icon( 'plus', text: 'Add a section' ),
                new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: 'references'),
+               id: 'udl-module-add-references-section',
                class: 'create-module-button'
              ) %>
        </p>
@@ -388,6 +397,7 @@
          <%= link_to(
                fa_icon( 'plus', text: 'Add a section' ),
                new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: 'about_the_author'),
+               id: 'udl-module-add-about-the-author-section',
                class: 'create-module-button'
              ) %>
        </p>

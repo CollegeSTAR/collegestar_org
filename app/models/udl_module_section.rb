@@ -1,5 +1,6 @@
 class UdlModuleSection < ActiveRecord::Base
   validates :title, presence: true
+  validate :parent_is_a_udl_module_page
   has_many :module_section_associations, foreign_key: 'section_id', inverse_of: :section, dependent: :destroy
   has_many :modules, class_name: 'UdlModule', through: :module_section_associations
   
@@ -31,4 +32,9 @@ class UdlModuleSection < ActiveRecord::Base
     slug
   end
 
+  def parent_is_a_udl_module_page
+    unless UdlModule::PAGES.include? self.parent.to_sym
+      errors.add(:parent, "Must be a page from a UDL Module") 
+    end
+  end
 end

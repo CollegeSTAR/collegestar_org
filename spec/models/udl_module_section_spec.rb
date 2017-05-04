@@ -3,7 +3,11 @@ require 'spec_helper'
 RSpec.describe UdlModuleSection do
   
   describe "validations" do
+    subject { build(:udl_module_section) }
     it { should validate_presence_of(:title) }
+    it "should not validate section with unknown parent" do
+      expect(UdlModuleSection.create(attributes_for(:udl_module_section, parent: "not_a_parent"))).to_not be_valid
+    end
   end
   describe "associations" do
     it "has many modules" do
@@ -33,16 +37,19 @@ RSpec.describe UdlModuleSection do
     let(:instructional_section) { create(:shared_instructional_practice_section) }
     let(:lit_section) { create(:shared_literature_base_section) }
     let(:learn_section) { create(:shared_learn_more_section) }
-    let(:references_section) { create(:shared_references_and_resources_section) }
+    let(:references_section) { create(:shared_references_section) }
     let(:shared_sections) { UdlModuleSection.shared_sections}
     let(:result) { 
       {
         introduction: [intro_section],
+        module_objectives: [],
         udl_alignment: [udl_section],
         instructional_practice: [instructional_section],
         literature_base: [lit_section],
         learn_more: [learn_section],
-        references_and_resources: [references_section]
+        references: [references_section],
+        resources: [],
+        about_the_author: []
 
       }
     }

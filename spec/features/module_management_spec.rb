@@ -48,5 +48,82 @@ RSpec.feature "Module Management" do
         expect(page).to have_css(".field_with_errors")
       end
     end
+
+    scenario "add introduction section" do
+      visit "/modules/#{udl_module.slug}"
+      click_link("udl-module-add-introduction-section")
+      fill_in "udl_module_section_title", with: "My intro section"
+      fill_in "udl_module_section_content", with: "This is the intro content"
+      click_button "Save section"
+
+      visit "/modules/#{udl_module.slug}"
+      expect(page).to have_content("My intro section")
+    end    
+    
+    scenario "add module objectives section" do
+      visit "/modules/#{udl_module.slug}"
+      click_link("udl-module-add-module-objectives-section")
+      fill_in "udl_module_section_title", with: "My module objectives section"
+      fill_in "udl_module_section_content", with: "This is the module objectives content"
+      click_button "Save section"
+
+      visit "/modules/#{udl_module.slug}"
+      expect(page).to have_content("My module objectives section")
+    end
+    
+    scenario "add udl alignment section" do
+      visit "/modules/#{udl_module.slug}"
+      click_link("udl-module-add-udl-alignment-section")
+      fill_in "udl_module_section_title", with: "My udl alignment section"
+      fill_in "udl_module_section_content", with: "This is the udl alignment content"
+      click_button "Save section"
+
+      visit "/modules/#{udl_module.slug}"
+      expect(page).to have_content("My udl alignment section")
+    end
+    
+    scenario "add instructional practice section" do
+      visit "/modules/#{udl_module.slug}"
+      click_link("udl-module-add-instructional-practice-section")
+      fill_in "udl_module_section_title", with: "My instructional practice section"
+      fill_in "udl_module_section_content", with: "This is the instructional practice content"
+      click_button "Save section"
+
+      visit "/modules/#{udl_module.slug}"
+      expect(page).to have_content("My instructional practice section")
+    end
+    
+    scenario "add learn more section" do
+      visit "/modules/#{udl_module.slug}"
+      click_link("udl-module-add-learn-more-section")
+      fill_in "udl_module_section_title", with: "My learn more section"
+      fill_in "udl_module_section_content", with: "This is the learn more content"
+      click_button "Save section"
+
+      visit "/modules/#{udl_module.slug}"
+      expect(page).to have_content("My learn more section")
+    end
+    
+    scenario "add references section" do
+      visit "/modules/#{udl_module.slug}"
+      click_link("udl-module-add-references-section")
+      fill_in "udl_module_section_title", with: "My references section"
+      fill_in "udl_module_section_content", with: "This is the references content"
+      click_button "Save section"
+
+      visit "/modules/#{udl_module.slug}"
+      expect(page).to have_content("My references section")
+    end
+    
+    scenario "add about the author section" do
+      visit "/modules/#{udl_module.slug}"
+      click_link("udl-module-add-about-the-author-section")
+      fill_in "udl_module_section_title", with: "My about the author section"
+      fill_in "udl_module_section_content", with: "This is the about the author content"
+      click_button "Save section"
+
+      visit "/modules/#{udl_module.slug}"
+      expect(page).to have_content("My about the author section")
+    end
   end
 end

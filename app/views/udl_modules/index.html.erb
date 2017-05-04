@@ -106,7 +106,7 @@
             
         <h4>References and Resources</h4>
         <ul>
-        <% @shared_module_sections[:references_and_resources].each do |section| %>
+        <% @shared_module_sections[:references].each do |section| %>
           <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
         <% end %>
         </ul>
