@@ -180,7 +180,7 @@
          </div>
        </div>
        
-       <% @udl_module.get_sections_by_page(:udl_module_alignment).each do |section| %>
+       <% @udl_module.get_sections_by_page(:udl_alignment).each do |section| %>
         <a id="<%= section.slug %>"></a>
         <div class="module-section-title-wrapper">
             <h3>
@@ -205,7 +205,7 @@
          <p>
            <%= link_to( 
                  fa_icon( "plus", text: "Add a section" ), 
-                 new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "udl_principles"),
+                 new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "udl_alignment"),
                  class: 'create-module-button'
                ) %>
          </p>
