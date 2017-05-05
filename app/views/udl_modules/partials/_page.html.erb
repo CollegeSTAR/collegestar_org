@@ -1,8 +1,8 @@
-<div id="module-<%= page %>" class="module-page">
-  <a id="<%= page %>"></a>
+<div id="module-<%= page.parameterize %>" class="module-page">
+  <a id="<%= page.parameterize %>"></a>
   <h2><%= page %></h2>
   
-  <% @udl_module.get_sections_by_page(page.to_sym).each do |section| %>
+  <% @udl_module.get_sections_by_page(page.parameterize.underscore.to_sym).each do |section| %>
     <a id="<%= section.slug %>"></a>
     <div class="module-section-title-wrapper" data-no-turbolink>
         <h3>
@@ -27,8 +27,8 @@
     <p>
       <%= link_to(
             fa_icon("plus", text: "Add a section"), 
-            new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: page),
-            id: "udl-module-add-#{page}-section",
+            new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: page.parameterize.underscore),
+            id: "udl-module-add-#{page.parameterize}-section",
             class: "create-module-button" 
           ) %>
     </p>
