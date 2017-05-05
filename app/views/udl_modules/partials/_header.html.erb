@@ -1,0 +1,32 @@
+<% if policy(@udl_module).update? %>
+<div id="admin-tools">
+  <%= link_to(
+        fa_icon('bars', text: 'settings'),
+        edit_udl_module_path(@udl_module)     
+      ) %>
+</div>
+<% end %>
+<section id="module-title">
+  <div id="module-icon-wrapper">
+   <a href="#udl-icon" title="This icon is a graphical representation of UDL priniciples with which this module aligns."><%= image_tag( 'trans.png', class: get_udl_trio_class(@udl_module), alt: 'This module models the UDL Principles of Representation and Action and Expression.') %></a>
+   
+  </div>
+  <div id="module-title-wrapper">
+   <h1><%= @udl_module.title %></h1>
+   <h2><%= @udl_module.sub_heading %>
+  </div>
+</section>        
+<%= render(
+      'shared/bread_crumb_social_media', 
+      bread_crumb_args: { 
+        page_name: @udl_module.title,
+        parents: [
+          [ 'faculty', faculty_path ],
+          ['udl modules', udl_modules_path ]
+        ],
+      },
+      social_media_args: {
+        show: true,
+        tweet_text: @udl_module.title
+      }
+) %>

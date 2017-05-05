@@ -6,126 +6,13 @@
   <div id="single-column-wrapper">
     <div id="content">
   <main>
-    <% if policy(@udl_module).update? %>
-    <div id="admin-tools">
-      <%= link_to(
-            fa_icon('bars', text: 'settings'),
-            edit_udl_module_path(@udl_module)     
-          ) %>
-    </div>
-    <% end %>
-    <section id="module-title">
-      <div id="module-icon-wrapper">
-       <a href="#udl-icon" title="This icon is a graphical representation of UDL priniciples with which this module aligns."><%= image_tag( 'trans.png', class: get_udl_trio_class(@udl_module), alt: 'This module models the UDL Principles of Representation and Action and Expression.') %></a>
-       
-      </div>
-      <div id="module-title-wrapper">
-       <h1><%= @udl_module.title %></h1>
-       <h2><%= @udl_module.sub_heading %>
-      </div>
-    </section>        
-    <%= render(
-          'shared/bread_crumb_social_media', 
-          bread_crumb_args: { 
-            page_name: @udl_module.title,
-            parents: [
-              [ 'faculty', faculty_path ],
-              ['udl modules', udl_modules_path ]
-            ],
-          },
-          social_media_args: {
-            show: true,
-            tweet_text: @udl_module.title
-          }
-        ) %>
-
+    <%= render 'udl_modules/partials/header' %>
     <article id="module-content">
-    <a id="module-top"></a>
-    <div id="module-introduction-wrapper">   
-       <aside id="toc">
-         <h1>Contents</h1>
-         <ol>
-           <li><%= link_to("Introduction", udl_module_url(@udl_module, anchor: "introduction")) %>
-             <ol>
-               <% @udl_module.get_sections_by_page(:introduction).each do |section| %>
-                 <% unless section.hide_title %>
-                   <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
-                 <% end %>
-               <% end %>
-             </ol>
-           </li>
-           <li><%= link_to("Module Objectives", udl_module_url(@udl_module, anchor: "module-objectives")) %></li>
-           <li><%= link_to("UDL Alignment", udl_module_url(@udl_module, anchor: "udl-alignment")) %></li>
-           <li><%= link_to("Instructional Practice", udl_module_url(@udl_module, anchor: "instructional-practice")) %>
-             <ol>
-                <% @udl_module.get_sections_by_page(:instructional_practice).each do |section| %>
-                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
-               <% end %>
-             </ol>
-           </li>           
-           <li><%= link_to("Learn More", udl_module_url(@udl_module, anchor: "learn-more")) %>
-             <ol>
-                <% @udl_module.get_sections_by_page(:learn_more).each do |section| %>
-                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
-               <% end %>
-             </ol>
-           </li>
-           <li><%= link_to("References &amp; Resources".html_safe, udl_module_url(@udl_module, anchor: "references-and-resources")) %>
-             <ol>
-               <% @udl_module.get_sections_by_page(:references).each do |section| %>
-                 <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
-               <% end %>
-             </ol>
-           </li>
-           <li><%= link_to("About the Author", udl_module_url(@udl_module, anchor: "about-the-author")) %>
-             <ol>
-               <% @udl_module.get_sections_by_page(:about_the_author).each do |section| %>
-                 <% unless section.hide_title %>
-                   <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
-                 <% end %>
-               <% end %>
-             </ol>
-           </li>
-         </ol>
-       </aside>
-       
-       <div id="module-introduction" class="module-page">
-       <a id="introduction"></a>
-       <h2>Introduction</h2>
-       
-       <% @udl_module.get_sections_by_page(:introduction).each do |section| %>
-         <a id="<%= section.slug %>"></a>
-         <div class="module-section-title-wrapper" data-no-turbolink>
-             <h3>
-               <% unless section.hide_title %>
-                 <%= section.title %> 
-               <% end %>
-               <% if policy(@udl_module).update? %> 
-                 <span class="edit-module-section-link"> 
-                   <%= link_to(
-                         fa_icon( "pencil", text: "Edit this section"), 
-                         edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug) 
-                       ) %>
-                 </span>
-               <% end %>
-             </h3>
-           </div>
-           <div class="module-section-content-wrapper">
-             <%= section.content.html_safe %>
-           </div>
-       <% end %>
-       <% if policy(@udl_module).update? %>
-         <p>
-           <%= link_to(
-                 fa_icon("plus", text: "Add a section"), 
-                 new_udl_module_section_path(udl_module_slug: @udl_module.slug, parent: "introduction"),
-                 id: "udl-module-add-introduction-section",
-                 class: "create-module-button" 
-               ) %>
-         </p>
-       <% end %>
-       </div>
+      <div id="module-introduction-wrapper">   
+        <%= render 'udl_modules/partials/table_of_contents' %>
+        <%= render 'udl_modules/partials/page', page: 'introduction' %>       
      </div>
+        <%= render 'udl_modules/partials/page', page: 'module-objectives' %>
 
      <div id="module-objectives" class="module-page">
        <a id="objectives"></a>
