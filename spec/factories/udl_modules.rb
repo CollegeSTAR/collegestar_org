@@ -12,7 +12,7 @@ FactoryGirl.define do
     factory :udl_module_with_sections do
       after(:create) do |udl_module|
         udl_module.sections << create(:introduction_section)
-        udl_module.sections << create(:udl_principles_section)
+        udl_module.sections << create(:udl_alignment_section)
         udl_module.sections << create(:instructional_practice_section)
         udl_module.sections << create(:learn_more_section)
         udl_module.sections << create(:references_section)

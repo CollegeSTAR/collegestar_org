@@ -13,7 +13,8 @@
             <span class="edit-module-section-link"> 
               <%= link_to(
                     fa_icon( "pencil", text: "Edit this section"), 
-                    edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug) 
+                    edit_udl_module_section_path(udl_module_slug: @udl_module.slug, slug: section.slug),
+                    id: "edit-udl-module-section-#{section.slug}"
                   ) %>
             </span>
           <% end %>
