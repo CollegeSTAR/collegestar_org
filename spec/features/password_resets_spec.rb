@@ -13,6 +13,18 @@ RSpec.feature "Password Resets" do
         fill_in "Email", with: user.email
         click_button "Request password reset instructions"
         expect(page).to have_text("An email has been sent to the provided email address with reset instructions. Thank you.")
+       
+        #we grep the reset email for the password-reset link up to "/edit"
+        #we use this to test the rest of the reset process
+        email = ActionMailer::Base.deliveries.last.to_s
+        link = /password-resets\/[^\/]+/.match email
+        
+        visit "/#{link}/edit"
+        fill_in "user_password", with: "test_test"
+        fill_in "user_password_confirmation", with: "test_test"
+        click_button("Reset my password")
+
+        expect(page).to have_content(user.first_name)
       end
     end
     context "with non-existing user" do
