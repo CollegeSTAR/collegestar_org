@@ -60,7 +60,7 @@ Rails.application.routes.draw do
     resources :redesign_summaries, except: [:show], path: '/redesign-summaries'
   end
   resources :pages, param: :slug
-  resources :news_articles, only: [:new], path: '/news-article'
+  resources :news_articles, only: [:new], path: '/news-articles'
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :campuses, param: :slug do
     resources :institutional_colleges, param: :slug, path: '/colleges' do

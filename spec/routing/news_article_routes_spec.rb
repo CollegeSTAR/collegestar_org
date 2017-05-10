@@ -2,8 +2,8 @@ require 'spec_helper'
 
 RSpec.describe NewsArticlesController do
   describe 'news articles routes' do
-    it 'get: /news-article/new' do
-      expect(get('/news-article/new')).to route_to('news_articles#new')
+    it 'get: /news-articles/new' do
+      expect(get('/news-articles/new')).to route_to('news_articles#new')
     end
     it 'get: /news' do
       expect(get('/news')).to route_to('news_articles#index')
