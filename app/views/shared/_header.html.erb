@@ -21,7 +21,6 @@
             <li><%= link_to '<i class="fa fa-book fa-la"></i>&nbsp; My Redesign Summaries'.html_safe, profile_redesign_summaries_path(profile_id: current_user) %></li>
             <!--
             <li><%= link_to '<i class="fa fa-history fa-la"></i>&nbsp; My Module History'.html_safe, udl_modules_path %></li>
-            <li><%= link_to '<i class="fa fa-cubes fa-la"></i>&nbsp; My Communities'.html_safe, communities_path %></li>
             <li><%= link_to '<i class="fa fa-line-chart fa-la"></i>&nbsp; My Surveys'.html_safe, surveys_path %></li>
             -->
             <% if policy(Campus).view_admin? %>

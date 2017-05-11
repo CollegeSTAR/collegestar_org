@@ -25,7 +25,8 @@
                 <span class="edit-campus-link"> 
                    <%= link_to(
                          fa_icon( "pencil", text: "Edit this campus"), 
-                         edit_campus_path(slug: campus.slug) 
+                         edit_campus_path(slug: campus.slug),
+                         id: "edit_campus_#{campus.slug.underscore}_link"
                        ) %>
                </span>
              <% end %>

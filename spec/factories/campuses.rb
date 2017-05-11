@@ -5,6 +5,7 @@ FactoryGirl.define do
     sequence( :abbreviation ) { |n| "c#{n}" }
     institution_type "university"
     address_1 "1000 AnyStreet"
+    address_2 ""
     city "AnyPlace"
     state "NC"
     zip "12345"
