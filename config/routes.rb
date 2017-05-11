@@ -83,7 +83,6 @@ Rails.application.routes.draw do
   resources :universal_design_for_learning, param: :slug, path: '/universal-design-for-learning'
   resources :frequently_asked_questions, except: [:show], path: '/frequently-asked-questions'
   resources :shared_module_sections, except: [:show, :index], param: :slug, controller: :shared_module_sections, path: '/shared-module-sections'
-  resources :communities, param: :slug
   resources :contacts, only: [:index, :show, :create, :destroy]
   resources :surveys, param: :slug
   resources :case_study_proposals, path: '/case-study-proposals'
