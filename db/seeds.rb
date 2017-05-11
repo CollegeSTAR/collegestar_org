@@ -23,6 +23,13 @@ roles = [
   { name: "dss_contacts__admin", description: "Disability Support Services Contacts Administrator: Administrative rights to DSS Contacts index.", grantable: true }
 ]
 
+pages = [
+  { title: "Welcome to College STAR", slug: "home", text: "College STAR Home text" },
+  { title: "About College STAR", slug: "about", text: "About College STAR text" },
+  { title: "College STAR Terms of Use Policy", slug: "terms", text: "College STAR terms of use text" },
+  { title: "How can we help you?", slug: "contact-us", text: "Contact us page text." }
+]
+
 roles.each do |role|
   found_role = Role.find_or_create_by( name: role[:name] ) do |new_role|
     new_role.description = role[:description]
@@ -31,4 +38,11 @@ roles.each do |role|
   found_role.description = role[:description] if found_role.description != role[:description]
   found_role.grantable = role[:grantable] if found_role.grantable != role[:grantable]
   found_role.save
+end
+
+pages.each do |page|
+  Page.find_or_create_by( slug: page[:slug] ) do |new_page|
+    new_page.title = page[:title]
+    new_page.text = page[:text]
+  end
 end
