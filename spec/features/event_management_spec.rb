@@ -1,6 +1,26 @@
 require 'spec_helper'
 
 RSpec.feature "Event Management" do
+  let(:admin_user) { create(:admin_user) }
+  let(:event) { create(:event) }
+
+  feature "index of events" do
+    before(:each) { event }
+
+    scenario "user visits events page"  do
+      visit "/events"
+      expect(page).to have_content(event.name)
+    end
+  end
+
+  feature "display event information" do
+    before(:each) { event }
+    
+    scenario "user visits event show view" do
+      visit "/events/#{event.slug}"
+      expect(page).to have_content(event.name)
+    end
+  end
 
   feature "add new event" do 
 
@@ -38,6 +58,39 @@ RSpec.feature "Event Management" do
       end
     end
   end
-end
 
-#to test in command line run $bin/rspec
+  feature "edit event" do
+    before(:each) do
+      event
+    end
+
+    context "with correct user permissions" do
+      
+      before(:each) do
+        #login
+        visit "/login"
+        fill_in "Email", with: admin_user.email
+        fill_in "Password", with: admin_user.password
+        click_button "Log In"
+      end
+
+      scenario "user edits event" do
+        edited_event_name = "Edited event name"
+        visit "/events/#{event.slug}"
+        click_link "edit_event_link"
+        
+        fill_in "event_name", with: edited_event_name
+        click_button "Update Event"
+
+        expect(page).to have_content(edited_event_name)
+      end
+    end
+
+    context "user attempts to edit event without correct user permissions" do
+      scenario "user is redirected to login" do
+        visit "/events/#{event.slug}/edit"
+        expect(page).to have_content("Log In")
+      end
+    end
+  end
+end

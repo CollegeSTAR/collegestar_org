@@ -57,7 +57,7 @@
 </p>
 
 <% if policy(@event).edit? %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Edit', edit_event_path(@event), id: 'edit_event_link' %> |
 <% end %>
 <% if policy(@event).index? %>
   <%= link_to 'Back', events_path %>

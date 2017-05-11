@@ -33,7 +33,7 @@
 <br>
 
 <% if policy(Event).create? %>
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path, id: 'new_event_link' %>
 <% end %>
 <h2>Past Events</h2>
 </div>
