@@ -13,7 +13,8 @@
 
       <h2>My Currently Released Modules</h2>
         <% @released_modules.each do |mod| %>
-          <p><%= mod.title %></p>
+          <p><%= link_to mod.title, udl_module_path(mod) %></p>
+
         <% end %>
     </div>
   </div>
