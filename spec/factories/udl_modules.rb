@@ -18,6 +18,12 @@ FactoryGirl.define do
         udl_module.sections << create(:references_section)
       end
     end
+
+    factory :udl_module_with_author do
+      after(:create) do |udl_module|
+        udl_module.authors << create(:modules_author_user)
+      end
+    end
   end
 
   factory :new_udl_module, class: UdlModule do

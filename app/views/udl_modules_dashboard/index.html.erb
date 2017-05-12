@@ -1,0 +1,20 @@
+<% content_for :title, "#{current_user.first_name}'s current modules" %>
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>UDL Module Dashboard</h1>
+      <p>
+        <%= link_to "Create a new UDL Module of Case Study", new_udl_module_path %>
+      </p>
+      <h2>My Currently Unreleased Modules</h2>
+        <% @unreleased_modules.each do |mod| %>
+          <p><%= link_to mod.title, udl_module_path(mod) %></p>
+        <% end %>
+
+      <h2>My Currently Released Modules</h2>
+        <% @released_modules.each do |mod| %>
+          <p><%= mod.title %></p>
+        <% end %>
+    </div>
+  </div>
+</div>

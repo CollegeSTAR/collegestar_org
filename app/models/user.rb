@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :module_faculty_associations, foreign_key: 'faculty_id'
   has_many :faculty_modules, through: :module_faculty_associations, source: 'module'
   has_many :redesign_summaries
-  
+
   def full_name
     full_name = title ? "#{title} " : ""
     full_name += "#{first_name} #{last_name}"
@@ -76,6 +76,14 @@ class User < ActiveRecord::Base
       end
     end
     return false
+  end
+  
+  def released_modules
+    ( faculty_modules.where( released: 'true' ) + author_modules.where( released: 'true') ).uniq
+  end
+
+  def unreleased_modules
+    ( faculty_modules.where( released: 'false' ) + author_modules.where( released: 'false') ).uniq 
   end
   
   private

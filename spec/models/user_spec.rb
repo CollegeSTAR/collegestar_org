@@ -2,6 +2,12 @@ require 'spec_helper'
 
 RSpec.describe User do
   let(:user) { create(:user) }  
+  let(:owned_and_released_faculty_udl_module) { create(:udl_module, released: true) }
+  let(:owned_and_released_author_udl_module) { create(:udl_module, released: true) }
+  let(:owned_faculty_udl_module) { create(:udl_module, released: false) }
+  let(:owned_author_udl_module) { create(:udl_module, released: false) }
+
+  let(:non_owned_udl_module) { create(:udl_module) }
 
   describe "validations" do
     subject { build(:user) }
@@ -132,6 +138,33 @@ RSpec.describe User do
       it "should return false" do
         expect(non_admin_user.has_role? :admin).to be_falsey
       end
+    end
+  end
+
+  describe "#released_modules" do
+    before(:each) do
+      user.faculty_modules << owned_and_released_faculty_udl_module
+      user.faculty_modules << owned_faculty_udl_module
+      user.author_modules << owned_and_released_author_udl_module
+      user.author_modules << owned_author_udl_module
+      non_owned_udl_module
+    end
+    it "returns only user's released modules" do
+      expect(user.released_modules).to match_array(
+        [
+          owned_and_released_faculty_udl_module, 
+          owned_and_released_author_udl_module
+        ]
+      )
+    end
+    it "returns only user's unreleased modules" do
+      expect(user.unreleased_modules).to match_array(
+        [
+          owned_faculty_udl_module, 
+          owned_author_udl_module
+        ]
+      )
+
     end
   end
 
