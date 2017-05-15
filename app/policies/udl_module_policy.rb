@@ -18,11 +18,15 @@ class UdlModulePolicy < ApplicationPolicy
     true
   end
 
-  def new?
+  def dashboard?
     if user.has_role?( @accepted_admin_roles ) || user.has_role?( :modules_author )
       return true
     end
     false
+  end
+
+  def new?
+    dashboard? 
   end
   
   def create?

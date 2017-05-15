@@ -5,6 +5,14 @@ RSpec.feature "UDL Module Editor" do
   let(:modules_author) { create(:modules_author_user) }
   
   feature "display index of user's modules" do
+    context "without correct permissions" do
+      scenario "user visits a module dashboard" do
+        modules_author
+        visit "/profiles/#{modules_author.id}/modules-dashboard"
+        expect(page).to have_content("Log In")
+      end
+    end
+
     context "with existing authored modules" do
       before(:each) do
         visit "/login"
