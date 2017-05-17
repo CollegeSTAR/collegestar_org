@@ -1,0 +1,14 @@
+<h2>Student Information</h2>
+<p><strong>Student Name:</strong> <%= survey.student_name.html_safe %></p>
+<p><strong>Student Email:</strong> <%= survey.student_email.html_safe %></p>
+
+<h3>Preferences</h3>
+<p><strong>I wish to remain anonymous:</strong> <%= survey.remain_anonymous %></p>
+<p><strong>You may share my name with the faculty member:</strong> <%= survey.share_name_with_faculty %></p>
+<p><strong>You may contact me for more information:</strong> <%= survey.contact_for_more_info %></p>
+
+<h3>Optional Demographics</h3>
+<p><strong>Gender:</strong> <%= survey.student_gender %></p>
+<p><strong>Age:</strong> <%= survey.student_age %></p>
+<p><strong>Eligible for services for students with disabilities:</strong> <%= survey.student_dss_eligible %></p>
+<p><strong>Currently using a service(s) for students with disabilities:</strong> <%= survey.student_currently_using_dss %></p>

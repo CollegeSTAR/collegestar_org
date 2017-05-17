@@ -79,5 +79,30 @@ RSpec.feature "Faculty Nomination Surveys" do
         
         expect(page).to have_content("Password")
       end
-    end  end
+    end  
+  end
+
+  feature "view surveys" do
+    context "while logged in" do
+      before(:each) do
+        #login
+        visit "/login"
+        fill_in "Email", with: admin_user.email
+        fill_in "password", with: admin_user.password
+        click_button "Log In"
+        survey
+        college
+      end
+
+      scenario "user navigates to survey edit page and adds a quote" do
+        visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/#{survey.id}"
+        click_link "edit_faculty_nomination_survey_#{survey.id}_link"
+
+        fill_in "faculty_nomination_survey_quotes", with: "A quote"
+        click_button "Update survey"
+
+        expect(page).to have_content( "A quote" )
+      end
+    end
+  end
 end

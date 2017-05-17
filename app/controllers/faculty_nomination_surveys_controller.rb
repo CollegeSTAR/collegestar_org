@@ -17,7 +17,7 @@ class FacultyNominationSurveysController < ApplicationController
   end
 
   def create
-    @survey = FacultyNominationSurvey.new( faculty_nomination_survey_params )
+    @survey = FacultyNominationSurvey.new( new_faculty_nomination_survey_params )
     @survey.institutional_faculty_id = InstitutionalFaculty.first.id #DB requires faculty, but we haven't implemented that yet.
     if @survey.save
       redirect_to confirmation_campus_faculty_nomination_survey_path(campus_slug: @campus.slug, id: @survey.id ), notice: "Successfully created nomination."
@@ -30,6 +30,15 @@ class FacultyNominationSurveysController < ApplicationController
       set_colleges
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    authorize @survey
+    @survey.update( update_faculty_nomination_survey_params )
+    redirect_to edit_campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: @survey.id )
   end
 
   def confirmation
@@ -49,7 +58,7 @@ class FacultyNominationSurveysController < ApplicationController
     @survey = FacultyNominationSurvey.find params[:id]
   end
 
-  def faculty_nomination_survey_params
+  def new_faculty_nomination_survey_params
     params.require(:faculty_nomination_survey).permit(
       :campus_id,
       :remain_anonymous,
@@ -75,5 +84,9 @@ class FacultyNominationSurveysController < ApplicationController
         :student_generated
       ]
     )
+  end
+
+  def update_faculty_nomination_survey_params
+    params.require(:faculty_nomination_survey).permit(:quotes)
   end
 end

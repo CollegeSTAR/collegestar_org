@@ -1,0 +1,21 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= "#{@survey.faculty_first_name} #{@survey.faculty_last_name}".html_safe %></h1>
+
+      <%= render "faculty_nomination_surveys/partials/teaching_strategy", survey: @survey %>
+      
+      <%= form_for( @survey , url: campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: @survey.id ) ) do |f| %>
+        <p>
+          <%= f.label :quotes %>
+        </p>
+        <p>
+          <%= f.text_area :quotes %>
+        </p>
+
+        <%= f.submit "Update survey" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
