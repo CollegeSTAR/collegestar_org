@@ -99,9 +99,23 @@ RSpec.feature "Faculty Nomination Surveys" do
         click_link "edit_faculty_nomination_survey_#{survey.id}_link"
 
         fill_in "faculty_nomination_survey_quotes", with: "A quote"
+        check "faculty_nomination_survey_reviewed"
         click_button "Update survey"
 
         expect(page).to have_content( "A quote" )
+        expect(page).to have_checked_field( "faculty_nomination_survey_reviewed" )
+      end
+    end
+    context "while not logged in" do
+      before(:each) do
+        survey
+        college
+      end
+
+      scenario "user navigates to survey's edit page" do
+        visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/#{survey.id}/edit"
+
+        expect(page).to have_content("Log In")
       end
     end
   end

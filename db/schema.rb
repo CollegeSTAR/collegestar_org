@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418190552) do
+ActiveRecord::Schema.define(version: 20170518170759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20170418190552) do
     t.string   "faculty_first_name"
     t.string   "faculty_last_name"
     t.integer  "department_id"
+    t.boolean  "reviewed"
     t.index ["campus_id"], name: "index_faculty_nomination_surveys_on_campus_id", using: :btree
     t.index ["department_id"], name: "index_faculty_nomination_surveys_on_department_id", using: :btree
     t.index ["institutional_faculty_id"], name: "index_faculty_nomination_surveys_on_institutional_faculty_id", using: :btree

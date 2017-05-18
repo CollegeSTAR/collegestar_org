@@ -12,6 +12,12 @@
         <p>
           <%= f.text_area :quotes %>
         </p>
+        <p>
+          <%= f.label :reviewed %>
+        </p>
+        <p>
+          <%= f.check_box :reviewed %>
+        </p>
 
         <%= f.submit "Update survey" %>
       <% end %>

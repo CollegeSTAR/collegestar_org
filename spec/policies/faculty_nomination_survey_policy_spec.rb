@@ -5,6 +5,7 @@ RSpec.describe FacultyNominationSurveyPolicy do
   subject { described_class }
   let(:admin) { create(:admin_user) }
   let(:surveys_admin) { create(:faculty_nomination_surveys_admin_user) }
+  let(:surveys_viewer) { create(:faculty_nomination_surveys_viewer_user) }
   let(:user) { create(:user) }
   let(:null_user) { NullUser.new }
 
@@ -15,6 +16,9 @@ RSpec.describe FacultyNominationSurveyPolicy do
     it "grants survey_admin access" do
       expect(subject).to permit(surveys_admin, FacultyNominationSurvey.new)
     end
+    it "grants survey_viewer access" do
+      expect(subject).to permit(surveys_viewer, FacultyNominationSurvey.new)
+    end
     it "grants user access" do
       expect(subject).to permit(user, FacultyNominationSurvey.new)
     end
@@ -23,15 +27,36 @@ RSpec.describe FacultyNominationSurveyPolicy do
     end
   end
 
-  permissions :index?, :show?, :edit?, :update?, :view_admin? do
+  permissions :index?, :show? do
     it "grants admin access" do
       expect(subject).to permit(admin, FacultyNominationSurvey.new)
     end
     it "grants surveys_admin access" do
       expect(subject).to permit(surveys_admin, FacultyNominationSurvey.new)
     end
+    it "grants surveys_viewer access" do
+      expect(subject).to permit(surveys_viewer, FacultyNominationSurvey.new)
+    end
     it "denies user access" do
       expect(subject).to_not permit(user, FacultyNominationSurvey.new) 
+    end
+    it "denies null_user access" do
+      expect(subject).to_not permit(null_user, FacultyNominationSurvey.new)
+    end
+  end
+
+  permissions :edit?, :update?, :view_admin? do
+    it "grants admin access" do
+      expect(subject).to permit(admin, FacultyNominationSurvey.new)
+    end
+    it "grants surveys_admin access" do
+      expect(subject).to permit(surveys_admin, FacultyNominationSurvey.new)
+    end
+    it "denies surveys_viewer access" do
+      expect(subject).to_not permit(surveys_viewer, FacultyNominationSurvey.new)
+    end
+    it "denies user access" do
+      expect(subject).to_not permit(user, FacultyNominationSurvey.new)
     end
     it "denies null_user access" do
       expect(subject).to_not permit(null_user, FacultyNominationSurvey.new)

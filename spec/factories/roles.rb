@@ -53,6 +53,12 @@ factory :campus_admin, class: Role do
     grantable true
   end
 
+  factory :faculty_nomination_surveys_viewer, class: Role do
+    name "faculty_nomination_surveys_viewer"
+    description "Faculty Nomination Surveys Viewer: Can view faculty nomination surveys"
+    grantable true
+  end
+
   factory :faculty_nomination_surveys_admin, class: Role do
     name "faculty_nomination_surveys_admin"
     description "Faculty Nomination Surveys Admin: Can administer faculty nomination surveys"

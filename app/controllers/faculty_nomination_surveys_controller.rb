@@ -33,6 +33,7 @@ class FacultyNominationSurveysController < ApplicationController
   end
 
   def edit
+    authorize @survey
   end
 
   def update
@@ -87,6 +88,6 @@ class FacultyNominationSurveysController < ApplicationController
   end
 
   def update_faculty_nomination_survey_params
-    params.require(:faculty_nomination_survey).permit(:quotes)
+    params.require(:faculty_nomination_survey).permit(:quotes, :reviewed)
   end
 end

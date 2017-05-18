@@ -6,7 +6,7 @@ class FacultyNominationSurveyPolicy < ApplicationPolicy
   end
 
   def index?
-    return true if user.has_role? @accepted_admin_roles
+    return true if user.has_role?( [ @accepted_admin_roles, :faculty_nomination_surveys_viewer ] )
     return false
   end
 
@@ -23,14 +23,15 @@ class FacultyNominationSurveyPolicy < ApplicationPolicy
   end
 
   def edit?
-    index?
+    return true if user.has_role? @accepted_admin_roles
+    return false
   end
 
   def update?
-    index?
+    edit?
   end
 
   def view_admin?
-    index?
+    edit?
   end
 end
