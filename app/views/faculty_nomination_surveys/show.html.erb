@@ -5,13 +5,15 @@
     <div id="content">
       <h1>
         <%= truncate( @survey.teaching_strategy.html_safe, length: 50, separator: ' ' ) %>
-        <span class="edit-faculty-nomination-survey-link">
-          <%= link_to(
-                fa_icon("pencil", text: "Edit this survey"),
-                edit_campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: @survey.id ),
-                id: "edit_faculty_nomination_survey_#{@survey.id}_link"
-              ) %>
-        </span>
+        <% if policy(@survey).edit? %>
+          <span class="edit-faculty-nomination-survey-link">
+            <%= link_to(
+                  fa_icon("pencil", text: "Edit this survey"),
+                  edit_campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: @survey.id ),
+                  id: "edit_faculty_nomination_survey_#{@survey.id}_link"
+                ) %>
+          </span>
+        <% end %>
       </h1>
       
       <%= render "faculty_nomination_surveys/partials/faculty_info", survey: @survey %>            
