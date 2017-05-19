@@ -101,9 +101,8 @@ RSpec.feature "Faculty Nomination Surveys" do
         fill_in "faculty_nomination_survey_quotes", with: "A quote"
         check "faculty_nomination_survey_reviewed"
         click_button "Update survey"
-
-        expect(page).to have_content( "A quote" )
-        expect(page).to have_checked_field( "faculty_nomination_survey_reviewed" )
+        
+        expect(page).to have_content("Successfully updated survey")
       end
     end
     context "while not logged in" do

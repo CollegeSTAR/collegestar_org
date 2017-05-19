@@ -39,7 +39,7 @@ class FacultyNominationSurveysController < ApplicationController
   def update
     authorize @survey
     @survey.update( update_faculty_nomination_survey_params )
-    redirect_to edit_campus_faculty_nomination_survey_path( campus_slug: @campus.slug, id: @survey.id )
+    redirect_to campus_faculty_nomination_surveys_path( campus_slug: @campus.slug), notice: "Successfully updated survey."
   end
 
   def confirmation
