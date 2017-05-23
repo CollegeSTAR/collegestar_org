@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518170759) do
+ActiveRecord::Schema.define(version: 20170523175129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -460,6 +460,23 @@ ActiveRecord::Schema.define(version: 20170518170759) do
     t.boolean "published",   default: false
   end
 
+  create_table "user_assessment_selected_answer_choices", force: :cascade do |t|
+    t.integer "user_module_assessment_id"
+    t.integer "assessment_answer_choice_id"
+    t.index ["assessment_answer_choice_id"], name: "user_assessment_answer_choice_index", using: :btree
+    t.index ["user_module_assessment_id"], name: "selected_answer_module_assessment_index", using: :btree
+  end
+
+  create_table "user_module_assessments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "udl_module_id"
+    t.boolean "completed"
+    t.json    "questions_order"
+    t.string  "score"
+    t.index ["udl_module_id"], name: "index_user_module_assessments_on_udl_module_id", using: :btree
+    t.index ["user_id"], name: "index_user_module_assessments_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             null: false
     t.string   "last_name",              null: false
@@ -518,5 +535,9 @@ ActiveRecord::Schema.define(version: 20170518170759) do
   add_foreign_key "redesign_summaries", "users"
   add_foreign_key "student_nomination_faculty", "campus_departments"
   add_foreign_key "student_nomination_faculty", "campus_units"
+  add_foreign_key "user_assessment_selected_answer_choices", "assessment_answer_choices"
+  add_foreign_key "user_assessment_selected_answer_choices", "user_module_assessments"
+  add_foreign_key "user_module_assessments", "udl_modules"
+  add_foreign_key "user_module_assessments", "users"
   add_foreign_key "users", "campuses"
 end
