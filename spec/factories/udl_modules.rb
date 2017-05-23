@@ -24,6 +24,14 @@ FactoryGirl.define do
         udl_module.authors << create(:modules_author_user)
       end
     end
+
+    factory :udl_module_with_assessment do
+      after(:create) do |udl_module|
+        10.times do
+          udl_module.assessment_questions << create(:assessment_question_with_answer_choices)                  
+        end
+      end
+    end
   end
 
   factory :new_udl_module, class: UdlModule do
