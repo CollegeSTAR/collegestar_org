@@ -80,6 +80,7 @@ Rails.application.routes.draw do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
     resource :assessment, only: [ :show, :edit, :update]
   end
+  resources :user_module_assessments, only: [:show, :create], path: '/user-module-assessments'
 
   resources :universal_design_for_learning, param: :slug, path: '/universal-design-for-learning'
   resources :frequently_asked_questions, except: [:show], path: '/frequently-asked-questions'

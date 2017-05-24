@@ -2,6 +2,28 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @udl_module.title %> Assessment</h1>
+
+      <div id="assessment_wrapper">
+        <%= form_for @user_module_assessment do |f| %>
+          <% @questions.each do |question| %>
+            <div class="udl_module_assessment_question" id=<%= "udl_module_assessment_question_#{question.id}" %> >
+              <h2><%= "#{question.id} #{question.question}" %></h2>
+              <% question.assessment_answer_choices.each do |answer_choice| %>
+                <div class="udl_module_assessment_answer_choices_wrapper" id=<%= "udl_module_answer_choice_#{answer_choice.id}" %> >
+                  <div class="radio_wrapper">
+                    <%= radio_button_tag "user_module_assessment[selected_answer_choices][#{question.id}]", 
+                        answer_choice.id %>
+                  </div>
+                  <div class="label_wrapper"><%= f.label :answer_choice, "#{answer_choice.id} #{answer_choice.text}" %></div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <div id="user_module_assessment_submit_wrapper">
+            <%= f.submit "Grade assessment" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

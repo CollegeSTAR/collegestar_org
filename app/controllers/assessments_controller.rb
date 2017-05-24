@@ -2,6 +2,8 @@ class AssessmentsController < ApplicationController
   before_action :set_udl_module
   
   def show
+    @user_module_assessment = UserModuleAssessment.new
+    @questions = AssessmentQuestion.includes(:assessment_answer_choices).all.shuffle
   end
 
   def edit

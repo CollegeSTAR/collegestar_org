@@ -28,7 +28,7 @@ FactoryGirl.define do
     factory :udl_module_with_assessment do
       after(:create) do |udl_module|
         10.times do
-          udl_module.assessment_questions << create(:assessment_question_with_answer_choices)                  
+          udl_module.assessment_questions << create(:assessment_question_with_answer_choices)
         end
       end
     end

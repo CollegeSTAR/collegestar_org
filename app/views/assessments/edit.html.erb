@@ -2,32 +2,33 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1>Assessment Editor</h1>
-
-      <%= form_for @udl_module, url: udl_module_assessment_path(@udl_module)  do |f| %>
-        <ul>
-        <%= f.fields_for :assessment_questions do |questions_form| %>
-          <li>
-            <%= questions_form.label :question %>
-            <%= questions_form.text_field :question %>
-            <%= questions_form.label :ordered %>
-            <%= questions_form.check_box :ordered %>
-            <%= questions_form.label :explanation %>
-            <%= questions_form.text_area :explanation %>
-            <ul>
-              <%= questions_form.fields_for :assessment_answer_choices do |answer_choices_form| %>
-                <li>
-                <%= answer_choices_form.label :text %>
-                <%= answer_choices_form.text_field :text %>
-                <%= questions_form.label :correct_answer_choice_id %>
-                <%= questions_form.radio_button :correct_answer_choice_id, answer_choices_form.object.id %>
-                </li>
-              <% end %>
-            </ul>
-          </li>
+      <div id="assessment-editor-form-wrapper">
+        <%= form_for @udl_module, url: udl_module_assessment_path(@udl_module)  do |f| %>
+          <ul id="assessment-questions">
+          <%= f.fields_for :assessment_questions do |questions_form| %>
+            <li class="assessment-question">
+              <%= questions_form.label :question %>
+              <%= questions_form.text_field :question %>
+              <%= questions_form.label :ordered %>
+              <%= questions_form.check_box :ordered %>
+              <%= questions_form.label :explanation %>
+              <%= questions_form.text_area :explanation %>
+              <ul>
+                <%= questions_form.fields_for :assessment_answer_choices do |answer_choices_form| %>
+                  <li class="assessment-question-answer-choice">
+                  <%= answer_choices_form.label :text %>
+                  <%= answer_choices_form.text_field :text %>
+                  <%= questions_form.label :correct_answer_choice_id %>
+                  <%= questions_form.radio_button :correct_answer_choice_id, answer_choices_form.object.id %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+          </ul>
+          <%= f.submit "Save assessment changes" %>
         <% end %>
-        </ul>
-        <%= f.submit "Save assessment changes" %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

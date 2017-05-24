@@ -3,5 +3,6 @@ class UserModuleAssessment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :udl_module
-  has_many :selected_answer_choices, class_name: "UserAssessmentSelectedAnswerChoice"
+  has_many :user_assessment_answer_choice_associations
+  has_many :answers, through: :user_assessment_answer_choice_associations, class_name: "AssessmentAnswerChoice"
 end
