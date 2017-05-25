@@ -3,7 +3,7 @@ class AssessmentsController < ApplicationController
   
   def show
     @user_module_assessment = UserModuleAssessment.new
-    @questions = AssessmentQuestion.includes(:assessment_answer_choices).all.shuffle
+    @questions = @udl_module.assessment_questions.includes(:assessment_answer_choices).shuffle
   end
 
   def edit
