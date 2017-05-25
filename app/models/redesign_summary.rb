@@ -4,7 +4,7 @@ class RedesignSummary < ActiveRecord::Base
   validates :summary_content, presence: true
   validate :must_select_atleast_one_udl_principle
 
-  has_many :attachments, -> { distinct }, class_name: RedesignSummaryAttachment, dependent: :destroy
+  has_many :attachments, -> { distinct }, class_name: 'RedesignSummaryAttachment', dependent: :destroy
   belongs_to :user
 
   def add_existing_attachments( args={} )

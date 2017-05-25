@@ -1,39 +1,65 @@
+GIT
+  remote: git://github.com/bokmann/font-awesome-rails.git
+  revision: ef72d6200bc686d7b4bff95c199fcfdf2be5f0e0
+  tag: v4.7.0.2
+  specs:
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
+
+GIT
+  remote: git://github.com/collectiveidea/interactor-rails.git
+  revision: 70c319d63f42c419961b0e0b9d364bf60a8160e5
+  tag: v2.1.1
+  specs:
+    interactor-rails (2.1.1)
+      interactor (~> 3.0)
+      rails (>= 4.2, < 5.2)
+
+GIT
+  remote: git://github.com/rails/coffee-rails.git
+  revision: f41abe6288f1e4ae46f8b120549e039140ff7854
+  tag: v4.2.2
+  specs:
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (5.0.2)
-      actionpack (= 5.0.2)
-      nio4r (>= 1.2, < 3.0)
+    actioncable (5.1.1)
+      actionpack (= 5.1.1)
+      nio4r (~> 2.0)
       websocket-driver (~> 0.6.1)
-    actionmailer (5.0.2)
-      actionpack (= 5.0.2)
-      actionview (= 5.0.2)
-      activejob (= 5.0.2)
+    actionmailer (5.1.1)
+      actionpack (= 5.1.1)
+      actionview (= 5.1.1)
+      activejob (= 5.1.1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (5.0.2)
-      actionview (= 5.0.2)
-      activesupport (= 5.0.2)
+    actionpack (5.1.1)
+      actionview (= 5.1.1)
+      activesupport (= 5.1.1)
       rack (~> 2.0)
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.0.2)
-      activesupport (= 5.0.2)
+    actionview (5.1.1)
+      activesupport (= 5.1.1)
       builder (~> 3.1)
-      erubis (~> 2.7.0)
+      erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    activejob (5.0.2)
-      activesupport (= 5.0.2)
+    activejob (5.1.1)
+      activesupport (= 5.1.1)
       globalid (>= 0.3.6)
-    activemodel (5.0.2)
-      activesupport (= 5.0.2)
-    activerecord (5.0.2)
-      activemodel (= 5.0.2)
-      activesupport (= 5.0.2)
-      arel (~> 7.0)
-    activesupport (5.0.2)
+    activemodel (5.1.1)
+      activesupport (= 5.1.1)
+    activerecord (5.1.1)
+      activemodel (= 5.1.1)
+      activesupport (= 5.1.1)
+      arel (~> 8.0)
+    activesupport (5.1.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
@@ -42,7 +68,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     airbrussh (1.1.2)
       sshkit (>= 1.6.1, != 1.7.0)
-    arel (7.1.4)
+    arel (8.0.0)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -83,9 +109,6 @@ GEM
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
-    coffee-rails (4.1.1)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.1.x)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -97,7 +120,7 @@ GEM
       addressable
     debug_inspector (0.0.2)
     diff-lcs (1.3)
-    erubis (2.7.0)
+    erubi (1.6.0)
     excon (0.55.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
@@ -107,16 +130,11 @@ GEM
       railties (>= 3.0.0)
     figaro (1.1.1)
       thor (~> 0.14)
-    font-awesome-rails (4.7.0.1)
-      railties (>= 3.2, < 5.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     htmlentities (4.3.4)
     i18n (0.8.1)
     interactor (3.1.0)
-    interactor-rails (2.0.2)
-      interactor (~> 3.0)
-      rails (>= 3, < 5.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
@@ -161,13 +179,13 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.0)
     mini_portile2 (2.1.0)
-    minitest (5.10.1)
+    minitest (5.10.2)
     multi_json (1.12.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
     nio4r (2.0.0)
-    nokogiri (1.7.1)
+    nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     paperclip (4.3.7)
@@ -187,29 +205,29 @@ GEM
     public_suffix (2.0.5)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
-    rack (2.0.1)
+    rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (5.0.2)
-      actioncable (= 5.0.2)
-      actionmailer (= 5.0.2)
-      actionpack (= 5.0.2)
-      actionview (= 5.0.2)
-      activejob (= 5.0.2)
-      activemodel (= 5.0.2)
-      activerecord (= 5.0.2)
-      activesupport (= 5.0.2)
+    rails (5.1.1)
+      actioncable (= 5.1.1)
+      actionmailer (= 5.1.1)
+      actionpack (= 5.1.1)
+      actionview (= 5.1.1)
+      activejob (= 5.1.1)
+      activemodel (= 5.1.1)
+      activerecord (= 5.1.1)
+      activesupport (= 5.1.1)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 5.0.2)
+      railties (= 5.1.1)
       sprockets-rails (>= 2.0.0)
-    rails-dom-testing (2.0.2)
-      activesupport (>= 4.2.0, < 6.0)
-      nokogiri (~> 1.6)
+    rails-dom-testing (2.0.3)
+      activesupport (>= 4.2.0)
+      nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    railties (5.0.2)
-      actionpack (= 5.0.2)
-      activesupport (= 5.0.2)
+    railties (5.1.1)
+      actionpack (= 5.1.1)
+      activesupport (= 5.1.1)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
@@ -298,12 +316,12 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.0)
   capybara
   ckeditor
-  coffee-rails (~> 4.1.0)
+  coffee-rails!
   cropper-rails
   factory_girl_rails
   figaro
-  font-awesome-rails
-  interactor-rails (~> 2.0)
+  font-awesome-rails!
+  interactor-rails!
   jbuilder (~> 2.0)
   jquery-fileupload-rails
   jquery-rails
@@ -316,7 +334,7 @@ DEPENDENCIES
   pg
   premailer-rails
   pundit
-  rails (~> 5.0)
+  rails (~> 5.1)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

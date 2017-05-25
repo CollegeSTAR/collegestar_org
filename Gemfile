@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 5.1'
 # Use postgresql  as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -18,7 +18,7 @@ gem 'breakpoint'
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', git: 'git://github.com/rails/coffee-rails.git', tag: 'v4.2.2'
 
 # Use CKEditor for WYSIWYG editor
 gem 'ckeditor'
@@ -27,7 +27,7 @@ gem 'ckeditor'
 gem 'liquid', '~> 3'
 
 #Use font Awesome
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', git: 'git://github.com/bokmann/font-awesome-rails.git', tag: 'v4.7.0.2'
 
 #Use premailer to process email styles
 gem 'premailer-rails'
@@ -57,7 +57,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 
 #Use interactor for business logic encapsulation
-gem 'interactor-rails', '~> 2.0'
+gem 'interactor-rails', git: 'git://github.com/collectiveidea/interactor-rails.git', tag: 'v2.1.1'
 
 #Use kaminari for pagination
 gem 'kaminari'
