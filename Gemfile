@@ -18,7 +18,7 @@ gem 'breakpoint'
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', git: 'git://github.com/rails/coffee-rails.git', tag: 'v4.2.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 
 # Use CKEditor for WYSIWYG editor
 gem 'ckeditor'
@@ -27,7 +27,7 @@ gem 'ckeditor'
 gem 'liquid', '~> 3'
 
 #Use font Awesome
-gem 'font-awesome-rails', git: 'git://github.com/bokmann/font-awesome-rails.git', tag: 'v4.7.0.2'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 #Use premailer to process email styles
 gem 'premailer-rails'
@@ -57,7 +57,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 
 #Use interactor for business logic encapsulation
-gem 'interactor-rails', git: 'git://github.com/collectiveidea/interactor-rails.git', tag: 'v2.1.1'
+gem 'interactor-rails', '~> 2.1', '>= 2.1.1'
 
 #Use kaminari for pagination
 gem 'kaminari'
