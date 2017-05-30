@@ -27,7 +27,7 @@ RSpec.describe FacultyNominationSurveyPolicy do
     end
   end
 
-  permissions :index?, :show? do
+  permissions :index?, :show?, :view_index? do
     it "grants admin access" do
       expect(subject).to permit(admin, FacultyNominationSurvey.new)
     end

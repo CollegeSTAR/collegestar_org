@@ -42,9 +42,10 @@
             <% if policy(StarLearningCommunityRegistration).view_admin? %>
               <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; STAR Learning Communities'.html_safe, star_learning_communities_registrations_path %></li>
             <% end %>             
-            <% if policy(FacultyNominationSurvey).view_admin? %>
+            <% if policy(FacultyNominationSurvey).view_index? %>
               <li><%= link_to '<i class="fa fa-area-chart fa-la"></i>&nbsp; Faculty Nomination Surveys'.html_safe, 
-                              campus_faculty_nomination_surveys_path( campus_slug: 'east-carolina-university') 
+                              campus_faculty_nomination_surveys_path( campus_slug: 'east-carolina-university'),
+                              id: "faculty_nomination_surveys_index_link"
                   %></li>
             <% end %>
             <% if policy(UdlModule).view_admin? %>

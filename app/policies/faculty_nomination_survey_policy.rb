@@ -31,6 +31,10 @@ class FacultyNominationSurveyPolicy < ApplicationPolicy
     edit?
   end
 
+  def view_index?
+    index?
+  end
+
   def view_admin?
     edit?
   end

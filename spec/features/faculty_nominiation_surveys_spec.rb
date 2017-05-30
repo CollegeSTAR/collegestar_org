@@ -5,6 +5,7 @@ RSpec.feature "Faculty Nomination Surveys" do
   let(:institutional_faculty) { create(:institutional_faculty) } # This is a hack, we're going to associate the faculty in the future
   let(:survey) { create(:faculty_nomination_survey) }
   let(:admin_user) { create(:admin_user) }
+  let(:survey_viewer_user) { create(:faculty_nomination_surveys_viewer_user) }
 
   feature "Submit surveys" do
     scenario "User visits survey" do
@@ -34,7 +35,7 @@ RSpec.feature "Faculty Nomination Surveys" do
     end
   end
   
-  context "while logged in" do
+  context "while logged in as admin" do
     before(:each) do
       visit "/login"
       fill_in "Email", with: admin_user.email
@@ -58,6 +59,22 @@ RSpec.feature "Faculty Nomination Surveys" do
         visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/#{survey.id}"
         
         expect(page).to have_content(survey.teaching_strategy)
+      end
+    end
+  end
+  
+  context "while logged in as viewer" do
+    before(:each) do
+      visit "/login"
+      fill_in "Email", with: survey_viewer_user.email
+      fill_in "Password", with: survey_viewer_user.password
+      click_button "Log In"
+    end
+
+    feature "Display link to surveys" do
+      scenario "Logged in Survey View should see link to surveys" do
+        visit "/"
+        expect(page).to have_css("#faculty_nomination_surveys_index_link")
       end
     end
   end
