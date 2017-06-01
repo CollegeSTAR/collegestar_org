@@ -4,6 +4,7 @@ class AssessmentsController < ApplicationController
   def show
     @user_module_assessment = UserModuleAssessment.new
     @questions = @udl_module.assessment_questions.includes(:assessment_answer_choices).shuffle
+    @questions_order = {questions: {}}
   end
 
   def edit

@@ -1,0 +1,11 @@
+<h1>Params</h1>
+<% @submitted_params[:selected_answer_choices].each do |question, answer| %>
+  <p>
+    <%= "#{question}: #{answer}" %>
+  </p>
+
+  <% questions_order = JSON.parse @submitted_params[:questions_order] %>
+  <p>
+    <%= questions_order.to_s %>
+  </p>
+<% end %>

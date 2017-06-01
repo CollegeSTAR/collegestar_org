@@ -6,9 +6,11 @@
       <div id="assessment_wrapper">
         <%= form_for @user_module_assessment do |f| %>
           <% @questions.each do |question| %>
+            <% q_order = {id: question.id, answer_choices: {}} %> 
             <div class="udl_module_assessment_question" id=<%= "udl_module_assessment_question_#{question.id}" %> >
               <h2><%= "#{question.id} #{question.question}" %></h2>
               <% question.assessment_answer_choices.each do |answer_choice| %>
+                <% q_order[:answer_choices][q_order[:answer_choices].count] = {id: answer_choice.id} %>
                 <div class="udl_module_assessment_answer_choices_wrapper" id=<%= "udl_module_answer_choice_#{answer_choice.id}" %> >
                   <div class="radio_wrapper">
                     <%= radio_button_tag "user_module_assessment[selected_answer_choices][#{question.id}]", 
@@ -18,7 +20,10 @@
                 </div>
               <% end %>
             </div>
+            <% @questions_order[:questions][@questions_order[:questions].count] = q_order %>
           <% end %>
+          <%= f.hidden_field(:module_id, value: @udl_module.id) %>
+          <%= f.hidden_field(:questions_order, value: @questions_order.to_json) %>
           <div id="user_module_assessment_submit_wrapper">
             <%= f.submit "Grade assessment" %>
           </div>
