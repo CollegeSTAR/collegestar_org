@@ -4,8 +4,14 @@
     <%= "#{question}: #{answer}" %>
   </p>
 
-  <% questions_order = JSON.parse @submitted_params[:questions_order] %>
+<% end %>  
+
+<% questions_order = JSON.parse @submitted_params[:questions_order] %>
   <p>
     <%= questions_order.to_s %>
   </p>
-<% end %>
+
+<h2>Question Ids</h2>
+<p>
+  <%= @question_ids %>
+</p>

@@ -56,7 +56,9 @@ Rails.application.routes.draw do
     resources :password_updates, only: [:create]
   end
   resources :profiles, only: [:edit, :show], controller: :users, as: :profiles do
-    resources :module_history, only: [:index, :show], controller: :udl_module_history, path: '/module-history'
+    resources :user_module_history, only: [:index, :show], param: :slug, controller: :user_module_history, path: '/module-history' do
+      resources :assessments, only: [:show], controller: :user_module_assessments
+    end
     resources :udl_modules, controller: :udl_modules_dashboard, path: '/modules-dashboard'
     resources :redesign_summaries, except: [:show], path: '/redesign-summaries'
   end

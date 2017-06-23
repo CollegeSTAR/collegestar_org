@@ -20,7 +20,7 @@
                 </div>
               <% end %>
             </div>
-            <% @questions_order[:questions][@questions_order[:questions].count] = q_order %>
+            <% @questions_order[@questions_order.count] = q_order %>
           <% end %>
           <%= f.hidden_field(:module_id, value: @udl_module.id) %>
           <%= f.hidden_field(:questions_order, value: @questions_order.to_json) %>

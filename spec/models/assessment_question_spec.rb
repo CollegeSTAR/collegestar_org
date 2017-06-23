@@ -10,5 +10,6 @@ RSpec.describe AssessmentQuestion do
     it { should belong_to( :udl_module ) }
     it {should have_one( :correct_answer_choice).class_name( 'AssessmentAnswerChoice' ) }
     it { should have_many( :assessment_answer_choices ) }
+    it { should have_many(:user_assessment_question_associations) }
   end
 end

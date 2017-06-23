@@ -1,8 +1,10 @@
 class UserModuleAssessment < ActiveRecord::Base
-  validates :questions_order, presence: true
+  validates :questions_order, :user, :udl_module, presence: true
 
   belongs_to :user
   belongs_to :udl_module
-  has_many :user_assessment_answer_choice_associations
-  has_many :answers, through: :user_assessment_answer_choice_associations, source: :assessment_answer_choice
+  has_many :user_assessment_question_associations, -> { order("position") }
+  has_many :questions,
+           through: :user_assessment_question_associations, 
+           source: :assessment_question
 end

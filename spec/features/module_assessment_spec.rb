@@ -4,6 +4,7 @@ RSpec.feature "Module Assessment" do
   let(:udl_module_with_assessment) { create(:udl_module_with_assessment) }
   let(:non_module_question) { create(:assessment_question_with_answer_choices) }
   let(:module_admin) { create(:modules_admin_user) }
+  let(:user) { create(:user) }
   
   feature "Create Assessment with module" do
     before(:each) do
@@ -39,7 +40,15 @@ RSpec.feature "Module Assessment" do
   end
 
   feature "grade assessment" do
-    xscenario "User visits module assessment, completes, and submits it" do
+    before(:each) do
+      #login
+      visit "/login"
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Log In"
+    end
+
+    scenario "User visits module assessment, completes, and submits it" do
       visit "/modules/#{udl_module_with_assessment.slug}/assessment"
       
       #check correct answer of each question

@@ -1,4 +1,4 @@
-class UdlModuleHistoryController < ApplicationController
+class UserModuleHistoryController < ApplicationController
   def index
   end
 
