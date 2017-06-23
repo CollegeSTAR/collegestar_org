@@ -97,7 +97,6 @@ RSpec.feature "News Articles Manangement" do
           fill_in "Title", with: "This is the article title"
           fill_in "Content", with: "This is the article content"
           fill_in "Excerpt", with: "This is the article excerpt"
-          fill_in "Image url", with: "This is the article image"
           click_button "Create News article"
           expect(page).to have_text("Article was successfully created.")
         end
@@ -106,7 +105,6 @@ RSpec.feature "News Articles Manangement" do
         scenario "add news article" do
           visit "/news-articles/new"
           fill_in "Excerpt", with: "This is the article excerpt"
-          fill_in "Image url", with: "This is the article image"
           click_button "Create News article"
           expect(page).to_not have_text("Article was successfully created.")
           expect(page).to have_css(".field_with_errors")
