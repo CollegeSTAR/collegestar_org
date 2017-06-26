@@ -15,7 +15,7 @@
           </span>
         <% end %>
       </h1>
-      
+      <p><strong>Date Submitted:</strong> <%= @survey.created_at.strftime("%B %d, %Y") %></p>
       <%= render "faculty_nomination_surveys/partials/faculty_info", survey: @survey %>            
       <%= render "faculty_nomination_surveys/partials/teaching_strategy", survey: @survey %>            
       <%= render "faculty_nomination_surveys/partials/student_info", survey: @survey %>            
