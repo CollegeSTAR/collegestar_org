@@ -1,6 +1,6 @@
 <div id="form-strategy-link-wrapper">
   <div class="description-input">
-    <%= f.label :strategy_link, "3. Have you reviewed Universal Design for Learning? How does your pedagogical strategy link to UDL? (2000 character limit)" %>
+    <%= f.label :strategy_link, "3. Have you reviewed #{link_to "Universal Design for Learning", universal_design_for_learning_index_path, target: "_blank"}? How does your pedagogical strategy link to UDL? (2000 character limit)".html_safe %>
   </div>
   <div class="form-text-area">
     <%= f.text_area :strategy_link, maxlength: "2000" %>
