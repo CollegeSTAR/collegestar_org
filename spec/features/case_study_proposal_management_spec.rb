@@ -23,6 +23,7 @@ RSpec.feature "Case Study Proposal Management" do
       fill_in "Department", with: "English"
       fill_in "Proposed Title", with: "My Module Idea"
       fill_in "description of the proposed content", with: "My description"
+      fill_in "pedagogical strategy link to UDL", with: "Stragey Link"
       fill_in "estimated start date", with: "#{time.year}-#{time.month}-#{time.day}"      
       time += 86400
       fill_in "estimated completion date", with: "#{time.year}-#{time.month}-#{time.day}"

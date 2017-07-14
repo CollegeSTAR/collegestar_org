@@ -73,6 +73,11 @@
   @include span(18 of 18 no-gutters);
 }
 
+#form-strategy-link-wrapper {
+  margin-top: gutter();
+  margin-bottom: gutter();
+  @include span(18 of 18 no-gutters);
+}
 
 #form-start-date-wrapper, #form-completion-date-wrapper {
   margin-top: gutter();

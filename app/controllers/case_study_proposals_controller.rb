@@ -27,6 +27,7 @@ class CaseStudyProposalsController < ApplicationController
       ModuleProposalMailer.confirmation(@proposal).deliver_now
       render :confirmation       
     else
+      @page_content = Page.guaranteed_find slug: 'module-proposals-new'
       flash[:error] = @proposal.errors
       render :new
     end
@@ -56,6 +57,18 @@ class CaseStudyProposalsController < ApplicationController
     end
 
     def case_study_proposal_params
-      params.require(:case_study_proposal).permit(:first_name, :last_name, :university, :department, :email, :module_type, :title, :description, :start_date, :completion_date)
+      params.require(:case_study_proposal).permit(
+        :first_name, 
+        :last_name, 
+        :university, 
+        :department, 
+        :email, 
+        :module_type, 
+        :title, 
+        :description, 
+        :strategy_link, 
+        :start_date, 
+        :completion_date
+      )
     end
 end

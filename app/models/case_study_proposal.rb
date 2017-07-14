@@ -1,7 +1,7 @@
 class CaseStudyProposal < ActiveRecord::Base
 
   validates :first_name, :last_name, :university, :department, :email, 
-            :title, :description, :start_date, :completion_date,
+            :title, :description, :strategy_link, :start_date, :completion_date,
             presence: true
   validates :module_type, presence: true, 
             udl_module_type: { 

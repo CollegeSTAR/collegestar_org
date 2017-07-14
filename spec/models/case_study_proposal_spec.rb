@@ -10,6 +10,7 @@ RSpec.describe CaseStudyProposal, type: :model do
     it { should validate_presence_of(:module_type) }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:strategy_link)}
     it { should validate_presence_of(:start_date) }
     it { should validate_presence_of(:completion_date) }
 
