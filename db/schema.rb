@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717162332) do
+ActiveRecord::Schema.define(version: 20170717164151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -437,6 +437,7 @@ ActiveRecord::Schema.define(version: 20170717162332) do
     t.string "institution_size"
     t.string "institution_type"
     t.text "application_process"
+    t.index ["slug"], name: "index_student_support_programs_on_slug", unique: true
   end
 
   create_table "udl_module_sections", id: :serial, force: :cascade do |t|
