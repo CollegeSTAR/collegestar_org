@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714170409) do
+ActiveRecord::Schema.define(version: 20170717162332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -418,6 +418,25 @@ ActiveRecord::Schema.define(version: 20170714170409) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "anonymous"
+  end
+
+  create_table "student_support_programs", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.string "video_link"
+    t.text "mission_statement"
+    t.text "description_of_services"
+    t.text "program_overview"
+    t.text "program_size"
+    t.text "resources"
+    t.text "contact_info"
+    t.boolean "public"
+    t.boolean "fee_based"
+    t.string "program_cost"
+    t.string "target_population"
+    t.string "institution_size"
+    t.string "institution_type"
+    t.text "application_process"
   end
 
   create_table "udl_module_sections", id: :serial, force: :cascade do |t|
