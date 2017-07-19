@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :student_support_program do
     sequence(:name) { |n| "Student Support Program #{n}" }
     sequence(:slug) { |n| "student-support-program-#{n}" }
+    logo "#{Rails.root}/spec/support/fixtures/test_image.png"
     mission_statement "The mission statement"
     description_of_services "The services we provide"
     program_overview "The overview"

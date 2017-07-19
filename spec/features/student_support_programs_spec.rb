@@ -6,6 +6,7 @@ RSpec.feature 'Student Support Programs Resource' do
     scenario "User submits a new program" do
       visit "/student-support-programs/new"
       fill_in "Name", with: program_attributes[:name]
+      attach_file("Logo/Image", program_attributes[:logo]) 
       fill_in "Mission statement", with: program_attributes[:mission_statement]
       fill_in "Description of services", with: program_attributes[:description_of_services]
       fill_in "Program overview", with: program_attributes[:program_overview]
