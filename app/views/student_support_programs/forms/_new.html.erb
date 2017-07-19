@@ -1,11 +1,19 @@
 <div id="student-support-program-form-wrapper">
-  <%= form_for @student_support_program do |f| %>
+  <%= form_for @student_support_program, html: { multipart: true } do |f| %>
     <div id="student-support-program-name-wrapper">
       <div class="label-wrapper">
         <%= f.label :name %>
       </div>
       <div class="text-field-wrapper">
         <%= f.text_field :name %>
+      </div>
+    </div>
+    <div id="student-support-program-logo-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :logo, "Logo/Image" %>
+      </div>
+      <div class="file-upload-wrapper">
+        <%= f.file_field :logo %>
       </div>
     </div>
     <div id="student-support-program-mission-statement-wrapper">

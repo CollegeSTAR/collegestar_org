@@ -27,6 +27,7 @@ class StudentSupportProgramsController < ApplicationController
   def student_support_program_params
     params.require(:student_support_program).permit(
       :name,
+      :logo,
       :video_link,
       :mission_statement,
       :description_of_services,

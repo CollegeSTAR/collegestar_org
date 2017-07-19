@@ -4,7 +4,9 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @student_support_program.name.html_safe %>
-
+      <% if @student_support_program.logo.present? %>
+        <%= image_tag @student_support_program.logo.url(:medium) %>
+      <% end %>
     </div>
   </div>
 </div>
