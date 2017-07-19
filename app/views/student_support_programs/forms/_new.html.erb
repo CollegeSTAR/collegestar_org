@@ -1,0 +1,119 @@
+<div id="student-support-program-form-wrapper">
+  <%= form_for @student_support_program do |f| %>
+    <div id="student-support-program-name-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :name %>
+      </div>
+      <div class="text-field-wrapper">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div id="student-support-program-mission-statement-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :mission_statement %>
+      </div>
+      <div class="text-area-wrapper">
+        <%= f.text_area :mission_statement %>
+      </div>
+    </div>
+    <div id="student-support-program-description-of-services-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :description_of_services %>
+      </div>
+      <div class="text-area-wrapper">
+        <%= f.text_area :description_of_services %>
+      </div>
+    </div>
+    <div id="student-support-program-program-overview-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :program_overview %>
+      </div>
+      <div class="text-area-wrapper">
+        <%= f.text_area :program_overview %>
+      </div>
+    </div>
+    <div id="student-support-program-program-size-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :program_size %>
+      </div>
+      <div class="select-box-wrapper">
+        <%= f.select(:program_size, ['0-9', '10-19', '20-49', '50+']) %>
+      </div>
+    </div>
+    <div id="student-support-program-resources-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :resources %>
+      </div>
+      <div class="text-area-wrapper">
+        <%= f.text_area :resources %>
+      </div>
+    </div>
+    <div id="student-support-program-contact-info-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :contact_info %>
+      </div>
+      <div class="text-area-wrapper">
+        <%= f.text_area :contact_info %>
+      </div>
+    </div>
+    <div id="student-support-program-public-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :public, "Is this a public program?" %>
+      </div>
+      <div class="checkbox-wrapper">
+        <%= f.check_box :public %>
+      </div>
+    </div>
+    <div id="student-support-program-fee-based-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :fee_based, "Is this program fee-based?" %>
+      </div>
+      <div class="checkbox-wrapper">
+        <%= f.check_box :fee_based %>
+      </div>
+    </div>
+    <div id="student-support-program-prorgram-cost-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :program_cost, "What is the annual cost of this program?" %>
+      </div>
+      <div class="select-wrapper">
+        <%= f.select(:program_cost, ['$0-$99', '$100-$499', '$500-$999', '$1,000-$1,999', '$2,000-$3,999', '$4,000-$7,999', '$8,000+']) %>
+      </div>
+    </div>
+    <div id="student-support-program-target-population-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :target_population %>
+      </div>
+      <div class="text-field-wrapper">
+        <%= f.text_field :target_population %>
+      </div>
+    </div>
+    <div id="student-support-program-institution-size-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :institution_size, "How large is your institution?" %>
+      </div>
+      <div class="select-wrapper">
+        <%= f.select(:institution_size, ['100-999', '1,000-3,999', '4,000-9,999', '10,000+']) %>
+      </div>
+    </div>
+    <div id="student-support-program-institution-type-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :institution_type  %>
+      </div>
+      <div class="select-wrapper">
+        <%= f.select(:institution_type, ['State', 'Private']) %>
+      </div>
+    </div>
+    <div id="student-support-program-application-process-wrapper">
+      <div class="label-wrapper">
+        <%= f.label :application_process %>
+      </div>
+      <div class="text-area-wrapper">
+        <%= f.text_area :application_process %>
+      </div>
+    </div>
+    <div id="student-support-program-submit-wrapper">
+      <%= f.submit "Create Program" %>
+    </div>
+  <% end %>
+</div>
