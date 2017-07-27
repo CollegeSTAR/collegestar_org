@@ -97,6 +97,16 @@ ul#news_articles {
   }
 }
 
+.image-wrapper {
+  margin: gutter() 2*gutter() 0 2*gutter();
+  @include span(5 of 18);
+  .caption {
+    font-size: .75 * $base-font-size;
+    margin: 0;
+    padding: 0 0 0 gutter();
+  }
+}
+
 #pagination-wrapper {
   @include span(18 of 18);
   margin: gutter();

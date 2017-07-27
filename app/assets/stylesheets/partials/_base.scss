@@ -214,6 +214,7 @@ img {
 
 #bread-crumb-social-media-wrapper {
   @include span(18 of 18 no-gutters);
+  margin-bottom: 2*gutter();
 
   #bread-crumb-wrapper {
     @include span( 18 of 18 no-gutters);
