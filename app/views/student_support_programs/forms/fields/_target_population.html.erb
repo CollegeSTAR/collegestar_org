@@ -1,0 +1,43 @@
+<h2>Target population</h2>
+<div id="student-support-program-target-population-wrapper">
+  <div id="target-population-specific-ld-wrapper">
+    <div class="check-box-wrapper">
+      <%= f.check_box :target_population_specified_ld %>
+    </div>
+    <div class="check-box-label-wrapper">
+      <%= f.label :target_population_specified_ld, "Specified Learning Differnce" %>
+    </div>
+  </div>
+  <div id="target-population-adhd-wrapper">
+    <div class="check-box-wrapper">
+      <%= f.check_box :target_population_adhd %>
+    </div>
+    <div class="check-box-label-wrapper">
+      <%= f.label :target_population_adhd, "ADHD" %>
+    </div>
+  </div>
+  <div id="target-population-aut-asp-wrapper">
+    <div class="check-box-wrapper">
+      <%= f.check_box :target_population_aut_asp %>
+    </div>
+    <div class="check-box-label-wrapper">
+      <%= f.label :target_population_aut_asp, "Autism or Aspberger" %>
+    </div>
+  </div>
+  <div id="target-population-efc-wrapper">
+    <div class="check-box-wrapper">
+      <%= f.check_box :target_population_efc %>
+    </div>
+    <div class="check-box-label-wrapper">
+      <%= f.label :target_population_efc, "Executive Functioning Challenges" %>
+    </div>
+  </div>
+  <div id="target-population-other-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :target_population_other, "Other" %>
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.text_field :target_population_other %>
+    </div>
+  </div>
+</div>

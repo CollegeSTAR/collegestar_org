@@ -6,7 +6,6 @@ RSpec.feature 'Student Support Programs Resource' do
     scenario "User submits a new program" do
       visit "/student-support-programs/new"
       fill_in "Name", with: program_attributes[:name]
-      attach_file("Logo/Image", program_attributes[:logo]) 
       fill_in "Mission statement", with: program_attributes[:mission_statement]
       fill_in "Description of services", with: program_attributes[:description_of_services]
       fill_in "Program overview", with: program_attributes[:program_overview]
@@ -15,8 +14,8 @@ RSpec.feature 'Student Support Programs Resource' do
       fill_in "Contact info", with: program_attributes[:contact_info]
       check "Is this a public program?"
       check "Is this program fee-based?"
-      select program_attributes[:program_cost], from: "What is the annual cost of this program?"
-      fill_in "Target population", with: program_attributes[:target_population]
+      select program_attributes[:program_cost], from: "What is the annual cost for students to participate in this program?"
+      fill_in "student_support_program_target_population_other", with: "Target Population"
       select program_attributes[:institution_size], from: 'How large is your institution?'
       select program_attributes[:institution_type], from: 'Institution type'
       fill_in "Application proces", with: program_attributes[:application_process]

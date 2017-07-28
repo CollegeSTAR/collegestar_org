@@ -1,0 +1,75 @@
+<h2>Program Description</h2>
+<div id="student-support-program-description-wrapper">
+  <div id="student-support-program-description-of-services-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :description_of_services %>
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.text_area :description_of_services %>
+    </div>
+  </div>
+  <div id="student-support-program-program-overview-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :program_overview %>
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.text_area :program_overview %>
+    </div>
+  </div>
+  <div id="student-support-program-program-size-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :program_size %>
+    </div>
+    <div class="select-box-wrapper">
+      <%= f.select(:program_size, ['0-24', '25-49', '50-99', '100-499', '500+']) %>
+    </div>
+  </div>
+  <div id="student-support-program-resources-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :resources %>
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.text_area :resources %>
+    </div>
+  </div>
+  <div id="student-support-program-contact-info-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :contact_info %>
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.text_area :contact_info %>
+    </div>
+  </div>
+  <div id="student-support-program-public-wrapper">
+    <div class="check-box-wrapper">
+      <%= f.check_box :public %>
+    </div>
+    <div class="check-box-label-wrapper">
+      <%= f.label :public, "Is this a public program?" %>
+    </div>
+  </div>
+  <div id="student-support-program-fee-based-wrapper">
+    <div class="check-box-wrapper">
+      <%= f.check_box :fee_based %>
+    </div>
+    <div class="check-box-label-wrapper">
+      <%= f.label :fee_based, "Is this program fee-based?" %>
+    </div>
+  </div>
+  <div id="student-support-program-prorgram-cost-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :program_cost, "What is the annual cost for students to participate in this program?" %>
+    </div>
+    <div class="select-wrapper">
+      <%= f.select(:program_cost, ['$0-$499', '$500-$999', '$1,000-$2,999', '$3,000-$4,999', '$5,000-$9,999', '$10,000+']) %>
+    </div>
+  </div>
+  <div id="student-support-program-application-process-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :application_process %>
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.text_area :application_process %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,54 @@
 #student-support-program-form-wrapper {
   margin: gutter();
+  
+  h2 {
+    margin: 4*gutter() 0 2*gutter() 0;
+    border-bottom: $default-border-width solid $default-border-color;
+  }
+
+  .label-wrapper {
+    @include span(18 of 18 no-gutters);
+  } 
+  .check-box-label-wrapper {
+    @include span(17 of 18 at 2 no-gutters);
+    margin: 0;
+    padding: 0;
+  }
+  .check-box-wrapper {
+    @include span(1 of 18 no-gutters);
+    margin: 0;
+    padding: 0;
+  }
+
+  #student-support-program-logo-name-wrapper {
+  @include span(18 of 18 no-gutters);
+
+    #student-support-program-logo-wrapper {
+      @include span(6 of 18 no-gutters);
+      padding-left: 2*gutter();
+    }
+
+    #student-support-program-name-wrapper {
+      @include span(12 of 18 at 7 no-gutters);
+      padding-right: 2*gutter();
+    }
+  }
+}
+
+#student-support-program-mission-statement-wrapper {
+  margin: gutter() 2* gutter();
+}
+
+#student-support-program-logo-name-wrapper,
+#student-support-program-description-wrapper,
+#student-support-program-target-population-wrapper,
+#student-support-program-institution-wrapper {
+  margin: gutter() 2*gutter();
+}
+
+#target-population-specific-ld-wrapper,
+#target-population-adhd-wrapper,
+#target-population-specific-aut-asp-wrapper,
+#target-population-efc-wrapper {
+  @include span(18 of 18 no-gutters);
 }

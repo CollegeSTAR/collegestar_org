@@ -38,7 +38,11 @@ class StudentSupportProgramsController < ApplicationController
       :public,
       :fee_based,
       :program_cost,
-      :target_population,
+      :target_population_specified_ld,
+      :target_population_adhd,
+      :target_population_aut_asp,
+      :target_population_efc,
+      :target_population_other,
       :institution_size,
       :institution_type,
       :application_process
