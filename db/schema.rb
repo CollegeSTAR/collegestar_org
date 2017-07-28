@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719184857) do
+ActiveRecord::Schema.define(version: 20170728165108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -441,6 +441,11 @@ ActiveRecord::Schema.define(version: 20170719184857) do
     t.string "logo_content_type"
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
+    t.boolean "target_population_specified_ld"
+    t.boolean "target_population_adhd"
+    t.boolean "target_population_aut_asp"
+    t.boolean "target_population_efc"
+    t.string "target_population_other"
     t.index ["slug"], name: "index_student_support_programs_on_slug", unique: true
   end
 
