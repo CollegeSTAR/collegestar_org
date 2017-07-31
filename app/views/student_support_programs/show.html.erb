@@ -3,10 +3,56 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
-      <h1><%= @student_support_program.name.html_safe %>
-      <% if @student_support_program.logo.present? %>
-        <%= image_tag @student_support_program.logo.url(:medium) %>
+      <div id="title-block-wrapper">
+        <div id="logo-wrapper">
+          <% if @student_support_program.logo.present? %>
+            <%= image_tag @student_support_program.logo.url(:medium) %>
+          <% end %>
+        </div>
+        <div id="title-wrapper">
+          <h1><%= @student_support_program.name.html_safe %>
+        </div> 
+        
+      </div>
+
+      <% if @student_support_program.video_link? %>
+        <div id="video-wrapper">
+          <iframe width="560" height="315" src="<%= @student_support_program.video_link.html_safe %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
       <% end %>
+      <% if @student_support_program.mission_statement.length > 1 %>
+          <div id="mission-statement-wrapper">
+            <h2>Mission Statement</h2>
+            <%= @student_support_program.mission_statement.html_safe %>
+          </div>
+      <% end %>
+      <div id="photo-library-wrapper">
+        <img src="https://placehold.it/600x600" />
+      </div>
+      <div id="program-description-wrapper">
+        <h2>Program Description</h2>
+        <% if @student_support_program.program_overview.length > 1 %> 
+          <div id="program-overview-wrapper">
+            <h3>Program Overview</h3>
+            <%= @student_support_program.program_overview.html_safe %>
+          </div>
+        <% end %>
+        <% if @student_support_program.description_of_services.length > 1 %>
+          <div id="description-of-services-wrapper">
+            <h3>Description of Services</h3>
+            <%= @student_support_program.description_of_services.html_safe %>
+          </div>
+        <% end %>
+        <div id="program-size-wrapper">
+          <p><strong>Program size:</strong> <%= @student_support_program.program_size %></p>
+        </div>
+        <% if @student_support_program.application_process? %>
+          <div id="application-process-wrapper">
+            <h3>Application Process</h3>
+            <%= @student_support_program.application_process.html_safe %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
