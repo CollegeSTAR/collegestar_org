@@ -29,6 +29,9 @@ CKEDITOR.editorConfig = function( config )
   config.disableNativeSpellChecker = false;
 
   config.allowedContent = true;
+  
+  config.pasteFromWordRemoveFontStyles = true;
+  config.pasteFromWordRemoveStyles = true;
 
   // Toolbar groups configuration.
   config.toolbar = [
@@ -44,6 +47,13 @@ CKEDITOR.editorConfig = function( config )
     { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] }
   ];
+  
+  config.toolbar_base = [
+     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic'] },
+     { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Blockquote'] },
+     { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+  ];
+
 
   config.toolbar_mini = [
     { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
