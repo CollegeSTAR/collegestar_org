@@ -3,6 +3,6 @@
     <%= f.label :mission_statement %>
   </div>
   <div class="text-area-wrapper">
-    <%= f.text_area :mission_statement %>
+    <%= f.cktext_area :mission_statement, ckeditor: { toolbar: 'base', height: 150 } %>
   </div>
 </div>

@@ -36,14 +36,16 @@
 }
 
 #student-support-program-mission-statement-wrapper {
-  margin: gutter() 2* gutter();
+  @include span(18 of 18);
+  padding: 2*gutter() 6*gutter();
 }
 
 #student-support-program-logo-name-wrapper,
 #student-support-program-description-wrapper,
 #student-support-program-target-population-wrapper,
 #student-support-program-institution-wrapper {
-  margin: gutter() 2*gutter();
+  @include span(18 of 18);
+  padding: 2*gutter() 6*gutter();
 }
 
 #target-population-specific-ld-wrapper,
@@ -51,4 +53,94 @@
 #target-population-specific-aut-asp-wrapper,
 #target-population-efc-wrapper {
   @include span(18 of 18 no-gutters);
+}
+
+#student-support-program-submit-wrapper {
+  text-align: center;
+  margin: 2*gutter() gutter();
+}
+
+#student-support-program-description-of-services-wrapper,
+#student-support-program-program-overview-wrapper,
+#student-support-program-resources-wrapper,
+#student-support-program-contact-info-wrapper,
+#student-support-program-application-process-wrapper {
+  padding: 2*gutter() 0;
+}
+
+#title-block-wrapper {
+  @include span(18 of 18);
+  padding: 2*gutter();
+
+  #logo-wrapper {
+    @include span(18 of 18 no-gutters);
+    text-align: center;
+    
+    @include breakpoint($full) {
+      @include span(6 of 18 no-gutters);
+      text-align: left;
+    }
+  }
+
+  #title-wrapper {
+    @include span(18 of 18 no-gutters);
+    @include breakpoint($full) {
+      @include span(12 of 18 at 7 no-gutters);
+    }
+  }
+}
+
+#video-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: 2*gutter() gutter();
+  text-align: center;
+}
+#photo-library-wrapper {
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(6 of 18 no-gutters);
+  }
+}
+
+#mission-statement-wrapper {
+  @include span(18 of 18 no-gutters);
+}
+
+
+#program-description-wrapper {
+  @include span(18 of 18 no-gutters);
+  @include breakpoint($full) {
+    @include span(12 of 18 at 7);
+  }
+}
+
+#student-support-programs {
+  .program-wrapper {
+    @include span(18 of 18 no-gutters);
+    margin-top: 4*gutter();
+
+    .logo-wrapper {
+      @include span(18 of 18 no-gutters);
+      text-align: center;
+
+      @include breakpoint($full) {
+        @include span(6 of 18 no-gutters);
+        text-align: left;
+      }
+    }
+
+    .name-wrapper {
+      @include span(18 of 18 no-gutters);
+      @include breakpoint($full) {
+        @include span(12 of 18 at 7 no-gutters);
+      }
+    }
+
+    .mission-statement-wrapper {
+      @include span(18 of 18 no-gutters);
+      @include breakpoint($full) {
+        @include span(12 of 18 at 7 no-gutters);
+      }
+    }
+  }
 }
