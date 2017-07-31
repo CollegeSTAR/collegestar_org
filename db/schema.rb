@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728165108) do
+ActiveRecord::Schema.define(version: 20170731200430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -446,6 +446,7 @@ ActiveRecord::Schema.define(version: 20170728165108) do
     t.boolean "target_population_aut_asp"
     t.boolean "target_population_efc"
     t.string "target_population_other"
+    t.string "vision_statement"
     t.index ["slug"], name: "index_student_support_programs_on_slug", unique: true
   end
 
