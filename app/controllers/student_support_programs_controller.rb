@@ -8,6 +8,10 @@ class StudentSupportProgramsController < ApplicationController
   def show
   end
 
+  def index
+    @student_support_programs = StudentSupportProgram.all.order(name: "ASC")
+  end
+
   def create
     @student_support_program = StudentSupportProgram.new(student_support_program_params)
     @student_support_program.slug = @student_support_program.name.parameterize
@@ -30,6 +34,7 @@ class StudentSupportProgramsController < ApplicationController
       :logo,
       :video_link,
       :mission_statement,
+      :vision_statement,
       :description_of_services,
       :program_overview,
       :program_size,
