@@ -11,7 +11,7 @@ FactoryGirl.define do
     program_cost "$1,000-$2,999"
     target_population "ADHD"
     institution_size '1,000-9,999'
-    institution_type 'State'
+    institution_type 'University'
     application_process "This is how you apply to our program:"
   end
 end
