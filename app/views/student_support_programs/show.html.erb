@@ -26,6 +26,12 @@
             <%= @student_support_program.mission_statement.html_safe %>
           </div>
       <% end %>
+      <% if @student_support_program.vision_statement.length > 1 %>
+          <div id="vision-statement-wrapper">
+            <h2>Vision Statement</h2>
+            <%= @student_support_program.vision_statement.html_safe %>
+          </div>
+      <% end %>
       <div id="photo-library-wrapper">
         <img src="https://placehold.it/600x600" />
       </div>

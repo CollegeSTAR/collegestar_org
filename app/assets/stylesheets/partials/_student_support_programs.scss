@@ -35,7 +35,8 @@
   }
 }
 
-#student-support-program-mission-statement-wrapper {
+#student-support-program-mission-statement-wrapper,
+#student-support-program-vision-statement-wrapper {
   @include span(18 of 18);
   padding: 2*gutter() 6*gutter();
 }
@@ -102,7 +103,8 @@
   }
 }
 
-#mission-statement-wrapper {
+#mission-statement-wrapper,
+#vision-statement-wrapper {
   @include span(18 of 18 no-gutters);
 }
 
