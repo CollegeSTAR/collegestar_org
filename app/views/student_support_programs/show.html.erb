@@ -49,21 +49,43 @@
             <%= @student_support_program.description_of_services.html_safe %>
           </div>
         <% end %>
-        <div id="program-size-wrapper">
-          <p><strong>Program size:</strong> <%= @student_support_program.program_size %></p>
-        </div>
         <% if @student_support_program.application_process? %>
           <div id="application-process-wrapper">
             <h3>Application Process</h3>
             <%= @student_support_program.application_process.html_safe %>
           </div>
         <% end %>
+        <div id="target-population-wrapper">
+          <h3>Target Population</h3>
+          <ul>
+            <%= (@student_support_program.target_population_specified_ld) ? "<li>Specified Learning Difference</li>".html_safe : "" %>
+            <%= (@student_support_program.target_population_adhd) ? "<li>Attention Deficit & Hyperactivity Disorder (AD/HD)</li>".html_safe : "" %>
+            <%= (@student_support_program.target_population_aut_asp) ? "<li>Autism or Aspberger</li>".html_safe : "" %>
+            <%= (@student_support_program.target_population_efc) ? "<li>Executive Functioning Challenges</li>".html_safe : "" %>
+            <%= (@student_support_program.target_population_other) ? "<li>#{@student_support_program.target_population_other}</li>".html_safe : "" %>
+          </ul>
+        </div>
       </div>
       <div id="resources-wrapper">
         <% if @student_support_program.resources? %>
-          <h3>Resources</h3>
+          <h2>Resources</h2>
           <%= @student_support_program.resources.html_safe %>
         <% end %>
+      </div>
+      <div id="contact-info-wrapper">
+        <% if @student_support_program.contact_info? %>
+          <h2>Contact Information</h2>
+          <%= @student_support_program.contact_info.html_safe %>
+        <% end %>
+      </div>
+      <div id="program-stats-wrapper">
+        <h2>Program Stats</h2>
+        <p><strong>How many students are enrolled in this program?</strong> <%= @student_support_program.program_size %></p>
+        <p><strong>What are the annual costs for a student to attend this program?</strong> <%= @student_support_program.program_cost %></p>
+        <p><strong>Is this program public?</strong> <%= (@student_support_program.public?) ? "Yes" : "No" %></p>
+        <p><strong>Is this program fee-based?</strong> <%= (@student_support_program.fee_based?) ? "Yes" : "No" %></p>
+        <p><strong>how large is the instition associated with this program?</strong> <%= @student_support_program.institution_size %></p>
+        <p><strong>What type of institution is associated with this program?</strong> <%= @student_support_program.institution_type %></p>
       </div>
     </div>
   </div>

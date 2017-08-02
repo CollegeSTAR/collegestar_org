@@ -36,7 +36,8 @@
 }
 
 #student-support-program-mission-statement-wrapper,
-#student-support-program-vision-statement-wrapper {
+#student-support-program-vision-statement-wrapper,
+#student-support-program-video-link-wrapper {
   @include span(18 of 18);
   padding: 2*gutter() 6*gutter();
 }
@@ -153,4 +154,16 @@
   @include breakpoint($full) {
     @include span(6 of 18 no-gutters);
   }
+}
+
+#contact-info-wrapper {
+  @include span(18 of 18 no-gutters);
+
+  @include breakpoint($full) {
+    @include span(6 of 18 no-gutters);
+  }
+}
+
+#program-stats-wrapper {
+  @include span(18 of 18 no-gutters);
 }
