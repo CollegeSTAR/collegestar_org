@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.feature 'Student Support Programs Resource' do
   let(:program_attributes) {  attributes_for(:student_support_program) }
+  let(:program) { create(:student_support_program) }
   feature 'Program creation' do
     scenario "User submits a new program" do
       visit "/student-support-programs/new"
@@ -22,6 +23,17 @@ RSpec.feature 'Student Support Programs Resource' do
 
       click_button "Create Program"
       expect(page).to have_content(program_attributes[:name])
+    end
+  end
+
+  feature "Program updating" do
+    scenario "User edits existing Program" do
+      new_mission_statement = "The new mission statement"
+      visit "/student-support-programs/#{program.slug}/edit"
+      fill_in "Mission statement", with: new_mission_statement 
+      
+      click_button "Update Program"
+      expect(page).to have_content(new_mission_statement)
     end
   end
 end
