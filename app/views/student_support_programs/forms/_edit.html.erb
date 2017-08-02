@@ -1,0 +1,14 @@
+<div id="student-support-program-form-wrapper">
+  <%= form_for @student_support_program, html: { multipart: true } do |f| %>
+    <%= render 'student_support_programs/forms/fields/video_link', f: f %>
+    <%= render 'student_support_programs/forms/fields/mission_statement', f: f %>
+    <%= render 'student_support_programs/forms/fields/vision_statement', f: f %>
+    <%= render 'student_support_programs/forms/fields/program_description', f: f %>
+    <%= render 'student_support_programs/forms/fields/target_population', f: f %>
+    <%= render 'student_support_programs/forms/fields/institution_information', f: f%>
+    
+    <div id="student-support-program-submit-wrapper">
+      <%= f.submit "Update Program" %>
+    </div>
+  <% end %>
+</div>

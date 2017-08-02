@@ -1,0 +1,17 @@
+<% content_for :title, "Update #{@student_support_program.name.html_safe}" %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <div id="title-block-wrapper">
+        <div id="logo-wrapper">
+          <%= image_tag( @student_support_program.logo.url ) %>
+        </div>
+        <div id="title-wrapper">
+          <h1><%= @student_support_program.name.html_safe %></h1>
+        </div>
+      </div>
+      <%= render 'student_support_programs/forms/edit' %>
+    </div>
+  </div>
+</div>

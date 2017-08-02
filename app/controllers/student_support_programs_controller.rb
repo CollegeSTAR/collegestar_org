@@ -1,5 +1,5 @@
 class StudentSupportProgramsController < ApplicationController
-  before_action :set_program, only: [:show]
+  before_action :set_program, only: [:show, :edit, :update]
 
   def new
     @student_support_program = StudentSupportProgram.new
@@ -19,6 +19,18 @@ class StudentSupportProgramsController < ApplicationController
       redirect_to student_support_program_path( slug: @student_support_program.slug )
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @student_support_program.update(student_support_program_params)
+      redirect_to student_support_program_path( slug: @student_support_program.slug ), notice: "Program successfully updated."
+    else
+      flash[:errors] = @student_support_program.errors
+      render :edit
     end
   end
 
