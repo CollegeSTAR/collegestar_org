@@ -146,3 +146,11 @@
     }
   }
 }
+
+#resources-wrapper {
+  @include span(18 of 18 no-gutters);
+
+  @include breakpoint($full) {
+    @include span(6 of 18 no-gutters);
+  }
+}

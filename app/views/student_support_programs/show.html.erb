@@ -20,13 +20,13 @@
           <iframe width="560" height="315" src="<%= @student_support_program.video_link.html_safe %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       <% end %>
-      <% if @student_support_program.mission_statement.length > 1 %>
+      <% if @student_support_program.mission_statement?%>
           <div id="mission-statement-wrapper">
             <h2>Mission Statement</h2>
             <%= @student_support_program.mission_statement.html_safe %>
           </div>
       <% end %>
-      <% if @student_support_program.vision_statement.length > 1 %>
+      <% if @student_support_program.vision_statement? %>
           <div id="vision-statement-wrapper">
             <h2>Vision Statement</h2>
             <%= @student_support_program.vision_statement.html_safe %>
@@ -37,13 +37,13 @@
       </div>
       <div id="program-description-wrapper">
         <h2>Program Description</h2>
-        <% if @student_support_program.program_overview.length > 1 %> 
+        <% if @student_support_program.program_overview? %> 
           <div id="program-overview-wrapper">
             <h3>Program Overview</h3>
             <%= @student_support_program.program_overview.html_safe %>
           </div>
         <% end %>
-        <% if @student_support_program.description_of_services.length > 1 %>
+        <% if @student_support_program.description_of_services? %>
           <div id="description-of-services-wrapper">
             <h3>Description of Services</h3>
             <%= @student_support_program.description_of_services.html_safe %>
@@ -57,6 +57,12 @@
             <h3>Application Process</h3>
             <%= @student_support_program.application_process.html_safe %>
           </div>
+        <% end %>
+      </div>
+      <div id="resources-wrapper">
+        <% if @student_support_program.resources? %>
+          <h3>Resources</h3>
+          <%= @student_support_program.resources.html_safe %>
         <% end %>
       </div>
     </div>
