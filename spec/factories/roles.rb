@@ -112,7 +112,12 @@ factory :campus_admin, class: Role do
     description "STAR Learning Communities Admin: "
     grantable true
   end
-
+  
+  factory :student_support_program_admin, class: Role do
+    name "student_support_program_admin"
+    description "Student Support Program Administrator: "
+    grantable true
+  end
   factory :udl_resources_admin, class: Role do
     name "udl_resources_admin"
     description "Universal Design For Learning Resource Admin: "
