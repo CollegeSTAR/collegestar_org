@@ -1,19 +1,21 @@
 class StudentSupportProgramsController < ApplicationController
   before_action :set_program, only: [:show, :edit, :update]
 
-  def new
-    @student_support_program = StudentSupportProgram.new
+  def index
+    @student_support_programs = StudentSupportProgram.all.order(name: "ASC")
   end
 
   def show
   end
 
-  def index
-    @student_support_programs = StudentSupportProgram.all.order(name: "ASC")
+  def new
+    @student_support_program = StudentSupportProgram.new
+    authorize @student_support_program
   end
 
   def create
     @student_support_program = StudentSupportProgram.new(student_support_program_params)
+    authorize @student_support_program
     @student_support_program.slug = @student_support_program.name.parameterize
     if @student_support_program.save
       redirect_to student_support_program_path( slug: @student_support_program.slug )
@@ -23,9 +25,11 @@ class StudentSupportProgramsController < ApplicationController
   end
 
   def edit
+    authorize @student_support_program
   end
 
   def update
+    authorize @student_support_program
     if @student_support_program.update(student_support_program_params)
       redirect_to student_support_program_path( slug: @student_support_program.slug ), notice: "Program successfully updated."
     else
