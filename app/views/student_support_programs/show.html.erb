@@ -62,7 +62,7 @@
             <%= (@student_support_program.target_population_adhd) ? "<li>Attention Deficit & Hyperactivity Disorder (AD/HD)</li>".html_safe : "" %>
             <%= (@student_support_program.target_population_aut_asp) ? "<li>Autism or Aspberger</li>".html_safe : "" %>
             <%= (@student_support_program.target_population_efc) ? "<li>Executive Functioning Challenges</li>".html_safe : "" %>
-            <%= (@student_support_program.target_population_other) ? "<li>#{@student_support_program.target_population_other}</li>".html_safe : "" %>
+            <%= (@student_support_program.target_population_other.length < 1) ? "<li>#{@student_support_program.target_population_other}</li>".html_safe : "" %>
           </ul>
         </div>
       </div>
