@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803170323) do
+ActiveRecord::Schema.define(version: 20170817151235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -458,6 +458,36 @@ ActiveRecord::Schema.define(version: 20170803170323) do
     t.string "target_population_other"
     t.string "vision_statement"
     t.index ["slug"], name: "index_student_support_programs_on_slug", unique: true
+  end
+
+  create_table "student_support_summit_registrations", force: :cascade do |t|
+    t.string "program_name"
+    t.string "contact_name"
+    t.string "contact_phone"
+    t.string "contact_email"
+    t.string "institution"
+    t.string "first_attendee_first_name"
+    t.string "first_attendee_last_name"
+    t.string "first_attendee_email"
+    t.string "first_attendee_phone"
+    t.string "first_attendee_address"
+    t.string "first_attendee_address_2"
+    t.string "first_attendee_city"
+    t.string "first_attendee_state"
+    t.string "first_attendee_zip"
+    t.text "first_attendee_dietary_restrictions"
+    t.text "first_attendee_accessability_needs"
+    t.string "second_attendee_first_name"
+    t.string "second_attendee_last_name"
+    t.string "second_attendee_email"
+    t.string "second_attendee_phone"
+    t.string "second_attendee_address"
+    t.string "second_attendee_address_2"
+    t.string "second_attendee_city"
+    t.string "second_attendee_state"
+    t.string "second_attendee_zip"
+    t.text "second_attendee_dietary_restrictions"
+    t.text "second_attendee_accessability_needs"
   end
 
   create_table "udl_module_sections", id: :serial, force: :cascade do |t|
