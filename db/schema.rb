@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731200430) do
+ActiveRecord::Schema.define(version: 20170803170323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -420,6 +420,16 @@ ActiveRecord::Schema.define(version: 20170731200430) do
     t.boolean "anonymous"
   end
 
+  create_table "student_support_program_images", force: :cascade do |t|
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "caption"
+    t.bigint "student_support_program_id"
+    t.index ["student_support_program_id"], name: "index_student_support_program_images_id"
+  end
+
   create_table "student_support_programs", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -579,6 +589,7 @@ ActiveRecord::Schema.define(version: 20170731200430) do
   add_foreign_key "redesign_summaries", "users"
   add_foreign_key "student_nomination_faculty", "campus_departments"
   add_foreign_key "student_nomination_faculty", "campus_units"
+  add_foreign_key "student_support_program_images", "student_support_programs"
   add_foreign_key "user_assessment_answer_choice_associations", "assessment_answer_choices"
   add_foreign_key "user_assessment_answer_choice_associations", "user_module_assessments"
   add_foreign_key "user_assessment_question_associations", "assessment_answer_choices", column: "selected_answer_id"

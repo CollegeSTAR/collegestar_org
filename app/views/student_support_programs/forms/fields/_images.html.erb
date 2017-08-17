@@ -1,0 +1,13 @@
+<div id="student-support-program-images-dropzone-wrapper">
+  <div class="label-wrapper">
+    <%= f.label :images %>
+  </div>
+  <%= f.file_field :images, multiple: true %>
+  <div 
+    id="student-support-program-images-dropzone"
+    ondrop="handle_image_drop(event);"
+    ondragover="handle_image_dropzone_dragover(event);"
+  >
+    <p>Click/Drop to add images</p>
+  </div>
+</div>
