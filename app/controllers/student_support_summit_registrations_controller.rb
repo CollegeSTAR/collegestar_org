@@ -3,17 +3,22 @@ class StudentSupportSummitRegistrationsController < ApplicationController
 
   def index
     @registrations = StudentSupportSummitRegistration.order("created_at DESC")
+    authorize(@registrations)
   end
 
   def show
+    authorize(@registration)
   end
 
   def new
     @registration = StudentSupportSummitRegistration.new
+    authorize(@registration)
   end
 
   def create
     @registration = StudentSupportSummitRegistration.new( student_support_summit_registration_params )
+    authorize(@registration)
+
     if @registration.save
       StudentSupportSummitRegistrationMailer.confirmation(@registration).deliver_now
       render :confirmation
@@ -66,5 +71,9 @@ class StudentSupportSummitRegistrationsController < ApplicationController
       :second_attendee_dietary_restrictions,
       :second_attendee_accessability_needs
     )
+  end
+
+  def user_not_authorized
+    redirect_to(student_support_summit_path)
   end
 end
