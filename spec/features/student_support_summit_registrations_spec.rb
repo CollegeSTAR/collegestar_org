@@ -53,7 +53,19 @@ RSpec.feature "Student Support Summit Registrations" do
       registration
     end
     scenario "User visits registration index" do
-      visit "/student-support-summit-registrations"
+      visit "/student-support-summit/registrations"
+
+      expect(page).to have_content(registration.program_name)
+    end
+  end
+
+  feature "Show individual registration" do
+    before(:each) do
+      registration
+    end
+    scenario "User clicks on registration link from index" do
+      visit "/student-support-summit/registrations"
+      click_link "student_support_summit_registration_#{registration.id}"
 
       expect(page).to have_content(registration.program_name)
     end

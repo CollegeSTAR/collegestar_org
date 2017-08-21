@@ -1,4 +1,12 @@
 class StudentSupportSummitRegistrationsController < ApplicationController
+  before_action :set_registration, only: [:show]
+
+  def index
+    @registrations = StudentSupportSummitRegistration.order("created_at DESC")
+  end
+
+  def show
+  end
 
   def new
     @registration = StudentSupportSummitRegistration.new
@@ -14,6 +22,10 @@ class StudentSupportSummitRegistrationsController < ApplicationController
   end
 
   private
+
+  def set_registration
+    @registration = StudentSupportSummitRegistration.find params[:id]
+  end
 
   def student_support_summit_registration_params
     params.require(:student_support_summit_registration).permit(

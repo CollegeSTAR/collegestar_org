@@ -494,6 +494,8 @@ ActiveRecord::Schema.define(version: 20170817151235) do
     t.string "second_attendee_travel_by"
     t.text "second_attendee_dietary_restrictions"
     t.text "second_attendee_accessability_needs"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "udl_module_sections", id: :serial, force: :cascade do |t|

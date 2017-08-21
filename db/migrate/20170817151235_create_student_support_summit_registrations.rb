@@ -34,6 +34,8 @@ class CreateStudentSupportSummitRegistrations < ActiveRecord::Migration[5.1]
       t.string :second_attendee_travel_by
       t.text   :second_attendee_dietary_restrictions
       t.text   :second_attendee_accessability_needs
+
+      t.timestamps
     end
   end
 end
