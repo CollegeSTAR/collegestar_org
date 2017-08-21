@@ -1,3 +1,12 @@
+#student-support-summit-registrations-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+
+  table#student-support-summit-registrations {
+    @include admin-table;
+  }
+}
+
 #student-support-summit-registration-form-wrapper {
   margin: gutter() 2*gutter();
 

@@ -15,6 +15,7 @@ class StudentSupportSummitRegistrationsController < ApplicationController
   def create
     @registration = StudentSupportSummitRegistration.new( student_support_summit_registration_params )
     if @registration.save
+      StudentSupportSummitRegistrationMailer.confirmation(@registration).deliver_now
       render :confirmation
     else
       render :new

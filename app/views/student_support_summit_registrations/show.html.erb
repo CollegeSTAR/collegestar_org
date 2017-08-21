@@ -4,6 +4,9 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @registration.program_name %> Summit Registration</h1>
+
+      <p><%= link_to "Back to registrations", student_support_summit_registrations_path %></p>
+
       <h2>Program Information</h2>
       <p><strong>Institution:</strong> <%= @registration.institution %></p>
       <p><strong>Program Contact:</strong> <%= @registration.contact_name %></p>
@@ -14,7 +17,7 @@
       <p><strong>Name:</strong> <%= "#{@registration.first_attendee_first_name} #{@registration.first_attendee_last_name}" %></p>
       <p><strong>Address:</strong><br/>
          <%= @registration.first_attendee_address %><br/>
-         <%= (@registration.first_attendee_address_2.length > 0) ? @registration.first_attendee_address_2 : '' %><br/>
+         <%= (@registration.first_attendee_address_2) ? @registration.first_attendee_address_2 : '' %><br/>
          <%= "#{@registration.first_attendee_city}, #{@registration.first_attendee_state} #{@registration.first_attendee_zip}" %></p>
 
       <p><strong>Arrival Date:</strong> <%= @registration.first_attendee_arrival_date %></p>
@@ -28,7 +31,7 @@
         <p><strong>Name:</strong> <%= "#{@registration.second_attendee_first_name} #{@registration.second_attendee_last_name}" %></p>
         <p><strong>Address:</strong><br/>
           <%= @registration.second_attendee_address %><br/>
-          <%= (@registration.second_attendee_address_2.length > 0) ? @registration.second_attendee_address_2 : '' %><br/>
+          <%= (@registration.second_attendee_address_2) ? @registration.second_attendee_address_2 : '' %><br/>
           <%= "#{@registration.second_attendee_city}, #{@registration.second_attendee_state} #{@registration.second_attendee_zip}" %></p>
 
         <p><strong>Arrival Date:</strong> <%= @registration.second_attendee_arrival_date %></p>

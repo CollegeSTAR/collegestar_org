@@ -5,9 +5,8 @@
     <div id="content">
       <h1>2017 Student Support Summit Registrations</h1>
 
-      <div id="table-wrapper">
-        <table>
-          <thead>
+      <div id="student-support-summit-registrations-wrapper">
+        <table id="student-support-summit-registrations">
             <tr>
               <th>
                 Program
@@ -16,8 +15,6 @@
                 Registration Date
               </th>
             </tr>
-          </thead>
-          <tbody>
             <% @registrations.each do |registration| %>
               <tr>
                 <td>
@@ -32,7 +29,6 @@
                 </td>
               </tr>
             <% end %>
-          </tbody>
         </table>
       </div>
     </div>
