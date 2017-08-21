@@ -1,0 +1,129 @@
+#student-support-summit-registration-form-wrapper {
+  margin: gutter() 2*gutter();
+
+  #student-support-summit-registration-program-information-wrapper,
+  #student-support-summit-registration-first-attendee-wrapper,
+  #student-support-summit-registration-second-attendee-wrapper {
+    @include span(18 of 18 no-gutters);
+    padding: gutter() 4*gutter();
+  }
+
+  #student-support-summit-registration-program-information-wrapper {
+
+    #program-name-wrapper {
+      @include span(18 of 18 no-gutters);
+    }
+    #institution-wrapper {
+      @include span(18 of 18 no-gutters);
+    }
+    #contact-name-wrapper {
+      @include span(9 of 18 no-gutters);
+    }
+    #contact-email-wrapper {
+      @include span(9 of 18 at 10 no-gutters);
+    }
+    #contact-phone-wrapper {
+      @include span(9 of 18 no-gutters);
+    }
+  }
+
+  #student-support-summit-registration-first-attendee-wrapper {
+    
+    #first-attendee-first-name-wrapper {
+      @include span(9 of 18 no-gutters);
+    }
+    #first-attendee-last-name-wrapper {
+      @include span(9 of 18 at 10 no-gutters);
+    }
+    #first-attendee-email-wrapper {
+      @include span(9 of 18 no-gutters);
+    }
+    #first-attendee-phone-wrapper {
+      @include span(9 of 18 at 10 no-gutters);
+    }
+    #first-attendee-address-wrapper,
+    #first-attendee-addres-2-wrapper {
+      @include span(18 of 18 no-gutters);
+    }
+    #first-attendee-city-wrapper {
+      @include span(12 of 18);
+    }
+    #first-attendee-state-wrapper {
+      @include span(2 of 18 at 13);
+    }
+    #first-attendee-zip-wrapper {
+      @include span(4 of 18 at 15);
+    }
+    #first-attendee-arrival-date-wrapper {
+      @include span(4 of 18);
+    }
+    #first-attendee-departure-date-wrapper {
+      @include span(4 of 18 at 5);
+    }
+    #first-attendee-travel-by-wrapper {
+      @include span(18 of 18);
+    }
+    #first-attendee-dietary-restrictions-wrapper,
+    #first-attendee-accessability-needs-wrapper {
+      @include span(18 of 18);
+
+      textarea {
+        height: 6em;
+        resize: none;
+      }
+    }
+  }
+
+  #student-support-summit-registration-second-attendee-wrapper {
+    
+    #second-attendee-first-name-wrapper {
+      @include span(9 of 18 no-gutters);
+    }
+    #second-attendee-last-name-wrapper {
+      @include span(9 of 18 at 10 no-gutters);
+    }
+    #second-attendee-email-wrapper {
+      @include span(9 of 18 no-gutters);
+    }
+    #second-attendee-phone-wrapper {
+      @include span(9 of 18 at 10 no-gutters);
+    }
+    #second-attendee-address-wrapper,
+    #second-attendee-addres-2-wrapper {
+      @include span(18 of 18 no-gutters);
+    }
+    #second-attendee-city-wrapper {
+      @include span(12 of 18);
+    }
+    #second-attendee-state-wrapper {
+      @include span(2 of 18 at 13);
+    }
+    #second-attendee-zip-wrapper {
+      @include span(4 of 18 at 15);
+    }
+    #second-attendee-arrival-date-wrapper {
+      @include span(4 of 18);
+    }
+    #second-attendee-departure-date-wrapper {
+      @include span(4 of 18 at 5);
+    }
+    #second-attendee-travel-by-wrapper {
+      @include span(18 of 18);
+    }
+    #second-attendee-dietary-restrictions-wrapper,
+    #second-attendee-accessability-needs-wrapper {
+      @include span(18 of 18);
+
+      textarea {
+        height: 6em;
+        resize: none;
+      }
+    }
+  }
+
+
+  #submit-wrapper {
+    margin: 4*gutter();
+    text-align: center;
+  }
+}

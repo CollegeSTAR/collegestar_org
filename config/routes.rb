@@ -92,6 +92,9 @@ Rails.application.routes.draw do
   resources :case_study_proposals, path: '/case-study-proposals'
   resources :dss_contacts, param: :slug, path: '/disability-support-offices'
   resources :student_support_programs, param: :slug, path: '/student-support-programs'
+  resource :student_support_summit, only: [:show], path: '/student-support-summit' do
+    resources :registrations, controller: :student_support_summit_registrations
+  end
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
   end

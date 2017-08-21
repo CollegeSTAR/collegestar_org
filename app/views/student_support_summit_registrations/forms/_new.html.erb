@@ -1,0 +1,15 @@
+<div id="student-support-summit-registration-form-wrapper">
+  <%= form_for @registration do |f| %>
+    <h2>Program Information</h2>
+        
+    <%= render '/student_support_summit_registrations/forms/fields/program_information', f: f %>
+    <h2>Attendee(s) Information</h2>
+
+    <%= render '/student_support_summit_registrations/forms/fields/first_attendee', f: f %>
+    <h3>Second Attendee</h3>
+    <%= render '/student_support_summit_registrations/forms/fields/second_attendee', f: f %>
+     <div id="submit-wrapper">
+     <%= f.submit "Complete registration" %>
+    </div>
+  <% end %>
+</div>

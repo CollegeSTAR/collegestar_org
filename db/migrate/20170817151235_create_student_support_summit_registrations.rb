@@ -15,6 +15,9 @@ class CreateStudentSupportSummitRegistrations < ActiveRecord::Migration[5.1]
       t.string :first_attendee_city
       t.string :first_attendee_state
       t.string :first_attendee_zip
+      t.string :first_attendee_arrival_date
+      t.string :first_attendee_departure_date
+      t.string :first_attendee_travel_by
       t.text   :first_attendee_dietary_restrictions
       t.text   :first_attendee_accessability_needs
       t.string :second_attendee_first_name
@@ -26,6 +29,9 @@ class CreateStudentSupportSummitRegistrations < ActiveRecord::Migration[5.1]
       t.string :second_attendee_city
       t.string :second_attendee_state
       t.string :second_attendee_zip
+      t.string :second_attendee_arrival_date
+      t.string :second_attendee_departure_date
+      t.string :second_attendee_travel_by
       t.text   :second_attendee_dietary_restrictions
       t.text   :second_attendee_accessability_needs
     end
