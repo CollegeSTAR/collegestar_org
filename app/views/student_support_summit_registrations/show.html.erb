@@ -1,0 +1,45 @@
+<% content_for :title, "#{@registration.program_name} Summit Registration" %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @registration.program_name %> Summit Registration</h1>
+
+      <p><%= link_to "Back to registrations", student_support_summit_registrations_path %></p>
+
+      <h2>Program Information</h2>
+      <p><strong>Institution:</strong> <%= @registration.institution %></p>
+      <p><strong>Program Contact:</strong> <%= @registration.contact_name %></p>
+      <p><strong>Contact Email:</strong> <%= @registration.contact_email %></p>
+      <p><strong>Contact Phone:</strong> <%= @registration.contact_phone %></p>
+
+      <h2>Attendee Information</h2>
+      <p><strong>Name:</strong> <%= "#{@registration.first_attendee_first_name} #{@registration.first_attendee_last_name}" %></p>
+      <p><strong>Address:</strong><br/>
+         <%= @registration.first_attendee_address %><br/>
+         <%= (@registration.first_attendee_address_2) ? @registration.first_attendee_address_2 : '' %><br/>
+         <%= "#{@registration.first_attendee_city}, #{@registration.first_attendee_state} #{@registration.first_attendee_zip}" %></p>
+
+      <p><strong>Arrival Date:</strong> <%= @registration.first_attendee_arrival_date %></p>
+      <p><strong>Departure Date:</strong> <%= @registration.first_attendee_departure_date %></p>
+      <p><strong>Method of Travel:</strong> <%= @registration.first_attendee_travel_by %></p>
+      <p><strong>Dietary Restrictions:</strong> <%= @registration.first_attendee_dietary_restrictions %></p>
+      <p><strong>Accessability Needs:</strong> <%= @registration.first_attendee_accessability_needs %></p>
+     
+      <% if (@registration.second_attendee_first_name.length > 0 || @registration.second_attendee_last_name.length > 0) %>
+        <h2>Attendee Information</h2>
+        <p><strong>Name:</strong> <%= "#{@registration.second_attendee_first_name} #{@registration.second_attendee_last_name}" %></p>
+        <p><strong>Address:</strong><br/>
+          <%= @registration.second_attendee_address %><br/>
+          <%= (@registration.second_attendee_address_2) ? @registration.second_attendee_address_2 : '' %><br/>
+          <%= "#{@registration.second_attendee_city}, #{@registration.second_attendee_state} #{@registration.second_attendee_zip}" %></p>
+
+        <p><strong>Arrival Date:</strong> <%= @registration.second_attendee_arrival_date %></p>
+        <p><strong>Departure Date:</strong> <%= @registration.second_attendee_departure_date %></p>
+        <p><strong>Method of Travel:</strong> <%= @registration.second_attendee_travel_by %></p>
+        <p><strong>Dietary Restrictions:</strong> <%= @registration.second_attendee_dietary_restrictions %></p>
+        <p><strong>Accessability Needs:</strong> <%= @registration.second_attendee_accessability_needs %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

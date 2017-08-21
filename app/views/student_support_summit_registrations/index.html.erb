@@ -1,0 +1,36 @@
+<% content_for :title, "2017 Student Support Summit Registrations" %>
+
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>2017 Student Support Summit Registrations</h1>
+
+      <div id="student-support-summit-registrations-wrapper">
+        <table id="student-support-summit-registrations">
+            <tr>
+              <th>
+                Program
+              </th>
+              <th>
+                Registration Date
+              </th>
+            </tr>
+            <% @registrations.each do |registration| %>
+              <tr>
+                <td>
+                  <%= link_to( 
+                    registration.program_name, 
+                    student_support_summit_registration_path(registration.id), 
+                    id: "student_support_summit_registration_#{registration.id}" 
+                  ) %>
+                </td>
+                <td>
+                  <%= link_to( registration.created_at, student_support_summit_registration_path(registration.id) ) %>
+                </td>
+              </tr>
+            <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
