@@ -3,20 +3,20 @@
     <div id="content">
       <h1><%= @udl_module.title %> Assessment</h1>
 
-      <div id="assessment_wrapper">
+      <div id="assessment-wrapper">
         <%= form_for @user_module_assessment do |f| %>
-          <% @questions.each do |question| %>
+          <% @questions.each_with_index do |question, index| %>
             <% q_order = {id: question.id, answer_choices: {}} %> 
-            <div class="udl_module_assessment_question" id=<%= "udl_module_assessment_question_#{question.id}" %> >
-              <h2><%= "#{question.id} #{question.question}" %></h2>
+            <div class="udl-module-assessment-question" id=<%= "udl_module_assessment_question_#{question.id}" %> >
+              <p><span class="question-number"><%= "#{index + 1}. " %></span><%= "#{question.question}" %></p>
               <% question.assessment_answer_choices.each do |answer_choice| %>
                 <% q_order[:answer_choices][q_order[:answer_choices].count] = {id: answer_choice.id} %>
-                <div class="udl_module_assessment_answer_choices_wrapper" id=<%= "udl_module_answer_choice_#{answer_choice.id}" %> >
-                  <div class="radio_wrapper">
+                <div class="udl-module-assessment-answer-choices-wrapper" id=<%= "udl_module_answer_choice_#{answer_choice.id}" %> >
+                  <div class="radio-wrapper">
                     <%= radio_button_tag "user_module_assessment[selected_answer_choices][#{question.id}]", 
                         answer_choice.id %>
                   </div>
-                  <div class="label_wrapper"><%= f.label :answer_choice, "#{answer_choice.id} #{answer_choice.text}" %></div>
+                  <div class="label-wrapper"><%= f.label :answer_choice, "#{answer_choice.text}" %></div>
                 </div>
               <% end %>
             </div>

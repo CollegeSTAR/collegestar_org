@@ -1,0 +1,46 @@
+#assessment-wrapper {
+  @include span(18 of 18 no-gutters);
+  padding: gutter();
+
+  .udl-module-assessment-question {
+    @include span(18 of 18 no-gutters);
+    padding: gutter();
+    
+    p {
+      margin: gutter();
+      font-size: $base-font-size * 1.2;
+
+      span.question-number {
+        font-weight: bold;
+      }
+    }
+
+    .udl-module-assessment-answer-choices-wrapper {
+      @include span(18 of 18 no-gutters);
+
+      .radio-wrapper {
+        @include span(2 of 18 no-gutters);
+        padding: 0 gutter();
+        text-align: right;
+        @include breakpoint($full) {
+          @include span(1 of 18 no-gutters);
+        }
+      }
+
+      .label-wrapper {
+        @include span(16 of 18 at 3 no-gutters);
+        padding: 0 gutter();
+        padding-left: 0;
+
+        @include breakpoint($full) {
+          @include span(17 of 18 at 2 no-gutters);
+        }
+
+        label {
+          font-weight: normal;
+          font-size: $base-font-size;
+        }
+      }
+    }
+  }
+}
