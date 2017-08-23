@@ -21,4 +21,8 @@ class StudentSupportSummitRegistrationPolicy < ApplicationPolicy
     new?
   end
 
+  def view_admin?
+    index?
+  end
+
 end

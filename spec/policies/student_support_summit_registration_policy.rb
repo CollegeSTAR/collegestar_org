@@ -22,7 +22,7 @@ RSpec.describe StudentSupportSummitRegistrationPolicy do
     end
   end
 
-  permissions :index?, :show? do
+  permissions :index?, :show?, :view_admin? do
     it "grants admin access" do
       expect(subject).to permit(admin, StudentSupportSummitRegistration)
     end
