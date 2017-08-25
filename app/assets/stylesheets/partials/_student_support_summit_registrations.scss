@@ -12,7 +12,9 @@
 
   #student-support-summit-registration-program-information-wrapper,
   #student-support-summit-registration-first-attendee-wrapper,
-  #student-support-summit-registration-second-attendee-wrapper {
+  #student-support-summit-registration-second-attendee-wrapper,
+  #student-support-summit-registration-shared-resource-wrapper,
+  #student-support-summit-registration-shared-problem-wrapper {
     @include span(18 of 18 no-gutters);
     padding: gutter() 4*gutter();
   }

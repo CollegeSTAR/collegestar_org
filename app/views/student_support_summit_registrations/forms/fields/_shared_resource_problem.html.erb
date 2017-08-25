@@ -1,0 +1,23 @@
+<div id="student-support-summit-registration-shared-resource-wrapper">
+  <div id="shared-resource-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :shared_resource %>
+      <p>Does your program have a particular process, resource, research model, etc. that you would like to share in detail during a break-out session during the summit?  If so, please provide a brief description of what you would like to share here.</p>
+
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.cktext_area :shared_resource, ckeditor: { toolbar: 'base', height: 200 } %>
+    </div>
+  </div>
+</div>
+<div id="student-support-summit-registration-shared-problem-wrapper">
+  <div id="shared-problem-wrapper">
+    <div class="label-wrapper">
+      <%= f.label :shared_problem %>
+      <p>Does your program have a "problem of practice" that your team is working through now - something about which you would like to hear advice, suggestions, tips, etc. from your colleagues at the summit?  If so, provide a 2 - 3 sentence description of the challenge you face.</p>
+    </div>
+    <div class="text-area-wrapper">
+      <%= f.cktext_area :shared_problem, ckeditor: { toolbar: 'base', height: 200 } %>
+    </div>
+  </div>
+</div>

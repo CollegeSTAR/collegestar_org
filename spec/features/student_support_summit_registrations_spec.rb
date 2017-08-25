@@ -44,6 +44,8 @@ RSpec.feature "Student Support Summit Registrations" do
         select registration_attributes[:second_attendee_travel_by], from: :student_support_summit_registration_second_attendee_travel_by
         fill_in :student_support_summit_registration_second_attendee_dietary_restrictions, with: registration_attributes[:second_attendee_dietary_restrictions]
         fill_in :student_support_summit_registration_second_attendee_accessability_needs, with: registration_attributes[:second_attendee_accessability_needs]
+        fill_in :student_support_summit_registration_shared_resource, with: registration_attributes[:shared_resource]
+        fill_in :student_support_summit_registration_shared_problem, with: registration_attributes[:shared_problem]
 
         click_button 'Complete registration'
 
@@ -85,6 +87,10 @@ RSpec.feature "Student Support Summit Registrations" do
         click_link "student_support_summit_registration_#{registration.id}"
 
         expect(page).to have_content(registration.program_name)
+        expect(page).to have_content(registration.first_attendee_first_name)
+        expect(page).to have_content(registration.second_attendee_first_name)
+        expect(page).to have_content(registration.shared_resource)
+        expect(page).to have_content(registration.shared_problem)
       end
     end
   end

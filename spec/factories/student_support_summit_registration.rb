@@ -31,5 +31,7 @@ FactoryGirl.define do
     second_attendee_travel_by "Car"
     second_attendee_dietary_restrictions "I have a restriction"
     second_attendee_accessability_needs "I have a need"
+    shared_resource "This is my resource"
+    shared_problem "This is my problem"
   end
 end

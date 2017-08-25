@@ -40,6 +40,13 @@
         <p><strong>Dietary Restrictions:</strong> <%= @registration.second_attendee_dietary_restrictions %></p>
         <p><strong>Accessability Needs:</strong> <%= @registration.second_attendee_accessability_needs %></p>
       <% end %>
+
+      <h2>Group Discussion Items</h2>
+      <p><strong>Shared Resource(s):</strong></p>
+      <%= @registration.shared_resource.html_safe %>
+
+      <p><strong>Shared Problem(s):</strong></p>
+      <%= @registration.shared_problem.html_safe %>
     </div>
   </div>
 </div>

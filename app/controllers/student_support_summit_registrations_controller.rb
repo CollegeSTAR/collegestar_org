@@ -69,7 +69,9 @@ class StudentSupportSummitRegistrationsController < ApplicationController
       :second_attendee_dietary_restrictions,
       :second_attendee_accessability_needs,
       :second_attendee_dietary_restrictions,
-      :second_attendee_accessability_needs
+      :second_attendee_accessability_needs,
+      :shared_resource,
+      :shared_problem
     )
   end
 
