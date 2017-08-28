@@ -33,4 +33,8 @@ class StudentSupportProgramPolicy < ApplicationPolicy
   def delete?
     new?
   end
+
+  def view_admin?
+    new?
+  end
 end

@@ -22,7 +22,7 @@ RSpec.describe StudentSupportProgramPolicy do
     end
   end
 
-  permissions :create?, :edit?, :update?, :delete? do
+  permissions :new?, :create?, :edit?, :update?, :delete?, :view_admin? do
     it "grants admin access" do
       expect(subject).to permit(admin, StudentSupportProgram.new)
     end
