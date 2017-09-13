@@ -21,13 +21,13 @@
         </div>
       <% end %>
       <% if @student_support_program.mission_statement?%>
-          <div id="student-support-program-mission-statement-wrapper">
+          <div id="mission-statement-wrapper">
             <h2>Mission Statement</h2>
             <%= @student_support_program.mission_statement.html_safe %>
           </div>
       <% end %>
       <% if @student_support_program.vision_statement? %>
-          <div id="student-support-program-vision-statement-wrapper">
+          <div id="vision-statement-wrapper">
             <h2>Vision Statement</h2>
             <%= @student_support_program.vision_statement.html_safe %>
           </div>
@@ -37,22 +37,22 @@
         <img src="https://placehold.it/600x600" />
       </div>
       -->
-      <div id="student-support-program-description-wrapper">
+      <div id="program-description-wrapper">
         <h2>Program Description</h2>
         <% if @student_support_program.program_overview? %> 
-          <div id="student-support-program-overview-wrapper">
+          <div id="program-overview-wrapper">
             <h3>Program Overview</h3>
             <%= @student_support_program.program_overview.html_safe %>
           </div>
         <% end %>
         <% if @student_support_program.description_of_services? %>
-          <div id="student-support-program-description-of-services-wrapper">
+          <div id="description-of-services-wrapper">
             <h3>Description of Services</h3>
             <%= @student_support_program.description_of_services.html_safe %>
           </div>
         <% end %>
         <% if @student_support_program.application_process? %>
-          <div id="student-support-program-application-process-wrapper">
+          <div id="application-process-wrapper">
             <h3>Application Process</h3>
             <%= @student_support_program.application_process.html_safe %>
           </div>
@@ -68,13 +68,13 @@
           </ul>
         </div>
       </div>
-      <div id="student-support-program-resources-wrapper">
+      <div id="resources-wrapper">
         <% if @student_support_program.resources? %>
           <h2>Resources</h2>
           <%= @student_support_program.resources.html_safe %>
         <% end %>
       </div>
-      <div id="student-support-program-contact-info-wrapper">
+      <div id="contact-info-wrapper">
         <% if @student_support_program.contact_info? %>
           <h2>Contact Information</h2>
           <%= @student_support_program.contact_info.html_safe %>

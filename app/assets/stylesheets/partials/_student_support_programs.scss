@@ -69,11 +69,6 @@
 #student-support-program-contact-info-wrapper,
 #student-support-program-application-process-wrapper {
   padding: 2*gutter() 0;
-  text-align: left;
-
-  p {
-    text-align: left;
-  }
 }
 
 #student-support-program-images-dropzone {
@@ -169,6 +164,8 @@
 }
 
 #resources-wrapper {
+  text-align: left;
+
   @include span(18 of 18 no-gutters);
 
   @include breakpoint($full) {
@@ -177,6 +174,8 @@
 }
 
 #contact-info-wrapper {
+  text-align: left;
+
   @include span(18 of 18 no-gutters);
 
   @include breakpoint($full) {
