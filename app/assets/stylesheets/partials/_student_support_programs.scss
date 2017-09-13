@@ -171,6 +171,10 @@
   @include breakpoint($full) {
     @include span(6 of 18 no-gutters);
   }
+
+  p {
+    text-align: left;
+  }
 }
 
 #contact-info-wrapper {
@@ -180,6 +184,10 @@
 
   @include breakpoint($full) {
     @include span(6 of 18 no-gutters);
+  }
+
+  p {
+    text-align: left;
   }
 }
 
