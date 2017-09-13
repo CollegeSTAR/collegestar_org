@@ -69,6 +69,11 @@
 #student-support-program-contact-info-wrapper,
 #student-support-program-application-process-wrapper {
   padding: 2*gutter() 0;
+  text-align: left;
+
+  p {
+    text-align: left;
+  }
 }
 
 #student-support-program-images-dropzone {
