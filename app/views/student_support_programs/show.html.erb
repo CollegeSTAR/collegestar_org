@@ -32,11 +32,16 @@
             <%= @student_support_program.vision_statement.html_safe %>
           </div>
       <% end %>
-      <!--
       <div id="photo-library-wrapper">
-        <img src="https://placehold.it/600x600" />
+        <h2>Photos</h2>
+        <div id="images-wrapper">
+          <% @student_support_program.images.each do |image| %>
+            <div class="image">
+              <img src="<%= image.image.url(:thumb) %>" />
+            </div>
+          <% end %>
+        </div>
       </div>
-      -->
       <div id="program-description-wrapper">
         <h2>Program Description</h2>
         <% if @student_support_program.program_overview? %> 
@@ -81,7 +86,7 @@
         <% end %>
       </div>
       <div id="program-stats-wrapper">
-        <h2>Program Stats</h2>
+        <h2>Program at a glance</h2>
         <p><strong>How many students are enrolled in this program?</strong> <%= @student_support_program.program_size %></p>
         <p><strong>What are the annual costs for a student to attend this program?</strong> <%= @student_support_program.program_cost %></p>
         <p><strong>Is this program public?</strong> <%= (@student_support_program.public?) ? "Yes" : "No" %></p>

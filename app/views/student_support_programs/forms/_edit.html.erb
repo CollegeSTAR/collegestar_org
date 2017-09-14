@@ -2,6 +2,7 @@
   <%= form_for @student_support_program, html: { multipart: true } do |f| %>
     <%= render 'student_support_programs/forms/fields/edit_logo', f: f %>
     <%= render 'student_support_programs/forms/fields/video_link', f: f %>
+    <%= render 'student_support_programs/forms/fields/images', f: f %>
     <%= render 'student_support_programs/forms/fields/mission_statement', f: f %>
     <%= render 'student_support_programs/forms/fields/vision_statement', f: f %>
     <%= render 'student_support_programs/forms/fields/program_description', f: f %>

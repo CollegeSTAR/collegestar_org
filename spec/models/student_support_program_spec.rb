@@ -16,6 +16,11 @@ RSpec.describe StudentSupportProgram do
                 less_than(2.megabytes) }
   end
 
+  describe "associations" do
+    it { should have_many(:images).class_name("StudentSupportProgramImage") }
+    it { should accept_nested_attributes_for(:images) }
+  end
+
   describe "to_param" do
     it "should return slug" do
       expect(program.to_param).to eq(program.slug)  

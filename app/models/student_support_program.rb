@@ -7,6 +7,10 @@ class StudentSupportProgram < ActiveRecord::Base
                        content_type: { content_type: /\Aimage\/.*\z/ },
                        size: { less_than: 2.megabytes }
 
+  has_many :images, class_name: "StudentSupportProgramImage"
+
+  accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? && attributes['caption'].blank? }
+
   def to_param
     self.slug
   end

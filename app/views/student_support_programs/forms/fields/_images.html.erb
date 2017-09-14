@@ -1,13 +1,17 @@
 <div id="student-support-program-images-dropzone-wrapper">
+  <%= f.fields_for :images do |images_form| %>
   <div class="label-wrapper">
-    <%= f.label :images %>
+    <%= images_form.label :image %>
   </div>
-  <%= f.file_field :images, multiple: true %>
-  <div 
-    id="student-support-program-images-dropzone"
-    ondrop="handle_image_drop(event);"
-    ondragover="handle_image_dropzone_dragover(event);"
-  >
-    <p>Click/Drop to add images</p>
+  <div>
+    <img src="<%= images_form.object.image.url(:thumb) %>" />
+    <%= images_form.file_field :image %>
   </div>
+  <div class="label-wrapper">
+    <%= images_form.label :caption %>
+  </div>
+  <div>
+    <%= images_form.text_field :caption %>
+  </div>
+  <% end %>
 </div>

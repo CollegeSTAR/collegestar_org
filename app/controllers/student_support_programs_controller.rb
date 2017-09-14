@@ -11,6 +11,7 @@ class StudentSupportProgramsController < ApplicationController
   def new
     @student_support_program = StudentSupportProgram.new
     authorize @student_support_program
+    @student_support_program.images.build
   end
 
   def create
@@ -26,6 +27,7 @@ class StudentSupportProgramsController < ApplicationController
 
   def edit
     authorize @student_support_program
+    @student_support_program.images.build
   end
 
   def update
@@ -66,7 +68,8 @@ class StudentSupportProgramsController < ApplicationController
       :target_population_other,
       :institution_size,
       :institution_type,
-      :application_process
+      :application_process,
+      images_attributes: [ :id, :image, :caption]
     )
   end
 end
