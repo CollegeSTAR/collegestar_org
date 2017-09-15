@@ -41,6 +41,10 @@
 #student-support-program-video-link-wrapper {
   @include span(18 of 18);
   padding: 2*gutter() 6*gutter();
+  
+  li {
+    margin: gutter() 2*gutter();
+  }
 }
 
 #student-support-program-logo-name-wrapper,
@@ -134,6 +138,10 @@
 
 #mission-statement-wrapper,
 #vision-statement-wrapper {
+  li {
+    margin: gutter() 2*gutter();
+  }
+
   @include span(18 of 18 no-gutters);
 }
 
@@ -153,10 +161,6 @@
   .program-wrapper {
     @include span(18 of 18 no-gutters);
     margin-top: 4*gutter();
-
-    li {
-      margin: gutter() 2*gutter();
-    }
 
     .logo-wrapper {
       @include span(18 of 18 no-gutters);
