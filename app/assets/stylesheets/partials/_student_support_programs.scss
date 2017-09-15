@@ -135,6 +135,10 @@
 
 
 #program-description-wrapper {
+  li {
+    margin: gutter() 2*gutter();
+  }
+
   @include span(18 of 18 no-gutters);
   @include breakpoint($full) {
     @include span(12 of 18 at 7);
@@ -145,6 +149,10 @@
   .program-wrapper {
     @include span(18 of 18 no-gutters);
     margin-top: 4*gutter();
+
+    li {
+      margin-top: gutter();
+    }
 
     .logo-wrapper {
       @include span(18 of 18 no-gutters);
