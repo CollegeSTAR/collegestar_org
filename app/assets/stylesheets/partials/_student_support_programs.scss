@@ -49,6 +49,10 @@
 #student-support-program-institution-wrapper {
   @include span(18 of 18);
   padding: 2*gutter() 6*gutter();
+
+  li {
+    margin: gutter() 2*gutter();
+  }
 }
 
 #target-population-specific-ld-wrapper,
@@ -151,7 +155,7 @@
     margin-top: 4*gutter();
 
     li {
-      margin-top: gutter();
+      margin: gutter() 2*gutter();
     }
 
     .logo-wrapper {
@@ -172,6 +176,10 @@
     }
 
     .mission-statement-wrapper {
+      li {
+        margin: gutter() 2*gutter();
+      }
+
       @include span(18 of 18 no-gutters);
       @include breakpoint($full) {
         @include span(12 of 18 at 7 no-gutters);
@@ -189,6 +197,10 @@
     @include span(6 of 18 no-gutters);
   }
 
+  li {
+    margin: gutter() 2*gutter();
+  }
+
   p {
     text-align: left;
   }
@@ -201,6 +213,10 @@
 
   @include breakpoint($full) {
     @include span(6 of 18 no-gutters);
+  }
+  
+  li {
+      margin: gutter() 2*gutter();
   }
 
   p {
