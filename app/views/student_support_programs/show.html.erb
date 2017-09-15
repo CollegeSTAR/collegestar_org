@@ -3,6 +3,20 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
+      <div id="student-support-program-bread-crumb-wrapper">
+      <%= render(
+        'shared/bread_crumb_social_media', 
+        bread_crumb_args: { 
+          page_name: @student_support_program.name.html_safe,
+          parents: [
+          ['Student Support Programs', student_support_programs_path]
+          ],
+        },
+        social_media_args: {
+          show: false,
+        }
+      ) %>
+      </div>
       <div id="title-block-wrapper">
         <div id="logo-wrapper">
           <% if @student_support_program.logo.present? %>
@@ -11,6 +25,7 @@
         </div>
         <div id="title-wrapper">
           <h1><%= @student_support_program.name.html_safe %>
+          
         </div> 
         
       </div>
