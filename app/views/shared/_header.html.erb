@@ -55,7 +55,7 @@
                   %></li>
             <% end %>
             <% if policy(UdlModule).view_admin? %>
-              <li><%= link_to '<i class="fa fa-file fa-la"></i>&nbsp; UDL Modules'.html_safe, udl_modules_path %></li>
+              <li><%= link_to '<i class="fa fa-file fa-la"></i>&nbsp; My UDL Modules'.html_safe, profile_udl_modules_path(profile_id: current_user.id) %></li>
             <% end %>
             <% if policy(User).view_admin? %>
               <li><%= link_to '<i class="fa fa-user fa-la"></i>&nbsp; Users'.html_safe, users_path %></li>
