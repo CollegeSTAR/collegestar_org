@@ -26,8 +26,8 @@ class UdlModule < ActiveRecord::Base
   has_many :sections, -> { order 'module_section_associations.section_page_position ASC' }, through: :module_section_associations, class_name: 'UdlModuleSection'
   has_many :assessment_questions, -> { order(created_at: :asc) }, dependent: :destroy
   
-  scope :released, -> { where released: true }
-  scope :unreleased, -> { where released: false }
+  scope :released, -> { where(released: true).order(:title) }
+  scope :unreleased, -> { (where released: false).order(:title) }
 
   accepts_nested_attributes_for :assessment_questions
 

@@ -34,12 +34,24 @@ RSpec.describe UdlModule do
         released_module = create(:udl_module, released: true)
         expect(UdlModule.released).to match_array([released_module])
       end
+
+      it "orders by title ascending" do
+        released_module = create(:udl_module, released: true)
+        second_released_module = create(:udl_module, title: 'AAAAAAA', released: true)
+        expect(UdlModule.released).to eq([second_released_module, released_module])
+      end
     end
     context "unreleased" do
       it "returns only unreleased modules" do
         not_yet_released_module = create(:udl_module, released: false)
         released_module = create(:udl_module, released: true)
         expect(UdlModule.unreleased).to match_array([not_yet_released_module])
+      end
+
+      it "orders by title ascending" do
+        not_yet_released_module = create(:udl_module, released: false)
+        second_not_yet_released_module = create(:udl_module, title: 'AAAAA', released: false)
+        expect(UdlModule.unreleased).to eq([ second_not_yet_released_module, not_yet_released_module ])
       end
     end
   end
