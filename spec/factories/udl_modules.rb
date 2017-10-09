@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :udl_module do
     sequence(:title) { |n| "Test Module #{n}" }
-    sequence(:slug) { |n| "test-module-#{n}" }
     sub_heading 'testing modules all the time'
     udl_representation '1'
     udl_action_expression '1'

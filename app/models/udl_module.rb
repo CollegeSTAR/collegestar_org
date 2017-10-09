@@ -11,7 +11,8 @@ class UdlModule < ActiveRecord::Base
     :resources,
     :about_the_author
   ]
-
+  
+  before_validation :generate_slug
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
 
@@ -66,5 +67,13 @@ class UdlModule < ActiveRecord::Base
 
   def to_param
     slug
+  end
+
+  private
+
+  def generate_slug
+    if self.slug.nil? && self.title
+      self.slug = self.title.parameterize
+    end
   end
 end
