@@ -4,7 +4,6 @@ class CreateUdlModule
   def call
     assessment_question = AssessmentQuestion.create
     udl_module = UdlModule.new( context.udl_module_params )
-    udl_module.slug ||= udl_module.title.parameterize if udl_module.title
     udl_module.authors << context.user
     udl_module.released = false
     if context.params[:author_is_contributing_faculty]
