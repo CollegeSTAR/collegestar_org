@@ -94,6 +94,7 @@ Rails.application.routes.draw do
   resources :student_support_programs, param: :slug, path: '/student-support-programs'
   resource :student_support_summit, only: [:show], path: '/student-support-summit' do
     resources :registrations, controller: :student_support_summit_registrations
+    resources :media_consents, only: [:new, :create, :index, :show], path: '/media-consents'
   end
   namespace :faculty do
     resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'

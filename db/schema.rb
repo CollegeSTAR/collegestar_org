@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825141601) do
+ActiveRecord::Schema.define(version: 20171017200923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -276,6 +276,18 @@ ActiveRecord::Schema.define(version: 20170825141601) do
     t.string "abbreviation"
     t.index ["campus_id"], name: "index_institutional_units_on_campus_id"
     t.index ["institutional_unit_id"], name: "index_institutional_units_on_institutional_unit_id"
+  end
+
+  create_table "media_consents", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "consent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "module_assessments", id: :serial, force: :cascade do |t|

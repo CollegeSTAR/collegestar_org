@@ -1,0 +1,36 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>2017 Student Support Summit Media Consent</h1>
+      <%= render 'media_consents/consent_language' %>
+      
+      <div id="media-consent-form-wrapper">
+      <%= form_for @media_consent, url: student_support_summit_media_consents_path, multipart: true do |f| %>
+        <div id="media-consent-first-name-wrapper">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div id="media-consent-last-name-wrapper">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+        <div id="media-consent-image-wrapper">
+          <%= f.label :image %>
+          <%= f.file_field( :image, accept: "image/*", capture: "user" ) %>
+        </div>
+        <div id="media-consent-consent-wrapper">
+          <p>
+          Checking the box below indicates that <strong>I wish to be photographed and/or videotaped/video archived and/or audio taped/audio archived</strong>. I provide my consent for participation in and release of videotape recordings in connection with the Project. In witness thereof, this 23rd day of October, 2017.
+          </p>
+          <%= f.label :consent, "I consent" %>
+          <%= f.check_box :consent %>
+        </div>
+        <div id="media-consent-form-submit-wrapper">
+          <%= f.submit "Certify" %>
+        </div>
+      <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

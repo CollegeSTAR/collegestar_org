@@ -1,0 +1,23 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Student Support Summit Media Consents</h1>
+      <table>
+        <thead>
+          <th width="20%"></th>
+          <th width="35%">First Name</th>
+          <th width="35%">Last Name</th>
+          <th width="10%">Consent</th>
+        </thead>
+      <% @media_consents.each do |media_consent| %>
+        <tr>
+          <td><%= image_tag media_consent.image.url(:thumb) %></td>
+          <td><%= media_consent.first_name %></td>
+          <td><%= media_consent.last_name %></td>
+          <td><%= media_consent.consent %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

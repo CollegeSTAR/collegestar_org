@@ -1,0 +1,15 @@
+#media-consent-form-wrapper {
+  margin: gutter() 2*gutter();
+  
+  #media-consent-first-name-wrapper,
+  #media-consent-last-name-wrapper,
+  #media-consent-image-wrapper,
+  #media-consent-consent-wrapper {
+    @include form-fields-wrapper();
+  }
+
+
+  #media-consent-form-submit-wrapper {
+    @include form-submit-wrapper();
+  }
+}
