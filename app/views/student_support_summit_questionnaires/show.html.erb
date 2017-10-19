@@ -1,0 +1,27 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= (@questionnaire.first_name == '' && @questionnaire.last_name == '') ?
+        "Anonymous" :
+        "#{@questionnaire.first_name} #{@questionnaire.last_name}".html_safe 
+      %></h1>
+      <p><%= link_to "Back to questionnaires index", student_support_summit_questionnaires_path %></p>
+
+      <p><strong>First Name:</strong> <%= @questionnaire.first_name.html_safe %></p>
+      <p><strong>Last Name:</strong> <%= @questionnaire.last_name.html_safe %></p>
+      <p><strong>Email:</strong> <%= @questionnaire.email.html_safe %></p>
+      
+      <p><Strong>In regard to the upcoming Summit, what are you most excited about?</strong></p>
+      <%= @questionnaire.most_excited_about.html_safe %>
+
+      <p><strong>Are their particular issues that you would like addressed at the Summit?</strong></p>
+      <%= @questionnaire.issues.html_safe %>
+
+      <p><strong>What challenges do you want to work with other organizations to address?</strong></p>
+      <%= @questionnaire.challenges.html_safe %>
+
+      <p><strong>My time at the Summit will be well spent if ________________.</strong></p>
+      <%= @questionnaire.well_spent_time.html_safe %>
+    </div>
+  </div>
+</div>

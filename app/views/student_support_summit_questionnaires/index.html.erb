@@ -1,0 +1,30 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>2017 Student Support Summit Questionnaires</h1>
+      
+      <div id="student-support-summit-questionnaires-wrapper">
+        <table id="student-support-summit-questionnaires">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Submitted on</th>
+          <tr>
+            <% @questionnaires.each do |questionnaire| %>
+              <tr>
+                <td><%= (questionnaire.first_name == '') ? 
+                  link_to( 'Anonymous', student_support_summit_questionnaire_path(questionnaire)) :
+                  link_to( questionnaire.first_name.html_safe, student_support_summit_questionnaire_path(questionnaire))
+                 %></td>
+                <td><%= (questionnaire.last_name == '') ? 
+                  link_to( 'Anonymous', student_support_summit_questionnaire_path(questionnaire)) :
+                  link_to( questionnaire.last_name.html_safe, student_support_summit_questionnaire_path(questionnaire))
+                 %></td>
+                 <td><%= link_to questionnaire.created_at, student_support_summit_questionnaire_path(questionnaire)  %></td>
+              </tr>
+            <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
