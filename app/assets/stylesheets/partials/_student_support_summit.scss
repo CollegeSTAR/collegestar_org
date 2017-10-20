@@ -1,0 +1,18 @@
+#summit-venue-wrapper {
+  #summit-venue-map-wrapper {
+    @include span(9 of 18 at 10 no-gutters);
+  }
+  #summit-venue-info-wrapper {
+    @include span(9 of 18 no-gutters);
+  }
+}
+
+#summit-hotel-wrapper {
+  @include span(18 of 18 no-gutters);
+  #summit-hotel-map-wrapper {
+    @include span(9 of 18 at 10 no-gutters);
+  }
+  #summit-hotel-info-wrapper {
+    @include span(9 of 18 no-gutters);
+  }
+}
