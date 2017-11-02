@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019170019) do
+ActiveRecord::Schema.define(version: 20171102151326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -555,6 +555,9 @@ ActiveRecord::Schema.define(version: 20171019170019) do
     t.string "title_image_content_type"
     t.integer "title_image_file_size"
     t.datetime "title_image_updated_at"
+    t.bigint "module_id"
+    t.string "module_type"
+    t.index ["module_id"], name: "index_udl_modules_on_module_id"
   end
 
   create_table "universal_design_for_learning_resources", id: :serial, force: :cascade do |t|
@@ -654,6 +657,7 @@ ActiveRecord::Schema.define(version: 20171019170019) do
   add_foreign_key "student_nomination_faculty", "campus_departments"
   add_foreign_key "student_nomination_faculty", "campus_units"
   add_foreign_key "student_support_program_images", "student_support_programs"
+  add_foreign_key "udl_modules", "udl_modules", column: "module_id"
   add_foreign_key "user_assessment_answer_choice_associations", "assessment_answer_choices"
   add_foreign_key "user_assessment_answer_choice_associations", "user_module_assessments"
   add_foreign_key "user_assessment_question_associations", "assessment_answer_choices", column: "selected_answer_id"

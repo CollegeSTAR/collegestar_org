@@ -22,7 +22,8 @@ RSpec.describe UdlModule do
     it { should have_many(:authors).through(:module_author_associations).class_name('User') }
     it { should have_many(:faculty).through(:module_faculty_associations).class_name('User') }
     it { should have_many(:sections).through(:module_section_associations).class_name('UdlModuleSection') }
-    it { should have_many(:assessment_questions).dependent(:destroy)} 
+    it { should have_many(:assessment_questions).dependent(:destroy) } 
+    it { should have_many(:case_studies).class_name('UdlModule').with_foreign_key('module_id') }
 
     it { should have_attached_file(:title_image) }
   end
