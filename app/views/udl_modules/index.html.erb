@@ -21,7 +21,7 @@
       <%= @page_content.text.html_safe %>
       <h3>Currently Available Modules</h3>
         <div class="udl-module-list-wrapper">
-          <% @released_modules.each do |udl_module| %>
+          <% @modules.each do |udl_module| %>
             <div class="udl-module-wrapper">
               <div class="title-image-wrapper">
                 <% if udl_module.title_image.exists? %>
@@ -44,12 +44,30 @@
               </div>
               <div class="description-wrapper">
                 <%= udl_module.description.html_safe %>
+                <% if udl_module.released_case_studies.count > 0 %> 
+                  <h2>Case Studies</h2>
+                  <% udl_module.released_case_studies.each do |case_study| %>
+                    <div class="case-study-wrapper">
+                      <div class="case-study-image-wrapper">
+                        <%= image_tag case_study.title_image.url(:case_study) %>
+                      </div>
+                      <div class="case-study-info-wrapper">
+                        <div class="title-wrapper">
+                          <%= link_to case_study.title.html_safe, udl_module_path(slug: case_study.slug) %>
+                        </div>
+                        <div class="description-wrapper">
+                          <%= case_study.description.html_safe %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
-              </div>
+            </div>
           <% end %>
         </div>
 
-
+<!--
       <h3>Legacy Module Format</h3>
 <p>
 We are in the process of updating and expanding our module offerings. Not all of our original modules have been converted at this point. If you need to view any of these modules, please find them in the list below. 
@@ -77,7 +95,7 @@ We are in the process of updating and expanding our module offerings. Not all of
         <li><%= link_to "Writing for the Right Audience", "http://legacy.collegestar.org/modules/wra/introduction", target: "_blank" %></li>
         <li><%= link_to "Lecture Capture", "http://legacy.collegestar.org/modules/lc/introduction", target: "_blank" %></li>
       </ul>
- 
+--> 
       <h3>Recommended Modules &amp; Resources</h3>
 
         <ul>
@@ -99,78 +117,6 @@ We are in the process of updating and expanding our module offerings. Not all of
           <li><a href="http://accessproject.colostate.edu/udl/index.php " target="_blank">UDL Technical Modules</a> – The ACCESS Project Colorado State University
            <p class="revision">(These modules are focused on accessibility with Microsoft programs and multimedia.)</p></li>
         </ul>
-
-      <br>
-      <% if policy(UdlModule).create? %> 
-        <h2>Faculty Development Module Administration</h2>
-        <p>
-        <%= link_to(
-              fa_icon( 'plus', text: 'New Udl module' ),
-              new_udl_module_path,
-              class: 'create-module-button'
-            ) %>
-        </p>
-
-        <h3>Unreleased Faculty Development Modules</h3>
-          <ul>
-          <% @unreleased_modules.each do |udl_module| %>
-            <li><%= link_to( udl_module.title, udl_module ) %>
-              <% if policy(udl_module).edit? %>
-                <span class="edit-module-link"> 
-                  <%= link_to(
-                    fa_icon( "pencil", text: "Edit this module" ),
-                    edit_udl_module_path( udl_module ) 
-                  ) %>
-                </span>
-              <% end %>
-          <% end %>
-          </ul>
-      <% end %>      
-      
-      <% if policy(UdlModule).admin? %>
-        <h3>Shared Sections</h3>
-        <h4>Introduction</h4>
-        <ul>
-        <% @shared_module_sections[:introduction].each do |section| %>
-          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-        <% end %>
-        </ul>
-  
-        <h4>Instructional Practice</h4>
-        <ul>
-        <% @shared_module_sections[:instructional_practice].each do |section| %>
-          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-        <% end %>
-        </ul>
-        
-        <h4>Literature Base</h4>
-        <ul>
-        <% @shared_module_sections[:literature_base].each do |section| %>
-          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-        <% end %>
-        </ul>
-        <h4>Learn More</h4>
-        <ul>
-        <% @shared_module_sections[:learn_more].each do |section| %>
-          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-        <% end %>
-        </ul>
-            
-        <h4>References and Resources</h4>
-        <ul>
-        <% @shared_module_sections[:references].each do |section| %>
-          <li><%= link_to( section.title, edit_shared_module_section_path(section) ) %></li>
-        <% end %>
-        </ul>
-        <p>
-        <%= link_to(
-              fa_icon( 'plus', text: 'Add Shared Section' ),
-              new_shared_module_section_path,
-              class: 'create-module-button'
-            ) %>
-        </p> 
-      <% end %>
-
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :udl_module do
+    module_type UdlModule::ModuleType::UDL_MODULE
     sequence(:title) { |n| "Test Module #{n}" }
     sub_heading 'testing modules all the time'
     udl_representation '1'
@@ -34,6 +35,18 @@ FactoryGirl.define do
   end
 
   factory :new_udl_module, class: UdlModule do
+    module_type UdlModule::ModuleType::UDL_MODULE
+    title "test"
+    slug "test"
+    sub_heading "My sub heading"
+    udl_representation "1"
+    udl_action_expression "1"
+    udl_engagement "0"
+    description "Test description"
+  end
+
+  factory :case_study, class: UdlModule do
+    module_type UdlModule::ModuleType::CASE_STUDY
     title "test"
     slug "test"
     sub_heading "My sub heading"

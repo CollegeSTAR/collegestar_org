@@ -10,6 +10,9 @@ RSpec.describe CreateUdlModule do
   let(:context_with_incorrect_mod_params) { 
     CreateUdlModule.call( user: user, udl_module_params: attributes_for(:udl_module, title: '', slug: ''), params: { :author_is_contributing_faculty => true } ) 
   }
+  let(:context_with_case_study) {
+    CreateUdlModule.call(user: user, udl_module_params: attributes_for(:case_study), params: {} )
+  }
   let(:user) { create(:user) }
   let(:udl_module) { class_double(UdlModule) }
   let(:udl_module_section) { class_double(UdlModuleSection) }
@@ -22,6 +25,10 @@ RSpec.describe CreateUdlModule do
     context "with correct attributues" do
       it "succeeds" do
         expect(context).to be_a_success
+      end
+
+      it "sets the module_type" do
+        expect(context.udl_module.module_type).to eq(UdlModule::ModuleType::UDL_MODULE)
       end
 
       it "sets the module slug equal to the title" do
@@ -67,6 +74,12 @@ RSpec.describe CreateUdlModule do
       
       it "should fail the context" do
         expect(context_with_incorrect_mod_params).to be_a_failure
+      end
+    end
+
+    context "with case study attributes" do
+      it "should create a case study" do
+        expect(context_with_case_study.udl_module.module_type).to eq(UdlModule::ModuleType::CASE_STUDY)
       end
     end
   end

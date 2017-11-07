@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe UdlModule do
     let(:udl_module) { create(:udl_module) }
+    let(:case_study) { create(:case_study) }
     let(:introduction_section) { create(:introduction_section) }
     let(:udl_alignment_section) { create(:udl_alignment_section) }
     let(:instructional_practice_section) { create(:instructional_practice_section) }
@@ -13,6 +14,7 @@ RSpec.describe UdlModule do
     it { should validate_uniqueness_of(:title) }
     it { should validate_presence_of(:slug) }
     it { should validate_uniqueness_of(:slug) }
+    it { should validate_presence_of(:module_type) }
   end
 
   describe "associations" do
@@ -24,6 +26,7 @@ RSpec.describe UdlModule do
     it { should have_many(:sections).through(:module_section_associations).class_name('UdlModuleSection') }
     it { should have_many(:assessment_questions).dependent(:destroy) } 
     it { should have_many(:case_studies).class_name('UdlModule').with_foreign_key('module_id') }
+    it { should have_many(:released_case_studies).class_name('UdlModule').with_foreign_key('module_id') }
 
     it { should have_attached_file(:title_image) }
   end
@@ -53,6 +56,20 @@ RSpec.describe UdlModule do
         not_yet_released_module = create(:udl_module, released: false)
         second_not_yet_released_module = create(:udl_module, title: 'AAAAA', released: false)
         expect(UdlModule.unreleased).to eq([ second_not_yet_released_module, not_yet_released_module ])
+      end
+    end
+    context "udl_modules" do
+      it "only returns udl_modules" do
+        udl_module = create(:udl_module, released: true)
+        case_study 
+        expect(UdlModule.udl_modules).to eq([ udl_module ])
+      end
+    end
+    context "case_studies" do
+      it "only returns case_studies" do
+        udl_module = create(:udl_module, released: true)
+        case_study
+        expect(UdlModule.case_studies).to eq( [case_study] )
       end
     end
   end

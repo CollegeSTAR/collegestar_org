@@ -1,5 +1,10 @@
 class UdlModule < ActiveRecord::Base
   
+  module ModuleType
+    UDL_MODULE = 'UDL_MODULE'
+    CASE_STUDY = 'CASE_STUDY'
+  end
+
   PAGES = [
     :introduction,
     :module_objectives,
@@ -15,8 +20,9 @@ class UdlModule < ActiveRecord::Base
   before_validation :generate_slug
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
+  validates :module_type, presence: true
 
-  has_attached_file :title_image, styles: { medium: "250x150", thumb: "100x60" }
+  has_attached_file :title_image, styles: { medium: "250x150", case_study: "50x50", thumb: "100x60" }, default_url: "/assets/defaults/:style/module_title_image.png"
   validates_attachment_content_type :title_image, content_type: /\Aimage\/.*\z/
 
   has_many :module_author_associations, foreign_key: 'module_id', inverse_of: :module, dependent: :destroy
@@ -26,8 +32,11 @@ class UdlModule < ActiveRecord::Base
   has_many :faculty, through: :module_faculty_associations, class_name: "User"
   has_many :sections, -> { order 'module_section_associations.section_page_position ASC' }, through: :module_section_associations, class_name: 'UdlModuleSection'
   has_many :assessment_questions, -> { order(created_at: :asc) }, dependent: :destroy
-  has_many :case_studies, class_name: 'UdlModule', foreign_key: 'module_id'
-  
+  has_many :case_studies, -> { where(module_type: "CASE_STUDY") }, class_name: 'UdlModule', foreign_key: 'module_id'
+  has_many :released_case_studies, -> { where( module_type: 'CASE_STUDY').where(released: true) }, class_name: 'UdlModule', foreign_key: 'module_id'
+
+  scope :udl_modules, -> { where(module_type: UdlModule::ModuleType::UDL_MODULE) }
+  scope :case_studies, -> { where(module_type: UdlModule::ModuleType::CASE_STUDY) }
   scope :released, -> { where(released: true).order(:title) }
   scope :unreleased, -> { (where released: false).order(:title) }
 

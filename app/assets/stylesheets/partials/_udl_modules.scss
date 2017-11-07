@@ -20,6 +20,35 @@
         margin: gutter() 2*gutter();
         padding: 0;
       }
+
+      h2 {
+        margin: 2*gutter();
+      }
+    }
+  }
+}
+
+.case-study-wrapper {
+  @include span(18 of 18 no-gutters);
+  margin: gutter() 2* gutter();
+
+  .case-study-image-wrapper {
+    @include span( 3 of 18 no-gutters);
+
+    @include breakpoint($full) {
+      @include span( 2 of 18 no-gutters);
+    }
+  }
+
+  .case-study-info-wrapper {
+    @include span( 15 of 18 at 4 no-gutters);
+
+    @include breakpoint($full) {
+      @include span( 16 of 18 at 3 no-gutters);
+    }
+    
+    .title-wrapper, .description-wrapper {
+      @include span(18 of 18 no-gutters);
     }
   }
 }

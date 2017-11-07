@@ -4,10 +4,8 @@ class UdlModulesController < ApplicationController
   # GET /udl_modules
   def index
     @page_content = Page.guaranteed_find slug: 'modules'
-    @released_modules = UdlModule.released
-    @unreleased_modules = UdlModule.unreleased
-    authorize @released_modules
-    @shared_module_sections = UdlModuleSection.shared_sections
+    @modules = UdlModule.udl_modules.released.includes(:released_case_studies)
+    authorize @modules
   end
 
   # GET /udl_modules/1
@@ -65,7 +63,19 @@ class UdlModulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def udl_module_params
-      params.require(:udl_module).permit(:title, :slug, :sub_heading, :udl_representation, :udl_action_expression, :udl_engagement, :title_image, :description, :released, :release_date, :latest_revision_date)
+      params.require(:udl_module).permit(
+        :module_type,
+        :title, 
+        :slug, 
+        :sub_heading, 
+        :udl_representation, 
+        :udl_action_expression, 
+        :udl_engagement, 
+        :title_image, 
+        :description, 
+        :released, 
+        :release_date, 
+        :latest_revision_date)
     end
 
     def create_module_pages

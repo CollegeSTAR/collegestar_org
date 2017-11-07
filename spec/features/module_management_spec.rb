@@ -21,6 +21,27 @@ RSpec.feature "Module Management" do
       expect(page).to have_content(udl_module.title)
     end
   end
+  
+  feature "Create a new module" do
+    before(:each) do
+      visit "/login"
+      fill_in "Email", with: module_admin.email
+      fill_in "Password", with: module_admin.password
+      click_button "Log In"
+    end
+    
+    scenario "Fill in new module form" do
+      visit "/modules/new"
+      select "UDL Module", from: 'udl_module_module_type'
+      fill_in "udl_module_title", with: "The Title"
+      fill_in "udl_module_sub_heading", with: "The Sub heading"
+      fill_in "udl_module_description", with: "The description"
+      check "udl_module_udl_representation"
+      click_button "Create Udl module"
+
+      expect(page).to have_content("Udl module was successfully created.")
+    end
+  end
 
   feature "add section to module" do
 

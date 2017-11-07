@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+    <div class="field">
+    <%= f.label :module_type %><br>
+    <%= f.select :module_type, [['UDL Module', UdlModule::ModuleType::UDL_MODULE], ['Case Study', UdlModule::ModuleType::CASE_STUDY]]  %>
+  </div>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
