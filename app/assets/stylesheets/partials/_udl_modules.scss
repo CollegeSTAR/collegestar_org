@@ -312,7 +312,8 @@ ol {
   .figure {
     text-align: center;
   }
-  caption {
+  .caption {
+    margin: 0 6*gutter() gutter() 6*gutter();
     text-align: center;
     font-size: $base-font-size * .85;
 
@@ -354,7 +355,7 @@ blockquote {
 
 #references {
   p {
-    margin: 5px 20px 5px 60px;
+    margin: gutter() 4*gutter();
     text-indent: -50px;
     text-align: left;
   }
