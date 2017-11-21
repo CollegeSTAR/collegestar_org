@@ -317,6 +317,10 @@ ol {
     text-align: center;
     font-size: $base-font-size * .85;
 
+    @include breakpoint($full) {
+      margin: 0 10*gutter() gutter() 10* gutter();
+    }
+
   }
   @include clearfix;
 }
