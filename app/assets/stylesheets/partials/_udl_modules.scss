@@ -359,8 +359,8 @@ blockquote {
 
 #references {
   p {
-    margin: gutter() 4*gutter();
-    text-indent: -50px;
+    margin: gutter() 8*gutter();
+    text-indent: -4*gutter();
     text-align: left;
   }
 }
