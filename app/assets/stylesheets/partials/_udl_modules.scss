@@ -359,7 +359,7 @@ blockquote {
 
 #references {
   p {
-    margin: gutter() 8*gutter();
+    margin: gutter() 4*gutter() gutter() 8*gutter();
     text-indent: -4*gutter();
     text-align: left;
   }
