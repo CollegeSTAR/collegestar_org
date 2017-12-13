@@ -35,6 +35,15 @@ a {
   }
 }
 
+a.key-term {
+  cursor: default;
+  color: $base-font-color;
+  text-decoration: none;
+  word-wrap: break-word;
+  transition: none;
+  font-weight: bold;
+}
+
 hr {
   border-bottom: $base-border;
   border-left: 0;
