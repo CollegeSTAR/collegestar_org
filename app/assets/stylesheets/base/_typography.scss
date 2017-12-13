@@ -26,6 +26,7 @@ a {
   text-decoration: none;
   word-wrap: break-word;
   transition: color $base-duration $base-timing;
+  font-weight: bold;
 
   &:active,
   &:focus,
