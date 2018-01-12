@@ -196,13 +196,13 @@
   }
 }
 
-#module-introduction {
+#introduction {
   @include span( 12 of 18 at 7 no-gutters);
   @include clearfix();
   margin-bottom: gutter();
 }
 
-#module-udl-principles, #module-instructional-practice, #module-learn-more, #module-references {
+#udl-principles, #instructional-practice, #learn-more, #references {
   @include module-section();
   @include clearfix();
 }
