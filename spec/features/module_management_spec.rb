@@ -91,15 +91,15 @@ RSpec.feature "Module Management" do
         expect(page).to have_content("My intro section")
       end    
       
-      scenario "add module objectives section" do
+      scenario "add objectives section" do
         visit "/modules/#{udl_module.slug}"
-        click_link("udl-module-add-module-objectives-section")
-        fill_in "udl_module_section_title", with: "My module objectives section"
-        fill_in "udl_module_section_content", with: "This is the module objectives content"
+        click_link("udl-module-add-objectives-section")
+        fill_in "udl_module_section_title", with: "My objectives section"
+        fill_in "udl_module_section_content", with: "This is the objectives content"
         click_button "Save section"
 
         visit "/modules/#{udl_module.slug}"
-        expect(page).to have_content("My module objectives section")
+        expect(page).to have_content("My objectives section")
       end
       
       scenario "add udl alignment section" do

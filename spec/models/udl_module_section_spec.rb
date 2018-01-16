@@ -42,7 +42,7 @@ RSpec.describe UdlModuleSection do
     let(:result) { 
       {
         introduction: [intro_section],
-        module_objectives: [],
+        objectives: [],
         udl_alignment: [udl_section],
         instructional_practice: [instructional_section],
         literature_base: [lit_section],
