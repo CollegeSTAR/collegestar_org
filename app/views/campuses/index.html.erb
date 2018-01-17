@@ -17,10 +17,12 @@
       <% @campuses.each do |campus| %>
         <div class="campus-wrapper">
           <div class="campus-image">
-            <%= image_tag campus.image.url(:medium) %>
+            <%= link_to(campus) do %>
+              <%= image_tag campus.image.url(:medium) %>
+            <% end %>
           </div>
           <div class="campus-info">
-            <h2><%= campus.name %>
+            <h2><%= link_to campus.name, campus %>
               <% if policy(campus).update? %>
                 <span class="edit-campus-link"> 
                    <%= link_to(
