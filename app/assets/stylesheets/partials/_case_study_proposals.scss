@@ -1,0 +1,37 @@
+#case-study-pending-proposals-table-wrapper,
+#case-study-accepted-proposals-table-wrapper,
+#case-study-denied-proposals-table-wrapper {
+  margin: 0 2*gutter() gutter() 2*gutter();
+}
+
+table.case-study-proposals {
+  @include admin-table();
+}
+
+.edit-case-study-link {
+  @include edit-link();
+}
+
+#proposal_actions_wrapper {
+  @include span( 18 of 18 no-gutters );
+  margin-top: 2*gutter();
+  margin-bottom: 2*gutter();
+
+  #accept_proposal {
+    @include span(9 of 18 no-gutters);
+    padding-left: 3*gutter();
+  }
+
+  #deny_proposal {
+    @include span(9 of 18 at 10 no-gutters);
+    padding-left: 2*gutter();
+  }
+}
+
+.accept_proposal_button {
+  background-color: $green;
+}
+
+.deny_proposal_button {
+  background-color: $red;
+}

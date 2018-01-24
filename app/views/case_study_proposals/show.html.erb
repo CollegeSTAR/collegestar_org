@@ -1,8 +1,17 @@
 <div id="content-wrapper">
   <div id="single-column-wrapper">
     <div id="content">
-      <h1><%= @proposal.title %></h1>
-      <p><%= link_to( fa_icon( 'pencil', text: 'Edit this proposal' ), edit_case_study_proposal_path( @proposal ) ) %></p>
+    <% if @the_status %>
+      <p><%= @the_status %></p>
+    <% end %>
+      <h1>
+        <%= @proposal.title %> 
+        <span class="edit-case-study-link">
+          <%= link_to( fa_icon( 'pencil', text: 'Edit this proposal' ), edit_case_study_proposal_path( @proposal ) ) %>
+        </span>
+      </h1>
+      <p><%= link_to "Back to Proposals", case_study_proposals_path %></p>
+      <h2>Status: <%= @proposal.status %></h2>
       <p>Faculty Member: <strong><%= @proposal.first_name %> <%= @proposal.last_name %></strong></p>
       <p>Email: <strong><%= @proposal.email %></strong></p>
       <p>University: <strong><%= @proposal.university %></strong></p>
@@ -15,7 +24,22 @@
       <p>Pedagogical Strategy link to UDL: <strong><%= @proposal.strategy_link %></strong></p>
       <p>Estimated Start Date: <strong><%= @proposal.start_date.strftime("%m/%d/%Y") %></strong></p>
       <p>Estimated Completion Date: <strong><%= @proposal.completion_date.strftime("%m/%d/%Y") %></strong></p>
-      <p><%= link_to "Back to Proposals", case_study_proposals_path %></p>
+      
+      <% if @proposal.pending %>
+        <h2>Actions</h2>
+        <div id="proposal_actions_wrapper">
+          <div id="accept_proposal">
+            <%= form_for @proposal, html: { id: "accept_case_study_proposal_#{@proposal.id}"} do |f| %>
+              <%= render 'case_study_proposals/forms/fields/accept_proposal', f: f %>
+            <% end %>
+          </div>
+          <div id="deny_proposal">
+            <%= form_for @proposal, html: { id: "deny_case_study_proposal_#{@proposal.id}"} do |f| %>
+              <%= render 'case_study_proposals/forms/fields/deny_proposal', f: f %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

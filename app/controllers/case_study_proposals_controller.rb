@@ -1,8 +1,10 @@
 class CaseStudyProposalsController < ApplicationController
   before_action :set_case_study_proposal, only: [:show, :edit, :update, :destroy]
   def index
-    @proposals = CaseStudyProposal.order(created_at: :desc)
-    authorize @proposals
+    @pending_proposals = CaseStudyProposal.pending.order(created_at: :desc)
+    @accepted_proposals = CaseStudyProposal.accepted.order(created_at: :desc)
+    @denied_proposals = CaseStudyProposal.denied.order(created_at: :desc)
+    authorize @pending_proposals
   end
   
   def new
@@ -35,11 +37,20 @@ class CaseStudyProposalsController < ApplicationController
 
   def update
     authorize @proposal
-    if @proposal.update( case_study_proposal_params )
-      redirect_to @proposal, notice: "Successfully updated case study proposal."
+    if params[:case_study_proposal][:update_status]
+      if @proposal.update( update_case_study_proposal_status_params )
+        redirect_to @proposal, notice: "Successfully updated case study proposal."
+      else
+        flash[:errors] = @proposal.errors.first
+        render :show
+      end
     else
-      flash[:error] = @proposal.errors
-      render :edit
+      if @proposal.update( case_study_proposal_params )
+        redirect_to @proposal, notice: "Successfully updated case study proposal."
+      else
+        flash[:errors] = @proposal.errors.first
+        render :show
+      end
     end
   end
 
@@ -68,7 +79,13 @@ class CaseStudyProposalsController < ApplicationController
         :description, 
         :strategy_link, 
         :start_date, 
-        :completion_date
+        :completion_date,
+        :accepted,
+        :denied
       )
+    end
+
+    def update_case_study_proposal_status_params
+      params.require(:case_study_proposal).permit(:accepted, :denied)
     end
 end

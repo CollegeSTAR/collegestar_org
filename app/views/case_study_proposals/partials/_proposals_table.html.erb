@@ -1,0 +1,20 @@
+<h2><%= type %> Case Study Proposals</h2>
+<% if proposals.empty? %>
+  <p>There are currently no <%= type.downcase %> case study proposals.</p>
+<% else %>
+  <div id="case-study-<%= type.downcase %>-proposals-table-wrapper">
+    <table class="case-study-proposals">
+      <tr>
+        <th id="name-heading">Faculty Name</th>
+        <th id="title-heading">Proposed Title</th>
+        <th id="date-submitted-heading">Date Submitted</th>
+      </tr>
+      <% proposals.each do |proposal| %>
+      <tr>
+        <td><%= link_to "#{proposal.first_name} #{proposal.last_name}", case_study_proposal_path( proposal ) %></td>
+        <td><%= link_to proposal.title, case_study_proposal_path( proposal ) %></td>
+        <td><%= link_to proposal.created_at.strftime("%m/%d/%Y"), case_study_proposal_path( proposal ) %></td>
+      <% end %>
+    </table>
+  </div>
+<% end %>

@@ -3,21 +3,10 @@
     <div id="content">
       <p id="notice"><%= notice %></p>
       <h1>Current Case Study Proposals</h1>
-      <div id="case-study-proposals-table-wrapper">
-        <table id="case-study-proposals">
-          <tr>
-            <th id="name-heading">Faculty Name</th>
-            <th id="title-heading">Proposed Title</th>
-            <th id="date-submitted-heading">Date Submitted</th>
-          </tr>
-          <% @proposals.each do |proposal| %>
-          <tr>
-            <td><%= link_to "#{proposal.first_name} #{proposal.last_name}", case_study_proposal_path( proposal ) %></td>
-            <td><%= link_to proposal.title, case_study_proposal_path( proposal ) %></td>
-            <td><%= link_to proposal.created_at.strftime("%m/%d/%Y"), case_study_proposal_path( proposal ) %></td>
-          <% end %>
-        </table>
-      </div>
+      
+      <%= render 'case_study_proposals/partials/proposals_table', { type: "Pending", proposals: @pending_proposals } %>
+      <%= render 'case_study_proposals/partials/proposals_table', { type: "Accepted", proposals: @accepted_proposals } %>
+      <%= render 'case_study_proposals/partials/proposals_table', { type: "Denied", proposals: @denied_proposals } %>
     </div>
   </div>
 </div>

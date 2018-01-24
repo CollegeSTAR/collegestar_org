@@ -45,5 +45,17 @@ RSpec.feature "Case Study Proposal Management" do
 
       expect(page).to have_text("NewFirstName")
     end
+
+    scenario "accept a proposal" do
+      visit "/login"
+      fill_in "Email", with: admin_user.email
+      fill_in "Password", with: admin_user.password
+      click_button "Log In"
+
+      visit "/case-study-proposals/#{case_study_proposal.id}"
+      click_button "Accept Proposal"
+
+      expect(page).to have_text("Proposal Accepted")
+    end
   end
 end
