@@ -5,4 +5,6 @@ class Contact < ActiveRecord::Base
   validates :subject, presence: true
   validates :message, presence: true
 
+  scope :unread, -> { where( status: 'unread') }
+
 end

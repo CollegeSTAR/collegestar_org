@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 RSpec.feature 'Contact Us Resource' do
-  
+  let(:admin) { create(:admin_user) } 
+  let(:unread_contact) { create(:contact, status: 'unread') }
+  let(:read_contact) { create(:contact, status: 'read') }
+
   feature 'submit a request' do
     before(:each) do
       visit "/contact-us"
@@ -27,6 +30,24 @@ RSpec.feature 'Contact Us Resource' do
       scenario 'user submits an inquiry' do
         expect{ click_button "Submit your inquiry" }.to_not change{ ActionMailer::Base.deliveries.count }
       end
+    end
+  end
+
+  feature "Display contacts to admin" do
+    before(:each) do
+      #login
+      visit "/login"
+      fill_in "Email", with: admin.email
+      fill_in "Password", with: admin.password
+      click_button "Log In"
+    end
+
+    scenario "Once a contact is marked read it should not be seen" do
+      unread_contact
+      read_contact
+      visit "/contacts"
+      expect(page).to have_content(unread_contact.subject)
+      expect(page).to_not have_content(read_contact.subject)
     end
   end
 

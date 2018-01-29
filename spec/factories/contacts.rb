@@ -1,9 +1,9 @@
 FactoryGirl.define do
-  factory :contact do #Not an active record model
+  factory :contact do
     name "Tanner Jones"
     email "jonesjoe@ecu.edu"
-    subject "This is a test email subject"
-    message "This is my test email message."
+    sequence(:subject) { |n|  "This is a test email subject #{n}" }
+    sequence(:message) { |n|  "This is my test email message #{n}." }
     send_copy 0
   end
 end

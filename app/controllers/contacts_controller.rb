@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show]
 
   def index
-    @contacts = Contact.all   
+    @contacts = Contact.unread
     authorize @contacts
   end
 
