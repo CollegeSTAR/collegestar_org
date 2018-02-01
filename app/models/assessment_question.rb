@@ -8,4 +8,11 @@ class AssessmentQuestion < ActiveRecord::Base
   has_many :user_assessment_question_associations, dependent: :destroy
 
   accepts_nested_attributes_for :assessment_answer_choices
+
+  def get_shuffled_answer_choices
+    if (!self.ordered)
+      return self.assessment_answer_choices.shuffle
+    end
+    return self.assessment_answer_choices
+  end
 end

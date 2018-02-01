@@ -4,7 +4,19 @@
   <div id="single-column-wrapper">
     <div id="content">
      <h1><%= @udl_module.title.html_safe %> Assessment Results</h1>
-     <%= @assessment.inspect %>
+     <p>Score: <%= @score %></p>
+     <ol>
+     <% @questions.each do |question| %>
+       <li>
+         <%= question.question_text %>
+         <ol>
+         <% question.answer_choices.each do |choice| %>
+           <li><%= choice.text %></li>
+         <% end %>
+         </ol>
+       </li>
+     <% end %>
+     </ol>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@
             <% q_order = {id: question.id, answer_choices: {}} %> 
             <div class="udl-module-assessment-question" id=<%= "udl_module_assessment_question_#{question.id}" %> >
               <p><span class="question-number"><%= "#{index + 1}. " %></span><%= "#{question.question}" %></p>
-              <% question.assessment_answer_choices.each do |answer_choice| %>
+              <% question.get_shuffled_answer_choices.each do |answer_choice| %>
                 <% q_order[:answer_choices][q_order[:answer_choices].count] = {id: answer_choice.id} %>
                 <div class="udl-module-assessment-answer-choices-wrapper" id=<%= "udl_module_answer_choice_#{answer_choice.id}" %> >
                   <div class="radio-wrapper">

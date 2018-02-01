@@ -22,6 +22,9 @@ class UserModuleAssessmentsController < ApplicationController
   end
 
   def show
+    result = ParseUserModuleAssessmentResult.call( assessment: @assessment )
+    @score = result.score
+    @questions = result.questions
   end
 
   private
