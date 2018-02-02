@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109170432) do
+ActiveRecord::Schema.define(version: 20180202212426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -600,6 +600,18 @@ ActiveRecord::Schema.define(version: 20180109170432) do
     t.index ["user_id"], name: "index_user_module_assessments_on_user_id"
   end
 
+  create_table "user_module_histories", force: :cascade do |t|
+    t.bigint "udl_module_id"
+    t.bigint "user_id"
+    t.datetime "last_viewed"
+    t.boolean "assessment_attempted"
+    t.boolean "assessment_passed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["udl_module_id"], name: "index_user_module_histories_on_udl_module_id"
+    t.index ["user_id"], name: "index_user_module_histories_on_user_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -667,5 +679,7 @@ ActiveRecord::Schema.define(version: 20180109170432) do
   add_foreign_key "user_assessment_question_associations", "user_module_assessments"
   add_foreign_key "user_module_assessments", "udl_modules"
   add_foreign_key "user_module_assessments", "users"
+  add_foreign_key "user_module_histories", "udl_modules"
+  add_foreign_key "user_module_histories", "users"
   add_foreign_key "users", "campuses"
 end

@@ -4,6 +4,19 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1>Module History</h1>
+      <table>
+        <tr>
+          <th>Module</th>
+          <th>Score</th>
+        </tr>
+        <% @assessments.each do |assessment| %>
+          <tr>
+            <td><%= assessment.udl_module.title %></td>
+            <td><%= assessment.score %></td>
+          </tr>
+        <% end %>
+      </table>
+
     </div>
   </div>
 </div>

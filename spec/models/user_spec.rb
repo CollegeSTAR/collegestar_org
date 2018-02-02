@@ -35,6 +35,7 @@ RSpec.describe User do
     it { should have_many(:module_faculty_associations).with_foreign_key('faculty_id') }
     it { should have_many(:faculty_modules).class_name('UdlModule').through(:module_faculty_associations).source('module') }
     it { should have_many(:roles) }
+    it { should have_many(:module_histories).class_name("UserModuleHistory") }
   end
 
   describe "#full_name" do

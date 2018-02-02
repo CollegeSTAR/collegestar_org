@@ -25,4 +25,16 @@ RSpec.describe NullUser do
       expect(null_user.generate_password_reset).to be_falsey
     end
   end
+
+  describe "module_histories" do
+    it "should return NullUserModuleHistory" do
+      expect(null_user.module_histories).to match_array([])
+    end
+  end
+
+  describe "find_module_history" do
+    it "should return NullUserModuleHistory" do
+      expect(null_user.find_module_history(module_id: 1)).to be_an_instance_of(NullUserModuleHistory)
+    end
+  end
 end

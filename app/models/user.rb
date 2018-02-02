@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :module_faculty_associations, foreign_key: 'faculty_id'
   has_many :faculty_modules, through: :module_faculty_associations, source: 'module'
   has_many :redesign_summaries
+  has_many :module_histories, class_name: "UserModuleHistory"
 
   def full_name
     full_name = title ? "#{title} " : ""
