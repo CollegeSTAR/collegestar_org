@@ -135,59 +135,103 @@
   }
 
   #nav-wrapper {
-    height: 2.4em;
+    @include container;
     margin: 0px;
     padding: 0px;
     color: $white;
     border-top: 1px solid #808080;
     background: $black asset-url('top_nav_bg.png') repeat-x 0px 0px;
-   
-    #nav {
-	    height: 30px;
-	    margin: 0px;
-	    padding: 0px;
-	    float: left;
-	    clear: none;
+    
+    #mobile-menu-icon-wrapper {
+      margin: 0;
+      padding: .8*gutter();
 
-      span {
-        height: 30px;
+      span#menu {
+        cursor: pointer;
+      }
+
+      @include breakpoint($full) {
+        display: none;
+      }
+    }
+
+    #nav {
+
+      @include breakpoint($full) {
+        display: inherit;
+	      height: 30px;
+        background: $black asset-url('top_nav_bg.png') repeat-x 0px 0px;
+	      margin: 0px;
+	      padding: 0px;
+	      float: left;
+	      clear: none;
+      }
+
+      ul {
+        list-style-type: none;
         margin: 0px;
         padding: 0px;
-        display: inline-block;
-        line-height: 28px;
-        font-size: 1.2em;
-        font-weight: bold;
-        color: #DDDDDD;
-        border-right: 1px solid $black;
+        //background-color: #333;
+        border-top: 2px solid $orange;
 
-        a, a:visited  {
-          color: #EEEEEE;
-	        padding: 0px 8px;
-	        margin: 0px;
-	        text-decoration: none;
-	        display: inline-block;
-	        line-height: 30px;
-	        font-size: 1em;
-
-          &:hover {
-            color: #FFFFFF;
-          	background: #666666 asset-url('top_nav_hover.png') repeat-x 0px 0px;
-          	margin: 0px;
-          	padding: 0px 8px;
-          }
+        @include breakpoint($full) {
+          background-color: transparent;
+          border-top: none;
         }
 
-        &.selected a {
-          display: inline-block;
-          color: $white;
-	        background-color: $black;
-	        margin: 0px;
-          
-          &:hover {
+        li {
+          display: block;
+          margin: 0px;
+          padding: 0px;
+          border-bottom: 1px solid $white;
+          line-height: 28px;
+          font-size: 1.2em;
+          font-weight: bold;
+          color: #DDDDDD;
+          list-style-type: none;
+
+          @include breakpoint($full) {
+            height: 30px;
             display: inline-block;
-	          background: $black;
-	          border: none;
+            border-right: 1px solid $black;
+            border-bottom: none;
+          }
+
+          a, a:visited  {
+            color: #EEEEEE;
+	          padding: 0px 8px;
 	          margin: 0px;
+	          text-decoration: none;
+	          display: inline-block;
+	          line-height: 30px;
+	          font-size: 1em;
+            height: 1.8em;
+
+            &:hover {
+              color: #FFFFFF;
+            	margin: 0px;
+            	padding: 0px 8px;
+              font-style: italic;
+
+              @include breakpoint($full) {
+                font-style: normal;
+            	  background: #262626 asset-url('top_nav_hover.png') repeat-x 0px 0px;
+              }
+            }
+          }
+
+          &.selected a {
+            display: inline-block;
+            color: $white;
+	          background-color: $black;
+	          margin: 0px;
+            
+            &:hover {
+              display: inline-block;
+	            background: $black;
+	            border: none;
+	            margin: 0px;
+            }
           }
         }
       }
