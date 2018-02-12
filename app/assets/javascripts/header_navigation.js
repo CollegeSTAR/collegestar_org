@@ -11,4 +11,11 @@ $('Document').ready( function() {
       $('#nav').addClass('hidden');
     }
   });
+
+  $('#instructional-supports').hover(function() {
+    $('#instructional-supports-sub-menu').removeClass('dropdown-toggle');    
+  },
+  function() {
+    $('#instructional-supports-sub-menu').addClass('dropdown-toggle');
+  });
 });
