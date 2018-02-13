@@ -94,3 +94,64 @@
   text-align: center;
   margin-bottom: gutter();
 }
+
+@mixin bread-crumb-social-media( $top-margin: 0 ) {
+   #bread-crumb-wrapper {
+    @include span( 18 of 18 no-gutters);
+    margin-top: $top-margin;
+    padding: 0 gutter();
+    color: $aluminum;
+    font-size: .75em;
+  
+    @include breakpoint($full) {
+      
+      @include span( 14 of 18 no-gutters);
+    }
+  
+    a {
+      color: $aluminum;
+      font-size: 1em;
+  
+      &:hover {
+        color: darken($aluminum, 10%);
+        font-style: italic;
+      }
+    }
+  }
+  
+  #social-buttons-wrapper {
+    @include span(18 of 18 no-gutters);
+    padding: 0 gutter();
+  
+    @include breakpoint($full) {
+      @include span(4 of 18 at 15 no-gutters);
+      margin-top: $top-margin;
+      margin-right: gutter();
+      padding: 0;
+    }
+  
+    #facebook-wrapper {
+      float: left;
+      margin: 0;
+      margin-left: 2* gutter();
+      
+      @include breakpoint($full) {
+        float: right;
+      }
+    }
+  
+    #twitter-wrapper {
+      float: left;
+      margin: 0;
+      margin-left: 2* gutter();
+      
+      .twitter-share-button {
+        vertical-align: bottom;
+      }
+  
+      @include breakpoint($full) {
+        float: right;
+      }
+    }
+  }
+}
