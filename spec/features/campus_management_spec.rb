@@ -86,4 +86,23 @@ RSpec.feature "Campus Management" do
       end
     end
   end
+
+  feature "display campus history" do
+    before(:each) do
+      #login
+      visit "/login"
+      fill_in "Email", with: campus_admin.email
+      fill_in "Password", with: campus_admin.password
+      click_button "Log In"
+    end
+
+    scenario "user adds a campus history" do
+      visit "/campuses/#{campus.slug}/edit"
+      fill_in "History", with: campus.history
+      click_button :campus_submit_button
+
+      visit "/campuses/#{campus.slug}"
+      expect(page).to have_content( campus.history )
+    end
+  end
 end

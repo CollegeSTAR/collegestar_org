@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202212426) do
+ActiveRecord::Schema.define(version: 20180213175417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20180202212426) do
     t.datetime "image_updated_at"
     t.string "slug", null: false
     t.integer "director_id"
+    t.text "history"
     t.index ["abbreviation"], name: "campuses_abbreviation_index", unique: true
     t.index ["director_id"], name: "index_campuses_on_director_id"
     t.index ["name"], name: "campuses_name_index", unique: true

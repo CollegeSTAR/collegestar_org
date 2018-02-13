@@ -18,6 +18,12 @@
         <div id="campus-title">
           <h1><%= @campus.name %></h1>
           
+          <% if @campus.history %>
+          <%= @campus.history.html_safe %>
+          <% else %>
+            <p>No campus history has been provided.</p>
+          <% end %>
+          
         </div>
       </div> 
       <div id="campus-navigation-wrapper">      

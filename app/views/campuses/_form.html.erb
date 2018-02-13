@@ -59,7 +59,11 @@
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.label :history %><br>
+    <%= f.cktext_area :history %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, id: :campus_submit_button %>
   </div>
 <% end %>
