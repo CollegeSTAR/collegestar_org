@@ -80,10 +80,17 @@
       </div>
       <div id="nav">
         <ul>
-          <li><%= link_to "Home", root_path, class: "main_link", alt: "College STAR Home", title: "College STAR Home" %></li><!--
-          --><li><%= link_to "About", about_path, class: "main_link", alt: "About College STAR", title: "About College STAR" %></li><!--
-          --><li><%= link_to "Events", events_path, class: "main_link", alt: "College STAR Events", title: "College STAR Events" %></li><!--
-          --><li><%= link_to "Student Supports", students_path, class: "main_link", title: "College STAR Student Support Resources" %></li><!--
+          <li id="home"><%= link_to "Home", root_path, class: "main_link", alt: "College STAR Home", title: "College STAR Home" %></li><!--
+          --><li id="about"><%= link_to "About", about_path, class: "main_link", alt: "About College STAR", title: "About College STAR" %></li><!--
+          --><li id="events"><%= link_to "Events", events_path, class: "main_link", alt: "College STAR Events", title: "College STAR Events" %></li><!--
+          --><li id="student-supports"><%= link_to "Student Supports", students_path, class: "main_link", title: "College STAR Student Support Resources" %>
+               <ul id="student-supports-sub-menu" class="dropdown-toggle"><!--
+                 --><li><%= link_to "Student Support Programs", student_support_programs_path %></li><!--
+                 --><li><a href="https://www.ecu.edu/stepp/curriculum.cfm" target="_blank">College Bound Transition Curriculum</a></li><!--
+                 --><li><%= link_to "DSS Office Directory", dss_contacts_path %></li><!--
+                 --><li><a href="http://students.collegestar.org" target="_blank">Student-to-Student Blog</a></li><!--
+               --></ul>
+          </li><!--
           --><li id="instructional-supports"><%= link_to "Instructional Supports", faculty_path, class: "main_link", title: "College STAR Instructional Support Resources" %>
                <ul id="instructional-supports-sub-menu" class="dropdown-toggle"><!--
                  --><li><%= link_to "Universal Design for Learning", universal_design_for_learning_index_path %></li><!--

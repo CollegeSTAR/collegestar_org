@@ -12,6 +12,7 @@ class MainController < ApplicationController
   end
 
   def students
+    @page_content = Page.guaranteed_find slug: 'student-supports'
   end
 
   def stepp_program
