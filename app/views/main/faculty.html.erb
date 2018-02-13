@@ -3,35 +3,9 @@
 <%= render "shared/side_bar" %>
   <div id="right-column-wrapper">
     <div id="content">
-      <h1>College STAR for Faculty</h1>        
+      <h1><%= @page_content.title.html_safe %></h1>        
       <%= render 'shared/bread_crumb_social_media', bread_crumb_args: { page_name: 'faculty' } %>
-
-
-      <h2>Professional Development Modules/Case Studies</h2>
-      <p>
-      College STAR professional development modules are organized around the three principles of <%= link_to "Universal Design for Learning", universal_design_for_learning_index_path %>. Many of these modules originate from a direct attention to hearing student voices on the college campus. Students identify and describe examples of effective teaching practices, strategies, resources and routines used by faculty members across campus. These nominated instructional practices become the topics for some of these modules. Each module contains an alignment of the instructional practice with principles of Universal Design for Learning, a description of how the practice has been implemented by university instructor(s), a brief summary of professional literature that supports the instructional practice, and additional resources for viewers.
-      </p>
-      <p>
-      If you're interested in creating a case study, be sure to <%= link_to "submit a proposal", new_case_study_proposal_path %>.
-      </p>
-      <p>
-        <%= link_to "View our current UDL Modules and Case Studies", udl_modules_path %>
-      </p>
-
-      <h2>Faculty Learning Communities</h2>
-      <p>
-      The goal of College STAR’s Component B is for each campus to develop an integrated system of campus-wide student and/or faculty supports that are focused on teaching students with learning differences, reinforce direct services provided to students, and that focus on principles of Universal Design for Learning (UDL). Faculty learning communities are one way the College STAR campuses are striving to meet that goal.
-      </p>
-      <p>
-      If you're interested in starting or participating in a STAR Learning Community <%= link_to "click here", star_learning_communities_path %> to learn more.
-      </p>
-      <h3>STAR Learning Communities</h3>
-      <p>
-      In collaboration with the Office of Faculty Excellence (OFE), College STAR provides faculty with a forum to conduct shared research linked to the principles of Universal Design for Learning (UDL) and current understandings about students with learning differences, and mentor/be mentored in the development or use of outstanding instructional practices. Faculty members who are interested in exploring instructional practices as they relate to student outcomes are encouraged to join a Pirate CREWS Faculty Learning Community. Pirate CREWS are faculty research partnerships committed to enhancing methods for teaching and learning at ECU. College STAR is the vehicle for fostering these learning communities in order to explore more deeply examples of best-practice instructional techniques in today’s college classroom. Participants in these informal learning communities commit to active engagement and follow-through with a group-defined project while benefiting from mentoring and/or community support during the experience.
-      </p>
-      <p>
-        To inquire about becoming a part of a <%= link_to 'STAR Learning Community, click here', star_learning_communities_path %>.
-      </p>
+      <%= @page_content.text.html_safe %>
     </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ class MainController < ApplicationController
   end
 
   def faculty
-    @udl_modules = UdlModule.released
+    @page_content = Page.guaranteed_find slug: 'instructional-supports'
   end
 
   def contact
