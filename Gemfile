@@ -71,6 +71,8 @@ gem 'unicorn'
 # Paperclip manages file uploads
 gem 'paperclip', '~> 4.2'
 
+gem 'sidekiq'
+
 # Figaro manages environment variables
 gem 'figaro'
 

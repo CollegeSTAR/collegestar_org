@@ -21,5 +21,7 @@ module CollegestarOrg
     # config.i18n.default_locale = :de
     
     config.assets.precompile += %w( ckeditor/* )
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

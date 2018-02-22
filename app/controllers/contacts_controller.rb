@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     authorize @contact
     if @contact.save
-      ContactMailer.contact_us(@contact).deliver_now if @contact.send_copy
+      ContactMailer.contact_us(name: @contact.name, email: @contact.email, subject: @contact.subject, message: @contact.message).deliver_later if @contact.send_copy
       redirect_to new_contact_path, notice: "We've received your inquiry and we'll be in touch."
     else
       render :new, notice: "There was a problem sending your email, please try again."
