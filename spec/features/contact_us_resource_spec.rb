@@ -19,16 +19,19 @@ RSpec.feature 'Contact Us Resource' do
     end
 
     context 'user selects send_copy' do
-      scenario 'user submits an inquiry' do
+      before(:each) do
         check 'contact_send_copy'
-        
-        expect{ click_button "Submit your inquiry" }.to change{ ActionMailer::Base.deliveries.count }.by(1)
+      end
+      scenario "user submits an inquiry" do
+        ActiveJob::Base.queue_adapter = :test
+        expect{ click_button "Submit your inquiry" }.to enqueue_job(ActionMailer::DeliveryJob)
       end
     end
 
     context 'user does not select send_copy' do
       scenario 'user submits an inquiry' do
-        expect{ click_button "Submit your inquiry" }.to_not change{ ActionMailer::Base.deliveries.count }
+        ActiveJob::Base.queue_adapter = :test
+        expect{ click_button "Submit your inquiry" }.to_not enqueue_job(ActionMailer::DeliveryJob)
       end
     end
   end

@@ -1,12 +1,8 @@
 class ContactMailer < ApplicationMailer
 
-  def contact_us(args={})
+  def contact_us(contact_id)
     @page_content = Page.guaranteed_find slug: 'contacts-mailer-contact-us'
-    @contact = Contact.new
-    @contact.name = args.fetch(:name)
-    @contact.email = args.fetch(:email)
-    @contact.subject = args.fetch(:subject)
-    @contact.message = args.fetch(:message)
+    @contact = Contact.find contact_id
 
     mail(
       to: @contact.email,
