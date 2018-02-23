@@ -1,0 +1,5 @@
+---
+:verbose: true
+:queues:
+  - [default, 7]
+  - [mailers, 5]
