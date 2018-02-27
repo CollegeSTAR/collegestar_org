@@ -15,6 +15,9 @@ set :rbenv_ruby, '2.5.0'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/deploy/collegestar_org'
 
+#Add puma bins to rbenv
+#append :rbenv_map_bins, 'puma', 'pumactl'
+
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -40,11 +43,5 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :keep_releases, 5
 
 namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      execute "bundle exec pumactl -F config/puma/production.rb phased-restart"
-    end
-  end
-
+  after :finished, "puma:phased_restart"
 end
