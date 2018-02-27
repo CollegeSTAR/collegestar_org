@@ -3,11 +3,11 @@ lock '3.5.0'
 
 set :application, 'collegestar_org'
 set :repo_url, 'git@github.com:CollegeSTAR/collegestar_org.git'
-set :branch, 'master'
+set :branch, 'puma_migration'
 
 #Configure rbenv
 set :rbenv_type, :user
-set :rbenv_ruby, '2.3.1'
+set :rbenv_ruby, '2.5.0'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
