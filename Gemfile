@@ -65,8 +65,8 @@ gem 'kaminari'
 #manages sending email
 gem 'mandrill-api'
 
-# Use Unicorn as the app server
-gem 'unicorn'
+#Use puma application server
+gem 'puma'
 
 # Paperclip manages file uploads
 gem 'paperclip', '~> 4.2'
