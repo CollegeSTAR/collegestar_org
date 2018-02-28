@@ -3,7 +3,7 @@ lock '3.5.0'
 
 set :application, 'collegestar_org'
 set :repo_url, 'git@github.com:CollegeSTAR/collegestar_org.git'
-set :branch, 'puma_migration'
+set :branch, 'master'
 
 #Configure rbenv
 set :rbenv_type, :user
