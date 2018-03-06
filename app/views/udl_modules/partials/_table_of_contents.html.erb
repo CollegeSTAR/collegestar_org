@@ -16,21 +16,27 @@
        <li><%= link_to("Instructional Practice", udl_module_url(@udl_module, anchor: "instructional-practice")) %>
          <ol>
             <% @udl_module.get_sections_by_page(:instructional_practice).each do |section| %>
-             <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+              <% unless section.hide_title %>
+                <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+              <% end %>
            <% end %>
          </ol>
        </li>           
        <li><%= link_to("Learn More", udl_module_url(@udl_module, anchor: "learn-more")) %>
          <ol>
             <% @udl_module.get_sections_by_page(:learn_more).each do |section| %>
-             <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+              <% unless section.hide_title %>
+                <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+              <% end %>
            <% end %>
          </ol>
        </li>
        <li><%= link_to("References &amp; Resources".html_safe, udl_module_url(@udl_module, anchor: "references-and-resources")) %>
          <ol>
            <% @udl_module.get_sections_by_page(:references).each do |section| %>
-             <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+             <% unless section.hide_title %>
+               <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+             <% end %>
            <% end %>
          </ol>
        </li>
