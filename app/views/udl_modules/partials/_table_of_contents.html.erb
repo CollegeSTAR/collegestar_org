@@ -2,49 +2,49 @@
    <aside id="toc">
      <h1>Contents</h1>
      <ol>
-       <li><%= link_to("Introduction", udl_module_url(@udl_module, anchor: "introduction")) %>
+       <li><a href="#introduction">Introduction</a>
          <ol>
            <% @udl_module.get_sections_by_page(:introduction).each do |section| %>
              <% unless section.hide_title %>
-               <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <li><a href="#<%= section.slug %>"><%= section.title.html_safe %></a></li>
              <% end %>
            <% end %>
          </ol>
        </li>
-       <li><%= link_to("Objectives", udl_module_url(@udl_module, anchor: "objectives")) %></li>
-       <li><%= link_to("UDL Alignment", udl_module_url(@udl_module, anchor: "udl-alignment")) %></li>
-       <li><%= link_to("Instructional Practice", udl_module_url(@udl_module, anchor: "instructional-practice")) %>
+       <li><a href="#objectives">Objectives</a></li>
+       <li><a href="#udl-alignment">UDL Alignment</a></li>
+       <li><a href="#instructional-practice">Instructional Practice</a>
          <ol>
             <% @udl_module.get_sections_by_page(:instructional_practice).each do |section| %>
               <% unless section.hide_title %>
-                <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+                <li><a href="#<%= section.slug %>"><%= section.title.html_safe %></a></li>
               <% end %>
            <% end %>
          </ol>
        </li>           
-       <li><%= link_to("Learn More", udl_module_url(@udl_module, anchor: "learn-more")) %>
+       <li><a href="#learn-more">Learn More</a>
          <ol>
             <% @udl_module.get_sections_by_page(:learn_more).each do |section| %>
               <% unless section.hide_title %>
-                <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+                <li><a href="#<%= section.slug %>"><%= section.title.html_safe %></a></li>
               <% end %>
            <% end %>
          </ol>
        </li>
-       <li><%= link_to("References &amp; Resources".html_safe, udl_module_url(@udl_module, anchor: "references-resources")) %>
+       <li><a href="#references-resources">References &amp; Resources</a>
          <ol>
            <% @udl_module.get_sections_by_page(:references_resources).each do |section| %>
              <% unless section.hide_title %>
-               <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <li><a href="#<%= section.slug %>"><%= section.title.html_safe %></a></li>
              <% end %>
            <% end %>
          </ol>
        </li>
-       <li><%= link_to("About the Author", udl_module_url(@udl_module, anchor: "about-the-author")) %>
+       <li><a href="#about-the-author">About the Author</a>
          <ol>
            <% @udl_module.get_sections_by_page(:about_the_author).each do |section| %>
              <% unless section.hide_title %>
-               <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
+               <li><a href="#<%= section.slug %>"><%= section.title.html_safe %></a></li>
              <% end %>
            <% end %>
          </ol>
