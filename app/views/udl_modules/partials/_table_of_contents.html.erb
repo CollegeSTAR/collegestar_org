@@ -31,7 +31,7 @@
            <% end %>
          </ol>
        </li>
-       <li><%= link_to("References &amp; Resources".html_safe, udl_module_url(@udl_module, anchor: "references-and-resources")) %>
+       <li><%= link_to("References &amp; Resources".html_safe, udl_module_url(@udl_module, anchor: "references-resources")) %>
          <ol>
            <% @udl_module.get_sections_by_page(:references).each do |section| %>
              <% unless section.hide_title %>
