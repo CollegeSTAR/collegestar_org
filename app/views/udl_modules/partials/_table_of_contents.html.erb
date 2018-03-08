@@ -33,7 +33,7 @@
        </li>
        <li><%= link_to("References &amp; Resources".html_safe, udl_module_url(@udl_module, anchor: "references-resources")) %>
          <ol>
-           <% @udl_module.get_sections_by_page(:references).each do |section| %>
+           <% @udl_module.get_sections_by_page(:references_resources).each do |section| %>
              <% unless section.hide_title %>
                <li><%= link_to( section.title, udl_module_url(@udl_module, anchor: section.slug))  %></li>
              <% end %>

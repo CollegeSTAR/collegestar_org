@@ -12,8 +12,7 @@ class UdlModule < ActiveRecord::Base
     :instructional_practice, 
     :literature_base, 
     :learn_more, 
-    :references,
-    :resources,
+    :references_resources,
     :about_the_author
   ]
   

@@ -37,7 +37,7 @@ RSpec.describe UdlModuleSection do
     let(:instructional_section) { create(:shared_instructional_practice_section) }
     let(:lit_section) { create(:shared_literature_base_section) }
     let(:learn_section) { create(:shared_learn_more_section) }
-    let(:references_section) { create(:shared_references_section) }
+    let(:references_resources_section) { create(:shared_references_resources_section) }
     let(:shared_sections) { UdlModuleSection.shared_sections}
     let(:result) { 
       {
@@ -47,8 +47,7 @@ RSpec.describe UdlModuleSection do
         instructional_practice: [instructional_section],
         literature_base: [lit_section],
         learn_more: [learn_section],
-        references: [references_section],
-        resources: [],
+        references_resources: [references_resources_section],
         about_the_author: []
 
       }

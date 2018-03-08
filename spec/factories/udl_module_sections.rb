@@ -34,20 +34,13 @@ FactoryGirl.define do
     parent "learn_more"
   end
 
-  factory :references_section, class: UdlModuleSection do
-    title "A references section"
+  factory :references_resources_section, class: UdlModuleSection do
+    title "A references and resources section"
     sequence(:slug) { |n| "a-references-section-#{n}" }
     content "This is a section in the references page."
-    parent "references"
+    parent "references_resources"
   end  
   
-  factory :resources_section, class: UdlModuleSection do
-    title "A resources section"
-    sequence(:slug) { |n| "a-references-section-#{n}" }
-    content "This is a section in the references page."
-    parent "resources"
-  end  
-
   factory :shared_introduction_section, class: UdlModuleSection do
     title "A shared introduction section"
     sequence(:slug) { |n| "a-shared-introduction-section-#{n}" }
@@ -93,11 +86,11 @@ FactoryGirl.define do
     default_shared_position 1
   end  
   
-  factory :shared_references_section, class: UdlModuleSection do
+  factory :shared_references_resources_section, class: UdlModuleSection do
     title "A shared references and resources section"
     sequence(:slug) { |n| "a-shared-references-and-resources-section-#{n}" }
     content "This is a shared section in the references and resources page."
-    parent "references"
+    parent "references_resources"
     shared true
     default_shared_position 1
   end

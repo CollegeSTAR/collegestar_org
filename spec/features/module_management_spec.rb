@@ -135,9 +135,9 @@ RSpec.feature "Module Management" do
         expect(page).to have_content("My learn more section")
       end
       
-      scenario "add references section" do
+      scenario "add references and resources section" do
         visit "/modules/#{udl_module.slug}"
-        click_link("udl-module-add-references-section")
+        click_link("udl-module-add-references-resources-section")
         fill_in "udl_module_section_title", with: "My references section"
         fill_in "udl_module_section_content", with: "This is the references content"
         click_button "Save section"

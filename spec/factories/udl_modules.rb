@@ -15,7 +15,7 @@ FactoryGirl.define do
         udl_module.sections << create(:udl_alignment_section)
         udl_module.sections << create(:instructional_practice_section)
         udl_module.sections << create(:learn_more_section)
-        udl_module.sections << create(:references_section)
+        udl_module.sections << create(:references_resources_section)
       end
     end
 

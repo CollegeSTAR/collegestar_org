@@ -7,7 +7,7 @@ RSpec.describe UdlModule do
     let(:udl_alignment_section) { create(:udl_alignment_section) }
     let(:instructional_practice_section) { create(:instructional_practice_section) }
     let(:learn_more_section) { create(:learn_more_section) }
-    let(:references_section) { create(:references_section) }
+    let(:references_resources_section) { create(:references_resources_section) }
 
   describe "validations" do
     it { should validate_presence_of(:title) }
@@ -148,7 +148,7 @@ RSpec.describe UdlModule do
       udl_module.add_section( udl_alignment_section )
       udl_module.add_section( instructional_practice_section )
       udl_module.add_section( learn_more_section )
-      udl_module.add_section( references_section )
+      udl_module.add_section( references_resources_section )
       udl_module.save
     end
     
@@ -169,7 +169,7 @@ RSpec.describe UdlModule do
     end
 
     it "returns only references_sections" do
-      expect(udl_module.get_sections_by_page :references).to match_array([references_section])
+      expect(udl_module.get_sections_by_page :references_resources).to match_array([references_resources_section])
     end
     
     it "should order by position" do
