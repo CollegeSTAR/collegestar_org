@@ -4,19 +4,24 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1>Module History</h1>
-      <table>
-        <tr>
-          <th>Module</th>
-          <th>Score</th>
-        </tr>
-        <% @assessments.each do |assessment| %>
+      <div id="user-module-histories-table-wrapper">
+        <table id="user-module-histories">
           <tr>
-            <td><%= assessment.udl_module.title %></td>
-            <td><%= assessment.score %></td>
+            <th width="55%">Module/Case Study</th>
+            <th width="15%">Last Viewed</th>
+            <th width="15%">Assessment</th>
+            <th width="15%">Certificate</th>
           </tr>
-        <% end %>
-      </table>
-
+          <% @module_histories.each do |history| %>
+            <tr>
+              <td><%= link_to history.udl_module.title.truncate(75), profile_user_module_history_path(id: history.id) %></td>
+              <td><%= history.updated_at.strftime("%b %d, %Y") %>
+              <td>Not Attempted</td>
+              <td>N/A</td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
   </div>
 </div>

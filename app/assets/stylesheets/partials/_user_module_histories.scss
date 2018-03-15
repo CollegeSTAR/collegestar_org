@@ -1,0 +1,8 @@
+#user-module-histories-table-wrapper {
+  @include span(18 of 18 no-gutter);
+  padding: gutter();
+
+  table#user-module-histories {
+    @include admin-table;
+  }
+}

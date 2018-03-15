@@ -12,7 +12,7 @@ class NullUser < User
   end
 
   def module_histories
-    return []
+    return NullUserModuleHistory.new
   end
 
   def find_module_history(args={})

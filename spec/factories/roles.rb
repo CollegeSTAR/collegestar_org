@@ -82,6 +82,12 @@ factory :campus_admin, class: Role do
     description "Modules Author: "
     grantable true
   end
+  
+  factory :module_histories_admin, class: Role do
+    name "module_histories_admin"
+    description "Module Histories Admin: "
+    grantable true
+  end
 
   factory :module_proposals_admin, class: Role do
     name "module_proposals_admin"

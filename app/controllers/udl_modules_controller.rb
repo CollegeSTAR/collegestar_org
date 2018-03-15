@@ -11,6 +11,8 @@ class UdlModulesController < ApplicationController
   # GET /udl_modules/1
   def show
     authorize @udl_module
+    user_module_history = current_user.module_histories.find_or_create_by udl_module_id: @udl_module.id
+    user_module_history.touch
   end
 
   # GET /udl_modules/new
