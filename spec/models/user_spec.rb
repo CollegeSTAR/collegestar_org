@@ -6,6 +6,7 @@ RSpec.describe User do
   let(:owned_and_released_author_udl_module) { create(:udl_module, released: true) }
   let(:owned_faculty_udl_module) { create(:udl_module, released: false) }
   let(:owned_author_udl_module) { create(:udl_module, released: false) }
+  let(:user_module_history) { create(:user_module_history) }
 
   let(:non_owned_udl_module) { create(:udl_module) }
 
@@ -36,6 +37,12 @@ RSpec.describe User do
     it { should have_many(:faculty_modules).class_name('UdlModule').through(:module_faculty_associations).source('module') }
     it { should have_many(:roles) }
     it { should have_many(:module_histories).class_name("UserModuleHistory") }
+  end
+
+  describe "#find_module_history_by" do
+    it "should find an associated module history by given udl module param" do
+      expect(user_module_history.user.find_module_history_by(udl_module_id: user_module_history.udl_module.id)).to eq(user_module_history)
+    end
   end
 
   describe "#full_name" do

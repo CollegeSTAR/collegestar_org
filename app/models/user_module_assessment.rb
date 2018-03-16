@@ -3,6 +3,7 @@ class UserModuleAssessment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :udl_module
+  belongs_to :user_module_history
   has_many :user_assessment_question_associations, -> { order("position") }
   has_many :questions,
            through: :user_assessment_question_associations, 

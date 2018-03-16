@@ -49,6 +49,7 @@ RSpec.feature "Module Assessment" do
     end
 
     scenario "User visits module assessment, completes, and submits it" do
+      visit "/modules/#{udl_module_with_assessment.slug}"
       visit "/modules/#{udl_module_with_assessment.slug}/assessment"
       
       #check correct answer of each question

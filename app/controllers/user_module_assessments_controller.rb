@@ -1,6 +1,5 @@
 class UserModuleAssessmentsController < ApplicationController
-  before_action :set_udl_module, only: [:show]
-  before_action :set_assessment, only: [:show]
+  before_action :set_assessment_and_udl_module, only: [:show]
 
   def create
     result = GradeModuleAssessment.call( 
@@ -13,7 +12,7 @@ class UserModuleAssessmentsController < ApplicationController
       redirect_to(
         profile_user_module_history_assessment_path(
           profile_id: current_user.id,
-          user_module_history_slug: result.assessment.udl_module.slug,
+          user_module_history_id: result.module_history.id,
           id: result.assessment.id
         ),
         notice: "Assessment saved successfully."
@@ -29,12 +28,9 @@ class UserModuleAssessmentsController < ApplicationController
 
   private
   
-  def set_udl_module
-    @udl_module = UdlModule.find_by slug: params[:user_module_history_slug]
-  end
-
-  def set_assessment
-    @assessment = UserModuleAssessment.find params[:id]
+  def set_assessment_and_udl_module
+    @assessment = UserModuleAssessment.includes(:udl_module).find(params[:id])
+    @udl_module = @assessment.udl_module
   end
 
   def user_module_assessment_params

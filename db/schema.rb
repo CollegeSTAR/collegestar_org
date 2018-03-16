@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213175417) do
+ActiveRecord::Schema.define(version: 20180316180656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -597,8 +597,10 @@ ActiveRecord::Schema.define(version: 20180213175417) do
     t.boolean "completed"
     t.json "questions_order"
     t.string "score"
+    t.bigint "user_module_history_id"
     t.index ["udl_module_id"], name: "index_user_module_assessments_on_udl_module_id"
     t.index ["user_id"], name: "index_user_module_assessments_on_user_id"
+    t.index ["user_module_history_id"], name: "index_user_module_assessments_on_user_module_history_id"
   end
 
   create_table "user_module_histories", force: :cascade do |t|
@@ -679,6 +681,7 @@ ActiveRecord::Schema.define(version: 20180213175417) do
   add_foreign_key "user_assessment_question_associations", "assessment_questions"
   add_foreign_key "user_assessment_question_associations", "user_module_assessments"
   add_foreign_key "user_module_assessments", "udl_modules"
+  add_foreign_key "user_module_assessments", "user_module_histories"
   add_foreign_key "user_module_assessments", "users"
   add_foreign_key "user_module_histories", "udl_modules"
   add_foreign_key "user_module_histories", "users"

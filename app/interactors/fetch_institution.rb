@@ -1,0 +1,3 @@
+class FetchInstitution
+
+end

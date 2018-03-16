@@ -1,5 +1,5 @@
 class GradeModuleAssessment
   include Interactor::Organizer
   
-  organize DigestModuleAssessment, CheckModuleAssessmentAnswers
+  organize DigestModuleAssessment, CheckModuleAssessmentAnswers, AddAssessmentToModuleHistory
 end

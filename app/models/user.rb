@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     return NullUser.new
   end
 
+  def find_module_history_by(args={})
+    module_histories.find_by(args)
+  end
+
   def generate_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now

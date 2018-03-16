@@ -3,7 +3,7 @@ class DigestModuleAssessment
 
   def call
     context.assessment.user = context.user
-    context.assessment.udl_module_id = context.submitted_params[:module_id]
+    context.assessment.udl_module_id = context.submitted_params[:module_id] 
     context.assessment.questions_order = context.submitted_params[:questions_order]
     if build_question_associations
       context.assessment.save

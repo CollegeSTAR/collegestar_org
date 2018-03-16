@@ -11,6 +11,7 @@ RSpec.describe UserModuleAssessment do
   describe "associations" do
     it { should belong_to(:user) }
     it { should belong_to(:udl_module) }
+    it { should belong_to(:user_module_history) }
     it { should have_many(:user_assessment_question_associations)
            .order("position")
        }
