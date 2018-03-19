@@ -8,4 +8,9 @@ class UserModuleAssessment < ActiveRecord::Base
   has_many :questions,
            through: :user_assessment_question_associations, 
            source: :assessment_question
+
+  def passed?
+    return true if score.to_i >= 80
+    return false
+  end
 end
