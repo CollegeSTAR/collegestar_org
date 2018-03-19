@@ -16,7 +16,11 @@
             <tr>
               <td><%= link_to history.udl_module.title.truncate(75), profile_user_module_history_path(id: history.id) %></td>
               <td><%= history.updated_at.strftime("%b %d, %Y") %>
-              <td>Not Attempted</td>
+              <td>
+                <%= "Not Attempted" if !history.assessment_attempted %>
+                <%= "Attempted, but Not Passed" if history.assessment_attempted && !history.assessment_passed %>
+                <%= "Passed" if history.assessment_passed %>
+              </td>
               <td>N/A</td>
             </tr>
           <% end %>

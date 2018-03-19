@@ -17,8 +17,9 @@ RSpec.describe UserModuleAssessment do
        }
     it { should have_many(:questions)
            .through(:user_assessment_question_associations)
-           .source(:assessment_question)
+           .source(:assessment_question).dependent(:destroy)
        }
+    it { should have_many(:user_assessment_answer_choice_associations).dependent(:destroy) }
   end
 
   describe "passed?" do

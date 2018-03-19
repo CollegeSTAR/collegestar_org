@@ -9,5 +9,6 @@ class AddAssessmentToModuleHistory
     if (context.assessment.passed? && !context.module_history.assessment_passed)
       context.module_history.assessment_passed = true
     end
+    context.module_history.save
   end
 end

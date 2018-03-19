@@ -1,8 +1,8 @@
-#user-module-histories-table-wrapper {
+#user-module-histories-table-wrapper, #assessment-attempts-table-wrapper {
   @include span(18 of 18 no-gutter);
   padding: gutter();
 
-  table#user-module-histories {
+  table#user-module-histories, #assessment-attempts-table {
     @include admin-table;
   }
 }

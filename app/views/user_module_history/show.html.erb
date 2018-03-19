@@ -2,6 +2,30 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @module_history.udl_module.title %>
+
+      <h2>Assessment Attempts</h2>
+
+      <div id ="assessment-attempts-table-wrapper">
+        <table id="assessment-attempts-table">
+          <tr>
+            <th>Date Taken</th>
+            <th>Score</th>
+            <th>Assessment link</th>
+          </tr>
+          <% @module_history.assessments.each do |assessment| %>
+            <tr>
+              <td><%= assessment.updated_at.strftime('%b %d, %Y %I:%M %p') %></td>
+              <td><%= assessment.score %></td>
+              <td><%= link_to 'View assessment results', 
+                              profile_user_module_history_assessment_path(
+                                profile_id: current_user.id,
+                                user_module_history_id: @module_history.id,
+                                id: assessment.id
+                              ) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
   </div>
 </div>

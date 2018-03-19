@@ -17,6 +17,7 @@ RSpec.describe AddAssessmentToModuleHistory do
       allow(user_module_history).to receive(:assessment_attempted=)
       allow(user_module_history).to receive(:assessment_passed=)
       allow(user_module_history).to receive(:assessment_passed)
+      allow(user_module_history).to receive(:save)
     end
     context "with passing assessment" do
       it "fetches the users' module history for a given module" do
@@ -37,6 +38,11 @@ RSpec.describe AddAssessmentToModuleHistory do
       
       it "sets user_module_history#assessment_passed to true" do
         expect(user_module_history).to receive(:assessment_passed=).with(true)
+        passing_assessment_context.call
+      end
+
+      it "calls save on user_module_history" do
+        expect(user_module_history).to receive(:save)
         passing_assessment_context.call
       end
     end
