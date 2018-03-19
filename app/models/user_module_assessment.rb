@@ -7,7 +7,8 @@ class UserModuleAssessment < ActiveRecord::Base
   has_many :user_assessment_question_associations, -> { order("position") }
   has_many :questions,
            through: :user_assessment_question_associations, 
-           source: :assessment_question
+           source: :assessment_question, dependent: :destroy
+  has_many :user_assessment_answer_choice_associations, dependent: :destroy
 
   def passed?
     return true if score.to_i >= 80
