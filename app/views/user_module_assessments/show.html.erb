@@ -8,10 +8,10 @@
      <ol>
      <% @questions.each do |question| %>
        <li>
-         <%= question.question_text %>
+         <%= question.question_text.html_safe %>
          <ol>
          <% question.answer_choices.each do |choice| %>
-           <li><%= choice.text %></li>
+           <li><%= choice.text.html_safe %></li>
          <% end %>
          </ol>
        </li>
