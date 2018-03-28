@@ -76,7 +76,8 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
+  resources :blueprints, param: :slug
   resources :events, param: :slug
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
