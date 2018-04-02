@@ -18,6 +18,20 @@
             </span>
           <% end %>
         </h3>
+        <% if section.voiceover_audio %>
+          <div class="module-section-audio-wrapper">
+            <div id=<%= "show-module-section-audio-player-toggle-wrapper-#{section.id}" %>>
+              <a id=<%= "show-module-section-audio-player-toggle-#{section.id}" %> class="show-module-section-audio-player-toggle" href="#" ><%= fa_icon( "volume-up", text: "Audio version") %></a>
+            </div>
+            <div id=<%= "module-section-audio-#{section.id}" %> class="module-section-audio-player-wrapper hidden">
+              <audio controls="controls" preload="metadata">
+                <source src=<%= "https://collegestar-files.nyc3.digitaloceanspaces.com/udl-modules/#{@udl_module.slug}/audio/ogg/#{section.voiceover_audio}.ogg" %> type="audio/ogg">
+                <source src=<%= "https://collegestar-files.nyc3.digitaloceanspaces.com/udl-modules/#{@udl_module.slug}/audio/mp3/#{section.voiceover_audio}.mp3" %> type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+        <% end %>
       </div>
       <div class="module-section-content-wrapper">
         <%= section.content.html_safe %>

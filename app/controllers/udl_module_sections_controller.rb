@@ -59,6 +59,6 @@ class UdlModuleSectionsController < ApplicationController
   end
 
   def udl_module_section_params
-    params.require(:udl_module_section).permit(:title, :hide_title, :content, :parent)
+    params.require(:udl_module_section).permit(:title, :hide_title, :content, :voiceover_audio, :parent)
   end
 end
