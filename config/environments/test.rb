@@ -56,4 +56,7 @@ Rails.application.configure do
   
   # Store paperclip attachments here so that we can delete them after every test
   Paperclip::Attachment.default_options[:path] = "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+
+  #turn async jobs to inline
+  config.active_job.queue_adapter = :inline
 end
