@@ -10,11 +10,11 @@ RSpec.describe UserModuleHistoryPolicy do
 
   permissions :index? do
     it "grants user access" do
-      expect(subject).to permit(user, UserModuleHistoryPolicy)
+      expect(subject).to permit(user, UserModuleHistory)
     end
 
     it "denies null user access" do
-      expect(subject).to_not permit(null_user, UserModuleHistoryPolicy)
+      expect(subject).to_not permit(null_user, UserModuleHistory)
     end
   end
 
