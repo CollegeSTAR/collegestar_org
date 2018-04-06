@@ -29,12 +29,18 @@
   padding: gutter();
 }
 
-@mixin table-tr() {
+@mixin table-tr($zebra-stripe: "true") {
   &:nth-child(even) {
     background-color: $even-td-bg-color;
   }
-  &:nth-child(odd) {
-    background-color: $odd-td-bg-color;
+  @if $zebra-stripe == "true" {
+    &:nth-child(odd) {
+      background-color: $odd-td-bg-color;
+    }
+  } @else if $zebra-stripe == "false" {
+    &:nth-child(odd) {
+      background-color: $even-td-bg-color;
+    }
   }
   &:hover {
     background-color: $tr-hover-bg-color;
