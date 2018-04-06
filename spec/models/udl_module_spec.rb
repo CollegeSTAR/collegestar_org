@@ -175,8 +175,8 @@ RSpec.describe UdlModule do
     it "should order by position" do
       udl_module.sections.delete introduction_section.id
       intro_section_two = create(:introduction_section)
-      udl_module.sections << intro_section_two
-      udl_module.sections << introduction_section
+      udl_module.add_section( intro_section_two )
+      udl_module.add_section( introduction_section )
       expect(udl_module.get_sections_by_page :introduction).to eq([intro_section_two, introduction_section])
     end
   end
