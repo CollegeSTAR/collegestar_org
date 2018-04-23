@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
+  
   root 'main#home', as: :root
   get 'home' => 'main#home', as: :home
   get 'about' => 'main#about', as: :about
@@ -15,6 +16,70 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
 
+ 
+  namespace :api do
+    namespace :v1 do
+      namespace :faculty do
+        resources :redesign_summary_attachments, only: [:new, :create, :destroy], path: '/redesign-summary-attachments'
+      end
+    end
+  end
+
+  resources :blueprints, param: :slug
+  resources :campuses, param: :slug do
+    resources :faculty_nomination_surveys, path: '/faculty-nomination-surveys' do
+      member do
+        get 'confirmation'
+      end
+    end
+    resources :institutional_administrators, path: '/administrators'
+    resources :institutional_colleges, param: :slug, path: '/colleges' do
+      resources :institutional_departments, param: :slug, path: '/departments'
+    end
+  end
+  resources :case_study_proposals, path: '/case-study-proposals'
+  resources :contacts, only: [:index, :show, :create, :destroy]
+  resources :dss_contacts, param: :slug, path: '/disability-support-offices'
+  resources :events, param: :slug
+  resources :frequently_asked_questions, except: [:show], path: '/frequently-asked-questions'
+  namespace :faculty do
+    resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
+  end
+  resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
+    resource :assessment, only: [ :show, :edit, :update]
+    resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
+  end
+  resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
+  resources :news_articles, only: [:new], path: '/news-articles'
+  resources :pages, param: :slug
+  resources :password_resets, except: [:index, :show], path: '/password-resets'
+  resources :profiles, only: [:edit, :show], controller: :users, as: :profiles do
+    resources :redesign_summaries, except: [:show], path: '/redesign-summaries'
+    resources :udl_modules, controller: :udl_modules_dashboard, path: '/modules-dashboard'
+    resources :user_module_history, only: [:index, :show], controller: :user_module_history, path: '/module-history' do
+      resources :assessments, only: [:show], controller: :user_module_assessments
+    end
+  end
+  resources :sessions, only: [:create, :destroy]
+  resources :shared_module_sections, except: [:show, :index], param: :slug, controller: :shared_module_sections, path: '/shared-module-sections'
+  resources :student_support_programs, param: :slug, path: '/student-support-programs'
+  resource :student_support_summit, only: [:show], path: '/student-support-summit' do
+    resources :media_consents, only: [:new, :create, :index, :show], path: '/media-consents'
+    resources :questionnaires, controller: :student_support_summit_questionnaires, only: [:new, :create, :index, :show], path: '/questionnaires'
+    resources :registrations, controller: :student_support_summit_registrations
+  end
+  resources :surveys, param: :slug
+  resources :universal_design_for_learning, param: :slug, path: '/universal-design-for-learning'
+  resources :users, only: [:index, :new, :create, :update, :destroy] do
+    resources :password_updates, only: [:create]
+  end
+  resources :user_module_assessments, only: [:show, :create], path: '/user-module-assessments'
+
+  get '/star-learning-communities', to: 'star_learning_communities#show'
+  namespace :star_learning_communities, path: '/star-learning-communities' do
+    resources :registrations
+  end
+   
   # Legacy site redirects
     get 'students/project-stepp', to: redirect('/students/stepp-program')
 
@@ -49,69 +114,4 @@ Rails.application.routes.draw do
   get '/modules/usoc', to: redirect('/modules/using-syllabi-to-organize-courses')
   get '/modules/usoc/:page', to: redirect('/modules/using-syllabi-to-organize-courses#%{page}')
   get '/module-proposals/new', to: redirect('/case-study-proposals/new')
-  
-  resources :sessions, only: [:create, :destroy]
-  resources :password_resets, except: [:index, :show], path: '/password-resets'
-  resources :users, only: [:index, :new, :create, :update, :destroy] do
-    resources :password_updates, only: [:create]
-  end
-  resources :profiles, only: [:edit, :show], controller: :users, as: :profiles do
-    resources :user_module_history, only: [:index, :show], controller: :user_module_history, path: '/module-history' do
-      resources :assessments, only: [:show], controller: :user_module_assessments
-    end
-    resources :udl_modules, controller: :udl_modules_dashboard, path: '/modules-dashboard'
-    resources :redesign_summaries, except: [:show], path: '/redesign-summaries'
-  end
-  resources :pages, param: :slug
-  resources :news_articles, only: [:new], path: '/news-articles'
-  resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
-  resources :campuses, param: :slug do
-    resources :institutional_colleges, param: :slug, path: '/colleges' do
-      resources :institutional_departments, param: :slug, path: '/departments'
-    end
-    resources :institutional_administrators, path: '/administrators'
-    resources :faculty_nomination_surveys, path: '/faculty-nomination-surveys' do
-      member do
-        get 'confirmation'
-      end
-    end
-  end
-  
-  resources :blueprints, param: :slug
-  resources :events, param: :slug
-  resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
-    resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
-    resource :assessment, only: [ :show, :edit, :update]
-  end
-  resources :user_module_assessments, only: [:show, :create], path: '/user-module-assessments'
-
-  resources :universal_design_for_learning, param: :slug, path: '/universal-design-for-learning'
-  resources :frequently_asked_questions, except: [:show], path: '/frequently-asked-questions'
-  resources :shared_module_sections, except: [:show, :index], param: :slug, controller: :shared_module_sections, path: '/shared-module-sections'
-  resources :contacts, only: [:index, :show, :create, :destroy]
-  resources :surveys, param: :slug
-  resources :case_study_proposals, path: '/case-study-proposals'
-  resources :dss_contacts, param: :slug, path: '/disability-support-offices'
-  resources :student_support_programs, param: :slug, path: '/student-support-programs'
-  resource :student_support_summit, only: [:show], path: '/student-support-summit' do
-    resources :media_consents, only: [:new, :create, :index, :show], path: '/media-consents'
-    resources :questionnaires, controller: :student_support_summit_questionnaires, only: [:new, :create, :index, :show], path: '/questionnaires'
-    resources :registrations, controller: :student_support_summit_registrations
-  end
-  namespace :faculty do
-    resources :redesign_summaries, except: [:create, :new], path: '/redesign-summaries'
-  end
-
-  get '/star-learning-communities', to: 'star_learning_communities#show'
-  namespace :star_learning_communities, path: '/star-learning-communities' do
-    resources :registrations
-  end
-
-  namespace :api do
-    namespace :v1 do
-      namespace :faculty do
-        resources :redesign_summary_attachments, only: [:new, :create, :destroy], path: '/redesign-summary-attachments'
-      end
-    end
-  end
 end
