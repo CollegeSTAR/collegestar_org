@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       namespace :faculty do
         resources :redesign_summary_attachments, only: [:new, :create, :destroy], path: '/redesign-summary-attachments'
       end
+      resources :sendgrid_events, only: [:create], path: 'sendgrid-events'
     end
   end
 
