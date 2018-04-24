@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402194010) do
+ActiveRecord::Schema.define(version: 20180424154257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -378,6 +378,21 @@ ActiveRecord::Schema.define(version: 20180402194010) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.boolean "grantable", default: true
+  end
+
+  create_table "sendgrid_events", force: :cascade do |t|
+    t.string "sg_event_id"
+    t.string "sg_message_id"
+    t.string "event"
+    t.string "email"
+    t.datetime "timestamp"
+    t.string "smtp_id"
+    t.string "ip"
+    t.boolean "tls"
+    t.boolean "cert_err"
+    t.string "timestamps"
+    t.index ["email"], name: "index_sendgrid_events_on_email"
+    t.index ["sg_event_id"], name: "index_sendgrid_events_on_sg_event_id", unique: true
   end
 
   create_table "star_learning_communities", id: :serial, force: :cascade do |t|
