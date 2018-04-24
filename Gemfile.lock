@@ -83,6 +83,7 @@ GEM
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -188,6 +189,9 @@ GEM
     premailer-rails (1.9.5)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.0.1)
     puma (3.11.2)
     pundit (1.1.0)
@@ -324,6 +328,7 @@ DEPENDENCIES
   paperclip (~> 4.2)
   pg
   premailer-rails
+  pry
   puma
   pundit
   rails (~> 5.1)
