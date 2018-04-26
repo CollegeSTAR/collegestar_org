@@ -2,6 +2,7 @@
   <%= render "users/forms/errors", users: @users %>
   <div id="user-edit-fields-wrapper">
     <%= render "users/forms/fields/name_email", f: f %>
+    <%= render "users/forms/fields/user_categories", f: f %>
     <%= render "users/forms/fields/new_campuses", f: f %>
     <%= render "users/forms/fields/department", f: f %>
     <%= render "users/forms/fields/password_fields", f: f %>

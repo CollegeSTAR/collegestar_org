@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424160613) do
+ActiveRecord::Schema.define(version: 20180425134700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -613,6 +613,20 @@ ActiveRecord::Schema.define(version: 20180424160613) do
     t.index ["user_module_assessment_id"], name: "user_assessment_question_association_assessment_index"
   end
 
+  create_table "user_categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "selectable", default: false
+  end
+
+  create_table "user_category_associations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "user_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_category_id"], name: "index_user_category_associations_on_user_category_id"
+    t.index ["user_id"], name: "index_user_category_associations_on_user_id"
+  end
+
   create_table "user_module_assessments", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "udl_module_id"
@@ -704,6 +718,8 @@ ActiveRecord::Schema.define(version: 20180424160613) do
   add_foreign_key "user_assessment_question_associations", "assessment_answer_choices", column: "selected_answer_id"
   add_foreign_key "user_assessment_question_associations", "assessment_questions"
   add_foreign_key "user_assessment_question_associations", "user_module_assessments"
+  add_foreign_key "user_category_associations", "user_categories"
+  add_foreign_key "user_category_associations", "users"
   add_foreign_key "user_module_assessments", "udl_modules"
   add_foreign_key "user_module_assessments", "user_module_histories"
   add_foreign_key "user_module_assessments", "users"

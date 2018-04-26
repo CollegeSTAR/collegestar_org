@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   
   belongs_to :campus
   has_many :access_controls
+  has_many :user_category_associations, dependent: :destroy
+  has_many :user_categories, through: :user_category_associations
   has_many :roles, through: :access_controls, dependent: :delete_all
   has_many :module_author_associations, foreign_key: 'author_id'
   has_many :author_modules, through: :module_author_associations, source: 'module'

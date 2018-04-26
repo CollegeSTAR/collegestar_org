@@ -3,7 +3,12 @@ require 'spec_helper'
 RSpec.feature "User management" do
   let(:campus) { create(:campus) }
   let(:user) { build(:user) }  
-  before(:each) { campus }
+  let(:user_category) { create(:user_category) }
+  let(:user_category_2) { create(:user_category) }
+  before(:each) { 
+    campus
+    user_category
+  }
 
   feature "create user" do 
     
@@ -23,7 +28,7 @@ RSpec.feature "User management" do
       end
 
       scenario "Creates a new User with Other campus selected" do
-        visit "signup"
+        visit "/signup"
 
         fill_in 'First name', with: user.first_name
         fill_in 'Last name', with: user.last_name
@@ -34,6 +39,23 @@ RSpec.feature "User management" do
         fill_in 'Password confirmation', with: user.password_confirmation
         click_button 'Create Account'
         expect(page).to have_text("Thank you for signing up!")
+      end
+
+      scenario "Creates a new User with user_categories" do
+        visit "/signup"
+
+        fill_in 'First name', with: user.first_name
+        fill_in 'Last name', with: user.last_name
+        fill_in 'Email', with: user.email
+        select  "Other", from: 'Campus'
+        fill_in 'Department', with: user.department
+        fill_in 'Password', with: user.password
+        fill_in 'Password confirmation', with: user.password_confirmation
+        page.check(id: "user_user_category_ids_#{user_category.id}")
+        click_button 'Create Account'
+        
+        new_user = User.find_by email: user.email
+        expect(new_user.user_category_ids).to match_array([user_category.id])
       end
     end
 

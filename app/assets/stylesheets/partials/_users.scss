@@ -6,6 +6,25 @@
     @include form-fields-wrapper;
 }
 
+h3.check-box-list-heading {
+  margin-left: 0;
+
+  span.explanation-text {
+    font-weight: normal;
+    font-size: $base-font-size * .75;
+    color: $aluminum;
+    font-style: italic;
+  }
+}
+
+#user-categories-check-boxes-wrapper {
+  margin: gutter() gutter() 4*gutter() 4*gutter();  
+
+  label {
+    display: inline;
+  }
+}
+
 #change-password-wrapper {
   @include form-fields-wrapper;
 }

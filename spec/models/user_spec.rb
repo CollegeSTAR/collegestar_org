@@ -33,6 +33,8 @@ RSpec.describe User do
   describe "associations" do
     it { should have_many(:module_author_associations).with_foreign_key('author_id') }
     it { should have_many(:author_modules).class_name('UdlModule').through(:module_author_associations).source('module') }
+    it { should have_many(:user_category_associations).dependent(:destroy) }
+    it { should have_many(:user_categories).through(:user_category_associations) }
     it { should have_many(:module_faculty_associations).with_foreign_key('faculty_id') }
     it { should have_many(:faculty_modules).class_name('UdlModule').through(:module_faculty_associations).source('module') }
     it { should have_many(:roles) }

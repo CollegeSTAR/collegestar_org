@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user_categories = UserCategory.selectable
   end
 
   # GET /users/1/edit
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
       redirect_to profile_path(@user), notice: 'Thank you for signing up!'
     else
       set_campuses_with_null
+      @user_categories = UserCategory.selectable
       render :new
     end
   end
@@ -78,7 +80,16 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def create_user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :campus_id, :department)
+      params.require(:user).permit(
+        :first_name, 
+        :last_name, 
+        :email, 
+        :password, 
+        :password_confirmation, 
+        :campus_id, 
+        :department,
+        user_category_ids: []
+      )
     end
     
     def user_params

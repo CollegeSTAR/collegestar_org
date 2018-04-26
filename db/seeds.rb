@@ -30,6 +30,18 @@ pages = [
   { title: "How can we help you?", slug: "contact-us", text: "Contact us page text." }
 ]
 
+user_categories = [
+  { name: 'Faculty Member', selectable: true },
+  { name: 'Staff Member', selectable: true },
+  { name: 'Adminstrator', selectable: true },
+  { name: 'Teaching Assistant', selectable: true },
+  { name: 'Teaching Assistant', selectable: true },
+  { name: 'Student', selectable: true },
+  { name: 'Parent', selectable: true },
+  { name: 'Professional Development', selectable: true },
+  { name: 'Researcher', selectable: true }
+]
+
 roles.each do |role|
   found_role = Role.find_or_create_by( name: role[:name] ) do |new_role|
     new_role.description = role[:description]
@@ -45,4 +57,8 @@ pages.each do |page|
     new_page.title = page[:title]
     new_page.text = page[:text]
   end
+end
+
+user_categories.each do |category|
+  UserCategory.find_or_create_by( name: category[:name], selectable: category[:selectable] )
 end
