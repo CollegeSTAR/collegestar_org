@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.2'
 # Use postgresql  as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -57,7 +57,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 
 #Use interactor for business logic encapsulation
-gem 'interactor-rails', '~> 2.1', '>= 2.1.1'
+gem 'interactor-rails', '~> 2.2'
 
 #Use kaminari for pagination
 gem 'kaminari'
