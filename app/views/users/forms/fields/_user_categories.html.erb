@@ -6,4 +6,8 @@
       <%= b.label(class: 'user_category_check_box') { b.check_box + b.text } %>
     </div>
   <% end %>
+  <div id="other-category-text-wrapper">
+    <%= label_tag :other_user_category, "Other" %>
+    <%= text_field_tag :other_user_category %>
+  </div>
 </div>

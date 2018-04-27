@@ -35,6 +35,7 @@ class UsersController < ApplicationController
         email: @user.email,
         password: @user.password
       )
+      handle_custom_user_category()
       redirect_to profile_path(@user), notice: 'Thank you for signing up!'
     else
       set_campuses_with_null
@@ -94,5 +95,17 @@ class UsersController < ApplicationController
     
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :campus_id, :department, role_ids: [])
+    end
+
+    def other_user_category?
+      return false if params[:other_user_category] == ""
+      return true
+    end
+
+    def handle_custom_user_category
+      if other_user_category?
+        custom_user_category = UserCategory.create name: params[:other_user_category], selectable: false
+        @user.user_categories << custom_user_category
+      end
     end
 end

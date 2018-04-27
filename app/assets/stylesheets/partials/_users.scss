@@ -19,9 +19,14 @@ h3.check-box-list-heading {
 
 #user-categories-check-boxes-wrapper {
   margin: gutter() gutter() 4*gutter() 4*gutter();  
+  padding-right: 0;
 
   label {
     display: inline;
+  }
+
+  #other-category-text-wrapper {
+    width: 250px;
   }
 }
 

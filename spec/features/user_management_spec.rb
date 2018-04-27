@@ -51,7 +51,7 @@ RSpec.feature "User management" do
         fill_in 'Department', with: user.department
         fill_in 'Password', with: user.password
         fill_in 'Password confirmation', with: user.password_confirmation
-        page.check(nil, id: "user_user_category_ids_#{user_category.id}")
+        page.check("user_user_category_ids_#{user_category.id}")
         click_button 'Create Account'
         
         new_user = User.find_by email: user.email
