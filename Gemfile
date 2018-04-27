@@ -69,7 +69,7 @@ gem 'mandrill-api'
 gem 'puma'
 
 # Paperclip manages file uploads
-gem 'paperclip', '~> 4.2'
+gem 'paperclip', '~> 5.2'
 
 gem 'sidekiq'
 
