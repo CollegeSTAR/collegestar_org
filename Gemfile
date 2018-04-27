@@ -96,7 +96,7 @@ group :development, :test do
   gem 'spring', '~> 1.3.3'
 
   gem 'rspec-rails', '~> 3.0'
-  gem 'capybara', '~> 2.18'
+  gem 'capybara', '~> 3.0.2'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.0'
 end

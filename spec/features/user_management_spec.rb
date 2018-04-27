@@ -4,7 +4,7 @@ RSpec.feature "User management" do
   let(:campus) { create(:campus) }
   let(:user) { build(:user) }  
   let(:user_category) { create(:user_category) }
-  let(:user_category_2) { create(:user_category) }
+  let(:custom_user_category_attrs) { attributes_for(:non_selectable_user_category) }
   before(:each) { 
     campus
     user_category
@@ -51,11 +51,31 @@ RSpec.feature "User management" do
         fill_in 'Department', with: user.department
         fill_in 'Password', with: user.password
         fill_in 'Password confirmation', with: user.password_confirmation
-        page.check(id: "user_user_category_ids_#{user_category.id}")
+        page.check(nil, id: "user_user_category_ids_#{user_category.id}")
         click_button 'Create Account'
         
         new_user = User.find_by email: user.email
         expect(new_user.user_category_ids).to match_array([user_category.id])
+      end
+      
+      scenario "Creates a new User with other user_category" do
+        visit "/signup"
+
+        fill_in 'First name', with: user.first_name
+        fill_in 'Last name', with: user.last_name
+        fill_in 'Email', with: user.email
+        select  "Other", from: 'Campus'
+        fill_in 'Department', with: user.department
+        fill_in 'Password', with: user.password
+        fill_in 'Password confirmation', with: user.password_confirmation
+        fill_in 'other_user_category', with: custom_user_category_attrs[:name]
+        click_button 'Create Account'
+
+        new_user = User.find_by email: user.email
+        expect(new_user.user_categories.first.name).to eq(custom_user_category_attrs[:name])
+
+        custom_user_category = UserCategory.find_by name: custom_user_category_attrs[:name]
+        expect(custom_user_category.selectable).to be(false)
       end
     end
 
