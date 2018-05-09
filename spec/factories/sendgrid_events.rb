@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :sendgrid_event do
     sequence(:email) { |n| "john.doe#{n}@sendgrid.com" }
     timestamp "1337197600"

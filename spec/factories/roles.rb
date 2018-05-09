@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :basic_role, class: Role do
     name "basic"
     description "Basic: A basic role."

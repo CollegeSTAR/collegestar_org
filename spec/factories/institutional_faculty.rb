@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   
   factory :institutional_faculty do
     sequence( :first_name ) { |n| "John#{n}" }

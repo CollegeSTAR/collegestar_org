@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :student_support_summit_registration do
     sequence(:program_name) { |n| "Test Program#{n}" }
     contact_name "John Smith"

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :media_consent do
     first_name "John"
     last_name "Smith"

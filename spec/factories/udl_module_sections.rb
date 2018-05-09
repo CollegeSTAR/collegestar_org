@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :udl_module_section do
     sequence(:title) { |n| "New Section Title #{n}" }
     sequence(:slug) { |n| "new-section-title-#{n}" }

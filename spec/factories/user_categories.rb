@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user_category do
     sequence(:name) { |n| "User Category #{n}" }
     selectable true

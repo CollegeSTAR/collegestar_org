@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :page do
     title "This is my title"
     slug "this-is-my-slug"

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :case_study_proposal do
     first_name "John"
     last_name "Smith"

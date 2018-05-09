@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :assessment_question do
     sequence(:question) { |n| "question number #{n}" }
     explanation "This is the question's explanation"

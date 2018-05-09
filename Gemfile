@@ -97,7 +97,7 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara', '~> 3.0.2'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.0'
 end
 

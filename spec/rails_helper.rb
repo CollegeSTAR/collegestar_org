@@ -5,7 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
-require 'factory_girl'
+require 'factory_bot'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -53,6 +53,6 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  #FactoryGirl
-  config.include FactoryGirl::Syntax::Methods
+  #FactoryBot
+  config.include FactoryBot::Syntax::Methods
 end

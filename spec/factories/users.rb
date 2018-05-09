@@ -3,14 +3,14 @@ module FactoryHelper
 
   def find_role( role_name )
     if Role.find_by_name( role_name ).blank?
-      role = FactoryGirl.create(role_name.to_sym)
+      role = FactoryBot.create(role_name.to_sym)
     else
       role = Role.find_by_name role_name
     end
   end
 end
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     title "Mr."
     sequence( :first_name ) { |n| "John_#{n}" }

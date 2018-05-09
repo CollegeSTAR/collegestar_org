@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :event do
     sequence( :name ) { |n| "Event name #{n}" }
     sequence( :slug ) { |n| "event-slug-#{n}" }

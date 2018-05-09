@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :udl_module do
     module_type UdlModule::ModuleType::UDL_MODULE
     sequence(:title) { |n| "Test Module #{n}" }
