@@ -2,31 +2,68 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1>Subscribe to the College STAR News Letter</h1>
-      <%= form_for @subscription, url: news_letters_subscriptions_path do |f| %>
-        <%= f.label :title %>
-        <%= f.select :title, ['Dr.', 'Mr.', 'Mrs.', 'Ms.'], include_blank: true %> 
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-        <%= f.label :company %>
-        <%= f.text_field :company %>
+      <div id="subscription-form-wrapper">
+        <%= form_for @subscription, url: news_letters_subscriptions_path do |f| %>
+          <div class="field">
+            <%= f.label :title %>
+            <%= f.select :title, ['Dr.', 'Mr.', 'Mrs.', 'Ms.'], include_blank: true %> 
+          </div>
+          <div class="field">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name %>
+          </div>
+          <div class="field">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name %>
+          </div>
+          <div class="field">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          </div>
+          <div class="field">
+            <%= f.label :company %>
+            <%= f.text_field :company %>
+          </div>
 
-        <p>I'm interested in the following areas:</p>
-
-        <%= f.label :case_studies, 'Case Studies & Online Modules' %>
-        <%= f.check_box :case_studies %>
-        <%= f.label :learning_communities, 'STAR Learning Communities' %>
-        <%= f.check_box :learning_communities %>
-        <%= f.label :research, 'STAR Research Communities' %>
-        <%= f.check_box :research %>
-        <%= f.label :udl_in_higher_ed, 'UDL in Higher Education Implementation' %>
-        <%= f.check_box :udl_in_higher_ed %>
-        <%= f.submit 'Subscribe' %>
-
-      <% end %>
+          <h2>I'm interested in the following areas:</h2>
+          
+          <div class="form-check-box-wrapper">
+            <div class="form-check-box">
+              <%= f.check_box :case_studies %>
+            </div>
+            <div class="form-label">
+              <%= f.label :case_studies, 'Case Studies & Online Modules' %>
+            </div>
+          </div>
+          <div class="form-check-box-wrapper">
+            <div class="form-check-box">
+              <%= f.check_box :learning_communities %>
+            </div>
+            <div class="form-label">
+              <%= f.label :learning_communities, 'STAR Learning Communities' %>
+            </div>
+          </div>
+          <div class="form-check-box-wrapper">
+            <div class="form-check-box">
+              <%= f.check_box :research %>
+            </div>
+            <div class="form-label">
+              <%= f.label :research, 'STAR Research Communities' %>
+            </div>
+          </div>
+          <div class="form-check-box-wrapper">
+            <div class="form-check-box">
+              <%= f.check_box :udl_in_higher_ed %>
+            </div>
+            <div class="form-label">
+              <%= f.label :udl_in_higher_ed, 'UDL in Higher Education Implementation' %>
+            </div>
+          </div>
+          <div id="subscription-submit-wrapper">
+            <%= f.submit 'Subscribe' %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

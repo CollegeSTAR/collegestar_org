@@ -1,0 +1,7 @@
+#subscription-form-wrapper {
+  @include form-fields-wrapper();
+}
+
+#subscription-submit-wrapper {
+  @include form-submit-wrapper();
+}
