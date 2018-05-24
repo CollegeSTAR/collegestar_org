@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425134700) do
+ActiveRecord::Schema.define(version: 2018_05_24_173953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -333,6 +333,18 @@ ActiveRecord::Schema.define(version: 20180425134700) do
     t.text "feature_excerpt"
     t.text "sidebar_excerpt"
     t.boolean "released", default: false, null: false
+  end
+
+  create_table "news_letter_subscriptions", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "title"
+    t.string "company"
+    t.string "email", null: false
+    t.boolean "case_studies", default: false
+    t.boolean "learning_communities", default: false
+    t.boolean "research", default: false
+    t.boolean "udl_in_higher_ed", default: false
   end
 
   create_table "pages", id: :serial, force: :cascade do |t|

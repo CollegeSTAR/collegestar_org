@@ -52,6 +52,9 @@ Rails.application.routes.draw do
   end
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :news_articles, only: [:new], path: '/news-articles'
+  namespace :news_letters, path: 'news-letters' do
+    resource :subscriptions, only: [:new, :create]
+  end
   resources :pages, param: :slug
   resources :password_resets, except: [:index, :show], path: '/password-resets'
   resources :profiles, only: [:edit, :show], controller: :users, as: :profiles do
