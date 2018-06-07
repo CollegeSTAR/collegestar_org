@@ -18,7 +18,7 @@
             </span>
           <% end %>
         </h3>
-        <% if section.voiceover_audio %>
+        <% if section.voiceover_audio && section.voiceover_audio != "" %>
           <div class="module-section-audio-wrapper">
             <div id=<%= "show-module-section-audio-player-toggle-wrapper-#{section.id}" %>>
               <a id=<%= "show-module-section-audio-player-toggle-#{section.id}" %> class="show-module-section-audio-player-toggle" href="#" ><%= fa_icon( "volume-up", text: "Audio version") %></a>
