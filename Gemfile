@@ -99,5 +99,6 @@ group :development, :test do
   gem 'capybara', '~> 3.0.2'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.0'
+  gem 'webmock'
 end
 
