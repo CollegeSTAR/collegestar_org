@@ -390,3 +390,35 @@ blockquote {
   float: right;
   padding-right: gutter();
 }
+
+#feedback-modal {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  background-color: #EEE;
+  border: 1px solid #AAA;
+  border-radius: 4px;
+  box-shadow: .72em .72em .36em #999;
+
+  #close-wrapper {
+    display: block;
+    @include container();
+    margin: 0 gutter();
+
+    #feedback-modal-close-button {
+      font-size: .75 * $base-font-size;
+      float: right;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  #feedback-thumbs-wrapper {
+    margin: 2*gutter(); 
+    font-size: 2.5 * $base-font-size;
+    text-align: center;
+  }
+}

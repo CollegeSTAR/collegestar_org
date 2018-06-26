@@ -19,4 +19,5 @@
 //= require cropper
 //= require ckeditor/init
 //= require user_menu
+//= require jquery.waypoints.min
 //= require_tree .

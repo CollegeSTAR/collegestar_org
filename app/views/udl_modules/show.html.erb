@@ -27,6 +27,17 @@
           </div>
         </article>
       </main>
+      <div id="feedback-modal" class="hidden">
+        <div id="close-wrapper">
+          <div id="feedback-modal-close-button"><strong>close</strong></div>
+        </div>
+        <h1>Did you find this resource helpful?</h1>
+        <div id='feedback-thumbs-wrapper'>
+          <%= link_to '<i class="fa fa-thumbs-up fa-la"></i>'.html_safe, root_path, id: 'feedback_thumbs_up', title: 'Yes, I found this resource helpful.' %> 
+            &nbsp;&nbsp;
+          <%= link_to '<i class="fa fa-thumbs-down fa-la"></i>'.html_safe, root_path, title: 'No, I did not find this resource helpful.' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
