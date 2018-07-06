@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_24_173953) do
+ActiveRecord::Schema.define(version: 2018_07_06_145527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -560,6 +560,16 @@ ActiveRecord::Schema.define(version: 2018_05_24_173953) do
     t.text "shared_problem"
   end
 
+  create_table "udl_module_feedbacks", force: :cascade do |t|
+    t.boolean "resource_was_helpful"
+    t.bigint "udl_module_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["udl_module_id"], name: "index_udl_module_feedbacks_on_udl_module_id"
+    t.index ["user_id"], name: "index_udl_module_feedbacks_on_user_id"
+  end
+
   create_table "udl_module_sections", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -724,6 +734,8 @@ ActiveRecord::Schema.define(version: 2018_05_24_173953) do
   add_foreign_key "student_nomination_faculty", "campus_departments"
   add_foreign_key "student_nomination_faculty", "campus_units"
   add_foreign_key "student_support_program_images", "student_support_programs"
+  add_foreign_key "udl_module_feedbacks", "udl_modules"
+  add_foreign_key "udl_module_feedbacks", "users"
   add_foreign_key "udl_modules", "udl_modules", column: "module_id"
   add_foreign_key "user_assessment_answer_choice_associations", "assessment_answer_choices"
   add_foreign_key "user_assessment_answer_choice_associations", "user_module_assessments"

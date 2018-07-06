@@ -1,4 +1,12 @@
 class NullUser < User
+
+  attr_reader :email
+
+  def initialize(args)
+    super(args)
+    @email = ""
+  end
+
   def authenticate( password )
     false
   end

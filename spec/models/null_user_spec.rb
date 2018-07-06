@@ -8,6 +8,12 @@ RSpec.describe NullUser do
     end
   end
 
+  describe "#email" do
+    it "should return an empty string" do
+      expect(null_user.email).to eq("")
+    end
+  end
+
   describe "#authenticate" do
     it "should return false" do
       expect(null_user.authenticate "" ).to be_falsey    

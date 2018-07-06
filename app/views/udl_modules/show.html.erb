@@ -31,11 +31,26 @@
         <div id="close-wrapper">
           <div id="feedback-modal-close-button"><strong>close</strong></div>
         </div>
-        <h1>Did you find this resource helpful?</h1>
-        <div id='feedback-thumbs-wrapper'>
-          <%= link_to '<i class="fa fa-thumbs-up fa-la"></i>'.html_safe, root_path, id: 'feedback_thumbs_up', title: 'Yes, I found this resource helpful.' %> 
-            &nbsp;&nbsp;
-          <%= link_to '<i class="fa fa-thumbs-down fa-la"></i>'.html_safe, root_path, title: 'No, I did not find this resource helpful.' %>
+        <div id="feedback-request-wrapper"
+          <% if current_user.email != "" %>
+            data-user=<%= current_user.email %>
+          <% end %>
+          data-udl-module=<%= @udl_module.slug %>
+        >
+          <h1>Did you find this resource helpful?</h1>
+          <div id='feedback-thumbs-wrapper'>
+            <a href="#" id="feedback-thumbs-up" title='Yes, I found this resource helpful.'><i class="fa fa-thumbs-up fa-la"></i></a>
+              &nbsp;&nbsp;
+            <a href="#" id='feedback-thumbs-down' title='No, I did not find this resource helpful.'><i class="fa fa-thumbs-down fa-la"></i></a>
+          </div>
+        </div>
+        <div id="feedback-was-helpful-complete" class="hidden">
+          <h1>Thanks for your feedback!</h1>
+          <p>We received your feedback, thanks for your time!</p>
+        </div>
+        <div id="feedback-was-not-helpful-complete" class="hidden">
+          <h1>Thanks for your feedback!</h1>
+          <p>We received your feedback and value what you have to say. <!-- In an effort to better our modules and case studies would you be willing to share why you did not find this resource helpful?--></p>
         </div>
       </div>
     </div>

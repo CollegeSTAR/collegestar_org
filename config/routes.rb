@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         resources :redesign_summary_attachments, only: [:new, :create, :destroy], path: '/redesign-summary-attachments'
       end
       resources :sendgrid_events, only: [:create], path: 'sendgrid-events'
+      resources :udl_module_feedback, only: [:create], path: 'module-feedback'
     end
   end
 
