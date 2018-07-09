@@ -8,5 +8,10 @@ FactoryBot.define do
       title "College STAR Blueprints"
       slug "blueprints"
     end
+
+    factory :publications_page do
+      title "Publications and Resources"
+      slug "publications-and-resources"
+    end
   end
 end

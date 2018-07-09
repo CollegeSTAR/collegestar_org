@@ -65,6 +65,7 @@ Rails.application.routes.draw do
       resources :assessments, only: [:show], controller: :user_module_assessments
     end
   end
+  resource :publication, only: [:show], path: '/publications-and-resources'
   resources :sessions, only: [:create, :destroy]
   resources :shared_module_sections, except: [:show, :index], param: :slug, controller: :shared_module_sections, path: '/shared-module-sections'
   resources :student_support_programs, param: :slug, path: '/student-support-programs'
