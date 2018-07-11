@@ -1,0 +1,38 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @video.title %>
+        <% if policy(@video).update? %> 
+          <span class="edit-module-section-link"> 
+            <%= link_to(
+                  fa_icon( "pencil", text: "Edit this Video"), 
+                  edit_three_two_one_video_path(@video),
+                  id: "edit-three-two-one-video-#{@video.slug}"
+                ) %>
+          </span>
+        <% end %>
+      </h1>
+      <div class="figure-wrapper">
+        <div class="figure">
+          <iframe 
+            width="560" 
+            height="315" 
+            src=<%= "https://www.youtube.com/embed/#{@video.youtube_id}?rel=0" %> 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <% if @video.caption != '' %>
+          <div class="caption">
+            <%= @video.caption.html_safe %>
+          </div>
+        <% end %>
+      <div>
+
+      <div id="video-notes">
+      <%= @video.notes.html_safe %>
+      </div>
+    </div>
+  </div>
+</div>

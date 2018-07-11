@@ -91,6 +91,11 @@ FactoryBot.define do
     factory :student_support_summit_registrations_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "student_support_summit_registrations_admin" ) }
     end
+
+    factory :three_two_one_videos_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "three_two_one_videos_admin" ) }
+    end
+
     factory :udl_resources_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "udl_resources_admin" ) }
     end

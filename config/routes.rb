@@ -79,6 +79,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :update, :destroy] do
     resources :password_updates, only: [:create]
   end
+  resources :three_two_one_videos, param: :slug, path: '/three-two-one-videos'
   resources :user_module_assessments, only: [:show, :create], path: '/user-module-assessments'
 
   get '/star-learning-communities', to: 'star_learning_communities#show'

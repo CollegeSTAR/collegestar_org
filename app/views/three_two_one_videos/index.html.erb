@@ -1,0 +1,16 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Three Two One Videos</h1>
+      <p>Description of three two one videos goes here!</p>
+      
+      <div id="three-two-one-videos-wrapper">
+      <% @videos.each do |video| %>
+        <div class="three-two-one-video" id="<%= video.slug %>">
+        <p><%= link_to video.title, three_two_one_video_path(video) %></p>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

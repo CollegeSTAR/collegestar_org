@@ -129,6 +129,11 @@ factory :campus_admin, class: Role do
     description "Student Support Summit Registration Administrator: "
     grantable true
   end
+  factory :three_two_one_videos_admin, class: Role do
+    name "three_two_one_videos_admin"
+    description "Three Two One Video Administrator: "
+    grantable true
+  end
   factory :udl_resources_admin, class: Role do
     name "udl_resources_admin"
     description "Universal Design For Learning Resource Admin: "
