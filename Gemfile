@@ -23,14 +23,23 @@ gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # Use CKEditor for WYSIWYG editor
 gem 'ckeditor'
 
-#Use liquid template engine for user editable views
+# Use liquid template engine for user editable views
 gem 'liquid', '~> 3'
 
-#Use font Awesome
+# Use font Awesome
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
-#Use premailer to process email styles
+# Use premailer to process email styles
 gem 'premailer-rails'
+
+# Use aws s3 sdk for DigitalOcean Spaces file storage
+gem 'aws-sdk-s3', require: false
+
+# Use image processing gem for active storage
+gem 'image_processing', '~> 1.2'
+
+# use mini magic with image processing
+gem 'mini_magick'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

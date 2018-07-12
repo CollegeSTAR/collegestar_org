@@ -5,3 +5,11 @@ local:
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
+
+digital_ocean:
+  service: S3
+  access_key_id: <%= ENV["DO_ACCESS_KEY_ID"] %>
+  secret_access_key: <%= ENV["DO_SECRET_ACCESS_KEY"] %>
+  endpoint: <%= ENV["DO_ENDPOINT"] %>
+  region: <%= ENV["DO_REGION"] %>
+  bucket: <%= ENV["DO_BUCKET"] %> 

@@ -2,5 +2,7 @@
   <%= render 'three_two_one_videos/forms/fields/youtube_id', f: f %>
   <%= render 'three_two_one_videos/forms/fields/caption', f: f %>
   <%= render 'three_two_one_videos/forms/fields/notes', f: f %>
+  <%= f.label :released, "Release this video to public" %>
+  <%= f.check_box :released %>
   <%= render 'three_two_one_videos/forms/fields/edit_submit', f: f %>
 <% end %>

@@ -7,7 +7,9 @@
       <div id="three-two-one-videos-wrapper">
       <% @videos.each do |video| %>
         <div class="three-two-one-video" id="<%= video.slug %>">
-        <p><%= link_to video.title, three_two_one_video_path(video) %></p>
+        <p><%= image_tag video.screenshot.variant(resize: "100x100").processed.service_url if video.screenshot.attached? %> 
+           <%= link_to video.title, three_two_one_video_path(video) %>
+        </p>
         </div>
       <% end %>
       </div>

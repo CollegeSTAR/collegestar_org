@@ -2,7 +2,7 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1>Update <%= @video.title %></h1>
-
+      <%= image_tag @video.screenshot if @video.screenshot.attached? %>
       <%= render 'three_two_one_videos/forms/edit' %>
     </div>
   </div>

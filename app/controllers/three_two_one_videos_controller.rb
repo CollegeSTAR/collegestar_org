@@ -49,6 +49,6 @@ class ThreeTwoOneVideosController < ApplicationController
   end
 
   def video_params
-    params.require(:three_two_one_video).permit(:title, :youtube_id, :caption, :notes, :screenshot)
+    params.require(:three_two_one_video).permit(:title, :youtube_id, :caption, :notes, :screenshot, :released)
   end
 end

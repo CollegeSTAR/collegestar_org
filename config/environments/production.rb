@@ -91,5 +91,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # Active Storage
-  config.active_storage.service = :local
+  config.active_storage.service = :digital_ocean
 end
