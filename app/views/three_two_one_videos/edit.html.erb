@@ -2,8 +2,13 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1>Update <%= @video.title %></h1>
-      <%= image_tag @video.screenshot if @video.screenshot.attached? %>
-      <%= render 'three_two_one_videos/forms/edit' %>
+      <p><%= link_to "Back to video", three_two_one_video_path(@video) %></p>
+      <div id="three-two-one-video-screenshot-edit">
+        <%= image_tag @video.screenshot if @video.screenshot.attached? %>
+      </div>
+      <div id="three-two-one-video-form-wrapper"> 
+        <%= render 'three_two_one_videos/forms/edit' %>
+      </div>
     </div>
   </div>
 </div>

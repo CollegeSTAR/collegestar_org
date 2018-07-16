@@ -1,8 +1,12 @@
 <% videos.each do |video| %>
   <div class="three-two-one-video" id="<%= video.slug %>">
-  <p><%= image_tag video.screenshot.variant(resize: "100x100").processed.service_url if video.screenshot.attached? %> 
-     <%= link_to video.title, three_two_one_video_path(video) %>
-  </p>
-  <p><%= video.description.html_safe if video.description != "" %>
+    <div class="video-screenshot">
+      <%= image_tag video.screenshot.variant(resize: "100x100").processed.service_url if video.screenshot.attached? %> 
+    </div>
+    <div class="video-info-wrapper">
+      <h2><%= link_to video.title, three_two_one_video_path(video) %></h2>
+      <p><%= video.description.html_safe if video.description != "" %></p>
+      <p><%= link_to "view video", three_two_one_video_path(video) %></p>
+    </div>
   </div>
 <% end %>

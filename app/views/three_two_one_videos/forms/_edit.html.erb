@@ -1,4 +1,6 @@
 <%= form_for @video do |f| %>
+  
+  <%= render 'three_two_one_videos/forms/fields/screenshot', f: f %>
   <%= render 'three_two_one_videos/forms/fields/youtube_id', f: f %>
   <%= render 'three_two_one_videos/forms/fields/caption', f: f %>
   <%= render 'three_two_one_videos/forms/fields/description', f: f %>
