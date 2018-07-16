@@ -3,6 +3,7 @@ class ThreeTwoOneVideosController < ApplicationController
   def index
     authorize(ThreeTwoOneVideo)
     @videos = ThreeTwoOneVideo.released
+    @unreleased_videos = ThreeTwoOneVideo.unreleased
   end
 
   def show
@@ -49,6 +50,6 @@ class ThreeTwoOneVideosController < ApplicationController
   end
 
   def video_params
-    params.require(:three_two_one_video).permit(:title, :youtube_id, :caption, :notes, :screenshot, :released)
+    params.require(:three_two_one_video).permit(:title, :youtube_id, :caption, :notes, :screenshot, :description, :released)
   end
 end

@@ -3,15 +3,16 @@
     <div id="content">
       <h1>Three Two One Videos</h1>
       <p>Description of three two one videos goes here!</p>
+      <% if policy(ThreeTwoOneVideo).view_admin? %>
+        <p><%= link_to "Create a new video", new_three_two_one_video_path %></p>
+      <% end %>
       
       <div id="three-two-one-videos-wrapper">
-      <% @videos.each do |video| %>
-        <div class="three-two-one-video" id="<%= video.slug %>">
-        <p><%= image_tag video.screenshot.variant(resize: "100x100").processed.service_url if video.screenshot.attached? %> 
-           <%= link_to video.title, three_two_one_video_path(video) %>
-        </p>
-        </div>
-      <% end %>
+        <%= render 'three_two_one_videos/videos', videos: @videos %>
+      </div>
+      <h2>Unreleased videos</h2>
+      <div id="unreleased-three-two-one-videos-wrapper">
+        <%= render 'three_two_one_videos/videos', videos: @unreleased_videos %>
       </div>
     </div>
   </div>

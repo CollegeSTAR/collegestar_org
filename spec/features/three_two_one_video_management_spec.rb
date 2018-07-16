@@ -10,12 +10,23 @@ RSpec.feature "ThreeTwoOneVideo Management" do
   feature "Index of Videos" do
     before(:each) do
       released_video
+      video
     end
 
     scenario "User visits videos index" do
       visit "/three-two-one-videos"
 
       expect(page).to have_content(released_video.title)
+      expect(page).to have_content(released_video.description)
+    end
+
+    context "While logged in" do
+      scenario "User visits videos index" do
+        visit "/three-two-one-videos"
+
+        expect(page).to have_content("Unreleased videos")
+        expect(page).to have_content(video.title)
+      end
     end
   end
 
@@ -36,19 +47,30 @@ RSpec.feature "ThreeTwoOneVideo Management" do
         click_button "Log In"
       end
       scenario "User visits new three two one video page" do
-        visit "/three-two-one-videos/new"
+        visit "/three-two-one-videos"
+
+        click_link 'Create a new video'
 
         fill_in 'three_two_one_video[title]', with: video_attrs[:title]
         fill_in 'three_two_one_video[youtube_id]', with: video_attrs[:youtube_id]
         fill_in 'three_two_one_video[caption]', with: video_attrs[:caption]
+        fill_in 'three_two_one_video[description]', with: video_attrs[:description]
         fill_in 'three_two_one_video[notes]', with: video_attrs[:notes]
 
         click_button "submit_video_button"
 
         expect(page).to have_text("Successfully created Three Two One Video")
+        expect(page).to have_text video_attrs[:title]
+        expect(page).to have_text video_attrs[:caption]
+        expect(page).to have_text video_attrs[:notes]
       end
     end
     context "While not logged in" do
+      scenario "User tries to click create new video link" do
+        visit "/three-two-one-videos"
+
+        expect(page).to_not have_text("Create a new video")
+      end
       scenario "User visits new three two one video page" do
         visit "/three-two-one-videos/new"
 

@@ -4,6 +4,7 @@ FactoryBot.define do
     slug { "#{title}".parameterize }
     youtube_id "U1B6yQXsr0c"
     caption "A brief video"
+    description "The description"
     notes "These are the notes for the video!"
     released false
 
