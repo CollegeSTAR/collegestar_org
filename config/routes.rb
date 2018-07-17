@@ -50,6 +50,9 @@ Rails.application.routes.draw do
   resources :modules, param: :slug, controller: :udl_modules, as: :udl_modules do
     resource :assessment, only: [ :show, :edit, :update]
     resources :sections, except: [:show, :index], param: :slug, controller: :udl_module_sections, as: :sections
+    resources :udl_module_surveys, only: [:index, :show, :new, :create], path: '/feedback-surveys' do
+      resource :survey_confirmation, only: [:show], controller: :udl_module_survey_confirmations, path: '/confirmation'
+    end
   end
   resources :news, except: :new, param: :slug, controller: :news_articles, as: :news_articles
   resources :news_articles, only: [:new], path: '/news-articles'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_124313) do
+ActiveRecord::Schema.define(version: 2018_07_16_190235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -618,6 +618,26 @@ ActiveRecord::Schema.define(version: 2018_07_16_124313) do
     t.string "voiceover_audio"
   end
 
+  create_table "udl_module_surveys", force: :cascade do |t|
+    t.bigint "udl_module_feedback_id"
+    t.bigint "user_id"
+    t.bigint "udl_module_id"
+    t.string "length_of_time", default: ""
+    t.string "organization_of_module", default: ""
+    t.string "quality_of_content", default: ""
+    t.string "relevance_to_my_needs"
+    t.string "plan_to_implement", default: ""
+    t.string "likely_to_recommend", default: ""
+    t.string "access_another_module", default: ""
+    t.text "additional_feedback", default: ""
+    t.boolean "join_mailing_list", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["udl_module_feedback_id"], name: "index_udl_module_surveys_on_udl_module_feedback_id"
+    t.index ["udl_module_id"], name: "index_udl_module_surveys_on_udl_module_id"
+    t.index ["user_id"], name: "index_udl_module_surveys_on_user_id"
+  end
+
   create_table "udl_modules", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -680,6 +700,13 @@ ActiveRecord::Schema.define(version: 2018_07_16_124313) do
     t.datetime "updated_at", null: false
     t.index ["user_category_id"], name: "index_user_category_associations_on_user_category_id"
     t.index ["user_id"], name: "index_user_category_associations_on_user_id"
+  end
+
+  create_table "user_category_udl_module_survey_associations", force: :cascade do |t|
+    t.bigint "user_category_id"
+    t.bigint "udl_module_survey_id"
+    t.index ["udl_module_survey_id"], name: "index_user_cat_mod_survey_on_mod_survey_id"
+    t.index ["user_category_id"], name: "index_user_cat_mod_survey_on_user_cat_id"
   end
 
   create_table "user_module_assessments", id: :serial, force: :cascade do |t|
@@ -769,6 +796,9 @@ ActiveRecord::Schema.define(version: 2018_07_16_124313) do
   add_foreign_key "student_support_program_images", "student_support_programs"
   add_foreign_key "udl_module_feedbacks", "udl_modules"
   add_foreign_key "udl_module_feedbacks", "users"
+  add_foreign_key "udl_module_surveys", "udl_module_feedbacks"
+  add_foreign_key "udl_module_surveys", "udl_modules"
+  add_foreign_key "udl_module_surveys", "users"
   add_foreign_key "udl_modules", "udl_modules", column: "module_id"
   add_foreign_key "user_assessment_answer_choice_associations", "assessment_answer_choices"
   add_foreign_key "user_assessment_answer_choice_associations", "user_module_assessments"
@@ -777,6 +807,8 @@ ActiveRecord::Schema.define(version: 2018_07_16_124313) do
   add_foreign_key "user_assessment_question_associations", "user_module_assessments"
   add_foreign_key "user_category_associations", "user_categories"
   add_foreign_key "user_category_associations", "users"
+  add_foreign_key "user_category_udl_module_survey_associations", "udl_module_surveys"
+  add_foreign_key "user_category_udl_module_survey_associations", "user_categories"
   add_foreign_key "user_module_assessments", "udl_modules"
   add_foreign_key "user_module_assessments", "user_module_histories"
   add_foreign_key "user_module_assessments", "users"
