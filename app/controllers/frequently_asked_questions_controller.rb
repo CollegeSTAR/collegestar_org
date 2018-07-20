@@ -29,7 +29,8 @@ class FrequentlyAskedQuestionsController < ApplicationController
 
   def update
     authorize( @faq )
-    if @faq.update( frequently_asked_question_params )
+    @faq.update( frequently_asked_question_params )
+    if @faq.persisted?
       redirect_to frequently_asked_questions_path, notice: "FAQ question successfully updated."
     else
       flash[:error] = "FAQ Question could not be updated."
