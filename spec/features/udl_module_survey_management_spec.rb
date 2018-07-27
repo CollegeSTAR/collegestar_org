@@ -12,7 +12,7 @@ RSpec.feature "UdlModuleSurvey Management" do
     scenario "user visits survey page" do
       visit "/modules/#{udl_mod.slug}/feedback-surveys/new" 
 
-      check "udl_module_survey_user_categories_#{user_category.id}"
+      check "udl_module_survey_user_category_ids_#{user_category.id}"
       
       choose "udl_module_survey_length_of_time_satisfied"
       choose "udl_module_survey_organization_of_module_very_satisfied"
