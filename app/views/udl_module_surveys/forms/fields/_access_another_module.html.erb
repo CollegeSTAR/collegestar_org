@@ -1,0 +1,17 @@
+<li><strong>How likely are you to access another online module in the future?</strong></li>
+<table>
+  <tr>
+  <td></td>
+  <td><%= f.label :access_another_module_extremely_unlikely, "Extremely unlikely" %></td>
+  <td><%= f.label :access_another_module_unlikely, "Unlikely" %></td>
+  <td><%= f.label :access_another_module_likely, "Likely" %></td>
+  <td><%= f.label :access_another_module_very_likely, "Extremely likely" %></td>
+</tr>
+<tr>
+  <td></td>
+  <td><%= f.radio_button :access_another_module, "extremely_unlikely" %></td>
+  <td><%= f.radio_button :access_another_module, "unlikely" %></td>
+  <td><%= f.radio_button :access_another_module, "likely" %></td>
+  <td><%= f.radio_button :access_another_module, "extremely_likely" %></td>
+</tr>
+</table>

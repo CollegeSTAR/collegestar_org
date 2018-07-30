@@ -1,0 +1,17 @@
+<li><strong>How likely are you to recommend this module to another person?</strong></li>
+<table>
+  <tr>
+  <td></td>
+  <td><%= f.label :likely_to_recommend_extremely_unlikely, "Extremely unlikely" %></td>
+  <td><%= f.label :likely_to_recommend_unlikely, "Unlikely" %></td>
+  <td><%= f.label :likely_to_recommend_likely, "Likely" %></td>
+  <td><%= f.label :likely_to_recommend_very_likely, "Extremely likely" %></td>
+</tr>
+<tr>
+  <td></td>
+  <td><%= f.radio_button :likely_to_recommend, "extremely_unlikely" %></td>
+  <td><%= f.radio_button :likely_to_recommend, "unlikely" %></td>
+  <td><%= f.radio_button :likely_to_recommend, "likely" %></td>
+  <td><%= f.radio_button :likely_to_recommend, "extremely_likely" %></td>
+</tr>
+</table>

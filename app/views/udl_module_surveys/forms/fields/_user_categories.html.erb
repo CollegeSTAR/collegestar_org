@@ -1,0 +1,2 @@
+<li><strong>Which option best describes your role?</strong></li>
+<%= f.collection_check_boxes :user_category_ids, UserCategory.selectable, :id, :name %>

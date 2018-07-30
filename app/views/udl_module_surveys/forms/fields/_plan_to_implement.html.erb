@@ -1,0 +1,8 @@
+<li><strong>Do you plan on implementing what was presented in this module in your classroom/in your interactions with students?</strong><br />
+  <%= f.radio_button :plan_to_implement, "no" %>
+  <%= f.label :plan_to_implement_no, "No" %>
+  <%= f.radio_button :plan_to_implement, "yes_need_more_info" %>
+  <%= f.label :plan_to_implement_yes_need_more_info, "Yes, but I will need to seek more information and/or resources to implement" %>
+  <%= f.radio_button :plan_to_implement, "yes_sufficient_info" %>
+  <%= f.label :plan_to_implement_yes_sufficient_info, "Yes, the information and/or resources included were sufficient for implementation" %>
+</li>

@@ -1,0 +1,59 @@
+<li><strong>Rate your level of satisfaction with each of the following aspects of the online module.</strong></li>
+<table>
+  <tr>
+    <td></td>
+    <td><%= f.label :length_of_time_very_dissatisfied, "Very dissatisfied" %></td>
+    <td><%= f.label :length_of_time_dissatisfied, "Dissatisfied" %></td>
+    <td><%= f.label :length_of_time_satisfied, "Satisfied" %></td>
+    <td><%= f.label :length_of_time_very_satisfied, "Very satisfied" %></td>
+  </tr>
+  <tr>
+    <td>a. Length of time</td>
+    <td><%= f.radio_button :length_of_time, "very_dissatisfied" %></td>
+    <td><%= f.radio_button :length_of_time, "dissatisfied" %></td>
+    <td><%= f.radio_button :length_of_time, "Satisfied" %></td>
+    <td><%= f.radio_button :length_of_time, "very_satisfied" %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.label :organization_of_module_very_dissatisfied, "Very dissatisfied" %></td>
+    <td><%= f.label :organization_of_module_dissatisfied, "Dissatisfied" %></td>
+    <td><%= f.label :organization_of_module_satisfied, "Satisfied" %></td>
+    <td><%= f.label :organization_of_module_very_satisfied, "Very satisfied" %></td>
+  </tr>
+  <tr>
+    <td>b. Organization of module</td>
+    <td><%= f.radio_button :organization_of_module, "very_dissatisfied" %></td>
+    <td><%= f.radio_button :organization_of_module, "dissatisfied" %></td>
+    <td><%= f.radio_button :organization_of_module, "Satisfied" %></td>
+    <td><%= f.radio_button :organization_of_module, "very_satisfied" %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.label :quality_of_content_very_dissatisfied, "Very dissatisfied" %></td>
+    <td><%= f.label :quality_of_content_dissatisfied, "Dissatisfied" %></td>
+    <td><%= f.label :quality_of_content_satisfied, "Satisfied" %></td>
+    <td><%= f.label :quality_of_content_very_satisfied, "Very satisfied" %></td>
+  </tr>
+  <tr>
+    <td>c. Quality of content</td>
+    <td><%= f.radio_button :quality_of_content, "very_dissatisfied" %></td>
+    <td><%= f.radio_button :quality_of_content, "dissatisfied" %></td>
+    <td><%= f.radio_button :quality_of_content, "Satisfied" %></td>
+    <td><%= f.radio_button :quality_of_content, "very_satisfied" %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.label :relevance_to_my_needs_very_dissatisfied, "Very dissatisfied" %></td>
+    <td><%= f.label :relevance_to_my_needs_dissatisfied, "Dissatisfied" %></td>
+    <td><%= f.label :relevance_to_my_needs_satisfied, "Satisfied" %></td>
+    <td><%= f.label :relevance_to_my_needs_very_satisfied, "Very satisfied" %></td>
+  </tr>
+  <tr>
+    <td>d. Relevance to my needs</td>
+    <td><%= f.radio_button :relevance_to_my_needs, "very_dissatisfied" %></td>
+    <td><%= f.radio_button :relevance_to_my_needs, "dissatisfied" %></td>
+    <td><%= f.radio_button :relevance_to_my_needs, "Satisfied" %></td>
+    <td><%= f.radio_button :relevance_to_my_needs, "very_satisfied" %></td>
+  </tr>
+</table>
