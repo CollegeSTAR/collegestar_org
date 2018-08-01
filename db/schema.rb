@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_190235) do
+ActiveRecord::Schema.define(version: 2018_08_01_140511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -757,6 +757,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_190235) do
     t.string "title"
     t.string "department"
     t.integer "campus_id"
+    t.boolean "activated", default: false
     t.index ["campus_id"], name: "index_users_on_campus_id"
     t.index ["event_consent"], name: "index_users_on_event_consent"
     t.index ["module_consent"], name: "index_users_on_module_consent"
