@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_140511) do
+ActiveRecord::Schema.define(version: 2018_08_07_160400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,26 +195,6 @@ ActiveRecord::Schema.define(version: 2018_08_01_140511) do
     t.string "dss_website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "events", id: :serial, force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "registration_open_datetime", null: false
-    t.datetime "registration_close_datetime", null: false
-    t.integer "max_registrants", default: 100
-    t.datetime "start_datetime", null: false
-    t.datetime "end_datetime", null: false
-    t.string "address", null: false
-    t.string "address_2"
-    t.string "city", null: false
-    t.string "state", null: false
-    t.string "zip_code", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug", null: false
-    t.index ["name"], name: "events_name_index", unique: true
-    t.index ["name"], name: "index_events_on_name", unique: true
-    t.index ["slug"], name: "index_events_on_slug", unique: true
   end
 
   create_table "faculty_course_associations", id: :serial, force: :cascade do |t|
