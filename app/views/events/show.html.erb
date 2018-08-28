@@ -6,6 +6,7 @@
 <h1><%= @event.name.html_safe %></h1>
 <p>Address: <strong><%= @event.address.html_safe %></strong></p>
 <p>Dates: <strong><%= @event.start_date %> - <%= @event.end_date %></strong></p>
+<p>Website: <a href="<%= @event.website.html_safe %>" target="_blank"><%= @event.website.html_safe %></a></p>
 <h2>Description</h2>
 <%= @event.description.html_safe %>
 
