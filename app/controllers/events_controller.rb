@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @events = Event.all
   end
 
   # GET /events/1
@@ -30,7 +31,7 @@ class EventsController < ApplicationController
     @event.slug ||= @event.name.parameterize if @event.name
     authorize @event
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to event_path( @event ), notice: 'Event was successfully created.'
     else
       render :new
     end
@@ -41,7 +42,7 @@ class EventsController < ApplicationController
   def update
     authorize @event
     if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
+      redirect_to event_path( @event ) , notice: 'Event was successfully updated.'
     else
       render :edit
     end
@@ -63,6 +64,13 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :slug, :registration_open_datetime, :registration_close_datetime, :max_registrants, :start_datetime, :end_datetime, :address, :address_2, :city, :state, :zip_code)
+      params.require(:event).permit(
+        :name,
+        :address,
+        :start_date,
+        :end_date,
+        :website,
+        :description
+      )
     end
 end

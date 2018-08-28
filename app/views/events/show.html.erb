@@ -2,59 +2,12 @@
 <div id="content-wrapper">
 <div id="single-column-wrapper">
 <div id="content">
-<p id="notice"><%= notice %></p>
 
-<h1><%= @event.name %></h1>
-
-<p>
-  <strong>Registration open datetime:</strong>
-  <%= @event.registration_open_datetime %>
-</p>
-
-<p>
-  <strong>Registration close datetime:</strong>
-  <%= @event.registration_close_datetime %>
-</p>
-
-<p>
-  <strong>Max registrants:</strong>
-  <%= @event.max_registrants %>
-</p>
-
-<p>
-  <strong>Start datetime:</strong>
-  <%= @event.start_datetime %>
-</p>
-
-<p>
-  <strong>End datetime:</strong>
-  <%= @event.end_datetime %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
-
-<p>
-  <strong>Address 2:</strong>
-  <%= @event.address_2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @event.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @event.state %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @event.zip_code %>
-</p>
+<h1><%= @event.name.html_safe %></h1>
+<p>Address: <strong><%= @event.address.html_safe %></strong></p>
+<p>Dates: <strong><%= @event.start_date %> - <%= @event.end_date %></strong></p>
+<h2>Description</h2>
+<%= @event.description.html_safe %>
 
 <% if policy(@event).edit? %>
 <%= link_to 'Edit', edit_event_path(@event), id: 'edit_event_link' %> |

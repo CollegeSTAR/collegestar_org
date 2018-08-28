@@ -13,7 +13,14 @@
     )
 %>
 
-<h2>Upcoming Events</h2>
+<p>Below you will find a list of conferences that are typically for higher education professionals implementing UDL.</p>
+
+<%  @events.each do |event| %>
+  <div class="event">
+    <h3><%= link_to event.name.html_safe, event_path( event )  %> - <%= event.start_date.strftime("%B %d, %Y") %></h3>
+    <%= event.description.html_safe %>
+  </div>
+<% end %>
 </div>
 </div>
 </div>

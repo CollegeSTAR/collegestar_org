@@ -16,31 +16,26 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-   <%= f.label :slug %><br>
-   <%= f.text_field :slug %>
+    <%= f.label :address, "Address/City" %><br>
+    <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :registration_open_datetime %><br>
-    <%= f.datetime_select :registration_open_datetime %>
+    <%= f.label :start_date %><br>
+    <%= f.date_field :start_date, min: Date.today %>
   </div>
   <div class="field">
-    <%= f.label :registration_close_datetime %><br>
-    <%= f.datetime_select :registration_close_datetime %>
+    <%= f.label :end_date %><br>
+    <%= f.date_field :end_date, min: Date.today %>
   </div>
   <div class="field">
-    <%= f.label :max_registrants %><br>
-    <%= f.number_field :max_registrants %>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
   </div>
   <div class="field">
-    <%= f.label :start_datetime %><br>
-    <%= f.datetime_select :start_datetime %>
+    <%= f.label :description %>
+    <%= f.cktext_area :description, ckeditor: { toolbar: 'mini' } %>
   </div>
-  <div class="field">
-    <%= f.label :end_datetime %><br>
-    <%= f.datetime_select :end_datetime %>
-  </div>
-  <%= render partial: 'shared/forms/address', locals: { f: f } %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Event", id: "event_submit"  %>
   </div>
 <% end %>
