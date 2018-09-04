@@ -370,7 +370,7 @@ blockquote {
   @include clearfix();
 }
 
-#references {
+#references, #resources {
   p {
     margin: gutter() 4*gutter() gutter() 8*gutter();
     text-indent: -4*gutter();
