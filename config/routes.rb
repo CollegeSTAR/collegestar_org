@@ -78,11 +78,15 @@ Rails.application.routes.draw do
     resources :registrations, controller: :student_support_summit_registrations
   end
   resources :surveys, param: :slug
+  resources :three_two_one_videos, param: :slug, path: '/three-two-one-videos'
+  namespace :three_two_one_videos, path: '/three-two-one-videos' do
+    resources :proposals
+    resources :proposal_confirmations, path: 'proposal-confirmations', only: [ :show], param: :token
+  end
   resources :universal_design_for_learning, param: :slug, path: '/universal-design-for-learning'
   resources :users, only: [:index, :new, :create, :update, :destroy] do
     resources :password_updates, only: [:create]
   end
-  resources :three_two_one_videos, param: :slug, path: '/three-two-one-videos'
   resources :user_module_assessments, only: [:show, :create], path: '/user-module-assessments'
 
   get '/star-learning-communities', to: 'star_learning_communities#show'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_182400) do
+ActiveRecord::Schema.define(version: 2018_09_07_130232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -572,6 +572,21 @@ ActiveRecord::Schema.define(version: 2018_08_28_182400) do
     t.datetime "updated_at", null: false
     t.text "shared_resource"
     t.text "shared_problem"
+  end
+
+  create_table "three_two_one_video_proposals", force: :cascade do |t|
+    t.string "token", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "institution"
+    t.string "title"
+    t.boolean "representation"
+    t.boolean "action_expression"
+    t.boolean "engagement"
+    t.text "instructional_practice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "three_two_one_videos", force: :cascade do |t|

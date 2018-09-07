@@ -1,0 +1,36 @@
+#three-two-one-video-proposal-form-wrapper {
+
+  h2 {
+    border-bottom: 1px solid $light-gray;
+    margin: 2*gutter() gutter() gutter() gutter();
+    padding:0;
+  }
+
+  h3 {
+    margin: gutter() 0;
+    padding: 0;
+  }
+}
+
+#three-two-one-video-proposal-author-information-wrapper,
+#three-two-one-video-proposal-video-information-wrapper,{
+  margin: gutter() 2*gutter();
+}
+
+#three-two-one-video-proposal-submit-wrapper {
+  @include span( 18 of 18 no-gutters);
+  margin: gutter();
+  text-align: center;
+}
+
+#three_two_one_video_proposal_submit {
+  margin: gutter();
+}
+
+#udl-principle-check-boxes-wrapper {
+  margin: gutter() 0;
+
+  label {
+    display: inline;
+  }
+}

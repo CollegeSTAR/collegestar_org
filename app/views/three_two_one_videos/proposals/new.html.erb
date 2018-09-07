@@ -1,0 +1,60 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>Submit a Three Two One Video Proposal</h1>
+      <div id="three-two-one-video-proposal-form-wrapper">
+        <%= form_for @proposal, url: three_two_one_videos_proposals_path do |f| %>
+          <div id="three-two-one-video-proposal-author-information-wrapper">
+            <div class="field-wrapper">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name %>
+            </div>
+            <div class="field-wrapper">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name %>
+            </div>
+            <div class="field-wrapper">
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+            </div>
+            <div class="field-wrapper">
+              <%= f.label :institution %>
+              <%= f.text_field :institution %>
+            </div>
+          </div> 
+          <h2>Proposed Video Information</h2>
+          <div id="three-two-one-video-proposal-video-information-wrapper">
+            <div class="field-wrapper">
+              <%= f.label :title, "Proposed Title" %>
+              <%= f.text_field :title %>
+            </div>
+            <h3>Please check <em>ALL</em> UDL Principles your instructional practice models.</h3>
+            <div id="udl-principle-check-boxes-wrapper">
+              <div class="field-wrapper">
+                <%= f.check_box :representation %>
+                <%= f.label :representation, "Multiple Means of Representation" %>
+              </div>
+              <div class="field-wrapper">
+                <%= f.check_box :action_expression %>
+                <%= f.label :action_expression, "Multiple Means of Action and Expression" %>
+              </div>
+              <div class="field-wrapper">
+                <%= f.check_box :engagement %>
+                <%= f.label :engagement, "Multiple Means of Engagement" %>
+              </div>
+            </div>
+            <div class="field-wrapper">
+              <%= f.label :instructional_practice, "Description of Instructional Practice" %>
+              <%= f.cktext_area :instructional_practice, ckeditor: { toolbar: 'base' } %>
+            </div>
+          </div>
+          <div class="actions">
+            <div id="three-two-one-video-proposal-submit-wrapper">
+              <%= f.submit "Submit Proposal", id: "three_two_one_video_proposal_submit" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
