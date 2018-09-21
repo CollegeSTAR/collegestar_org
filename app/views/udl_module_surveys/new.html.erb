@@ -2,18 +2,21 @@
   <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @udl_module.title.html_safe %> Feedback</h1>
-      
-      <%= form_for ([@udl_module, @udl_module_survey]) do |f| %>
-        <ol> 
-          <%= render "udl_module_surveys/forms/fields/user_categories", f: f %>        
-          <%= render "udl_module_surveys/forms/fields/level_of_satisfaction", f: f %>        
-          <%= render "udl_module_surveys/forms/fields/plan_to_implement", f: f %>        
-          <%= render "udl_module_surveys/forms/fields/likely_to_recommend", f: f %>        
-          <%= render "udl_module_surveys/forms/fields/access_another_module", f: f %>        
-          <%= render "udl_module_surveys/forms/fields/additional_feedback", f: f %>        
-        </ol>
-        <%= f.submit "Complete Survey", id: "udl_module_survey_submit_button" %>
-      <% end %>
+      <div id="udl-module-feedback-survey-wrapper">      
+        <%= form_for ([@udl_module, @udl_module_survey]) do |f| %>
+          <ol> 
+            <%= render "udl_module_surveys/forms/fields/user_categories", f: f %>        
+            <%= render "udl_module_surveys/forms/fields/level_of_satisfaction", f: f %>        
+            <%= render "udl_module_surveys/forms/fields/plan_to_implement", f: f %>        
+            <%= render "udl_module_surveys/forms/fields/likely_to_recommend", f: f %>        
+            <%= render "udl_module_surveys/forms/fields/access_another_module", f: f %>        
+            <%= render "udl_module_surveys/forms/fields/additional_feedback", f: f %>        
+          </ol>
+          <div id="udl-module-feedback-survey-submit-wrapper">
+            <%= f.submit "Complete Survey", id: "udl_module_survey_submit_button" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

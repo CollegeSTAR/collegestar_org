@@ -1,0 +1,7 @@
+#udl-module-feedback-survey-wrapper {
+  @include form-fields-wrapper();
+}
+
+#udl-module-feedback-survey-submit-wrapper {
+  @include form-submit-wrapper();
+}

@@ -1,2 +1,6 @@
-<li><strong>Which option best describes your role?</strong></li>
-<%= f.collection_check_boxes :user_category_ids, UserCategory.selectable, :id, :name %>
+<li><strong>Which option(s) best describe(s) your role?</strong></li>
+<%= f.collection_check_boxes(:user_category_ids, UserCategory.selectable, :id, :name) do |b| %>
+  <div class="form-check-box-wrapper">
+    <%= b.label(class: 'form-label') { b.check_box(class: 'form-check-box') + b.text } %>
+  </div>
+<% end %>
