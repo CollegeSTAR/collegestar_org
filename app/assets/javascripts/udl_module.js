@@ -1,6 +1,12 @@
 $('Document').ready(function() {
-  var feedback_shown = false;
-
+  var urlParams = new URLSearchParams(window.location.search);
+  var feedback  = urlParams.get('feedback');
+  if (feedback == "false") {
+    var feedback_shown = true;
+  } else {
+    var feedback_shown = false;
+  }
+  
   $('.show-module-section-audio-player-toggle').click(function(e) {
     e.preventDefault();
     var id_array = this.id.split("show-module-section-audio-player-toggle-");
