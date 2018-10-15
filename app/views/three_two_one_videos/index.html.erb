@@ -7,15 +7,15 @@
       <div id="three-two-one-videos-wrapper">
         <%= render 'three_two_one_videos/videos', videos: @videos %>
       </div>
-      <h2>Unreleased videos</h2>
-      <div id="unreleased-three-two-one-videos-wrapper">
-        <%= render 'three_two_one_videos/videos', videos: @unreleased_videos %>
-      </div>
-      <div id="new-video-button-wrapper">
-        <% if policy(ThreeTwoOneVideo).view_admin? %>
-          <p><%= link_to "Create a new video", new_three_two_one_video_path, id: 'create-new-video-button' %></p>
-        <% end %>
-      </div>
+      <% if policy(ThreeTwoOneVideo).view_admin? %>
+        <h2>Unreleased videos</h2>
+        <div id="unreleased-three-two-one-videos-wrapper">
+          <%= render 'three_two_one_videos/videos', videos: @unreleased_videos %>
+        </div>
+        <div id="new-video-button-wrapper">
+            <p><%= link_to "Create a new video", new_three_two_one_video_path, id: 'create-new-video-button' %></p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
