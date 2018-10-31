@@ -204,7 +204,7 @@
             border-bottom: none;
           }
 
-          &#instructional-supports, &#student-supports {
+          &#instructional-supports, &#student-supports, &#about {
             position: relative;
 
             ul {
@@ -216,7 +216,7 @@
               left: 0;
               border-top: none;
               background-color: $black;
-              width: 100%;
+              width: 12em;
               z-index: 2;
               }
 

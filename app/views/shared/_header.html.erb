@@ -81,7 +81,11 @@
       <div id="nav">
         <ul>
           <li id="home"><%= link_to "Home", root_path, class: "main_link", alt: "College STAR Home", title: "College STAR Home" %></li><!--
-          --><li id="about"><%= link_to "About", about_path, class: "main_link", alt: "About College STAR", title: "About College STAR" %></li><!--
+          --><li id="about"><%= link_to "About", about_path, class: "main_link", alt: "About College STAR", title: "About College STAR" %>
+               <ul id="about-sub-menu" class="dropdown-toggle"><!--
+                 --><li><%= link_to "Publications and Resources", publication_path, class: "main_link", title: "College STAR Publications and Resources" %></li><!--
+               --></ul>
+          </li><!--
           --><li id="events"><%= link_to "Events", events_path, class: "main_link", alt: "College STAR Events", title: "College STAR Events" %></li><!--
           --><li id="student-supports"><%= link_to "Student Supports", students_path, class: "main_link", title: "College STAR Student Support Resources" %>
                <ul id="student-supports-sub-menu" class="dropdown-toggle"><!--

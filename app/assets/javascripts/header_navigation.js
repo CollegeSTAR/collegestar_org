@@ -25,5 +25,11 @@ $('Document').ready( function() {
   function() {
     $('#student-supports-sub-menu').addClass('dropdown-toggle');
   });
-
+  
+  $('#about').hover(function() {
+    $('#about-sub-menu').removeClass('dropdown-toggle');    
+  },
+  function() {
+    $('#about-sub-menu').addClass('dropdown-toggle');
+  });
 });
