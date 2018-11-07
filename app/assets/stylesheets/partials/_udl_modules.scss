@@ -316,6 +316,10 @@ ol {
       }
     }
   }
+
+  .caption {
+    @include caption;
+  }
 }
 
 .figure-wrapper {
@@ -326,14 +330,7 @@ ol {
     text-align: center;
   }
   .caption {
-    border-top: 1px solid #DDD;
-    margin: 0 6*gutter() gutter() 6*gutter();
-    font-size: $base-font-size * .85;
-
-    @include breakpoint($full) {
-      margin: 0 16*gutter() gutter() 16*gutter();
-    }
-
+    @include caption;
   }
   @include clearfix;
 }
