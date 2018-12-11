@@ -47,7 +47,11 @@
             <% end %>
             <% if policy(StudentSupportSummitRegistration).view_admin? %>
               <li><%= link_to '<i class="fa fa-users fa-la"></i>&nbsp; Student Support Summit Registrations'.html_safe, student_support_summit_registrations_path %></li>
+            <% end %>
+            <% if policy(ThreeTwoOneVideo).view_admin? %>
+              <li><%= link_to '<i class="fa fa-camera fa-la"></i>&nbsp; Three Two One Videos'.html_safe, three_two_one_videos_path %></li>
             <% end %>              
+ 
             <% if policy(FacultyNominationSurvey).view_index? %>
               <li><%= link_to '<i class="fa fa-area-chart fa-la"></i>&nbsp; Faculty Nomination Surveys'.html_safe, 
                               campus_faculty_nomination_surveys_path( campus_slug: 'east-carolina-university'),
@@ -100,6 +104,7 @@
                  --><li><%= link_to "Universal Design for Learning", universal_design_for_learning_index_path %></li><!--
                  --><li><%= link_to "UDL Modules & Case Studies", udl_modules_path %></li><!--
                  --><li><%= link_to "STAR Learning Communities", star_learning_communities_path %></li><!--
+                 --><li><%= link_to "Three Two One Videos", three_two_one_videos_path %></li><!--
                --></ul>
           </li>
         </ul>
