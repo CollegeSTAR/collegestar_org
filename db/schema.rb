@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_130232) do
+ActiveRecord::Schema.define(version: 2019_02_08_190318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,6 +239,7 @@ ActiveRecord::Schema.define(version: 2018_09_07_130232) do
     t.string "faculty_last_name"
     t.integer "department_id"
     t.boolean "reviewed"
+    t.boolean "not_appropriate", default: false
     t.index ["campus_id"], name: "index_faculty_nomination_surveys_on_campus_id"
     t.index ["department_id"], name: "index_faculty_nomination_surveys_on_department_id"
     t.index ["institutional_faculty_id"], name: "index_faculty_nomination_surveys_on_institutional_faculty_id"

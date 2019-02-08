@@ -88,6 +88,6 @@ class FacultyNominationSurveysController < ApplicationController
   end
 
   def update_faculty_nomination_survey_params
-    params.require(:faculty_nomination_survey).permit(:quotes, :reviewed)
+    params.require(:faculty_nomination_survey).permit(:quotes, :reviewed, :not_appropriate)
   end
 end

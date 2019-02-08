@@ -13,6 +13,13 @@
           <%= f.text_area :quotes %>
         </p>
         <p>
+          <%= f.label :not_appropriate, "This survey is inappropriate for sharing with the faculty member" %>
+        </p>
+        <p>
+          <%= f.check_box :not_appropriate, id: :faculty_nomination_survey_not_appropriate %>
+        </p>
+
+        <p>
           <%= f.label :reviewed %>
         </p>
         <p>

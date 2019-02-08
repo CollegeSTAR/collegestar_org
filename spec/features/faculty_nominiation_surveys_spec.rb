@@ -121,6 +121,20 @@ RSpec.feature "Faculty Nomination Surveys" do
         
         expect(page).to have_content("Successfully updated survey")
       end
+
+      scenario "user navigates to survey edit page and marks an inappropriate survey" do
+        visit "/campuses/#{college.campus.slug}/faculty-nomination-surveys/#{survey.id}"
+        click_link "edit_faculty_nomination_survey_#{survey.id}_link"
+
+        fill_in "faculty_nomination_survey_quotes", with: "A quote"
+        check "faculty_nomination_survey_not_appropriate"
+        check "faculty_nomination_survey_reviewed"
+        click_button "Update survey"
+         
+        expect(page).to have_content("Successfully updated survey")
+        expect(FacultyNominationSurvey.find(survey.id).not_appropriate).to eq(true)
+      end
+
     end
     context "while not logged in" do
       before(:each) do

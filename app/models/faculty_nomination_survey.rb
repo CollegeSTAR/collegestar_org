@@ -5,4 +5,6 @@ class FacultyNominationSurvey < ActiveRecord::Base
 
   belongs_to :institutional_faculty
   belongs_to :department, class_name: "InstitutionalDepartment"
+
+  scope :appropriate, -> { where(not_appropriate: false) }
 end
