@@ -19,6 +19,7 @@
 require 'rails_helper'
 require 'pundit/rspec'
 require 'paperclip/matchers'
+require 'webmock/rspec'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
