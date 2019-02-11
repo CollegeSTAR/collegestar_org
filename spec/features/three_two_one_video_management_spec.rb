@@ -11,6 +11,7 @@ RSpec.feature "ThreeTwoOneVideo Management" do
     before(:each) do
       released_video
       video
+
     end
 
     scenario "User visits videos index" do
@@ -21,6 +22,15 @@ RSpec.feature "ThreeTwoOneVideo Management" do
     end
 
     context "While logged in" do
+      before(:each) do
+        # login
+        visit "/login"
+        fill_in "Email", with: admin.email
+        fill_in "Password", with: admin.password
+
+        click_button "Log In"
+      end
+
       scenario "User visits videos index" do
         visit "/three-two-one-videos"
 
