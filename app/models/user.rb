@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
   has_many :redesign_summaries
   has_many :module_histories, class_name: "UserModuleHistory"
 
+  scope :activated, -> { where( activated: true) }
+
   def full_name
     full_name = title ? "#{title} " : ""
     full_name += "#{first_name} #{last_name}"

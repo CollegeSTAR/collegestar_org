@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe User do
   let(:user) { create(:user) }  
+  let(:unactivated_user) { create(:unactivated_user) }
   let(:owned_and_released_faculty_udl_module) { create(:udl_module, released: true) }
   let(:owned_and_released_author_udl_module) { create(:udl_module, released: true) }
   let(:owned_faculty_udl_module) { create(:udl_module, released: false) }
@@ -39,6 +40,16 @@ RSpec.describe User do
     it { should have_many(:faculty_modules).class_name('UdlModule').through(:module_faculty_associations).source('module') }
     it { should have_many(:roles) }
     it { should have_many(:module_histories).class_name("UserModuleHistory") }
+  end
+
+  describe "activated_scope" do
+    before(:each) do
+      user
+      unactivated_user
+    end
+    it "should only return activated users" do
+      expect(User.activated).to match_array([user])
+    end
   end
 
   describe "#find_module_history_by" do

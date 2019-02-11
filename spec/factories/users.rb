@@ -19,6 +19,7 @@ FactoryBot.define do
     department "IT"
     password "secret_pass"
     password_confirmation "secret_pass"
+    activated true
     phone_number "1236541234"
 
     factory :admin_user, class: User do
@@ -98,6 +99,10 @@ FactoryBot.define do
 
     factory :udl_resources_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "udl_resources_admin" ) }
+    end
+
+    factory :unactivated_user, class: User do
+      activated false
     end
 
     factory :users_admin_user, class: User do
