@@ -40,6 +40,9 @@
            <% end %>
          </ol>
        </li>
+       <% if current_user.id %>
+         <li><%= link_to "Assessment", udl_module_assessment_path( udl_module_slug: @udl_module.slug ) %></li>
+       <% end %>
        <li><a href="#about-the-author">About the Author</a>
          <ol>
            <% @udl_module.get_sections_by_page(:about_the_author).each do |section| %>
