@@ -20,4 +20,5 @@
 //= require ckeditor/init
 //= require user_menu
 //= require jquery.waypoints.min
+//= require activestorage
 //= require_tree .
