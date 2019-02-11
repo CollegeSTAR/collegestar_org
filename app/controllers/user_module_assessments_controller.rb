@@ -21,6 +21,7 @@ class UserModuleAssessmentsController < ApplicationController
   end
 
   def show
+    authorize( @assessment )
     result = ParseUserModuleAssessmentResult.call( assessment: @assessment )
     @score = result.score
     @questions = result.questions
@@ -37,4 +38,8 @@ class UserModuleAssessmentsController < ApplicationController
     params.require(:user_module_assessment).permit(:module_id, :questions_order, selected_answer_choices: {}) 
   end
 
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to view this assessment."
+    redirect_to(profile_user_module_history_path(profile_id: current_user.id, id: params[:user_module_history_id]))
+  end
 end

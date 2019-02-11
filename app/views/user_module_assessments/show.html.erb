@@ -4,19 +4,34 @@
   <div id="single-column-wrapper">
     <div id="content">
      <h1><%= @udl_module.title.html_safe %> Assessment Results</h1>
-     <p>Score: <%= @score %></p>
-     <ol>
-     <% @questions.each do |question| %>
-       <li>
-         <%= question.question_text.html_safe %>
-         <ol>
-         <% question.answer_choices.each do |choice| %>
-           <li><%= choice.text.html_safe %></li>
-         <% end %>
-         </ol>
-       </li>
-     <% end %>
-     </ol>
+     <div id="assessment-score">
+       <p>Score: <%= @score %></p>
+     </div>
+     <div class="assessment">
+       <ol>
+       <% @questions.each do |question| %>
+         <li>
+           <div class="question">
+             <div class="question-text">
+               <%= question.question_text.html_safe %>
+             </div>
+             <div class="question-explanation">
+               <%= question.explanation.html_safe %>
+             </div>
+             <div class="answer-choices-wrapper">
+               <ol>
+               <% question.answer_choices.each do |choice| %>
+                 <div class="answer-choice">
+                   <li><%= choice.text.html_safe %></li>
+                 </div>
+               <% end %>
+               </ol>
+             </div>
+           </div>
+         </li>
+       <% end %>
+       </ol>
+     </div>
     </div>
   </div>
 </div>
