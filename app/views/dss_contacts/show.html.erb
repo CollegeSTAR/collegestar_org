@@ -30,7 +30,7 @@
         <strong>Email:</strong> <%= mail_to @dss_contact.contact_email %><br />
         <strong>Phone:</strong> <%= @dss_contact.contact_phone_number %>
       </p>
-      <p><strong>Website:</strong> <%= link_to @dss_contact.dss_website, "http://#{@dss_contact.dss_website}", target: '_blank' %></p>
+      <p><strong>Website:</strong> <%= link_to @dss_contact.dss_website, @dss_contact.dss_website, target: '_blank' %></p>
       <p><%= link_to(
                fa_icon( 'arrow-left', text: 'Back to DSS contact directory'), 
                dss_contacts_path 
