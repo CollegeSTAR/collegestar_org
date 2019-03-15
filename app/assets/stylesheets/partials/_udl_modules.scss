@@ -313,6 +313,10 @@ ol {
         padding: 1em;
         border: $default-border-width solid #333;
         vertical-align: text-top;
+
+        p {
+          text-align: left;
+        }
       }
     }
   }
