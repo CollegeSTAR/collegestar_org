@@ -363,6 +363,10 @@ blockquote {
 
   h1 {
     font-size: 1.1 * $base-font-size;
+
+    .center {
+      text-align: center;
+    }
   }
 }
 
