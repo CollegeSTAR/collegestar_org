@@ -1,5 +1,7 @@
 class ThreeTwoOneVideosController < ApplicationController
+  
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+
   def index
     authorize(ThreeTwoOneVideo)
     @videos = ThreeTwoOneVideo.released
