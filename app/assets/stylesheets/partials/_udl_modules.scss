@@ -353,6 +353,12 @@ blockquote {
   }
 }
 
+.emphasis-window-wrapper {
+  .caption {
+    @include caption;
+  }
+}
+
 .emphasis-window {
   margin: 3.75em 2.25em;
   padding: .72em 0;
