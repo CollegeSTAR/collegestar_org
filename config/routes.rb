@@ -89,7 +89,7 @@ Rails.application.routes.draw do
   end
   resources :user_module_assessments, only: [:show, :create], path: '/user-module-assessments'
 
-  get '/star-learning-communities', to: 'star_learning_communities#show'
+  #get '/star-learning-communities', to: 'star_learning_communities#show'
   namespace :star_learning_communities, path: '/star-learning-communities' do
     resources :registrations
   end
