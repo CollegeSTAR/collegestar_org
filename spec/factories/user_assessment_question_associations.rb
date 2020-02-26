@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:position) { |n| n }
     user_module_assessment
     association :assessment_question, factory: :assessment_question_with_answer_choices
-    correct false
+    correct { false }
 
     after(:create) do |assoc, evaluator|
       ac_hash = {}

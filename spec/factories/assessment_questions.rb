@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :assessment_question do
     sequence(:question) { |n| "question number #{n}" }
-    explanation "This is the question's explanation"
-    ordered false
+    explanation { "This is the question's explanation" }
+    ordered { false }
   
     factory :assessment_question_with_answer_choices do
       after(:create) do |question|

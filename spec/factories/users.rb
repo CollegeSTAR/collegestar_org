@@ -12,15 +12,15 @@ end
 
 FactoryBot.define do
   factory :user do
-    title "Mr."
+    title { "Mr." }
     sequence( :first_name ) { |n| "John_#{n}" }
     sequence( :last_name ) { |n| "Smith_#{n}" }
     sequence( :email ) { "#{first_name}.#{last_name}@example.com".downcase }
-    department "IT"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    activated true
-    phone_number "1236541234"
+    department { "IT" }
+    password { "secret_pass" }
+    password_confirmation { "secret_pass" }
+    activated { true }
+    phone_number { "1236541234" }
 
     factory :admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "admin" ) }
@@ -102,7 +102,7 @@ FactoryBot.define do
     end
 
     factory :unactivated_user, class: User do
-      activated false
+      activated { false }
     end
 
     factory :users_admin_user, class: User do
@@ -111,22 +111,22 @@ FactoryBot.define do
   end
   
   factory :password_update_user, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "password.updater@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1236541234"
+    title { "Mr. " }
+    first_name { "John" }
+    last_name { "Smith" }
+    email { "password.updater@example.com" }
+    password { "secret_pass" }
+    password_confirmation { "secret_pass" }
+    phone_number { "1236541234" }
   end
 
   factory :user_with_uppercase_email, class: User do
-    title "Mr. "
-    first_name "John"
-    last_name "Smith"
-    email "John.Smith@example.com"
-    password "secret_pass"
-    password_confirmation "secret_pass"
-    phone_number "1234567890"
+    title { "Mr. " }
+    first_name { "John" }
+    last_name { "Smith" }
+    email { "John.Smith@example.com" }
+    password { "secret_pass" }
+    password_confirmation { "secret_pass" }
+    phone_number { "1234567890" }
   end
 end

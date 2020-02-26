@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 
 # Use CKEditor for WYSIWYG editor
-gem 'ckeditor'
+gem 'ckeditor', '~> 4.2'
 
 # Use liquid template engine for user editable views
 gem 'liquid', '~> 3'

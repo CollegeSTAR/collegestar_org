@@ -33,7 +33,7 @@ RSpec.feature 'Student Support Programs Resource' do
         select program_attributes[:institution_type], from: 'Institution type'
         fill_in "Application proces", with: program_attributes[:application_process]
 
-        click_button "Create Program"
+        click_button "create_student_support_program_button"
         expect(page).to have_content(program_attributes[:name])
       end
     end

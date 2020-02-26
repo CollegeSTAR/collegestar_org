@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user_module_assessment do
-    questions_order "{}"
-    score '100'
+    questions_order { "{}" }
+    score { '100' }
     user
     udl_module
 
