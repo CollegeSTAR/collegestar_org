@@ -1,4 +1,4 @@
-class AddPrinciplestoUdlModules < ActiveRecord::Migration
+class AddPrinciplestoUdlModules < ActiveRecord::Migration[4.2]
   def change
     remove_column :udl_modules, :udl_principles, :string
     add_column :udl_modules, :udl_representation, :boolean

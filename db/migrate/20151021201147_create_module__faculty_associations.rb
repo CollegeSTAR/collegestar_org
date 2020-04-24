@@ -1,4 +1,4 @@
-class CreateModuleFacultyAssociations < ActiveRecord::Migration
+class CreateModuleFacultyAssociations < ActiveRecord::Migration[4.2]
   def change
     create_table :module_faculty_associations, id: false do |t|
       t.belongs_to :faculty, index: true, class_name: "User"

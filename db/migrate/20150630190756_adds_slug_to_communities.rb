@@ -1,4 +1,4 @@
-class AddsSlugToCommunities < ActiveRecord::Migration
+class AddsSlugToCommunities < ActiveRecord::Migration[5.2]
   def change
     add_column :communities, :slug, :string
     change_column :communities, :slug, :string, null: false

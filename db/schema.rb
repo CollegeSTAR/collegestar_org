@@ -620,10 +620,6 @@ ActiveRecord::Schema.define(version: 2019_02_08_190318) do
     t.boolean "shared"
     t.integer "default_shared_position"
     t.boolean "hide_title", default: false
-    t.string "document_file_name"
-    t.string "document_content_type"
-    t.integer "document_file_size"
-    t.datetime "document_updated_at"
     t.string "voiceover_audio"
   end
 

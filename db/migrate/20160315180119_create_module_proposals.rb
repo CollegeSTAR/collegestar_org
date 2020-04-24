@@ -1,4 +1,4 @@
-class CreateModuleProposals < ActiveRecord::Migration
+class CreateModuleProposals < ActiveRecord::Migration[4.2]
   def change
     create_table :module_proposals do |t|
       t.string :first_name, null: false

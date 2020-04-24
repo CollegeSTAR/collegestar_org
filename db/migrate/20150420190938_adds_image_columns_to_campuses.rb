@@ -1,4 +1,4 @@
-class AddsImageColumnsToCampuses < ActiveRecord::Migration
+class AddsImageColumnsToCampuses < ActiveRecord::Migration[4.2]
   def self.up
     add_attachment :campuses, :image
   end

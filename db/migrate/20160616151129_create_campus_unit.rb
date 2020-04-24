@@ -1,4 +1,4 @@
-class CreateCampusUnit < ActiveRecord::Migration
+class CreateCampusUnit < ActiveRecord::Migration[4.2]
   def change
     create_table :campus_units do |t|
       t.string :name

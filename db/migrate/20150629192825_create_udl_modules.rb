@@ -1,4 +1,4 @@
-class CreateUdlModules < ActiveRecord::Migration
+class CreateUdlModules < ActiveRecord::Migration[4.2]
   def change
     create_table :udl_modules do |t|
       t.string :title

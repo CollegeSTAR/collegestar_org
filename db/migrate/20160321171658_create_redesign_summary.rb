@@ -1,4 +1,4 @@
-class CreateRedesignSummary < ActiveRecord::Migration
+class CreateRedesignSummary < ActiveRecord::Migration[4.2]
   def change
     create_table :redesign_summaries do |t|
       t.string :uuid, index: true, null: false

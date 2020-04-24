@@ -1,4 +1,4 @@
-class CreateRedesignSummaryAttachments < ActiveRecord::Migration
+class CreateRedesignSummaryAttachments < ActiveRecord::Migration[4.2]
   def change
     create_table :redesign_summary_attachments do |t|
       t.attachment :attachment

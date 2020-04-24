@@ -1,4 +1,4 @@
-class AddExcerptToNewsArticles < ActiveRecord::Migration
+class AddExcerptToNewsArticles < ActiveRecord::Migration[4.2]
   def change
     add_column :news_articles, :excerpt, :text
   end

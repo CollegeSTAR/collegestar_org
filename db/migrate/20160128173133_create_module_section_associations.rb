@@ -1,4 +1,4 @@
-class CreateModuleSectionAssociations < ActiveRecord::Migration
+class CreateModuleSectionAssociations < ActiveRecord::Migration[4.2]
   def change
     create_table :module_section_associations, id: false do |t|
       t.belongs_to :section, index: true, class_name: 'UdlModuleSection'

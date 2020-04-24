@@ -1,4 +1,4 @@
-class CreateModuleAuthorAssociations < ActiveRecord::Migration
+class CreateModuleAuthorAssociations < ActiveRecord::Migration[4.2]
   def change
     create_table :module_author_associations, id: false do |t|
       t.belongs_to :author, index: true, class_name: "User"

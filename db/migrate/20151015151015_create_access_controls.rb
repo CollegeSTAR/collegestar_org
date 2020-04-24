@@ -1,4 +1,4 @@
-class CreateAccessControls < ActiveRecord::Migration
+class CreateAccessControls < ActiveRecord::Migration[4.2]
   def change
     create_table :access_controls, id: false do |t|
       t.belongs_to :role, index: true

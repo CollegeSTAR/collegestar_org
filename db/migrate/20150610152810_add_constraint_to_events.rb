@@ -1,4 +1,4 @@
-class AddConstraintToEvents < ActiveRecord::Migration
+class AddConstraintToEvents < ActiveRecord::Migration[4.2]
     change_column_null :events, :name, false
     change_column_null :events, :registration_open_datetime, false
     change_column_null :events, :registration_close_datetime, false
