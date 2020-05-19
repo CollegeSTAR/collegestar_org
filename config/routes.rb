@@ -78,6 +78,7 @@ Rails.application.routes.draw do
     resources :registrations, controller: :student_support_summit_registrations
   end
   resources :surveys, param: :slug
+  resources :think_udl_podcast, param: :slug, path: '/think-udl-podcast'
   resources :three_two_one_videos, param: :slug, path: '/three-two-one-videos'
   namespace :three_two_one_videos, path: '/three-two-one-videos' do
     resources :proposals
