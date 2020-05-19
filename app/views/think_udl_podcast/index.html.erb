@@ -2,7 +2,9 @@
   <div id="single-column-wrapper">
     <div id="content">
       <p id="notice"><%= notice %></p>
-        <h1>Think UDL Podcast</h1>
+        <h1><%= @page_content.title.html_safe %></h1>
+
+        <%= @page_content.text.html_safe %>
     </div>
   </div>
 </div>
