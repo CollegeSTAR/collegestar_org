@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_08_190318) do
+ActiveRecord::Schema.define(version: 2020_05_26_201036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -573,6 +573,18 @@ ActiveRecord::Schema.define(version: 2019_02_08_190318) do
     t.datetime "updated_at", null: false
     t.text "shared_resource"
     t.text "shared_problem"
+  end
+
+  create_table "think_udl_snippets", force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "video_url", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.string "episode_url", null: false
+    t.string "episode_title", null: false
+    t.text "episode_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "three_two_one_video_proposals", force: :cascade do |t|
