@@ -1,0 +1,9 @@
+#virtual-conference-proposal-form-wrapper {
+  margin: gutter() 2*gutter();
+  
+  #virtual-conference-proposal-submit-wrapper {
+    @include span( 18 of 18 no-gutters);
+    margin: gutter();
+    text-align: center;
+  }
+}

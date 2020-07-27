@@ -26,7 +26,12 @@ Rails.application.routes.draw do
       resources :udl_module_feedback, only: [:create], path: 'module-feedback'
     end
   end
-
+  
+  resources :virtual_conference_proposals, path: '/virtual-conference-proposals'
+  resources :virtual_conference_proposal_confirmations, 
+            only: [:show],
+            path: '/virtual-conference-proposal-confirmation', 
+            param: :token
   resources :blueprints, param: :slug
   resources :campuses, param: :slug do
     resources :faculty_nomination_surveys, path: '/faculty-nomination-surveys' do

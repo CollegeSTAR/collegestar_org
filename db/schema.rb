@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_201036) do
+ActiveRecord::Schema.define(version: 2020_07_24_144720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -778,6 +778,18 @@ ActiveRecord::Schema.define(version: 2020_05_26_201036) do
     t.index ["campus_id"], name: "index_users_on_campus_id"
     t.index ["event_consent"], name: "index_users_on_event_consent"
     t.index ["module_consent"], name: "index_users_on_module_consent"
+  end
+
+  create_table "virtual_conference_proposals", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "presentation_theme", null: false
+    t.string "presentation_title", null: false
+    t.text "presentation_description", null: false
+    t.text "presentation_takeaway", null: false
+    t.string "token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "access_controls", "roles", on_delete: :cascade

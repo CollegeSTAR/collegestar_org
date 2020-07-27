@@ -1,0 +1,48 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+
+      <h1>2020 College STAR Virtual Conference Proposals</h1>
+      
+      <%= form_for @proposal do |f| %>
+        <div id="virtual-conference-proposal-form-wrapper">
+          <div class="field-wrapper">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field-wrapper">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          </div>
+          <div class="field-wrapper">
+            <%= f.label :presentation_theme, "Presentation Theme" %>
+            <%= f.select( :presentation_theme, options_for_select(
+                  [
+                    ["Theme One", :theme_one],
+                    ["Theme Two", :theme_two],
+                    ["Theme Three", :theme_three],
+                  ])
+            ) %>
+          </div>
+          <div class="field-wrapper">
+            <%= f.label :presentation_title, "Presentation Title" %>
+            <%= f.text_field :presentation_title %>
+          </div>
+          <div class="field-wrapper">
+            <%= f.label :presentation_description, "Presentation Description" %>
+            <%= f.text_area :presentation_description %>
+          </div>
+          <div class="field-wrapper">
+            <%= f.label :presentation_takeaway, "Presentation Takeaway" %>
+            <%= f.text_area :presentation_takeaway %>
+          </div>
+          <div id="virtual-conference-proposal-submit-wrapper">
+            <div class="actions">
+              <%= f.submit "Submit Proposal", id: "virtual_conference_proposal_submit" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
