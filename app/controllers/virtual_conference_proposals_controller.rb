@@ -5,7 +5,11 @@ class VirtualConferenceProposalsController < ApplicationController
   end
 
   def index
-    @proposals = VirtualConferenceProposal.all
+    authorize @proposals = VirtualConferenceProposal.all
+  end
+
+  def show
+    authorize @proposal = VirtualConferenceProposal.find( params[:id] )
   end
 
   def create

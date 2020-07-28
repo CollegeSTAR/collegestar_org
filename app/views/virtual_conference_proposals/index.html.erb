@@ -1,0 +1,18 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+
+
+      <h1>2020 Virtual Conference Proposals</h1>
+      
+      <ul>
+        <% @proposals.each do |proposal| %>
+          <li><%= link_to(
+                    proposal.presentation_title,
+                    virtual_conference_proposal_path( proposal )
+                  )%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+
+      <h1><%= @proposal.presentation_title %></h1>
+      
+      <h2>Contact Info</h2>
+      <p><%= @proposal.name %></p>
+      <p><%= @proposal.email %></p>
+
+      <h2>Presentation Info</h2>
+      <p><%= @proposal.presentation_theme %></p>
+      <p><%= @proposal.presentation_description %></p>
+      <p><%= @proposal.presentation_takeaway %></p>
+      <p><%= link_to "back to proposals", virtual_conference_proposals_path() %></p>
+    </div>
+  </div>
+</div>

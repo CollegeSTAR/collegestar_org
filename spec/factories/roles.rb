@@ -140,6 +140,11 @@ factory :campus_admin, class: Role do
     grantable { true }
   end
   
+  factory :conference_admin, class: Role do
+    name { "conference_admin" }
+    description { "Conference Admin" }
+  end
+
   factory :users_admin, class: Role do
     name { "users_admin" }
     description { "Users Admin: " }

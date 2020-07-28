@@ -108,6 +108,10 @@ FactoryBot.define do
     factory :users_admin_user, class: User do
       after(:create) { |user| user.roles << FactoryHelper.find_role( "users_admin" ) }
     end
+
+    factory :conference_admin_user, class: User do
+      after(:create) { |user| user.roles << FactoryHelper.find_role( "conference_admin" ) }
+    end
   end
   
   factory :password_update_user, class: User do

@@ -27,7 +27,8 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :virtual_conference_proposals, path: '/virtual-conference-proposals'
+  resources :virtual_conference_proposals, only: [:new, :create, :index, :show],
+            path: '/virtual-conference-proposals'
   resources :virtual_conference_proposal_confirmations, 
             only: [:show],
             path: '/virtual-conference-proposal-confirmation', 
