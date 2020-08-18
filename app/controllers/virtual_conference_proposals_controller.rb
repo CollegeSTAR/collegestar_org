@@ -15,6 +15,7 @@ class VirtualConferenceProposalsController < ApplicationController
   def create
     @proposal = VirtualConferenceProposal.new( proposal_params )
     if @proposal.save
+      VirtualConferenceMailer.proposal_confirmation( @proposal.id ).deliver_later      
       redirect_to virtual_conference_proposal_confirmation_path( token: @proposal.token ), notice: "Virtual Conference Proposal successfully submitted!"
     else
       flash[:alert] = @proposal.errors.full_messages

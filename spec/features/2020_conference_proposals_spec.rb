@@ -11,7 +11,7 @@ RSpec.feature "2020 Conference Proposals" do
     
     fill_in :virtual_conference_proposal_name, with: proposal_attrs[:name]
     fill_in :virtual_conference_proposal_email, with: proposal_attrs[:email]
-    select "Theme One", from: :virtual_conference_proposal_presentation_theme
+    select "Determining a student learning profile", from: :virtual_conference_proposal_presentation_theme
     fill_in :virtual_conference_proposal_presentation_title, with: proposal_attrs[:presentation_title]
     fill_in :virtual_conference_proposal_presentation_description, with: proposal_attrs[:presentation_description]
     fill_in :virtual_conference_proposal_presentation_takeaway, with: proposal_attrs[:presentation_takeaway]

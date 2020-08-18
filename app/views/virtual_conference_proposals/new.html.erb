@@ -18,9 +18,11 @@
             <%= f.label :presentation_theme, "Presentation Theme" %>
             <%= f.select( :presentation_theme, options_for_select(
                   [
-                    ["Theme One", :theme_one],
-                    ["Theme Two", :theme_two],
-                    ["Theme Three", :theme_three],
+                    ["Determining a student learning profile", :determining_student_learning_profile],
+                    ["Myths or information about accomodations, IEP's, & 504 plans in college", 
+                      :accomodations_ieps_504_college],
+                    ["Transition from high school to college", :transition_from_high_school_to_college],
+                    ["Identifying student support programs", :identifying_student_support_programs]
                   ])
             ) %>
           </div>
@@ -29,11 +31,12 @@
             <%= f.text_field :presentation_title %>
           </div>
           <div class="field-wrapper">
-            <%= f.label :presentation_description, "Presentation Description" %>
+            <%= f.label :presentation_description, "Brief Presentation Description" %>
             <%= f.text_area :presentation_description %>
           </div>
           <div class="field-wrapper">
             <%= f.label :presentation_takeaway, "Presentation Takeaway" %>
+            <p>Presentations will each provide a takeaway that will build into a toolkit for participants. Please describe how this presentation will contribute to that toolkit.</p>
             <%= f.text_area :presentation_takeaway %>
           </div>
           <div id="virtual-conference-proposal-submit-wrapper">
