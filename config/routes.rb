@@ -27,11 +27,19 @@ Rails.application.routes.draw do
     end
   end
   
+  resource :virtual_conference, only: [:show],
+           path: '/virtual-conference'
   resources :virtual_conference_proposals, only: [:new, :create, :index, :show],
             path: '/virtual-conference-proposals'
   resources :virtual_conference_proposal_confirmations, 
             only: [:show],
             path: '/virtual-conference-proposal-confirmation', 
+            param: :token
+  resources :virtual_conference_registrations, only: [:new, :create, :index, :show],
+            path: '/virtual-conference-registrations'
+  resources :virtual_conference_registration_confirmations, 
+            only: [:show],
+            path: '/virtual-conference-registration-confirmation', 
             param: :token
   resources :blueprints, param: :slug
   resources :campuses, param: :slug do

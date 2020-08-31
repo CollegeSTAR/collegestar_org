@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_144720) do
+ActiveRecord::Schema.define(version: 2020_08_19_193747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -788,6 +788,25 @@ ActiveRecord::Schema.define(version: 2020_07_24_144720) do
     t.text "presentation_description", null: false
     t.text "presentation_takeaway", null: false
     t.string "token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "virtual_conference_registrations", force: :cascade do |t|
+    t.string "token", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "state", null: false
+    t.boolean "parent", default: false
+    t.boolean "student", default: false
+    t.boolean "education_professional", default: false
+    t.string "theme_rank_1"
+    t.string "theme_rank_2"
+    t.string "theme_rank_3"
+    t.string "theme_rank_4"
+    t.integer "number_of_participants", null: false
+    t.boolean "mailing_list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
