@@ -8,6 +8,7 @@ class VirtualConferenceRegistrationsController < ApplicationController
     @registration = VirtualConferenceRegistration.new(registration_params)
 
     if @registration.save
+      VirtualConferenceMailer.registration_confirmation( @registration.id ).deliver_later
       redirect_to virtual_conference_registration_confirmation_path( token: @registration.token ), notice: "Virtual Conference Registration submitted successfully!"
     else
       flash[:alert] = @registration.errors.full_messages

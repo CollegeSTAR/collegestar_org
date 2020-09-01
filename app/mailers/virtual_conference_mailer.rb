@@ -7,4 +7,13 @@ class VirtualConferenceMailer < ApplicationMailer
       subject: "College STAR Virtual Conference Proposal Received!"
     )
   end
+
+  def registration_confirmation(registration_id)
+    @registration = VirutalConferenceRegistration.find registration_id
+
+    mail(
+      to: @registration.email,
+      subject: "College STAR Virtual Conference Registration Confirmation"
+    )
+  end
 end

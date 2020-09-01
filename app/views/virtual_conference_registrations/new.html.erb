@@ -76,7 +76,7 @@
       ) %>
     </div>
     
-    <p>I am a(n) (check all that apply)
+    <h3>I am a(n) (check all that apply)</h3>
     <div class="form-check-box-wrapper">
       <%= f.check_box :parent, class: 'form-check-box' %>
       <%= f.label :parent, class: 'form-label' %>
@@ -89,8 +89,8 @@
       <%= f.check_box :education_professional, class: 'form-check-box' %>
       <%= f.label :education_professional, class: 'form-label' %>
     </div>
-
-    <p>Please rank the session themes from greatest interest to least:</p>
+    <p>&nbsp;</p>
+    <h3>Please rank the session themes from greatest interest to least:</h3>
     <div class="field-wrapper">
       <%= f.label :theme_rank_1, "1<sup>st</sup> Theme (Greatest Interest)".html_safe %>
       <%= f.select :theme_rank_1, options_for_select(
