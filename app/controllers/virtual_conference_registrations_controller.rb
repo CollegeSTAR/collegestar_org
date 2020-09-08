@@ -1,5 +1,13 @@
 class VirtualConferenceRegistrationsController < ApplicationController
 
+  def index
+    authorize @registrations = VirtualConferenceRegistration.all
+  end
+
+  def show
+    authorize @registration = VirtualConferenceRegistration.find( params[:id] )
+  end
+
   def new
     @registration = VirtualConferenceRegistration.new
   end

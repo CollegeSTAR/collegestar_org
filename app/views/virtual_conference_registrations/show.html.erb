@@ -1,0 +1,37 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+
+      <h1><%= "#{@registration.last_name}, #{@registration.first_name}" %></h1>
+      
+      <h2>Contact Info</h2>
+      <p><%= "#{@registration.last_name}, #{@registration.first_name}" %></p>
+      <p>Email: <%= @registration.email %></p>
+      <p>State: <%= @registration.state %></p>
+
+      <h2>Type of Participant</h2>
+      <ul>
+      <% if @registration.parent? %>
+        <li>Parent</li>
+      <% end %>
+      <% if @registration.student? %>
+        <li>Student</li>
+      <% end %>
+      <% if @registration.education_professional? %>
+        <li>Education Professional</li>
+      <% end %>
+      </ul>
+
+      <h2>Theme Rank</h2>
+      <ol>
+        <li><%= @registration.theme_rank_1 %></li>
+        <li><%= @registration.theme_rank_2 %></li>
+        <li><%= @registration.theme_rank_3 %></li>
+        <li><%= @registration.theme_rank_4 %></li>
+      </ol>
+
+      <p><strong>Number of Participants:</strong> <%= @registration.number_of_participants %></p>
+      <p><%= link_to "back to regisrations", virtual_conference_registrations_path() %></p>
+    </div>
+  </div>
+</div>
