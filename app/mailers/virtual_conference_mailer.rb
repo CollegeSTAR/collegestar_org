@@ -9,7 +9,7 @@ class VirtualConferenceMailer < ApplicationMailer
   end
 
   def registration_confirmation(registration_id)
-    @registration = VirutalConferenceRegistration.find registration_id
+    @registration = VirtualConferenceRegistration.find registration_id
 
     mail(
       to: @registration.email,
