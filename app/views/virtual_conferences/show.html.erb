@@ -8,6 +8,12 @@
           <h2>Preparing students who learn differently for college success</h2>
         </div>
       </div>
+      <% if policy(VirtualConferenceProposal).index? %>
+        <p><%= link_to 'View Proposals', virtual_conference_proposals_path %></p>
+      <% end %>
+      <% if policy(VirtualConferenceRegistration).index? %>
+        <p><%= link_to 'View Registrations', virtual_conference_registrations_path %></p>
+      <% end %>
 
       <%= @page_content.text.html_safe %>
       
