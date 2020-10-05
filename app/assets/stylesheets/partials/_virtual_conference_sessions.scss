@@ -1,0 +1,29 @@
+#virtual-conference-schedule-wrapper {
+  margin: 0 2*gutter() gutter() 2*gutter();
+  padding: gutter();
+
+  .schedule-time-block-wrapper {
+    h1 {
+      margin-top: 0;
+      text-transform: none;
+      border: none;
+    }
+  }
+  .session {
+    margin: 0 gutter() 4*gutter() gutter();
+    border: 1px solid $default-border-color;
+    border-radius: $default-radius;
+    box-shadow: .72em .72em .36em #999;
+    .session-title {
+      margin: 0;
+      padding: gutter();
+      background-color: $link-blue;
+      border-radius: 4px 4px 0 0;
+      
+      h1 {
+        color: $white;
+        border: none;
+      }
+    }
+  }
+}
