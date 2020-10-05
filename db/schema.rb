@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_193747) do
+ActiveRecord::Schema.define(version: 2020_09_14_182156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -807,6 +807,19 @@ ActiveRecord::Schema.define(version: 2020_08_19_193747) do
     t.string "theme_rank_4"
     t.integer "number_of_participants", null: false
     t.boolean "mailing_list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "virtual_conference_sessions", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.string "conference_track"
+    t.text "description"
+    t.text "short_description"
+    t.string "meeting_url"
+    t.datetime "start_time", null: false
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

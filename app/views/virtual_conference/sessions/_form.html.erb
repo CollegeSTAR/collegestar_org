@@ -1,0 +1,24 @@
+<%= form_for @session do |f| %>
+  <%= f.label :title, "Session Title" %>
+  <%= f.text_field :title %>
+  <%= f.label :conference_track %>
+  <%= f.select :conference_track,
+      ["Conference Administration",
+       "Determining a student learning profile",
+       "Myths or information about accommodations, IEP's, and 504 plans in college",
+       "Transition from High School to College",
+       "Identifying student support programs"
+      ] %>
+  <%= f.label :description %>
+  <%= f.cktext_area :description %>
+  <%= f.label :short_description %>
+  <%= f.text_area :short_description %>
+  <%= f.label :meeting_url %>
+  <%= f.text_field :meeting_url %>
+  <%= f.label :start_time %>
+  <%= f.datetime_select :start_time, ampm: true, prompt: true %>
+  <%= f.label :end_time %>
+  <%= f.datetime_select :end_time, ampm: true, prompt: true %>
+
+  <%= f.submit %>
+<% end %>

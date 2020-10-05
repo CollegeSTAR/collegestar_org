@@ -10,7 +10,7 @@ RSpec.feature "VirtualConferenceRegistration Management" do
       fill_in :virtual_conference_registration_last_name, with: reg_attrs[:last_name]
       fill_in :virtual_conference_registration_email, with: reg_attrs[:email]
       select "North Carolina", from: 'virtual_conference_registration_state'
-      select "10+", from: "virtual_conference_registration_number_of_participants"
+      select "10", from: "virtual_conference_registration_number_of_participants"
       
       click_button :virtual_conference_registration_form_submit
       

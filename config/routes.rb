@@ -41,6 +41,9 @@ Rails.application.routes.draw do
             only: [:show],
             path: '/virtual-conference-registration-confirmation', 
             param: :token
+  namespace :virtual_conference, path: 'virtual-conference' do
+    resources :sessions, param: :slug
+  end
   resources :blueprints, param: :slug
   resources :campuses, param: :slug do
     resources :faculty_nomination_surveys, path: '/faculty-nomination-surveys' do

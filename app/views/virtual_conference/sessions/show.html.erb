@@ -1,0 +1,14 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1><%= @session.title %></h1>
+      <p>Conference Track: <strong><%= @session.conference_track %></strong></p>
+      <%= @session.description.html_safe %>
+
+      <h2>Meeting URL</h2>
+      <p>This meeting room will be live 10 minutes before the session is scheduled to start.</p>
+      <p>Session Meeting URL: <strong>Will be posted shortly</strong></p>
+      <p><%= link_to "Back to schedule", virtual_conference_sessions_path %></p>
+    </div>
+  </div>
+</div>

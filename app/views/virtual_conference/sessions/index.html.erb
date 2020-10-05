@@ -1,0 +1,34 @@
+<div id="content-wrapper">
+  <div id="single-column-wrapper">
+    <div id="content">
+      <h1>2020 Virtual Conference Schedule</h1>
+      <p><em>All time EST</em></p> 
+      <div id="virtual-conference-schedule-wrapper">
+        <% @sessions.each do |session| %>
+          <div class="schedule-time-block-wrapper">
+            <h1><%= session.start_time.strftime( '%l:%M%p' ) %> -
+              <%= session.end_time.strftime( '%l:%M%p' ) %></h1>
+          </div>
+          <div class="session">
+          <div class="session-title">
+          <h1><%= session.title %></h1>
+          </div>
+          <div class="session-track-wrapper">
+          <p>Conference Track: <strong><%= session.conference_track %></strong></p>
+          </div>
+          <div class="session-short-description-wrapper">
+            <p><%= session.short_description %>
+          </div>
+
+          <div class="session-meeting-link-wrapper">
+          <p>Session Meeting URL: <em>coming soon</em></p>
+          </div>
+          <div class="session-link-wrapper">
+            <p><%= link_to 'Session Details', virtual_conference_session_path( session ) %></p>
+          </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
