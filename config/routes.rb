@@ -43,6 +43,7 @@ Rails.application.routes.draw do
             param: :token
   namespace :virtual_conference, path: 'virtual-conference' do
     resources :sessions, param: :slug
+    get 'toolkit' => 'toolkit#show'
   end
   resources :blueprints, param: :slug
   resources :campuses, param: :slug do
