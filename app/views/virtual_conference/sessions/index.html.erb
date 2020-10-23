@@ -18,7 +18,8 @@
           </div>
 
           <div class="session-meeting-link-wrapper">
-          <p>Session Meeting URL: <em>coming soon</em></p>
+          <p>Meeting Password: <strong>cs2020</strong>
+          <p>Session Meeting URL: <%= link_to session.meeting_url, session.meeting_url %></p>
           </div>
           <div class="session-link-wrapper">
             <p><%= link_to 'Session Details', virtual_conference_session_path( session ) %></p>
