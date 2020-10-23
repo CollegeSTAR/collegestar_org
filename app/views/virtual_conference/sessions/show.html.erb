@@ -7,7 +7,7 @@
       <h2>Meeting URL</h2>
       <p>Meeting Password: <strong>cs2020</strong>
       <p>This meeting room will be live 5 minutes before the session is scheduled to start.</p>
-      <p>Session Meeting URL: <br /><strong><%= link_to session.meeting_url, session.meeting_url %></strong></p>
+      <p>Session Meeting URL: <br /><strong><%= link_to @session.meeting_url, @session.meeting_url %></strong></p>
       <p><%= link_to "Back to schedule", virtual_conference_sessions_path %></p>
     </div>
   </div>
