@@ -13,14 +13,8 @@
     )
 %>
 
-<p>Below you will find a list of conferences that are typically for higher education professionals implementing UDL.</p>
-
-<%  @events.each do |event| %>
-  <div class="event">
-    <h3><%= link_to event.name.html_safe, event_path( event )  %> - <%= event.start_date.strftime("%B %d, %Y") %></h3>
-    <%= event.description.html_safe %>
-  </div>
-<% end %>
+<h2>2020 College STAR Virtual Student Support Network Conference</h2>
+<p><%= link_to 'The College STAR Virtual Conference', virtual_conference_path %>: Preparing students who learn differently for college success, is a free, full-day, online conference for students, families, and professionals seeking meaningful resources and information about transition and access in higher education for students with diverse learning profiles. Professionals from across the country are assembling to inform participants about topics such as: accessibility services and accommodations, developing a college-level learning and support profile for individual students based on the student’s strengths and anticipated needs, and the identification of ‘right fit’ student support programs based on these needs. The mission of this conference is to provide tools and resources for students with learning and attention differences and assist participants in identifying best practices when conducting the transition from high school to college. The College STAR Virtual Conference is an inaugural event hosted by the College STAR Student Support Network.</p>
 </div>
 </div>
 </div>
