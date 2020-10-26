@@ -4,7 +4,7 @@
       <h1><%= @session.title %></h1>
       <%= @session.description.html_safe %>
 
-      <% unless @session.slug == "morning-program-spotlights-and-q-a" %>
+      <% unless @session.slug == "morning-program-spotlights-and-q-a" || @session.slug == "afternoon-program-spotlights-and-q-a" %>
         <h2>Meeting URL</h2>
         <p>Meeting Password: <strong>cs2020</strong>
         <p>This meeting room will be live 5 minutes before the session is scheduled to start.</p>

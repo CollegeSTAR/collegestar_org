@@ -16,11 +16,13 @@
           <div class="session-short-description-wrapper">
             <p><%= session.short_description %>
           </div>
-
+          
+          <% unless @session.slug == "morning-program-spotlights-and-q-a" || @session.slug == "afternoon-program-spotlights-and-q-a" %>
           <div class="session-meeting-link-wrapper">
           <p>Meeting Password: <strong>cs2020</strong>
           <p>Session Meeting URL: <br /><%= link_to session.meeting_url, session.meeting_url %></p>
           </div>
+          <% end %>
           <div class="session-link-wrapper">
             <p><%= link_to 'Session Details', virtual_conference_session_path( session ) %></p>
           </div>
