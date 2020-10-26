@@ -4,7 +4,7 @@
       <h1>2020 Virtual Conference Schedule</h1>
       <p>Below you will find descriptions and meeting links to all of the conference sessions. Click 'session details' for each session to find information about each presenter, details about the session, and presentation materials and resources discussed in the session.</p>
       <p><em>All session times are listed in Eastern Daylight Time (EDT)</em></p>
-
+      <p><%= link_to 'Back to conference home page', virtual_conference_path %></p>
       <div id="virtual-conference-schedule-wrapper">
         <% @sessions.each do |session| %>
           <div class="schedule-time-block-wrapper">
@@ -31,6 +31,7 @@
           </div>
         <% end %>
       </div>
+      <p><%= link_to 'Back to conference home page', virtual_conference_path %></p>
     </div>
   </div>
 </div>
