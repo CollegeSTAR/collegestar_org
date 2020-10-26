@@ -29,6 +29,9 @@
 }
 
 #conference-schedule-student-support-programs {
+  margin: 0 2*gutter() gutter() 2*gutter();
+  padding: gutter();
+
   .program-wrapper {
     margin: 0 gutter() 4*gutter() gutter();
     border: 1px solid $default-border-color;
