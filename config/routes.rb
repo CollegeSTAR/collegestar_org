@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   namespace :virtual_conference, path: 'virtual-conference' do
     resources :sessions, param: :slug
     get 'toolkit' => 'toolkit#show'
+    get 'zoom' => 'zoom#show'
   end
   resources :blueprints, param: :slug
   resources :campuses, param: :slug do
