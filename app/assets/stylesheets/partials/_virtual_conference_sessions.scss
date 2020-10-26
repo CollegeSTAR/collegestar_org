@@ -27,3 +27,13 @@
     }
   }
 }
+
+#conference-schedule-student-support-programs {
+  .program-wrapper {
+    margin: 0 gutter() 4*gutter() gutter();
+    border: 1px solid $default-border-color;
+    border-radius: $default-radius;
+    box-shadow: .72em .72em .36em #999;
+
+  }
+}
