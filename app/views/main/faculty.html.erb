@@ -1,7 +1,6 @@
 <% content_for :title, "Faculty" %>
 <div id="content-wrapper">
-<%= render "shared/side_bar" %>
-  <div id="right-column-wrapper">
+  <div id="single-column-wrapper">
     <div id="content">
       <h1><%= @page_content.title.html_safe %></h1>        
       <%= render 'shared/bread_crumb_social_media', bread_crumb_args: { page_name: 'faculty' } %>
