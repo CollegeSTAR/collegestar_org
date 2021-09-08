@@ -77,7 +77,7 @@ gem 'kaminari'
 #gem 'mandrill-api'
 
 #Use puma application server
-gem 'puma'
+gem 'puma', ">=4.3.8"
 
 # Paperclip manages file uploads
 gem 'paperclip', '~> 5.2'
