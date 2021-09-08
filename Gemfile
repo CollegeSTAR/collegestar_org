@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2'
+
+#Use updated Version of RDOC
+gem 'rdoc', '>= 6.3.1'
+
 # Use postgresql  as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
