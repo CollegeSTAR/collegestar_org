@@ -32,6 +32,9 @@
 #Ignore Ckeditor Assets
 /public/ckeditor_assets
 
+#Ignore Public Assets
+/public/assets
+
 #Ignore Paperclip files
 /public/system
 
