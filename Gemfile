@@ -42,7 +42,7 @@ gem 'premailer-rails'
 gem 'aws-sdk-s3', require: false
 
 # Use image processing gem for active storage
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 # use mini magic with image processing
 gem 'mini_magick'
