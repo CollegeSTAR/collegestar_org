@@ -47,6 +47,9 @@ gem 'image_processing', '~> 1.2'
 # use mini magic with image processing
 gem 'mini_magick'
 
+# fix breaking change in psych by pinning it
+gem 'psych', '< 4'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
